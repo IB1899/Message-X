@@ -1,10 +1,12 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import "@/style/style.css"
+import NextAuthProvider from './providers/NextAuth'
+import ReduxProvider from './providers/Redux'
 
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
+    title: "Messages",
+    description: "This is a messages website"
 }
 
 export default function RootLayout({
@@ -14,7 +16,13 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body >{children}</body>
+            <body >
+                <ReduxProvider>
+                    <NextAuthProvider>
+                        {children}
+                    </NextAuthProvider>
+                </ReduxProvider>
+            </body>
         </html>
     )
 }

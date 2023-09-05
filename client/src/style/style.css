@@ -4,6 +4,4746 @@
 }
 
 body {
-  background: purple;
+  font-family: Arial, Helvetica, sans-serif;
   text-align: center;
+}
+body .Loading-Page {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (min-width: 1250px) {
+  body .Home {
+    height: 100vh;
+    position: relative;
+  }
+  body .Home .homeBackground {
+    -o-object-position: top;
+       object-position: top;
+  }
+  body .Home header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+  }
+  body .Home header .logo {
+    display: flex;
+    align-items: center;
+    margin: 0 70px;
+  }
+  body .Home header .logo i {
+    margin: 0 10px;
+  }
+  body .Home header .logo i svg {
+    color: #9D00BB;
+    font-size: 45px;
+  }
+  body .Home header .logo span {
+    font-size: 25px;
+    font-weight: bolder;
+  }
+  body .Home header nav {
+    display: flex;
+    align-items: center;
+    margin: 0 70px;
+  }
+  body .Home header nav a {
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 22px;
+    font-weight: 700;
+    color: black;
+    transition: 0.3s;
+  }
+  body .Home header nav a:hover {
+    transition: 0.3s;
+    color: #9D00BB;
+  }
+  body .Home header nav .phoneYes {
+    display: none;
+  }
+  body .Home header nav a:has(svg) {
+    color: #9D00BB;
+    display: flex;
+    align-items: center;
+  }
+  body .Home header nav a:has(svg) svg {
+    font-size: 22px;
+    margin: 5px;
+    margin-top: 4px;
+  }
+  body .Home .landing {
+    display: flex;
+    margin-top: 110px;
+    text-align: left;
+  }
+  body .Home .landing .leftSide {
+    width: 50%;
+    margin: 0 115px;
+  }
+  body .Home .landing .leftSide h1 {
+    font-size: 45px;
+    font-weight: lighter;
+    line-height: 60px;
+  }
+  body .Home .landing .leftSide h1 span {
+    color: #9D00BB;
+    font-weight: bold;
+  }
+  body .Home .landing .leftSide p {
+    font-size: 19px;
+    line-height: 30px;
+    letter-spacing: 1px;
+    margin: 20px 0;
+    width: 90%;
+    text-shadow: 2px 3px 3px rgb(182, 182, 182);
+  }
+  body .Home .landing .leftSide button {
+    background: black;
+    border: none;
+    padding: 11px 24px;
+    font-size: 19px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    color: #9D00BB;
+    font-weight: 700;
+    transition: 0.3s;
+  }
+  body .Home .landing .leftSide button a {
+    text-decoration: none;
+    color: #9D00BB;
+  }
+  body .Home .landing .leftSide button:hover {
+    transition: 0.3s;
+    background: #9D00BB;
+  }
+  body .Home .landing .leftSide button:hover a {
+    color: white;
+  }
+  body .Home .landing .leftSide h4 {
+    position: absolute;
+    bottom: 40px;
+    font-weight: 600;
+    font-size: 19px;
+    left: 185px;
+  }
+  body .Home .landing .leftSide h4 span {
+    color: #9D00BB;
+    margin: 0 8px;
+    font-size: 21px;
+  }
+  body .Home .landing .leftSide h4::before {
+    content: "";
+    width: 60px;
+    position: absolute;
+    left: -80px;
+    translate: 0 4px;
+    height: 2px;
+    background: #9D00BB;
+    margin: 10px;
+  }
+  body .Home .landing .leftSide .phoneYes {
+    display: none;
+  }
+  body .Home .landing .rightSide img {
+    -o-object-fit: cover;
+       object-fit: cover;
+    transform: scaleX(-1);
+    height: 85%;
+    width: auto;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+}
+@media (min-width: 1000px) and (max-width: 1249px) {
+  body .Home {
+    height: 100vh;
+    position: relative;
+  }
+  body .Home .homeBackground {
+    -o-object-position: top;
+       object-position: top;
+  }
+  body .Home header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+  }
+  body .Home header .logo {
+    display: flex;
+    align-items: center;
+    margin: 0 70px;
+  }
+  body .Home header .logo i {
+    margin: 0 10px;
+  }
+  body .Home header .logo i svg {
+    color: #9D00BB;
+    font-size: 45px;
+  }
+  body .Home header .logo span {
+    font-size: 25px;
+    font-weight: bolder;
+  }
+  body .Home header nav {
+    display: flex;
+    align-items: center;
+    margin: 0 70px;
+  }
+  body .Home header nav a {
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 22px;
+    font-weight: 700;
+    color: black;
+    transition: 0.3s;
+  }
+  body .Home header nav a:hover {
+    transition: 0.3s;
+    color: #9D00BB;
+  }
+  body .Home header nav .phoneYes {
+    display: none;
+  }
+  body .Home header nav a:has(svg) {
+    color: #9D00BB;
+    display: flex;
+    align-items: center;
+  }
+  body .Home header nav a:has(svg) svg {
+    font-size: 22px;
+    margin: 5px;
+    margin-top: 4px;
+  }
+  body .Home .landing {
+    display: flex;
+    margin-top: 110px;
+    text-align: left;
+  }
+  body .Home .landing .leftSide {
+    width: 50%;
+    margin: 0 115px;
+  }
+  body .Home .landing .leftSide h1 {
+    font-size: 45px;
+    font-weight: lighter;
+    line-height: 60px;
+  }
+  body .Home .landing .leftSide h1 span {
+    color: #9D00BB;
+    font-weight: bold;
+  }
+  body .Home .landing .leftSide p {
+    font-size: 19px;
+    line-height: 30px;
+    letter-spacing: 1px;
+    margin: 20px 0;
+    width: 90%;
+    text-shadow: 2px 3px 3px rgb(182, 182, 182);
+  }
+  body .Home .landing .leftSide button {
+    background: black;
+    border: none;
+    padding: 11px 24px;
+    font-size: 19px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    color: #9D00BB;
+    font-weight: 700;
+    transition: 0.3s;
+  }
+  body .Home .landing .leftSide button a {
+    text-decoration: none;
+    color: #9D00BB;
+  }
+  body .Home .landing .leftSide button:hover {
+    transition: 0.3s;
+    background: #9D00BB;
+  }
+  body .Home .landing .leftSide button:hover a {
+    color: white;
+  }
+  body .Home .landing .leftSide h4 {
+    position: absolute;
+    bottom: 40px;
+    font-weight: 600;
+    font-size: 19px;
+    left: 185px;
+  }
+  body .Home .landing .leftSide h4 span {
+    color: #9D00BB;
+    margin: 0 8px;
+    font-size: 21px;
+  }
+  body .Home .landing .leftSide h4::before {
+    content: "";
+    width: 60px;
+    position: absolute;
+    left: -80px;
+    translate: 0 4px;
+    height: 2px;
+    background: #9D00BB;
+    margin: 10px;
+  }
+  body .Home .landing .leftSide .phoneYes {
+    display: none;
+  }
+  body .Home .landing .rightSide img {
+    -o-object-fit: cover;
+       object-fit: cover;
+    transform: scaleX(-1);
+    height: 85%;
+    width: auto;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+  body .Home header .logo {
+    margin: 0 40px;
+  }
+  body .Home header .logo span {
+    font-size: 23px;
+  }
+  body .Home header .logo i {
+    font-size: 40px;
+  }
+  body .Home header nav {
+    margin: 0 40px;
+  }
+  body .Home header nav a {
+    font-size: 20px;
+  }
+  body .Home .landing .leftSide {
+    margin: 0 90px;
+  }
+  body .Home .landing .leftSide h1 {
+    font-size: 38px;
+    line-height: 50px;
+  }
+  body .Home .landing .leftSide p {
+    font-size: 18px;
+    line-height: 25px;
+  }
+  body .Home .landing .leftSide button {
+    font-size: 18px;
+  }
+  body .Home .landing .leftSide h4 {
+    font-size: 18px;
+    left: 150px;
+  }
+  body .Home .landing .rightSide img {
+    width: 400px;
+  }
+}
+@media (min-width: 850px) and (max-width: 999px) {
+  body .Home {
+    height: 100vh;
+    position: relative;
+  }
+  body .Home .homeBackground {
+    -o-object-position: top;
+       object-position: top;
+  }
+  body .Home header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+  }
+  body .Home header .logo {
+    display: flex;
+    align-items: center;
+    margin: 0 70px;
+  }
+  body .Home header .logo i {
+    margin: 0 10px;
+  }
+  body .Home header .logo i svg {
+    color: #9D00BB;
+    font-size: 45px;
+  }
+  body .Home header .logo span {
+    font-size: 25px;
+    font-weight: bolder;
+  }
+  body .Home header nav {
+    display: flex;
+    align-items: center;
+    margin: 0 70px;
+  }
+  body .Home header nav a {
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 22px;
+    font-weight: 700;
+    color: black;
+    transition: 0.3s;
+  }
+  body .Home header nav a:hover {
+    transition: 0.3s;
+    color: #9D00BB;
+  }
+  body .Home header nav .phoneYes {
+    display: none;
+  }
+  body .Home header nav a:has(svg) {
+    color: #9D00BB;
+    display: flex;
+    align-items: center;
+  }
+  body .Home header nav a:has(svg) svg {
+    font-size: 22px;
+    margin: 5px;
+    margin-top: 4px;
+  }
+  body .Home .landing {
+    display: flex;
+    margin-top: 110px;
+    text-align: left;
+  }
+  body .Home .landing .leftSide {
+    width: 50%;
+    margin: 0 115px;
+  }
+  body .Home .landing .leftSide h1 {
+    font-size: 45px;
+    font-weight: lighter;
+    line-height: 60px;
+  }
+  body .Home .landing .leftSide h1 span {
+    color: #9D00BB;
+    font-weight: bold;
+  }
+  body .Home .landing .leftSide p {
+    font-size: 19px;
+    line-height: 30px;
+    letter-spacing: 1px;
+    margin: 20px 0;
+    width: 90%;
+    text-shadow: 2px 3px 3px rgb(182, 182, 182);
+  }
+  body .Home .landing .leftSide button {
+    background: black;
+    border: none;
+    padding: 11px 24px;
+    font-size: 19px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    color: #9D00BB;
+    font-weight: 700;
+    transition: 0.3s;
+  }
+  body .Home .landing .leftSide button a {
+    text-decoration: none;
+    color: #9D00BB;
+  }
+  body .Home .landing .leftSide button:hover {
+    transition: 0.3s;
+    background: #9D00BB;
+  }
+  body .Home .landing .leftSide button:hover a {
+    color: white;
+  }
+  body .Home .landing .leftSide h4 {
+    position: absolute;
+    bottom: 40px;
+    font-weight: 600;
+    font-size: 19px;
+    left: 185px;
+  }
+  body .Home .landing .leftSide h4 span {
+    color: #9D00BB;
+    margin: 0 8px;
+    font-size: 21px;
+  }
+  body .Home .landing .leftSide h4::before {
+    content: "";
+    width: 60px;
+    position: absolute;
+    left: -80px;
+    translate: 0 4px;
+    height: 2px;
+    background: #9D00BB;
+    margin: 10px;
+  }
+  body .Home .landing .leftSide .phoneYes {
+    display: none;
+  }
+  body .Home .landing .rightSide img {
+    -o-object-fit: cover;
+       object-fit: cover;
+    transform: scaleX(-1);
+    height: 85%;
+    width: auto;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+  body .Home header .logo {
+    margin: 0 40px;
+  }
+  body .Home header .logo span {
+    font-size: 22px;
+  }
+  body .Home header .logo i {
+    font-size: 37px;
+  }
+  body .Home header nav {
+    margin: 0 40px;
+  }
+  body .Home header nav a {
+    font-size: 19px;
+  }
+  body .Home .landing .leftSide {
+    margin: 0 50px;
+  }
+  body .Home .landing .leftSide h1 {
+    font-size: 32px;
+    line-height: 40px;
+  }
+  body .Home .landing .leftSide p {
+    font-size: 16px;
+    line-height: 23px;
+  }
+  body .Home .landing .leftSide button {
+    font-size: 18px;
+  }
+  body .Home .landing .leftSide h4 {
+    font-size: 15px;
+    left: 100px;
+  }
+  body .Home .landing .leftSide h4 span {
+    font-size: 18px;
+    margin: 0 4px;
+  }
+  body .Home .landing .leftSide h4::before {
+    width: 40px;
+    left: -60px;
+  }
+  body .Home .landing .rightSide img {
+    width: 360px;
+    height: 85%;
+  }
+}
+@media (min-width: 480px) and (max-width: 849px) {
+  body .Home {
+    height: 100vh;
+    position: relative;
+  }
+  body .Home .homeBackground {
+    -o-object-position: top;
+       object-position: top;
+  }
+  body .Home header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+  }
+  body .Home header .logo {
+    display: flex;
+    align-items: center;
+    margin: 0 70px;
+  }
+  body .Home header .logo i {
+    margin: 0 10px;
+  }
+  body .Home header .logo i svg {
+    color: #9D00BB;
+    font-size: 45px;
+  }
+  body .Home header .logo span {
+    font-size: 25px;
+    font-weight: bolder;
+  }
+  body .Home header nav {
+    display: flex;
+    align-items: center;
+    margin: 0 70px;
+  }
+  body .Home header nav a {
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 22px;
+    font-weight: 700;
+    color: black;
+    transition: 0.3s;
+  }
+  body .Home header nav a:hover {
+    transition: 0.3s;
+    color: #9D00BB;
+  }
+  body .Home header nav .phoneYes {
+    display: none;
+  }
+  body .Home header nav a:has(svg) {
+    color: #9D00BB;
+    display: flex;
+    align-items: center;
+  }
+  body .Home header nav a:has(svg) svg {
+    font-size: 22px;
+    margin: 5px;
+    margin-top: 4px;
+  }
+  body .Home .landing {
+    display: flex;
+    margin-top: 110px;
+    text-align: left;
+  }
+  body .Home .landing .leftSide {
+    width: 50%;
+    margin: 0 115px;
+  }
+  body .Home .landing .leftSide h1 {
+    font-size: 45px;
+    font-weight: lighter;
+    line-height: 60px;
+  }
+  body .Home .landing .leftSide h1 span {
+    color: #9D00BB;
+    font-weight: bold;
+  }
+  body .Home .landing .leftSide p {
+    font-size: 19px;
+    line-height: 30px;
+    letter-spacing: 1px;
+    margin: 20px 0;
+    width: 90%;
+    text-shadow: 2px 3px 3px rgb(182, 182, 182);
+  }
+  body .Home .landing .leftSide button {
+    background: black;
+    border: none;
+    padding: 11px 24px;
+    font-size: 19px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    color: #9D00BB;
+    font-weight: 700;
+    transition: 0.3s;
+  }
+  body .Home .landing .leftSide button a {
+    text-decoration: none;
+    color: #9D00BB;
+  }
+  body .Home .landing .leftSide button:hover {
+    transition: 0.3s;
+    background: #9D00BB;
+  }
+  body .Home .landing .leftSide button:hover a {
+    color: white;
+  }
+  body .Home .landing .leftSide h4 {
+    position: absolute;
+    bottom: 40px;
+    font-weight: 600;
+    font-size: 19px;
+    left: 185px;
+  }
+  body .Home .landing .leftSide h4 span {
+    color: #9D00BB;
+    margin: 0 8px;
+    font-size: 21px;
+  }
+  body .Home .landing .leftSide h4::before {
+    content: "";
+    width: 60px;
+    position: absolute;
+    left: -80px;
+    translate: 0 4px;
+    height: 2px;
+    background: #9D00BB;
+    margin: 10px;
+  }
+  body .Home .landing .leftSide .phoneYes {
+    display: none;
+  }
+  body .Home .landing .rightSide img {
+    -o-object-fit: cover;
+       object-fit: cover;
+    transform: scaleX(-1);
+    height: 85%;
+    width: auto;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+  body .Home header {
+    justify-content: space-around;
+  }
+  body .Home header .logo {
+    margin: 0 20px;
+  }
+  body .Home header .logo span {
+    font-size: 21px;
+  }
+  body .Home header .logo i {
+    font-size: 35px;
+  }
+  body .Home header nav {
+    margin: 0 20px;
+  }
+  body .Home header nav a {
+    font-size: 17px;
+    margin: 0 6px;
+  }
+  body .Home .landing {
+    flex-direction: column;
+    height: 80%;
+    align-items: center;
+    margin-top: 0px;
+    text-align: center;
+    justify-content: center;
+  }
+  body .Home .landing .leftSide {
+    margin: 0 50px;
+    width: 85%;
+  }
+  body .Home .landing .leftSide h1 {
+    font-size: 40px;
+    line-height: 50px;
+  }
+  body .Home .landing .leftSide p {
+    font-size: 20px;
+    width: 100%;
+    margin: 30px 0;
+    line-height: 30px;
+  }
+  body .Home .landing .leftSide button {
+    font-size: 19px;
+  }
+  body .Home .landing .leftSide h4 {
+    font-size: 18px;
+    left: 50%;
+    translate: -50%;
+    bottom: 30px;
+    margin: 0;
+    margin-top: 20px;
+  }
+  body .Home .landing .leftSide h4 span {
+    font-size: 20px;
+    margin: 0 7px;
+  }
+  body .Home .landing .leftSide h4::before {
+    display: none;
+  }
+  body .Home .landing .leftSide .phoneNone {
+    display: none;
+  }
+  body .Home .landing .leftSide .phoneYes {
+    display: block;
+  }
+  body .Home .landing .rightSide img {
+    display: none;
+  }
+}
+@media (max-width: 479px) {
+  body .Home {
+    height: 100vh;
+    position: relative;
+  }
+  body .Home .homeBackground {
+    -o-object-position: top;
+       object-position: top;
+  }
+  body .Home header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+  }
+  body .Home header .logo {
+    display: flex;
+    align-items: center;
+    margin: 0 70px;
+  }
+  body .Home header .logo i {
+    margin: 0 10px;
+  }
+  body .Home header .logo i svg {
+    color: #9D00BB;
+    font-size: 45px;
+  }
+  body .Home header .logo span {
+    font-size: 25px;
+    font-weight: bolder;
+  }
+  body .Home header nav {
+    display: flex;
+    align-items: center;
+    margin: 0 70px;
+  }
+  body .Home header nav a {
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 22px;
+    font-weight: 700;
+    color: black;
+    transition: 0.3s;
+  }
+  body .Home header nav a:hover {
+    transition: 0.3s;
+    color: #9D00BB;
+  }
+  body .Home header nav .phoneYes {
+    display: none;
+  }
+  body .Home header nav a:has(svg) {
+    color: #9D00BB;
+    display: flex;
+    align-items: center;
+  }
+  body .Home header nav a:has(svg) svg {
+    font-size: 22px;
+    margin: 5px;
+    margin-top: 4px;
+  }
+  body .Home .landing {
+    display: flex;
+    margin-top: 110px;
+    text-align: left;
+  }
+  body .Home .landing .leftSide {
+    width: 50%;
+    margin: 0 115px;
+  }
+  body .Home .landing .leftSide h1 {
+    font-size: 45px;
+    font-weight: lighter;
+    line-height: 60px;
+  }
+  body .Home .landing .leftSide h1 span {
+    color: #9D00BB;
+    font-weight: bold;
+  }
+  body .Home .landing .leftSide p {
+    font-size: 19px;
+    line-height: 30px;
+    letter-spacing: 1px;
+    margin: 20px 0;
+    width: 90%;
+    text-shadow: 2px 3px 3px rgb(182, 182, 182);
+  }
+  body .Home .landing .leftSide button {
+    background: black;
+    border: none;
+    padding: 11px 24px;
+    font-size: 19px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    color: #9D00BB;
+    font-weight: 700;
+    transition: 0.3s;
+  }
+  body .Home .landing .leftSide button a {
+    text-decoration: none;
+    color: #9D00BB;
+  }
+  body .Home .landing .leftSide button:hover {
+    transition: 0.3s;
+    background: #9D00BB;
+  }
+  body .Home .landing .leftSide button:hover a {
+    color: white;
+  }
+  body .Home .landing .leftSide h4 {
+    position: absolute;
+    bottom: 40px;
+    font-weight: 600;
+    font-size: 19px;
+    left: 185px;
+  }
+  body .Home .landing .leftSide h4 span {
+    color: #9D00BB;
+    margin: 0 8px;
+    font-size: 21px;
+  }
+  body .Home .landing .leftSide h4::before {
+    content: "";
+    width: 60px;
+    position: absolute;
+    left: -80px;
+    translate: 0 4px;
+    height: 2px;
+    background: #9D00BB;
+    margin: 10px;
+  }
+  body .Home .landing .leftSide .phoneYes {
+    display: none;
+  }
+  body .Home .landing .rightSide img {
+    -o-object-fit: cover;
+       object-fit: cover;
+    transform: scaleX(-1);
+    height: 85%;
+    width: auto;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+  body .Home * {
+    pointer-events: none;
+  }
+  body .Home *::-moz-selection {
+    background: none;
+  }
+  body .Home *::selection {
+    background: none;
+  }
+  body .Home header {
+    justify-content: center;
+    padding-top: 35px;
+  }
+  body .Home .landing .rightSide img {
+    display: none;
+  }
+  body .Home header nav {
+    position: absolute;
+    bottom: 100px;
+    background-color: black;
+    border-radius: 10px;
+    padding: 8px 14px;
+    width: 67%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  body .Home header nav .phoneYes {
+    display: flex;
+    margin-bottom: -2px;
+  }
+  body .Home header nav .phoneYes svg {
+    translate: 3px 2px;
+  }
+  body .Home header nav .phoneNone {
+    display: none;
+  }
+  body .Home header nav a {
+    margin: 0;
+    padding: 0 13px;
+    font-size: 17px;
+    color: white;
+    border-left: 1px solid white;
+    pointer-events: painted;
+  }
+  body .Home header nav a:has(svg) {
+    border: none;
+  }
+  body .Home .landing {
+    flex-direction: column;
+    height: 80%;
+    align-items: center;
+    margin-top: -50px;
+    text-align: center;
+    justify-content: center;
+  }
+  body .Home .landing .leftSide {
+    margin: 0 50px;
+    width: 85%;
+  }
+  body .Home .landing .leftSide h1 {
+    font-size: 30px;
+    line-height: 40px;
+    font-weight: bold;
+  }
+  body .Home .landing .leftSide p {
+    font-size: 19px;
+    width: 100%;
+    margin: 10px 0;
+    line-height: 27px;
+  }
+  body .Home .landing .leftSide button {
+    font-size: 16px;
+    pointer-events: painted;
+  }
+  body .Home .landing .leftSide button a {
+    pointer-events: painted;
+  }
+  body .Home .landing .leftSide h4 {
+    display: none;
+  }
+  body .Home .landing .leftSide .phoneNone {
+    display: none;
+  }
+  body .Home .landing .leftSide .phoneYes {
+    display: inline;
+  }
+}
+body .Status {
+  height: 100vh;
+  background: black;
+  color: white;
+}
+body .Status h1 {
+  padding-top: 200px;
+}
+@media (min-width: 1250px) {
+  body .LogIn, body .SignUp {
+    height: 100vh;
+    background: white;
+    color: black;
+  }
+  body .LogIn header, body .SignUp header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    z-index: 10;
+  }
+  body .LogIn header .phoneYes, body .SignUp header .phoneYes {
+    display: none;
+  }
+  body .LogIn header .logo, body .SignUp header .logo {
+    display: flex;
+    align-items: center;
+    margin: 0 70px;
+  }
+  body .LogIn header .logo i, body .SignUp header .logo i {
+    margin: 0 10px;
+  }
+  body .LogIn header .logo i svg, body .SignUp header .logo i svg {
+    color: #9D00BB;
+    font-size: 43px;
+  }
+  body .LogIn header .logo span, body .SignUp header .logo span {
+    font-size: 24px;
+    font-weight: bolder;
+  }
+  body .LogIn header .showOff, body .SignUp header .showOff {
+    width: 47%;
+    margin: 0 15px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  body .LogIn header .showOff .icon, body .SignUp header .showOff .icon {
+    width: 160px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+  }
+  body .LogIn header .showOff .icon i, body .SignUp header .showOff .icon i {
+    background: white;
+    width: 60px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  body .LogIn header .showOff .icon i svg, body .SignUp header .showOff .icon i svg {
+    color: black;
+    font-size: 25px;
+  }
+  body .LogIn header .showOff .icon span, body .SignUp header .showOff .icon span {
+    font-weight: 700;
+    font-size: 14px;
+    translate: 0 2px;
+  }
+  body .LogIn header .showOff nav a, body .SignUp header .showOff nav a {
+    text-decoration: none;
+    color: white;
+    margin: 0 5px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  body .LogIn header .showOff nav a:nth-child(2), body .SignUp header .showOff nav a:nth-child(2) {
+    border: 2px solid #9D00BB;
+    padding: 5px 15px;
+    border-radius: 20px;
+  }
+  body .LogIn header .showOff nav a:hover, body .SignUp header .showOff nav a:hover {
+    color: #9D00BB;
+    transition: 0.3s;
+  }
+  body .LogIn .body, body .SignUp .body {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+  }
+  body .LogIn .body .BackGround, body .SignUp .body .BackGround {
+    background: rgba(128, 128, 128, 0.585);
+    height: 100vh;
+    z-index: 11;
+    position: fixed;
+    width: 100%;
+    transition: 0.7s;
+  }
+  body .LogIn .body .BackGround .Message, body .SignUp .body .BackGround .Message {
+    position: fixed;
+    background: black;
+    padding: 25px;
+    border-radius: 10px;
+    display: flex;
+    z-index: 12;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    transition: 0.7s;
+  }
+  body .LogIn .body .BackGround .Message i, body .SignUp .body .BackGround .Message i {
+    font-size: 100px;
+  }
+  body .LogIn .body .BackGround .Message h3, body .SignUp .body .BackGround .Message h3 {
+    width: 350px;
+  }
+  body .LogIn .body .BackGround .Message button, body .SignUp .body .BackGround .Message button {
+    margin-top: 20px;
+    background: none;
+    border: 2px solid red;
+    cursor: pointer;
+    padding: 7px 15px;
+    border-radius: 10px;
+    width: 70%;
+    color: white;
+    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+  }
+  body .LogIn .body .BackGround .Message button:hover, body .SignUp .body .BackGround .Message button:hover {
+    transition: 0.3s;
+    background: red;
+  }
+  body .LogIn .body .BackGround .Message h4, body .SignUp .body .BackGround .Message h4 {
+    margin-bottom: 10px;
+    width: 80%;
+  }
+  body .LogIn .body .Message.failed, body .SignUp .body .Message.failed {
+    color: red;
+  }
+  body .LogIn .body .Message.success, body .SignUp .body .Message.success {
+    color: limegreen;
+  }
+  body .LogIn .body .Message.success button, body .SignUp .body .Message.success button {
+    border: 2px solid limegreen;
+  }
+  body .LogIn .body .Message.success button:hover, body .SignUp .body .Message.success button:hover {
+    background: limegreen;
+  }
+  body .LogIn .body .Message.success .close, body .SignUp .body .Message.success .close {
+    position: absolute;
+    font-size: 22px;
+    color: red;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
+  body .LogIn .body .Message.success .error, body .SignUp .body .Message.success .error {
+    color: red;
+    margin-top: 20px;
+  }
+  body .LogIn .body .Message.Reset-Password, body .SignUp .body .Message.Reset-Password {
+    text-align: left;
+    background: white;
+    color: black;
+    padding: 20px 0;
+  }
+  body .LogIn .body .Message.Reset-Password .close, body .SignUp .body .Message.Reset-Password .close {
+    position: absolute;
+    font-size: 22px;
+    color: limegreen;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
+  body .LogIn .body .Message.Reset-Password h1, body .SignUp .body .Message.Reset-Password h1 {
+    margin-top: 10px;
+    width: 70%;
+  }
+  body .LogIn .body .Message.Reset-Password label, body .SignUp .body .Message.Reset-Password label {
+    width: 70%;
+    margin-top: 15px;
+    line-height: 23px;
+    font-size: 17px;
+    opacity: 0.8;
+  }
+  body .LogIn .body .Message.Reset-Password input, body .SignUp .body .Message.Reset-Password input {
+    width: 66%;
+    background: rgba(204, 204, 204, 0.447);
+    border: none;
+    padding: 12px;
+    color: limegreen;
+    margin: 5px;
+    border-radius: 10px;
+    margin: 20px 0;
+  }
+  body .LogIn .body .Message.Reset-Password input:focus, body .SignUp .body .Message.Reset-Password input:focus {
+    outline: none;
+  }
+  body .LogIn .body .Message.Reset-Password button, body .SignUp .body .Message.Reset-Password button {
+    margin: 0;
+    background: limegreen;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    width: 70%;
+    color: white;
+    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+  }
+  body .LogIn .body .Message.Reset-Password button:hover, body .SignUp .body .Message.Reset-Password button:hover {
+    transition: 0.3s;
+    background: black;
+  }
+  body .LogIn .body .Message.Reset-Password h4, body .SignUp .body .Message.Reset-Password h4 {
+    margin-top: 20px;
+    font-size: 15px;
+    text-align: center;
+  }
+  body .LogIn .body .LeftSide, body .SignUp .body .LeftSide {
+    width: 50%;
+    align-self: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 70px;
+  }
+  body .LogIn .body .LeftSide .PhoneSizeOnly, body .SignUp .body .LeftSide .PhoneSizeOnly {
+    display: none;
+  }
+  body .LogIn .body .LeftSide h1, body .SignUp .body .LeftSide h1 {
+    font-size: 45px;
+    text-transform: uppercase;
+  }
+  body .LogIn .body .LeftSide h4, body .SignUp .body .LeftSide h4 {
+    margin: 10px;
+    font-size: 14px;
+  }
+  body .LogIn .body .LeftSide button, body .SignUp .body .LeftSide button {
+    width: 67%;
+    background: black;
+    color: white;
+    padding: 8px;
+    font-size: 17px;
+    display: flex;
+    justify-content: center;
+    border: none;
+    transition: 0.3s;
+    cursor: pointer;
+    font-weight: 500;
+    margin: 10px 0;
+    font-weight: bold;
+    align-items: center;
+  }
+  body .LogIn .body .LeftSide button svg, body .SignUp .body .LeftSide button svg {
+    margin: 1px 15px;
+    font-size: 22px;
+    color: white;
+  }
+  body .LogIn .body .LeftSide button img, body .SignUp .body .LeftSide button img {
+    margin: 1px 15px;
+    width: 22px;
+    height: 22px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  body .LogIn .body .LeftSide button:hover, body .SignUp .body .LeftSide button:hover {
+    color: white;
+    background: #9D00BB;
+    transition: 0.3s;
+  }
+  body .LogIn .body .LeftSide .or, body .SignUp .body .LeftSide .or {
+    position: relative;
+    font-size: 15px;
+    margin: 10px;
+  }
+  body .LogIn .body .LeftSide .or::before, body .SignUp .body .LeftSide .or::before {
+    content: "";
+    width: 85%;
+    height: 1.5px;
+    background: black;
+    position: absolute;
+    left: -138px;
+    top: 8px;
+    opacity: 0.4;
+  }
+  body .LogIn .body .LeftSide .or::after, body .SignUp .body .LeftSide .or::after {
+    content: "";
+    width: 85%;
+    height: 1.5px;
+    background: black;
+    position: absolute;
+    right: -138px;
+    top: 8px;
+    opacity: 0.4;
+  }
+  body .LogIn .body .LeftSide .error, body .SignUp .body .LeftSide .error {
+    color: red;
+    margin: 0;
+  }
+  body .LogIn .body .LeftSide .error i, body .SignUp .body .LeftSide .error i {
+    cursor: pointer;
+    margin: 10px;
+    translate: -2px;
+  }
+  body .LogIn .body .LeftSide input, body .SignUp .body .LeftSide input {
+    background: none;
+    border: 1px solid black;
+    padding: 12px;
+    width: 63%;
+    margin: 15px 0;
+    color: black;
+  }
+  body .LogIn .body .LeftSide input:focus, body .SignUp .body .LeftSide input:focus {
+    outline: none;
+  }
+  body .LogIn .body .LeftSide .file, body .SignUp .body .LeftSide .file {
+    display: none;
+  }
+  body .LogIn .body .LeftSide .passwords, body .SignUp .body .LeftSide .passwords {
+    display: flex;
+    width: 67%;
+    gap: 10px;
+  }
+  body .LogIn .body .LeftSide .links, body .SignUp .body .LeftSide .links {
+    display: flex;
+    justify-content: space-between;
+    width: 67%;
+    margin: 12px 0;
+  }
+  body .LogIn .body .LeftSide .links label, body .SignUp .body .LeftSide .links label {
+    color: #9D00BB;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  body .LogIn .body .LeftSide .links label i, body .SignUp .body .LeftSide .links label i {
+    margin: 5px;
+    position: relative;
+    top: 1px;
+  }
+  body .LogIn .body .LeftSide .links label:hover, body .SignUp .body .LeftSide .links label:hover {
+    color: black;
+    transition: 0.3s;
+  }
+  body .LogIn .body .LeftSide .links span, body .SignUp .body .LeftSide .links span {
+    font-size: 15px;
+    cursor: pointer;
+  }
+  body .LogIn .body .LeftSide .lastButton, body .SignUp .body .LeftSide .lastButton {
+    padding: 10px;
+    background: #9D00BB;
+    color: white;
+  }
+  body .LogIn .body .LeftSide .lastButton:hover, body .SignUp .body .LeftSide .lastButton:hover {
+    color: #9D00BB;
+    background: black;
+  }
+  body .LogIn .body .LeftSide .already, body .SignUp .body .LeftSide .already {
+    font-size: 14px;
+    margin: 10px 0;
+  }
+  body .LogIn .body .LeftSide .already span, body .SignUp .body .LeftSide .already span {
+    color: #9D00BB;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  body .LogIn .body .RightSide, body .SignUp .body .RightSide {
+    background: gray;
+    width: 50%;
+    z-index: 1;
+  }
+  body .LogIn .body .RightSide .swiper-slide, body .SignUp .body .RightSide .swiper-slide {
+    height: 100vh;
+    width: 100%;
+  }
+  body .LogIn .body .RightSide .swiper-slide img, body .SignUp .body .RightSide .swiper-slide img {
+    width: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    height: 100%;
+    -o-object-position: top;
+       object-position: top;
+  }
+  body .LogIn .body .RightSide .swiper-slide .first, body .SignUp .body .RightSide .swiper-slide .first {
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  body .LogIn .body .RightSide .swiper-slide .text, body .SignUp .body .RightSide .swiper-slide .text {
+    position: absolute;
+    bottom: 80px;
+    color: white;
+    text-align: left;
+    z-index: 10;
+  }
+  body .LogIn .body .RightSide .swiper-slide .text i, body .SignUp .body .RightSide .swiper-slide .text i {
+    position: relative;
+    left: 60px;
+    font-size: 30px;
+  }
+  body .LogIn .body .RightSide .swiper-slide .text p, body .SignUp .body .RightSide .swiper-slide .text p {
+    font-size: 22px;
+    margin-left: 30px;
+    width: 80%;
+    line-height: 30px;
+  }
+  body .LogIn .body .RightSide .swiper-slide .navigation, body .SignUp .body .RightSide .swiper-slide .navigation {
+    position: absolute;
+    bottom: 25px;
+    color: white;
+    right: 30px;
+    z-index: 10;
+    display: flex;
+    gap: 15px;
+  }
+  body .LogIn .body .RightSide .swiper-slide .navigation i, body .SignUp .body .RightSide .swiper-slide .navigation i {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid white;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  body .LogIn .body .RightSide .swiper-pagination-bullet, body .SignUp .body .RightSide .swiper-pagination-bullet {
+    cursor: pointer;
+    bottom: 10px;
+    right: 100px;
+    background: white;
+    z-index: 10;
+    width: 10px;
+    height: 10px;
+  }
+  body .LogIn .body .RightSide .swiper-button-prev, body .SignUp .body .RightSide .swiper-button-prev {
+    color: white;
+  }
+  body .LogIn .body .RightSide .swiper-button-next, body .SignUp .body .RightSide .swiper-button-next {
+    color: white;
+  }
+}
+@media (min-width: 1000px) and (max-width: 1249px) {
+  body .LogIn, body .SignUp {
+    height: 100vh;
+    background: white;
+    color: black;
+  }
+  body .LogIn header, body .SignUp header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    z-index: 10;
+  }
+  body .LogIn header .phoneYes, body .SignUp header .phoneYes {
+    display: none;
+  }
+  body .LogIn header .logo, body .SignUp header .logo {
+    display: flex;
+    align-items: center;
+    margin: 0 70px;
+  }
+  body .LogIn header .logo i, body .SignUp header .logo i {
+    margin: 0 10px;
+  }
+  body .LogIn header .logo i svg, body .SignUp header .logo i svg {
+    color: #9D00BB;
+    font-size: 43px;
+  }
+  body .LogIn header .logo span, body .SignUp header .logo span {
+    font-size: 24px;
+    font-weight: bolder;
+  }
+  body .LogIn header .showOff, body .SignUp header .showOff {
+    width: 47%;
+    margin: 0 15px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  body .LogIn header .showOff .icon, body .SignUp header .showOff .icon {
+    width: 160px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+  }
+  body .LogIn header .showOff .icon i, body .SignUp header .showOff .icon i {
+    background: white;
+    width: 60px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  body .LogIn header .showOff .icon i svg, body .SignUp header .showOff .icon i svg {
+    color: black;
+    font-size: 25px;
+  }
+  body .LogIn header .showOff .icon span, body .SignUp header .showOff .icon span {
+    font-weight: 700;
+    font-size: 14px;
+    translate: 0 2px;
+  }
+  body .LogIn header .showOff nav a, body .SignUp header .showOff nav a {
+    text-decoration: none;
+    color: white;
+    margin: 0 5px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  body .LogIn header .showOff nav a:nth-child(2), body .SignUp header .showOff nav a:nth-child(2) {
+    border: 2px solid #9D00BB;
+    padding: 5px 15px;
+    border-radius: 20px;
+  }
+  body .LogIn header .showOff nav a:hover, body .SignUp header .showOff nav a:hover {
+    color: #9D00BB;
+    transition: 0.3s;
+  }
+  body .LogIn .body, body .SignUp .body {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+  }
+  body .LogIn .body .BackGround, body .SignUp .body .BackGround {
+    background: rgba(128, 128, 128, 0.585);
+    height: 100vh;
+    z-index: 11;
+    position: fixed;
+    width: 100%;
+    transition: 0.7s;
+  }
+  body .LogIn .body .BackGround .Message, body .SignUp .body .BackGround .Message {
+    position: fixed;
+    background: black;
+    padding: 25px;
+    border-radius: 10px;
+    display: flex;
+    z-index: 12;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    transition: 0.7s;
+  }
+  body .LogIn .body .BackGround .Message i, body .SignUp .body .BackGround .Message i {
+    font-size: 100px;
+  }
+  body .LogIn .body .BackGround .Message h3, body .SignUp .body .BackGround .Message h3 {
+    width: 350px;
+  }
+  body .LogIn .body .BackGround .Message button, body .SignUp .body .BackGround .Message button {
+    margin-top: 20px;
+    background: none;
+    border: 2px solid red;
+    cursor: pointer;
+    padding: 7px 15px;
+    border-radius: 10px;
+    width: 70%;
+    color: white;
+    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+  }
+  body .LogIn .body .BackGround .Message button:hover, body .SignUp .body .BackGround .Message button:hover {
+    transition: 0.3s;
+    background: red;
+  }
+  body .LogIn .body .BackGround .Message h4, body .SignUp .body .BackGround .Message h4 {
+    margin-bottom: 10px;
+    width: 80%;
+  }
+  body .LogIn .body .Message.failed, body .SignUp .body .Message.failed {
+    color: red;
+  }
+  body .LogIn .body .Message.success, body .SignUp .body .Message.success {
+    color: limegreen;
+  }
+  body .LogIn .body .Message.success button, body .SignUp .body .Message.success button {
+    border: 2px solid limegreen;
+  }
+  body .LogIn .body .Message.success button:hover, body .SignUp .body .Message.success button:hover {
+    background: limegreen;
+  }
+  body .LogIn .body .Message.success .close, body .SignUp .body .Message.success .close {
+    position: absolute;
+    font-size: 22px;
+    color: red;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
+  body .LogIn .body .Message.success .error, body .SignUp .body .Message.success .error {
+    color: red;
+    margin-top: 20px;
+  }
+  body .LogIn .body .Message.Reset-Password, body .SignUp .body .Message.Reset-Password {
+    text-align: left;
+    background: white;
+    color: black;
+    padding: 20px 0;
+  }
+  body .LogIn .body .Message.Reset-Password .close, body .SignUp .body .Message.Reset-Password .close {
+    position: absolute;
+    font-size: 22px;
+    color: limegreen;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
+  body .LogIn .body .Message.Reset-Password h1, body .SignUp .body .Message.Reset-Password h1 {
+    margin-top: 10px;
+    width: 70%;
+  }
+  body .LogIn .body .Message.Reset-Password label, body .SignUp .body .Message.Reset-Password label {
+    width: 70%;
+    margin-top: 15px;
+    line-height: 23px;
+    font-size: 17px;
+    opacity: 0.8;
+  }
+  body .LogIn .body .Message.Reset-Password input, body .SignUp .body .Message.Reset-Password input {
+    width: 66%;
+    background: rgba(204, 204, 204, 0.447);
+    border: none;
+    padding: 12px;
+    color: limegreen;
+    margin: 5px;
+    border-radius: 10px;
+    margin: 20px 0;
+  }
+  body .LogIn .body .Message.Reset-Password input:focus, body .SignUp .body .Message.Reset-Password input:focus {
+    outline: none;
+  }
+  body .LogIn .body .Message.Reset-Password button, body .SignUp .body .Message.Reset-Password button {
+    margin: 0;
+    background: limegreen;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    width: 70%;
+    color: white;
+    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+  }
+  body .LogIn .body .Message.Reset-Password button:hover, body .SignUp .body .Message.Reset-Password button:hover {
+    transition: 0.3s;
+    background: black;
+  }
+  body .LogIn .body .Message.Reset-Password h4, body .SignUp .body .Message.Reset-Password h4 {
+    margin-top: 20px;
+    font-size: 15px;
+    text-align: center;
+  }
+  body .LogIn .body .LeftSide, body .SignUp .body .LeftSide {
+    width: 50%;
+    align-self: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 70px;
+  }
+  body .LogIn .body .LeftSide .PhoneSizeOnly, body .SignUp .body .LeftSide .PhoneSizeOnly {
+    display: none;
+  }
+  body .LogIn .body .LeftSide h1, body .SignUp .body .LeftSide h1 {
+    font-size: 45px;
+    text-transform: uppercase;
+  }
+  body .LogIn .body .LeftSide h4, body .SignUp .body .LeftSide h4 {
+    margin: 10px;
+    font-size: 14px;
+  }
+  body .LogIn .body .LeftSide button, body .SignUp .body .LeftSide button {
+    width: 67%;
+    background: black;
+    color: white;
+    padding: 8px;
+    font-size: 17px;
+    display: flex;
+    justify-content: center;
+    border: none;
+    transition: 0.3s;
+    cursor: pointer;
+    font-weight: 500;
+    margin: 10px 0;
+    font-weight: bold;
+    align-items: center;
+  }
+  body .LogIn .body .LeftSide button svg, body .SignUp .body .LeftSide button svg {
+    margin: 1px 15px;
+    font-size: 22px;
+    color: white;
+  }
+  body .LogIn .body .LeftSide button img, body .SignUp .body .LeftSide button img {
+    margin: 1px 15px;
+    width: 22px;
+    height: 22px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  body .LogIn .body .LeftSide button:hover, body .SignUp .body .LeftSide button:hover {
+    color: white;
+    background: #9D00BB;
+    transition: 0.3s;
+  }
+  body .LogIn .body .LeftSide .or, body .SignUp .body .LeftSide .or {
+    position: relative;
+    font-size: 15px;
+    margin: 10px;
+  }
+  body .LogIn .body .LeftSide .or::before, body .SignUp .body .LeftSide .or::before {
+    content: "";
+    width: 85%;
+    height: 1.5px;
+    background: black;
+    position: absolute;
+    left: -138px;
+    top: 8px;
+    opacity: 0.4;
+  }
+  body .LogIn .body .LeftSide .or::after, body .SignUp .body .LeftSide .or::after {
+    content: "";
+    width: 85%;
+    height: 1.5px;
+    background: black;
+    position: absolute;
+    right: -138px;
+    top: 8px;
+    opacity: 0.4;
+  }
+  body .LogIn .body .LeftSide .error, body .SignUp .body .LeftSide .error {
+    color: red;
+    margin: 0;
+  }
+  body .LogIn .body .LeftSide .error i, body .SignUp .body .LeftSide .error i {
+    cursor: pointer;
+    margin: 10px;
+    translate: -2px;
+  }
+  body .LogIn .body .LeftSide input, body .SignUp .body .LeftSide input {
+    background: none;
+    border: 1px solid black;
+    padding: 12px;
+    width: 63%;
+    margin: 15px 0;
+    color: black;
+  }
+  body .LogIn .body .LeftSide input:focus, body .SignUp .body .LeftSide input:focus {
+    outline: none;
+  }
+  body .LogIn .body .LeftSide .file, body .SignUp .body .LeftSide .file {
+    display: none;
+  }
+  body .LogIn .body .LeftSide .passwords, body .SignUp .body .LeftSide .passwords {
+    display: flex;
+    width: 67%;
+    gap: 10px;
+  }
+  body .LogIn .body .LeftSide .links, body .SignUp .body .LeftSide .links {
+    display: flex;
+    justify-content: space-between;
+    width: 67%;
+    margin: 12px 0;
+  }
+  body .LogIn .body .LeftSide .links label, body .SignUp .body .LeftSide .links label {
+    color: #9D00BB;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  body .LogIn .body .LeftSide .links label i, body .SignUp .body .LeftSide .links label i {
+    margin: 5px;
+    position: relative;
+    top: 1px;
+  }
+  body .LogIn .body .LeftSide .links label:hover, body .SignUp .body .LeftSide .links label:hover {
+    color: black;
+    transition: 0.3s;
+  }
+  body .LogIn .body .LeftSide .links span, body .SignUp .body .LeftSide .links span {
+    font-size: 15px;
+    cursor: pointer;
+  }
+  body .LogIn .body .LeftSide .lastButton, body .SignUp .body .LeftSide .lastButton {
+    padding: 10px;
+    background: #9D00BB;
+    color: white;
+  }
+  body .LogIn .body .LeftSide .lastButton:hover, body .SignUp .body .LeftSide .lastButton:hover {
+    color: #9D00BB;
+    background: black;
+  }
+  body .LogIn .body .LeftSide .already, body .SignUp .body .LeftSide .already {
+    font-size: 14px;
+    margin: 10px 0;
+  }
+  body .LogIn .body .LeftSide .already span, body .SignUp .body .LeftSide .already span {
+    color: #9D00BB;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  body .LogIn .body .RightSide, body .SignUp .body .RightSide {
+    background: gray;
+    width: 50%;
+    z-index: 1;
+  }
+  body .LogIn .body .RightSide .swiper-slide, body .SignUp .body .RightSide .swiper-slide {
+    height: 100vh;
+    width: 100%;
+  }
+  body .LogIn .body .RightSide .swiper-slide img, body .SignUp .body .RightSide .swiper-slide img {
+    width: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    height: 100%;
+    -o-object-position: top;
+       object-position: top;
+  }
+  body .LogIn .body .RightSide .swiper-slide .first, body .SignUp .body .RightSide .swiper-slide .first {
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  body .LogIn .body .RightSide .swiper-slide .text, body .SignUp .body .RightSide .swiper-slide .text {
+    position: absolute;
+    bottom: 80px;
+    color: white;
+    text-align: left;
+    z-index: 10;
+  }
+  body .LogIn .body .RightSide .swiper-slide .text i, body .SignUp .body .RightSide .swiper-slide .text i {
+    position: relative;
+    left: 60px;
+    font-size: 30px;
+  }
+  body .LogIn .body .RightSide .swiper-slide .text p, body .SignUp .body .RightSide .swiper-slide .text p {
+    font-size: 22px;
+    margin-left: 30px;
+    width: 80%;
+    line-height: 30px;
+  }
+  body .LogIn .body .RightSide .swiper-slide .navigation, body .SignUp .body .RightSide .swiper-slide .navigation {
+    position: absolute;
+    bottom: 25px;
+    color: white;
+    right: 30px;
+    z-index: 10;
+    display: flex;
+    gap: 15px;
+  }
+  body .LogIn .body .RightSide .swiper-slide .navigation i, body .SignUp .body .RightSide .swiper-slide .navigation i {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid white;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  body .LogIn .body .RightSide .swiper-pagination-bullet, body .SignUp .body .RightSide .swiper-pagination-bullet {
+    cursor: pointer;
+    bottom: 10px;
+    right: 100px;
+    background: white;
+    z-index: 10;
+    width: 10px;
+    height: 10px;
+  }
+  body .LogIn .body .RightSide .swiper-button-prev, body .SignUp .body .RightSide .swiper-button-prev {
+    color: white;
+  }
+  body .LogIn .body .RightSide .swiper-button-next, body .SignUp .body .RightSide .swiper-button-next {
+    color: white;
+  }
+  body .LogIn header .showOff, body .SignUp header .showOff {
+    width: 45%;
+  }
+  body .LogIn .body .LeftSide, body .SignUp .body .LeftSide {
+    width: 52%;
+  }
+  body .LogIn .body .LeftSide h1, body .SignUp .body .LeftSide h1 {
+    font-size: 38px;
+  }
+  body .LogIn .body .LeftSide h4, body .SignUp .body .LeftSide h4 {
+    width: 90%;
+  }
+  body .LogIn .body .LeftSide .or::before, body .SignUp .body .LeftSide .or::before {
+    width: 60%;
+    left: -100px;
+  }
+  body .LogIn .body .LeftSide .or::after, body .SignUp .body .LeftSide .or::after {
+    width: 60%;
+    right: -100px;
+  }
+  body .LogIn .body .RightSide, body .SignUp .body .RightSide {
+    width: 48%;
+  }
+  body .LogIn .body .RightSide .swiper-slide .text p, body .SignUp .body .RightSide .swiper-slide .text p {
+    font-size: 20px;
+  }
+}
+@media (min-width: 850px) and (max-width: 999px) {
+  body .LogIn, body .SignUp {
+    height: 100vh;
+    background: white;
+    color: black;
+  }
+  body .LogIn header, body .SignUp header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    z-index: 10;
+  }
+  body .LogIn header .phoneYes, body .SignUp header .phoneYes {
+    display: none;
+  }
+  body .LogIn header .logo, body .SignUp header .logo {
+    display: flex;
+    align-items: center;
+    margin: 0 70px;
+  }
+  body .LogIn header .logo i, body .SignUp header .logo i {
+    margin: 0 10px;
+  }
+  body .LogIn header .logo i svg, body .SignUp header .logo i svg {
+    color: #9D00BB;
+    font-size: 43px;
+  }
+  body .LogIn header .logo span, body .SignUp header .logo span {
+    font-size: 24px;
+    font-weight: bolder;
+  }
+  body .LogIn header .showOff, body .SignUp header .showOff {
+    width: 47%;
+    margin: 0 15px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  body .LogIn header .showOff .icon, body .SignUp header .showOff .icon {
+    width: 160px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+  }
+  body .LogIn header .showOff .icon i, body .SignUp header .showOff .icon i {
+    background: white;
+    width: 60px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  body .LogIn header .showOff .icon i svg, body .SignUp header .showOff .icon i svg {
+    color: black;
+    font-size: 25px;
+  }
+  body .LogIn header .showOff .icon span, body .SignUp header .showOff .icon span {
+    font-weight: 700;
+    font-size: 14px;
+    translate: 0 2px;
+  }
+  body .LogIn header .showOff nav a, body .SignUp header .showOff nav a {
+    text-decoration: none;
+    color: white;
+    margin: 0 5px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  body .LogIn header .showOff nav a:nth-child(2), body .SignUp header .showOff nav a:nth-child(2) {
+    border: 2px solid #9D00BB;
+    padding: 5px 15px;
+    border-radius: 20px;
+  }
+  body .LogIn header .showOff nav a:hover, body .SignUp header .showOff nav a:hover {
+    color: #9D00BB;
+    transition: 0.3s;
+  }
+  body .LogIn .body, body .SignUp .body {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+  }
+  body .LogIn .body .BackGround, body .SignUp .body .BackGround {
+    background: rgba(128, 128, 128, 0.585);
+    height: 100vh;
+    z-index: 11;
+    position: fixed;
+    width: 100%;
+    transition: 0.7s;
+  }
+  body .LogIn .body .BackGround .Message, body .SignUp .body .BackGround .Message {
+    position: fixed;
+    background: black;
+    padding: 25px;
+    border-radius: 10px;
+    display: flex;
+    z-index: 12;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    transition: 0.7s;
+  }
+  body .LogIn .body .BackGround .Message i, body .SignUp .body .BackGround .Message i {
+    font-size: 100px;
+  }
+  body .LogIn .body .BackGround .Message h3, body .SignUp .body .BackGround .Message h3 {
+    width: 350px;
+  }
+  body .LogIn .body .BackGround .Message button, body .SignUp .body .BackGround .Message button {
+    margin-top: 20px;
+    background: none;
+    border: 2px solid red;
+    cursor: pointer;
+    padding: 7px 15px;
+    border-radius: 10px;
+    width: 70%;
+    color: white;
+    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+  }
+  body .LogIn .body .BackGround .Message button:hover, body .SignUp .body .BackGround .Message button:hover {
+    transition: 0.3s;
+    background: red;
+  }
+  body .LogIn .body .BackGround .Message h4, body .SignUp .body .BackGround .Message h4 {
+    margin-bottom: 10px;
+    width: 80%;
+  }
+  body .LogIn .body .Message.failed, body .SignUp .body .Message.failed {
+    color: red;
+  }
+  body .LogIn .body .Message.success, body .SignUp .body .Message.success {
+    color: limegreen;
+  }
+  body .LogIn .body .Message.success button, body .SignUp .body .Message.success button {
+    border: 2px solid limegreen;
+  }
+  body .LogIn .body .Message.success button:hover, body .SignUp .body .Message.success button:hover {
+    background: limegreen;
+  }
+  body .LogIn .body .Message.success .close, body .SignUp .body .Message.success .close {
+    position: absolute;
+    font-size: 22px;
+    color: red;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
+  body .LogIn .body .Message.success .error, body .SignUp .body .Message.success .error {
+    color: red;
+    margin-top: 20px;
+  }
+  body .LogIn .body .Message.Reset-Password, body .SignUp .body .Message.Reset-Password {
+    text-align: left;
+    background: white;
+    color: black;
+    padding: 20px 0;
+  }
+  body .LogIn .body .Message.Reset-Password .close, body .SignUp .body .Message.Reset-Password .close {
+    position: absolute;
+    font-size: 22px;
+    color: limegreen;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
+  body .LogIn .body .Message.Reset-Password h1, body .SignUp .body .Message.Reset-Password h1 {
+    margin-top: 10px;
+    width: 70%;
+  }
+  body .LogIn .body .Message.Reset-Password label, body .SignUp .body .Message.Reset-Password label {
+    width: 70%;
+    margin-top: 15px;
+    line-height: 23px;
+    font-size: 17px;
+    opacity: 0.8;
+  }
+  body .LogIn .body .Message.Reset-Password input, body .SignUp .body .Message.Reset-Password input {
+    width: 66%;
+    background: rgba(204, 204, 204, 0.447);
+    border: none;
+    padding: 12px;
+    color: limegreen;
+    margin: 5px;
+    border-radius: 10px;
+    margin: 20px 0;
+  }
+  body .LogIn .body .Message.Reset-Password input:focus, body .SignUp .body .Message.Reset-Password input:focus {
+    outline: none;
+  }
+  body .LogIn .body .Message.Reset-Password button, body .SignUp .body .Message.Reset-Password button {
+    margin: 0;
+    background: limegreen;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    width: 70%;
+    color: white;
+    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+  }
+  body .LogIn .body .Message.Reset-Password button:hover, body .SignUp .body .Message.Reset-Password button:hover {
+    transition: 0.3s;
+    background: black;
+  }
+  body .LogIn .body .Message.Reset-Password h4, body .SignUp .body .Message.Reset-Password h4 {
+    margin-top: 20px;
+    font-size: 15px;
+    text-align: center;
+  }
+  body .LogIn .body .LeftSide, body .SignUp .body .LeftSide {
+    width: 50%;
+    align-self: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 70px;
+  }
+  body .LogIn .body .LeftSide .PhoneSizeOnly, body .SignUp .body .LeftSide .PhoneSizeOnly {
+    display: none;
+  }
+  body .LogIn .body .LeftSide h1, body .SignUp .body .LeftSide h1 {
+    font-size: 45px;
+    text-transform: uppercase;
+  }
+  body .LogIn .body .LeftSide h4, body .SignUp .body .LeftSide h4 {
+    margin: 10px;
+    font-size: 14px;
+  }
+  body .LogIn .body .LeftSide button, body .SignUp .body .LeftSide button {
+    width: 67%;
+    background: black;
+    color: white;
+    padding: 8px;
+    font-size: 17px;
+    display: flex;
+    justify-content: center;
+    border: none;
+    transition: 0.3s;
+    cursor: pointer;
+    font-weight: 500;
+    margin: 10px 0;
+    font-weight: bold;
+    align-items: center;
+  }
+  body .LogIn .body .LeftSide button svg, body .SignUp .body .LeftSide button svg {
+    margin: 1px 15px;
+    font-size: 22px;
+    color: white;
+  }
+  body .LogIn .body .LeftSide button img, body .SignUp .body .LeftSide button img {
+    margin: 1px 15px;
+    width: 22px;
+    height: 22px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  body .LogIn .body .LeftSide button:hover, body .SignUp .body .LeftSide button:hover {
+    color: white;
+    background: #9D00BB;
+    transition: 0.3s;
+  }
+  body .LogIn .body .LeftSide .or, body .SignUp .body .LeftSide .or {
+    position: relative;
+    font-size: 15px;
+    margin: 10px;
+  }
+  body .LogIn .body .LeftSide .or::before, body .SignUp .body .LeftSide .or::before {
+    content: "";
+    width: 85%;
+    height: 1.5px;
+    background: black;
+    position: absolute;
+    left: -138px;
+    top: 8px;
+    opacity: 0.4;
+  }
+  body .LogIn .body .LeftSide .or::after, body .SignUp .body .LeftSide .or::after {
+    content: "";
+    width: 85%;
+    height: 1.5px;
+    background: black;
+    position: absolute;
+    right: -138px;
+    top: 8px;
+    opacity: 0.4;
+  }
+  body .LogIn .body .LeftSide .error, body .SignUp .body .LeftSide .error {
+    color: red;
+    margin: 0;
+  }
+  body .LogIn .body .LeftSide .error i, body .SignUp .body .LeftSide .error i {
+    cursor: pointer;
+    margin: 10px;
+    translate: -2px;
+  }
+  body .LogIn .body .LeftSide input, body .SignUp .body .LeftSide input {
+    background: none;
+    border: 1px solid black;
+    padding: 12px;
+    width: 63%;
+    margin: 15px 0;
+    color: black;
+  }
+  body .LogIn .body .LeftSide input:focus, body .SignUp .body .LeftSide input:focus {
+    outline: none;
+  }
+  body .LogIn .body .LeftSide .file, body .SignUp .body .LeftSide .file {
+    display: none;
+  }
+  body .LogIn .body .LeftSide .passwords, body .SignUp .body .LeftSide .passwords {
+    display: flex;
+    width: 67%;
+    gap: 10px;
+  }
+  body .LogIn .body .LeftSide .links, body .SignUp .body .LeftSide .links {
+    display: flex;
+    justify-content: space-between;
+    width: 67%;
+    margin: 12px 0;
+  }
+  body .LogIn .body .LeftSide .links label, body .SignUp .body .LeftSide .links label {
+    color: #9D00BB;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  body .LogIn .body .LeftSide .links label i, body .SignUp .body .LeftSide .links label i {
+    margin: 5px;
+    position: relative;
+    top: 1px;
+  }
+  body .LogIn .body .LeftSide .links label:hover, body .SignUp .body .LeftSide .links label:hover {
+    color: black;
+    transition: 0.3s;
+  }
+  body .LogIn .body .LeftSide .links span, body .SignUp .body .LeftSide .links span {
+    font-size: 15px;
+    cursor: pointer;
+  }
+  body .LogIn .body .LeftSide .lastButton, body .SignUp .body .LeftSide .lastButton {
+    padding: 10px;
+    background: #9D00BB;
+    color: white;
+  }
+  body .LogIn .body .LeftSide .lastButton:hover, body .SignUp .body .LeftSide .lastButton:hover {
+    color: #9D00BB;
+    background: black;
+  }
+  body .LogIn .body .LeftSide .already, body .SignUp .body .LeftSide .already {
+    font-size: 14px;
+    margin: 10px 0;
+  }
+  body .LogIn .body .LeftSide .already span, body .SignUp .body .LeftSide .already span {
+    color: #9D00BB;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  body .LogIn .body .RightSide, body .SignUp .body .RightSide {
+    background: gray;
+    width: 50%;
+    z-index: 1;
+  }
+  body .LogIn .body .RightSide .swiper-slide, body .SignUp .body .RightSide .swiper-slide {
+    height: 100vh;
+    width: 100%;
+  }
+  body .LogIn .body .RightSide .swiper-slide img, body .SignUp .body .RightSide .swiper-slide img {
+    width: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    height: 100%;
+    -o-object-position: top;
+       object-position: top;
+  }
+  body .LogIn .body .RightSide .swiper-slide .first, body .SignUp .body .RightSide .swiper-slide .first {
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  body .LogIn .body .RightSide .swiper-slide .text, body .SignUp .body .RightSide .swiper-slide .text {
+    position: absolute;
+    bottom: 80px;
+    color: white;
+    text-align: left;
+    z-index: 10;
+  }
+  body .LogIn .body .RightSide .swiper-slide .text i, body .SignUp .body .RightSide .swiper-slide .text i {
+    position: relative;
+    left: 60px;
+    font-size: 30px;
+  }
+  body .LogIn .body .RightSide .swiper-slide .text p, body .SignUp .body .RightSide .swiper-slide .text p {
+    font-size: 22px;
+    margin-left: 30px;
+    width: 80%;
+    line-height: 30px;
+  }
+  body .LogIn .body .RightSide .swiper-slide .navigation, body .SignUp .body .RightSide .swiper-slide .navigation {
+    position: absolute;
+    bottom: 25px;
+    color: white;
+    right: 30px;
+    z-index: 10;
+    display: flex;
+    gap: 15px;
+  }
+  body .LogIn .body .RightSide .swiper-slide .navigation i, body .SignUp .body .RightSide .swiper-slide .navigation i {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid white;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  body .LogIn .body .RightSide .swiper-pagination-bullet, body .SignUp .body .RightSide .swiper-pagination-bullet {
+    cursor: pointer;
+    bottom: 10px;
+    right: 100px;
+    background: white;
+    z-index: 10;
+    width: 10px;
+    height: 10px;
+  }
+  body .LogIn .body .RightSide .swiper-button-prev, body .SignUp .body .RightSide .swiper-button-prev {
+    color: white;
+  }
+  body .LogIn .body .RightSide .swiper-button-next, body .SignUp .body .RightSide .swiper-button-next {
+    color: white;
+  }
+  body .LogIn header .showOff, body .SignUp header .showOff {
+    width: 45%;
+  }
+  body .LogIn .body .LeftSide, body .SignUp .body .LeftSide {
+    width: 52%;
+  }
+  body .LogIn .body .LeftSide h1, body .SignUp .body .LeftSide h1 {
+    font-size: 36px;
+  }
+  body .LogIn .body .LeftSide h4, body .SignUp .body .LeftSide h4 {
+    width: 90%;
+  }
+  body .LogIn .body .LeftSide .or::before, body .SignUp .body .LeftSide .or::before {
+    width: 45%;
+    left: -75px;
+  }
+  body .LogIn .body .LeftSide .or::after, body .SignUp .body .LeftSide .or::after {
+    width: 45%;
+    right: -75px;
+  }
+  body .LogIn .body .RightSide, body .SignUp .body .RightSide {
+    width: 48%;
+  }
+  body .LogIn .body .RightSide .swiper-slide .text p, body .SignUp .body .RightSide .swiper-slide .text p {
+    font-size: 19px;
+  }
+}
+@media (min-width: 480px) and (max-width: 849px) {
+  body .LogIn, body .SignUp {
+    height: 100vh;
+    background: white;
+    color: black;
+  }
+  body .LogIn header, body .SignUp header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    z-index: 10;
+  }
+  body .LogIn header .phoneYes, body .SignUp header .phoneYes {
+    display: none;
+  }
+  body .LogIn header .logo, body .SignUp header .logo {
+    display: flex;
+    align-items: center;
+    margin: 0 70px;
+  }
+  body .LogIn header .logo i, body .SignUp header .logo i {
+    margin: 0 10px;
+  }
+  body .LogIn header .logo i svg, body .SignUp header .logo i svg {
+    color: #9D00BB;
+    font-size: 43px;
+  }
+  body .LogIn header .logo span, body .SignUp header .logo span {
+    font-size: 24px;
+    font-weight: bolder;
+  }
+  body .LogIn header .showOff, body .SignUp header .showOff {
+    width: 47%;
+    margin: 0 15px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  body .LogIn header .showOff .icon, body .SignUp header .showOff .icon {
+    width: 160px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+  }
+  body .LogIn header .showOff .icon i, body .SignUp header .showOff .icon i {
+    background: white;
+    width: 60px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  body .LogIn header .showOff .icon i svg, body .SignUp header .showOff .icon i svg {
+    color: black;
+    font-size: 25px;
+  }
+  body .LogIn header .showOff .icon span, body .SignUp header .showOff .icon span {
+    font-weight: 700;
+    font-size: 14px;
+    translate: 0 2px;
+  }
+  body .LogIn header .showOff nav a, body .SignUp header .showOff nav a {
+    text-decoration: none;
+    color: white;
+    margin: 0 5px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  body .LogIn header .showOff nav a:nth-child(2), body .SignUp header .showOff nav a:nth-child(2) {
+    border: 2px solid #9D00BB;
+    padding: 5px 15px;
+    border-radius: 20px;
+  }
+  body .LogIn header .showOff nav a:hover, body .SignUp header .showOff nav a:hover {
+    color: #9D00BB;
+    transition: 0.3s;
+  }
+  body .LogIn .body, body .SignUp .body {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+  }
+  body .LogIn .body .BackGround, body .SignUp .body .BackGround {
+    background: rgba(128, 128, 128, 0.585);
+    height: 100vh;
+    z-index: 11;
+    position: fixed;
+    width: 100%;
+    transition: 0.7s;
+  }
+  body .LogIn .body .BackGround .Message, body .SignUp .body .BackGround .Message {
+    position: fixed;
+    background: black;
+    padding: 25px;
+    border-radius: 10px;
+    display: flex;
+    z-index: 12;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    transition: 0.7s;
+  }
+  body .LogIn .body .BackGround .Message i, body .SignUp .body .BackGround .Message i {
+    font-size: 100px;
+  }
+  body .LogIn .body .BackGround .Message h3, body .SignUp .body .BackGround .Message h3 {
+    width: 350px;
+  }
+  body .LogIn .body .BackGround .Message button, body .SignUp .body .BackGround .Message button {
+    margin-top: 20px;
+    background: none;
+    border: 2px solid red;
+    cursor: pointer;
+    padding: 7px 15px;
+    border-radius: 10px;
+    width: 70%;
+    color: white;
+    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+  }
+  body .LogIn .body .BackGround .Message button:hover, body .SignUp .body .BackGround .Message button:hover {
+    transition: 0.3s;
+    background: red;
+  }
+  body .LogIn .body .BackGround .Message h4, body .SignUp .body .BackGround .Message h4 {
+    margin-bottom: 10px;
+    width: 80%;
+  }
+  body .LogIn .body .Message.failed, body .SignUp .body .Message.failed {
+    color: red;
+  }
+  body .LogIn .body .Message.success, body .SignUp .body .Message.success {
+    color: limegreen;
+  }
+  body .LogIn .body .Message.success button, body .SignUp .body .Message.success button {
+    border: 2px solid limegreen;
+  }
+  body .LogIn .body .Message.success button:hover, body .SignUp .body .Message.success button:hover {
+    background: limegreen;
+  }
+  body .LogIn .body .Message.success .close, body .SignUp .body .Message.success .close {
+    position: absolute;
+    font-size: 22px;
+    color: red;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
+  body .LogIn .body .Message.success .error, body .SignUp .body .Message.success .error {
+    color: red;
+    margin-top: 20px;
+  }
+  body .LogIn .body .Message.Reset-Password, body .SignUp .body .Message.Reset-Password {
+    text-align: left;
+    background: white;
+    color: black;
+    padding: 20px 0;
+  }
+  body .LogIn .body .Message.Reset-Password .close, body .SignUp .body .Message.Reset-Password .close {
+    position: absolute;
+    font-size: 22px;
+    color: limegreen;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
+  body .LogIn .body .Message.Reset-Password h1, body .SignUp .body .Message.Reset-Password h1 {
+    margin-top: 10px;
+    width: 70%;
+  }
+  body .LogIn .body .Message.Reset-Password label, body .SignUp .body .Message.Reset-Password label {
+    width: 70%;
+    margin-top: 15px;
+    line-height: 23px;
+    font-size: 17px;
+    opacity: 0.8;
+  }
+  body .LogIn .body .Message.Reset-Password input, body .SignUp .body .Message.Reset-Password input {
+    width: 66%;
+    background: rgba(204, 204, 204, 0.447);
+    border: none;
+    padding: 12px;
+    color: limegreen;
+    margin: 5px;
+    border-radius: 10px;
+    margin: 20px 0;
+  }
+  body .LogIn .body .Message.Reset-Password input:focus, body .SignUp .body .Message.Reset-Password input:focus {
+    outline: none;
+  }
+  body .LogIn .body .Message.Reset-Password button, body .SignUp .body .Message.Reset-Password button {
+    margin: 0;
+    background: limegreen;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    width: 70%;
+    color: white;
+    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+  }
+  body .LogIn .body .Message.Reset-Password button:hover, body .SignUp .body .Message.Reset-Password button:hover {
+    transition: 0.3s;
+    background: black;
+  }
+  body .LogIn .body .Message.Reset-Password h4, body .SignUp .body .Message.Reset-Password h4 {
+    margin-top: 20px;
+    font-size: 15px;
+    text-align: center;
+  }
+  body .LogIn .body .LeftSide, body .SignUp .body .LeftSide {
+    width: 50%;
+    align-self: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 70px;
+  }
+  body .LogIn .body .LeftSide .PhoneSizeOnly, body .SignUp .body .LeftSide .PhoneSizeOnly {
+    display: none;
+  }
+  body .LogIn .body .LeftSide h1, body .SignUp .body .LeftSide h1 {
+    font-size: 45px;
+    text-transform: uppercase;
+  }
+  body .LogIn .body .LeftSide h4, body .SignUp .body .LeftSide h4 {
+    margin: 10px;
+    font-size: 14px;
+  }
+  body .LogIn .body .LeftSide button, body .SignUp .body .LeftSide button {
+    width: 67%;
+    background: black;
+    color: white;
+    padding: 8px;
+    font-size: 17px;
+    display: flex;
+    justify-content: center;
+    border: none;
+    transition: 0.3s;
+    cursor: pointer;
+    font-weight: 500;
+    margin: 10px 0;
+    font-weight: bold;
+    align-items: center;
+  }
+  body .LogIn .body .LeftSide button svg, body .SignUp .body .LeftSide button svg {
+    margin: 1px 15px;
+    font-size: 22px;
+    color: white;
+  }
+  body .LogIn .body .LeftSide button img, body .SignUp .body .LeftSide button img {
+    margin: 1px 15px;
+    width: 22px;
+    height: 22px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  body .LogIn .body .LeftSide button:hover, body .SignUp .body .LeftSide button:hover {
+    color: white;
+    background: #9D00BB;
+    transition: 0.3s;
+  }
+  body .LogIn .body .LeftSide .or, body .SignUp .body .LeftSide .or {
+    position: relative;
+    font-size: 15px;
+    margin: 10px;
+  }
+  body .LogIn .body .LeftSide .or::before, body .SignUp .body .LeftSide .or::before {
+    content: "";
+    width: 85%;
+    height: 1.5px;
+    background: black;
+    position: absolute;
+    left: -138px;
+    top: 8px;
+    opacity: 0.4;
+  }
+  body .LogIn .body .LeftSide .or::after, body .SignUp .body .LeftSide .or::after {
+    content: "";
+    width: 85%;
+    height: 1.5px;
+    background: black;
+    position: absolute;
+    right: -138px;
+    top: 8px;
+    opacity: 0.4;
+  }
+  body .LogIn .body .LeftSide .error, body .SignUp .body .LeftSide .error {
+    color: red;
+    margin: 0;
+  }
+  body .LogIn .body .LeftSide .error i, body .SignUp .body .LeftSide .error i {
+    cursor: pointer;
+    margin: 10px;
+    translate: -2px;
+  }
+  body .LogIn .body .LeftSide input, body .SignUp .body .LeftSide input {
+    background: none;
+    border: 1px solid black;
+    padding: 12px;
+    width: 63%;
+    margin: 15px 0;
+    color: black;
+  }
+  body .LogIn .body .LeftSide input:focus, body .SignUp .body .LeftSide input:focus {
+    outline: none;
+  }
+  body .LogIn .body .LeftSide .file, body .SignUp .body .LeftSide .file {
+    display: none;
+  }
+  body .LogIn .body .LeftSide .passwords, body .SignUp .body .LeftSide .passwords {
+    display: flex;
+    width: 67%;
+    gap: 10px;
+  }
+  body .LogIn .body .LeftSide .links, body .SignUp .body .LeftSide .links {
+    display: flex;
+    justify-content: space-between;
+    width: 67%;
+    margin: 12px 0;
+  }
+  body .LogIn .body .LeftSide .links label, body .SignUp .body .LeftSide .links label {
+    color: #9D00BB;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  body .LogIn .body .LeftSide .links label i, body .SignUp .body .LeftSide .links label i {
+    margin: 5px;
+    position: relative;
+    top: 1px;
+  }
+  body .LogIn .body .LeftSide .links label:hover, body .SignUp .body .LeftSide .links label:hover {
+    color: black;
+    transition: 0.3s;
+  }
+  body .LogIn .body .LeftSide .links span, body .SignUp .body .LeftSide .links span {
+    font-size: 15px;
+    cursor: pointer;
+  }
+  body .LogIn .body .LeftSide .lastButton, body .SignUp .body .LeftSide .lastButton {
+    padding: 10px;
+    background: #9D00BB;
+    color: white;
+  }
+  body .LogIn .body .LeftSide .lastButton:hover, body .SignUp .body .LeftSide .lastButton:hover {
+    color: #9D00BB;
+    background: black;
+  }
+  body .LogIn .body .LeftSide .already, body .SignUp .body .LeftSide .already {
+    font-size: 14px;
+    margin: 10px 0;
+  }
+  body .LogIn .body .LeftSide .already span, body .SignUp .body .LeftSide .already span {
+    color: #9D00BB;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  body .LogIn .body .RightSide, body .SignUp .body .RightSide {
+    background: gray;
+    width: 50%;
+    z-index: 1;
+  }
+  body .LogIn .body .RightSide .swiper-slide, body .SignUp .body .RightSide .swiper-slide {
+    height: 100vh;
+    width: 100%;
+  }
+  body .LogIn .body .RightSide .swiper-slide img, body .SignUp .body .RightSide .swiper-slide img {
+    width: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    height: 100%;
+    -o-object-position: top;
+       object-position: top;
+  }
+  body .LogIn .body .RightSide .swiper-slide .first, body .SignUp .body .RightSide .swiper-slide .first {
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  body .LogIn .body .RightSide .swiper-slide .text, body .SignUp .body .RightSide .swiper-slide .text {
+    position: absolute;
+    bottom: 80px;
+    color: white;
+    text-align: left;
+    z-index: 10;
+  }
+  body .LogIn .body .RightSide .swiper-slide .text i, body .SignUp .body .RightSide .swiper-slide .text i {
+    position: relative;
+    left: 60px;
+    font-size: 30px;
+  }
+  body .LogIn .body .RightSide .swiper-slide .text p, body .SignUp .body .RightSide .swiper-slide .text p {
+    font-size: 22px;
+    margin-left: 30px;
+    width: 80%;
+    line-height: 30px;
+  }
+  body .LogIn .body .RightSide .swiper-slide .navigation, body .SignUp .body .RightSide .swiper-slide .navigation {
+    position: absolute;
+    bottom: 25px;
+    color: white;
+    right: 30px;
+    z-index: 10;
+    display: flex;
+    gap: 15px;
+  }
+  body .LogIn .body .RightSide .swiper-slide .navigation i, body .SignUp .body .RightSide .swiper-slide .navigation i {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid white;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  body .LogIn .body .RightSide .swiper-pagination-bullet, body .SignUp .body .RightSide .swiper-pagination-bullet {
+    cursor: pointer;
+    bottom: 10px;
+    right: 100px;
+    background: white;
+    z-index: 10;
+    width: 10px;
+    height: 10px;
+  }
+  body .LogIn .body .RightSide .swiper-button-prev, body .SignUp .body .RightSide .swiper-button-prev {
+    color: white;
+  }
+  body .LogIn .body .RightSide .swiper-button-next, body .SignUp .body .RightSide .swiper-button-next {
+    color: white;
+  }
+  body .LogIn header, body .SignUp header {
+    justify-content: space-evenly;
+    top: 30px;
+    align-items: center;
+  }
+  body .LogIn header .phoneYes, body .SignUp header .phoneYes {
+    display: block;
+    font-size: 42px;
+  }
+  body .LogIn header .logo, body .SignUp header .logo {
+    display: none;
+  }
+  body .LogIn header .showOff, body .SignUp header .showOff {
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: 0;
+  }
+  body .LogIn header .showOff .icon, body .SignUp header .showOff .icon {
+    display: none;
+  }
+  body .LogIn header .showOff nav a, body .SignUp header .showOff nav a {
+    text-decoration: none;
+    color: black;
+    margin: 0;
+    font-size: 21px;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 20px;
+  }
+  body .LogIn .body .LeftSide, body .SignUp .body .LeftSide {
+    width: 100%;
+  }
+  body .LogIn .body .LeftSide h1, body .LogIn .body .LeftSide h4, body .SignUp .body .LeftSide h1, body .SignUp .body .LeftSide h4 {
+    display: none;
+  }
+  body .LogIn .body .LeftSide button, body .SignUp .body .LeftSide button {
+    width: 74%;
+    padding: 10px;
+    font-size: 17px;
+    margin: 12px 0;
+    border-radius: 20px;
+  }
+  body .LogIn .body .LeftSide .PhoneSizeOnly, body .SignUp .body .LeftSide .PhoneSizeOnly {
+    display: block;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 71%;
+    text-align: left;
+  }
+  body .LogIn .body .LeftSide input, body .SignUp .body .LeftSide input {
+    border: none;
+    border-bottom: 1px solid black;
+    padding: 10px 0;
+    width: 70%;
+    margin: 0;
+    margin-bottom: 30px;
+  }
+  body .LogIn .body .LeftSide .passwords, body .SignUp .body .LeftSide .passwords {
+    display: grid;
+    grid-template-columns: repeat(2, 55%);
+    gap: 0;
+    width: 70%;
+  }
+  body .LogIn .body .LeftSide .passwords input, body .SignUp .body .LeftSide .passwords input {
+    width: 80%;
+    padding: 9px 0;
+  }
+  body .LogIn .body .LeftSide .already, body .SignUp .body .LeftSide .already {
+    font-size: 16px;
+    margin: 10px 0;
+    pointer-events: none;
+  }
+  body .LogIn .body .LeftSide .already span, body .SignUp .body .LeftSide .already span {
+    pointer-events: none;
+  }
+  body .LogIn .body .LeftSide .or, body .SignUp .body .LeftSide .or {
+    font-size: 16px;
+    margin: 20px;
+    pointer-events: none;
+  }
+  body .LogIn .body .LeftSide .or::before, body .SignUp .body .LeftSide .or::before {
+    width: 65%;
+    left: -120px;
+    top: 9px;
+  }
+  body .LogIn .body .LeftSide .or::after, body .SignUp .body .LeftSide .or::after {
+    width: 65%;
+    right: -120px;
+    top: 9px;
+  }
+  body .LogIn .body .RightSide, body .SignUp .body .RightSide {
+    display: none;
+  }
+}
+@media (max-width: 479px) {
+  body .LogIn, body .SignUp {
+    height: 100vh;
+    background: white;
+    color: black;
+    width: 100%;
+  }
+  body .LogIn header, body .SignUp header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    z-index: 10;
+  }
+  body .LogIn header .phoneYes, body .SignUp header .phoneYes {
+    display: none;
+  }
+  body .LogIn header .logo, body .SignUp header .logo {
+    display: flex;
+    align-items: center;
+    margin: 0 70px;
+  }
+  body .LogIn header .logo i, body .SignUp header .logo i {
+    margin: 0 10px;
+  }
+  body .LogIn header .logo i svg, body .SignUp header .logo i svg {
+    color: #9D00BB;
+    font-size: 43px;
+  }
+  body .LogIn header .logo span, body .SignUp header .logo span {
+    font-size: 24px;
+    font-weight: bolder;
+  }
+  body .LogIn header .showOff, body .SignUp header .showOff {
+    width: 47%;
+    margin: 0 15px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  body .LogIn header .showOff .icon, body .SignUp header .showOff .icon {
+    width: 160px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+  }
+  body .LogIn header .showOff .icon i, body .SignUp header .showOff .icon i {
+    background: white;
+    width: 60px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  body .LogIn header .showOff .icon i svg, body .SignUp header .showOff .icon i svg {
+    color: black;
+    font-size: 25px;
+  }
+  body .LogIn header .showOff .icon span, body .SignUp header .showOff .icon span {
+    font-weight: 700;
+    font-size: 14px;
+    translate: 0 2px;
+  }
+  body .LogIn header .showOff nav a, body .SignUp header .showOff nav a {
+    text-decoration: none;
+    color: white;
+    margin: 0 5px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  body .LogIn header .showOff nav a:nth-child(2), body .SignUp header .showOff nav a:nth-child(2) {
+    border: 2px solid #9D00BB;
+    padding: 5px 15px;
+    border-radius: 20px;
+  }
+  body .LogIn header .showOff nav a:hover, body .SignUp header .showOff nav a:hover {
+    color: #9D00BB;
+    transition: 0.3s;
+  }
+  body .LogIn .body, body .SignUp .body {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+  }
+  body .LogIn .body .BackGround, body .SignUp .body .BackGround {
+    background: rgba(128, 128, 128, 0.585);
+    height: 100vh;
+    z-index: 11;
+    position: fixed;
+    width: 100%;
+    transition: 0.7s;
+  }
+  body .LogIn .body .BackGround .Message, body .SignUp .body .BackGround .Message {
+    position: fixed;
+    background: black;
+    padding: 25px;
+    border-radius: 10px;
+    display: flex;
+    z-index: 12;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    transition: 0.7s;
+  }
+  body .LogIn .body .BackGround .Message i, body .SignUp .body .BackGround .Message i {
+    font-size: 100px;
+  }
+  body .LogIn .body .BackGround .Message h3, body .SignUp .body .BackGround .Message h3 {
+    width: 350px;
+  }
+  body .LogIn .body .BackGround .Message button, body .SignUp .body .BackGround .Message button {
+    margin-top: 20px;
+    background: none;
+    border: 2px solid red;
+    cursor: pointer;
+    padding: 7px 15px;
+    border-radius: 10px;
+    width: 70%;
+    color: white;
+    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+  }
+  body .LogIn .body .BackGround .Message button:hover, body .SignUp .body .BackGround .Message button:hover {
+    transition: 0.3s;
+    background: red;
+  }
+  body .LogIn .body .BackGround .Message h4, body .SignUp .body .BackGround .Message h4 {
+    margin-bottom: 10px;
+    width: 80%;
+  }
+  body .LogIn .body .Message.failed, body .SignUp .body .Message.failed {
+    color: red;
+  }
+  body .LogIn .body .Message.success, body .SignUp .body .Message.success {
+    color: limegreen;
+  }
+  body .LogIn .body .Message.success button, body .SignUp .body .Message.success button {
+    border: 2px solid limegreen;
+  }
+  body .LogIn .body .Message.success button:hover, body .SignUp .body .Message.success button:hover {
+    background: limegreen;
+  }
+  body .LogIn .body .Message.success .close, body .SignUp .body .Message.success .close {
+    position: absolute;
+    font-size: 22px;
+    color: red;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
+  body .LogIn .body .Message.success .error, body .SignUp .body .Message.success .error {
+    color: red;
+    margin-top: 20px;
+  }
+  body .LogIn .body .Message.Reset-Password, body .SignUp .body .Message.Reset-Password {
+    text-align: left;
+    background: white;
+    color: black;
+    padding: 20px 0;
+  }
+  body .LogIn .body .Message.Reset-Password .close, body .SignUp .body .Message.Reset-Password .close {
+    position: absolute;
+    font-size: 22px;
+    color: limegreen;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
+  body .LogIn .body .Message.Reset-Password h1, body .SignUp .body .Message.Reset-Password h1 {
+    margin-top: 10px;
+    width: 70%;
+  }
+  body .LogIn .body .Message.Reset-Password label, body .SignUp .body .Message.Reset-Password label {
+    width: 70%;
+    margin-top: 15px;
+    line-height: 23px;
+    font-size: 17px;
+    opacity: 0.8;
+  }
+  body .LogIn .body .Message.Reset-Password input, body .SignUp .body .Message.Reset-Password input {
+    width: 66%;
+    background: rgba(204, 204, 204, 0.447);
+    border: none;
+    padding: 12px;
+    color: limegreen;
+    margin: 5px;
+    border-radius: 10px;
+    margin: 20px 0;
+  }
+  body .LogIn .body .Message.Reset-Password input:focus, body .SignUp .body .Message.Reset-Password input:focus {
+    outline: none;
+  }
+  body .LogIn .body .Message.Reset-Password button, body .SignUp .body .Message.Reset-Password button {
+    margin: 0;
+    background: limegreen;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    width: 70%;
+    color: white;
+    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+  }
+  body .LogIn .body .Message.Reset-Password button:hover, body .SignUp .body .Message.Reset-Password button:hover {
+    transition: 0.3s;
+    background: black;
+  }
+  body .LogIn .body .Message.Reset-Password h4, body .SignUp .body .Message.Reset-Password h4 {
+    margin-top: 20px;
+    font-size: 15px;
+    text-align: center;
+  }
+  body .LogIn .body .LeftSide, body .SignUp .body .LeftSide {
+    width: 50%;
+    align-self: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 70px;
+  }
+  body .LogIn .body .LeftSide .PhoneSizeOnly, body .SignUp .body .LeftSide .PhoneSizeOnly {
+    display: none;
+  }
+  body .LogIn .body .LeftSide h1, body .SignUp .body .LeftSide h1 {
+    font-size: 45px;
+    text-transform: uppercase;
+  }
+  body .LogIn .body .LeftSide h4, body .SignUp .body .LeftSide h4 {
+    margin: 10px;
+    font-size: 14px;
+  }
+  body .LogIn .body .LeftSide button, body .SignUp .body .LeftSide button {
+    width: 67%;
+    background: black;
+    color: white;
+    padding: 8px;
+    font-size: 17px;
+    display: flex;
+    justify-content: center;
+    border: none;
+    transition: 0.3s;
+    cursor: pointer;
+    font-weight: 500;
+    margin: 10px 0;
+    font-weight: bold;
+    align-items: center;
+  }
+  body .LogIn .body .LeftSide button svg, body .SignUp .body .LeftSide button svg {
+    margin: 1px 15px;
+    font-size: 22px;
+    color: white;
+  }
+  body .LogIn .body .LeftSide button img, body .SignUp .body .LeftSide button img {
+    margin: 1px 15px;
+    width: 22px;
+    height: 22px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  body .LogIn .body .LeftSide button:hover, body .SignUp .body .LeftSide button:hover {
+    color: white;
+    background: #9D00BB;
+    transition: 0.3s;
+  }
+  body .LogIn .body .LeftSide .or, body .SignUp .body .LeftSide .or {
+    position: relative;
+    font-size: 15px;
+    margin: 10px;
+  }
+  body .LogIn .body .LeftSide .or::before, body .SignUp .body .LeftSide .or::before {
+    content: "";
+    width: 85%;
+    height: 1.5px;
+    background: black;
+    position: absolute;
+    left: -138px;
+    top: 8px;
+    opacity: 0.4;
+  }
+  body .LogIn .body .LeftSide .or::after, body .SignUp .body .LeftSide .or::after {
+    content: "";
+    width: 85%;
+    height: 1.5px;
+    background: black;
+    position: absolute;
+    right: -138px;
+    top: 8px;
+    opacity: 0.4;
+  }
+  body .LogIn .body .LeftSide .error, body .SignUp .body .LeftSide .error {
+    color: red;
+    margin: 0;
+  }
+  body .LogIn .body .LeftSide .error i, body .SignUp .body .LeftSide .error i {
+    cursor: pointer;
+    margin: 10px;
+    translate: -2px;
+  }
+  body .LogIn .body .LeftSide input, body .SignUp .body .LeftSide input {
+    background: none;
+    border: 1px solid black;
+    padding: 12px;
+    width: 63%;
+    margin: 15px 0;
+    color: black;
+  }
+  body .LogIn .body .LeftSide input:focus, body .SignUp .body .LeftSide input:focus {
+    outline: none;
+  }
+  body .LogIn .body .LeftSide .file, body .SignUp .body .LeftSide .file {
+    display: none;
+  }
+  body .LogIn .body .LeftSide .passwords, body .SignUp .body .LeftSide .passwords {
+    display: flex;
+    width: 67%;
+    gap: 10px;
+  }
+  body .LogIn .body .LeftSide .links, body .SignUp .body .LeftSide .links {
+    display: flex;
+    justify-content: space-between;
+    width: 67%;
+    margin: 12px 0;
+  }
+  body .LogIn .body .LeftSide .links label, body .SignUp .body .LeftSide .links label {
+    color: #9D00BB;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  body .LogIn .body .LeftSide .links label i, body .SignUp .body .LeftSide .links label i {
+    margin: 5px;
+    position: relative;
+    top: 1px;
+  }
+  body .LogIn .body .LeftSide .links label:hover, body .SignUp .body .LeftSide .links label:hover {
+    color: black;
+    transition: 0.3s;
+  }
+  body .LogIn .body .LeftSide .links span, body .SignUp .body .LeftSide .links span {
+    font-size: 15px;
+    cursor: pointer;
+  }
+  body .LogIn .body .LeftSide .lastButton, body .SignUp .body .LeftSide .lastButton {
+    padding: 10px;
+    background: #9D00BB;
+    color: white;
+  }
+  body .LogIn .body .LeftSide .lastButton:hover, body .SignUp .body .LeftSide .lastButton:hover {
+    color: #9D00BB;
+    background: black;
+  }
+  body .LogIn .body .LeftSide .already, body .SignUp .body .LeftSide .already {
+    font-size: 14px;
+    margin: 10px 0;
+  }
+  body .LogIn .body .LeftSide .already span, body .SignUp .body .LeftSide .already span {
+    color: #9D00BB;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  body .LogIn .body .RightSide, body .SignUp .body .RightSide {
+    background: gray;
+    width: 50%;
+    z-index: 1;
+  }
+  body .LogIn .body .RightSide .swiper-slide, body .SignUp .body .RightSide .swiper-slide {
+    height: 100vh;
+    width: 100%;
+  }
+  body .LogIn .body .RightSide .swiper-slide img, body .SignUp .body .RightSide .swiper-slide img {
+    width: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    height: 100%;
+    -o-object-position: top;
+       object-position: top;
+  }
+  body .LogIn .body .RightSide .swiper-slide .first, body .SignUp .body .RightSide .swiper-slide .first {
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  body .LogIn .body .RightSide .swiper-slide .text, body .SignUp .body .RightSide .swiper-slide .text {
+    position: absolute;
+    bottom: 80px;
+    color: white;
+    text-align: left;
+    z-index: 10;
+  }
+  body .LogIn .body .RightSide .swiper-slide .text i, body .SignUp .body .RightSide .swiper-slide .text i {
+    position: relative;
+    left: 60px;
+    font-size: 30px;
+  }
+  body .LogIn .body .RightSide .swiper-slide .text p, body .SignUp .body .RightSide .swiper-slide .text p {
+    font-size: 22px;
+    margin-left: 30px;
+    width: 80%;
+    line-height: 30px;
+  }
+  body .LogIn .body .RightSide .swiper-slide .navigation, body .SignUp .body .RightSide .swiper-slide .navigation {
+    position: absolute;
+    bottom: 25px;
+    color: white;
+    right: 30px;
+    z-index: 10;
+    display: flex;
+    gap: 15px;
+  }
+  body .LogIn .body .RightSide .swiper-slide .navigation i, body .SignUp .body .RightSide .swiper-slide .navigation i {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid white;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  body .LogIn .body .RightSide .swiper-pagination-bullet, body .SignUp .body .RightSide .swiper-pagination-bullet {
+    cursor: pointer;
+    bottom: 10px;
+    right: 100px;
+    background: white;
+    z-index: 10;
+    width: 10px;
+    height: 10px;
+  }
+  body .LogIn .body .RightSide .swiper-button-prev, body .SignUp .body .RightSide .swiper-button-prev {
+    color: white;
+  }
+  body .LogIn .body .RightSide .swiper-button-next, body .SignUp .body .RightSide .swiper-button-next {
+    color: white;
+  }
+  body .LogIn header, body .SignUp header {
+    justify-content: space-evenly;
+    top: 40px;
+    align-items: center;
+  }
+  body .LogIn header .phoneYes, body .SignUp header .phoneYes {
+    display: block;
+    font-size: 42px;
+  }
+  body .LogIn header .logo, body .SignUp header .logo {
+    display: none;
+  }
+  body .LogIn header .showOff, body .SignUp header .showOff {
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: 0;
+  }
+  body .LogIn header .showOff .icon, body .SignUp header .showOff .icon {
+    display: none;
+  }
+  body .LogIn header .showOff nav a, body .SignUp header .showOff nav a {
+    text-decoration: none;
+    color: black;
+    margin: 0;
+    font-size: 20px;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 20px;
+  }
+  body .LogIn .body .BackGround .Message.Reset-Password, body .SignUp .body .BackGround .Message.Reset-Password {
+    width: 320px;
+  }
+  body .LogIn .body .BackGround .Message.Reset-Password button, body .SignUp .body .BackGround .Message.Reset-Password button {
+    width: 75%;
+  }
+  body .LogIn .body .LeftSide, body .SignUp .body .LeftSide {
+    width: 100%;
+  }
+  body .LogIn .body .LeftSide h1, body .LogIn .body .LeftSide h4, body .SignUp .body .LeftSide h1, body .SignUp .body .LeftSide h4 {
+    display: none;
+  }
+  body .LogIn .body .LeftSide button, body .SignUp .body .LeftSide button {
+    width: 74%;
+    padding: 10px;
+    font-size: 17px;
+    margin: 15px 0;
+    border-radius: 20px;
+    pointer-events: painted;
+  }
+  body .LogIn .body .LeftSide .PhoneSizeOnly, body .SignUp .body .LeftSide .PhoneSizeOnly {
+    display: block;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 71%;
+    text-align: left;
+  }
+  body .LogIn .body .LeftSide input, body .SignUp .body .LeftSide input {
+    border: none;
+    border-bottom: 1px solid black;
+    padding: 10px 0;
+    width: 70%;
+    margin: 0;
+    margin-bottom: 40px;
+  }
+  body .LogIn .body .LeftSide .passwords, body .SignUp .body .LeftSide .passwords {
+    display: grid;
+    grid-template-columns: repeat(2, 55%);
+    gap: 0;
+    width: 70%;
+  }
+  body .LogIn .body .LeftSide .passwords input, body .SignUp .body .LeftSide .passwords input {
+    width: 80%;
+    padding: 9px 0;
+    margin-bottom: 25px;
+  }
+  body .LogIn .body .LeftSide .already, body .SignUp .body .LeftSide .already {
+    font-size: 16px;
+    margin: 10px 0;
+    pointer-events: none;
+  }
+  body .LogIn .body .LeftSide .already span, body .SignUp .body .LeftSide .already span {
+    pointer-events: none;
+  }
+  body .LogIn .body .LeftSide .error, body .SignUp .body .LeftSide .error {
+    display: inline;
+    width: 80%;
+    color: red;
+    margin: 0;
+  }
+  body .LogIn .body .LeftSide .or, body .SignUp .body .LeftSide .or {
+    font-size: 16px;
+    margin: 20px;
+    pointer-events: none;
+  }
+  body .LogIn .body .LeftSide .or::before, body .SignUp .body .LeftSide .or::before {
+    width: 45%;
+    left: -80px;
+    top: 9px;
+  }
+  body .LogIn .body .LeftSide .or::after, body .SignUp .body .LeftSide .or::after {
+    width: 45%;
+    right: -80px;
+    top: 9px;
+  }
+  body .LogIn .body .BackGround .Message, body .SignUp .body .BackGround .Message {
+    width: 64%;
+  }
+  body .LogIn .body .BackGround .Message h3, body .SignUp .body .BackGround .Message h3 {
+    font-size: 19px;
+    width: 90%;
+  }
+  body .LogIn .body .RightSide, body .SignUp .body .RightSide {
+    display: none;
+  }
+}
+@media (min-width: 480px) and (max-width: 849px) {
+  body .Authentication {
+    height: 100vh;
+    background: white;
+    color: black;
+  }
+  body .Authentication header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    z-index: 10;
+  }
+  body .Authentication header .phoneYes {
+    display: none;
+  }
+  body .Authentication header .logo {
+    display: flex;
+    align-items: center;
+    margin: 0 70px;
+  }
+  body .Authentication header .logo i {
+    margin: 0 10px;
+  }
+  body .Authentication header .logo i svg {
+    color: #9D00BB;
+    font-size: 43px;
+  }
+  body .Authentication header .logo span {
+    font-size: 24px;
+    font-weight: bolder;
+  }
+  body .Authentication header .showOff {
+    width: 47%;
+    margin: 0 15px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  body .Authentication header .showOff .icon {
+    width: 160px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+  }
+  body .Authentication header .showOff .icon i {
+    background: white;
+    width: 60px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  body .Authentication header .showOff .icon i svg {
+    color: black;
+    font-size: 25px;
+  }
+  body .Authentication header .showOff .icon span {
+    font-weight: 700;
+    font-size: 14px;
+    translate: 0 2px;
+  }
+  body .Authentication header .showOff nav a {
+    text-decoration: none;
+    color: white;
+    margin: 0 5px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  body .Authentication header .showOff nav a:nth-child(2) {
+    border: 2px solid #9D00BB;
+    padding: 5px 15px;
+    border-radius: 20px;
+  }
+  body .Authentication header .showOff nav a:hover {
+    color: #9D00BB;
+    transition: 0.3s;
+  }
+  body .Authentication .body {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+  }
+  body .Authentication .body .BackGround {
+    background: rgba(128, 128, 128, 0.585);
+    height: 100vh;
+    z-index: 11;
+    position: fixed;
+    width: 100%;
+    transition: 0.7s;
+  }
+  body .Authentication .body .BackGround .Message {
+    position: fixed;
+    background: black;
+    padding: 25px;
+    border-radius: 10px;
+    display: flex;
+    z-index: 12;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    transition: 0.7s;
+  }
+  body .Authentication .body .BackGround .Message i {
+    font-size: 100px;
+  }
+  body .Authentication .body .BackGround .Message h3 {
+    width: 350px;
+  }
+  body .Authentication .body .BackGround .Message button {
+    margin-top: 20px;
+    background: none;
+    border: 2px solid red;
+    cursor: pointer;
+    padding: 7px 15px;
+    border-radius: 10px;
+    width: 70%;
+    color: white;
+    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+  }
+  body .Authentication .body .BackGround .Message button:hover {
+    transition: 0.3s;
+    background: red;
+  }
+  body .Authentication .body .BackGround .Message h4 {
+    margin-bottom: 10px;
+    width: 80%;
+  }
+  body .Authentication .body .Message.failed {
+    color: red;
+  }
+  body .Authentication .body .Message.success {
+    color: limegreen;
+  }
+  body .Authentication .body .Message.success button {
+    border: 2px solid limegreen;
+  }
+  body .Authentication .body .Message.success button:hover {
+    background: limegreen;
+  }
+  body .Authentication .body .Message.success .close {
+    position: absolute;
+    font-size: 22px;
+    color: red;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
+  body .Authentication .body .Message.success .error {
+    color: red;
+    margin-top: 20px;
+  }
+  body .Authentication .body .Message.Reset-Password {
+    text-align: left;
+    background: white;
+    color: black;
+    padding: 20px 0;
+  }
+  body .Authentication .body .Message.Reset-Password .close {
+    position: absolute;
+    font-size: 22px;
+    color: limegreen;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
+  body .Authentication .body .Message.Reset-Password h1 {
+    margin-top: 10px;
+    width: 70%;
+  }
+  body .Authentication .body .Message.Reset-Password label {
+    width: 70%;
+    margin-top: 15px;
+    line-height: 23px;
+    font-size: 17px;
+    opacity: 0.8;
+  }
+  body .Authentication .body .Message.Reset-Password input {
+    width: 66%;
+    background: rgba(204, 204, 204, 0.447);
+    border: none;
+    padding: 12px;
+    color: limegreen;
+    margin: 5px;
+    border-radius: 10px;
+    margin: 20px 0;
+  }
+  body .Authentication .body .Message.Reset-Password input:focus {
+    outline: none;
+  }
+  body .Authentication .body .Message.Reset-Password button {
+    margin: 0;
+    background: limegreen;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    width: 70%;
+    color: white;
+    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+  }
+  body .Authentication .body .Message.Reset-Password button:hover {
+    transition: 0.3s;
+    background: black;
+  }
+  body .Authentication .body .Message.Reset-Password h4 {
+    margin-top: 20px;
+    font-size: 15px;
+    text-align: center;
+  }
+  body .Authentication .body .LeftSide {
+    width: 50%;
+    align-self: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 70px;
+  }
+  body .Authentication .body .LeftSide .PhoneSizeOnly {
+    display: none;
+  }
+  body .Authentication .body .LeftSide h1 {
+    font-size: 45px;
+    text-transform: uppercase;
+  }
+  body .Authentication .body .LeftSide h4 {
+    margin: 10px;
+    font-size: 14px;
+  }
+  body .Authentication .body .LeftSide button {
+    width: 67%;
+    background: black;
+    color: white;
+    padding: 8px;
+    font-size: 17px;
+    display: flex;
+    justify-content: center;
+    border: none;
+    transition: 0.3s;
+    cursor: pointer;
+    font-weight: 500;
+    margin: 10px 0;
+    font-weight: bold;
+    align-items: center;
+  }
+  body .Authentication .body .LeftSide button svg {
+    margin: 1px 15px;
+    font-size: 22px;
+    color: white;
+  }
+  body .Authentication .body .LeftSide button img {
+    margin: 1px 15px;
+    width: 22px;
+    height: 22px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  body .Authentication .body .LeftSide button:hover {
+    color: white;
+    background: #9D00BB;
+    transition: 0.3s;
+  }
+  body .Authentication .body .LeftSide .or {
+    position: relative;
+    font-size: 15px;
+    margin: 10px;
+  }
+  body .Authentication .body .LeftSide .or::before {
+    content: "";
+    width: 85%;
+    height: 1.5px;
+    background: black;
+    position: absolute;
+    left: -138px;
+    top: 8px;
+    opacity: 0.4;
+  }
+  body .Authentication .body .LeftSide .or::after {
+    content: "";
+    width: 85%;
+    height: 1.5px;
+    background: black;
+    position: absolute;
+    right: -138px;
+    top: 8px;
+    opacity: 0.4;
+  }
+  body .Authentication .body .LeftSide .error {
+    color: red;
+    margin: 0;
+  }
+  body .Authentication .body .LeftSide .error i {
+    cursor: pointer;
+    margin: 10px;
+    translate: -2px;
+  }
+  body .Authentication .body .LeftSide input {
+    background: none;
+    border: 1px solid black;
+    padding: 12px;
+    width: 63%;
+    margin: 15px 0;
+    color: black;
+  }
+  body .Authentication .body .LeftSide input:focus {
+    outline: none;
+  }
+  body .Authentication .body .LeftSide .file {
+    display: none;
+  }
+  body .Authentication .body .LeftSide .passwords {
+    display: flex;
+    width: 67%;
+    gap: 10px;
+  }
+  body .Authentication .body .LeftSide .links {
+    display: flex;
+    justify-content: space-between;
+    width: 67%;
+    margin: 12px 0;
+  }
+  body .Authentication .body .LeftSide .links label {
+    color: #9D00BB;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  body .Authentication .body .LeftSide .links label i {
+    margin: 5px;
+    position: relative;
+    top: 1px;
+  }
+  body .Authentication .body .LeftSide .links label:hover {
+    color: black;
+    transition: 0.3s;
+  }
+  body .Authentication .body .LeftSide .links span {
+    font-size: 15px;
+    cursor: pointer;
+  }
+  body .Authentication .body .LeftSide .lastButton {
+    padding: 10px;
+    background: #9D00BB;
+    color: white;
+  }
+  body .Authentication .body .LeftSide .lastButton:hover {
+    color: #9D00BB;
+    background: black;
+  }
+  body .Authentication .body .LeftSide .already {
+    font-size: 14px;
+    margin: 10px 0;
+  }
+  body .Authentication .body .LeftSide .already span {
+    color: #9D00BB;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  body .Authentication .body .RightSide {
+    background: gray;
+    width: 50%;
+    z-index: 1;
+  }
+  body .Authentication .body .RightSide .swiper-slide {
+    height: 100vh;
+    width: 100%;
+  }
+  body .Authentication .body .RightSide .swiper-slide img {
+    width: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    height: 100%;
+    -o-object-position: top;
+       object-position: top;
+  }
+  body .Authentication .body .RightSide .swiper-slide .first {
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  body .Authentication .body .RightSide .swiper-slide .text {
+    position: absolute;
+    bottom: 80px;
+    color: white;
+    text-align: left;
+    z-index: 10;
+  }
+  body .Authentication .body .RightSide .swiper-slide .text i {
+    position: relative;
+    left: 60px;
+    font-size: 30px;
+  }
+  body .Authentication .body .RightSide .swiper-slide .text p {
+    font-size: 22px;
+    margin-left: 30px;
+    width: 80%;
+    line-height: 30px;
+  }
+  body .Authentication .body .RightSide .swiper-slide .navigation {
+    position: absolute;
+    bottom: 25px;
+    color: white;
+    right: 30px;
+    z-index: 10;
+    display: flex;
+    gap: 15px;
+  }
+  body .Authentication .body .RightSide .swiper-slide .navigation i {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid white;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  body .Authentication .body .RightSide .swiper-pagination-bullet {
+    cursor: pointer;
+    bottom: 10px;
+    right: 100px;
+    background: white;
+    z-index: 10;
+    width: 10px;
+    height: 10px;
+  }
+  body .Authentication .body .RightSide .swiper-button-prev {
+    color: white;
+  }
+  body .Authentication .body .RightSide .swiper-button-next {
+    color: white;
+  }
+  body .Authentication header {
+    justify-content: space-between;
+  }
+  body .Authentication header .phoneNone {
+    display: none;
+  }
+  body .Authentication header .logo {
+    margin: 0 50px;
+    color: white;
+    pointer-events: none;
+  }
+  body .Authentication header .showOff {
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: 0 50px;
+  }
+  body .Authentication header .showOff .icon {
+    display: none;
+  }
+  body .Authentication .body .RightSide {
+    width: 100%;
+  }
+  body .Authentication .body .RightSide .swiper-button-prev {
+    display: none;
+  }
+  body .Authentication .body .RightSide .swiper-button-next {
+    display: none;
+  }
+  body .Authentication .body .RightSide .swiper-slide {
+    height: 70vh;
+  }
+  body .Authentication .body .RightSide .swiper-slide .text {
+    bottom: 50px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  body .Authentication .body .RightSide .swiper-slide .text i {
+    left: 20%;
+    align-self: flex-start;
+  }
+  body .Authentication .body .RightSide .swiper-slide .text p {
+    margin: 0;
+    font-size: 20px;
+  }
+  body .Authentication .body .RightSide .swiper-slide .navigation {
+    display: none;
+  }
+  body .Authentication .body .LeftSide {
+    display: none;
+  }
+  body .Authentication .body .phone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 105;
+    background: white;
+    color: black;
+    padding: 30px 0;
+    border-radius: 20px 20px 0 0;
+  }
+  body .Authentication .body .phone h1 {
+    font-size: 45px;
+    text-transform: uppercase;
+    pointer-events: none;
+  }
+  body .Authentication .body .phone p {
+    margin: 22px 0;
+    margin-bottom: 30px;
+    font-size: 18px;
+    width: 55%;
+    height: 42px;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  body .Authentication .body .phone .largeButton {
+    width: 55%;
+    background: black;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    position: relative;
+    overflow: hidden;
+  }
+  body .Authentication .body .phone .largeButton a {
+    background: none;
+    cursor: pointer;
+    border: none;
+    font-size: 18px;
+    width: 38%;
+    padding: 10px 0;
+    color: white;
+    text-decoration: none;
+  }
+  body .Authentication .body .phone .largeButton::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    translate: -50%;
+    top: 0;
+    height: 100px;
+    width: 2px;
+    z-index: 100;
+    background: white;
+    opacity: 0.7;
+  }
+}
+@media (max-width: 479px) {
+  body .Authentication {
+    height: 100vh;
+    background: white;
+    color: black;
+  }
+  body .Authentication header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    z-index: 10;
+  }
+  body .Authentication header .phoneYes {
+    display: none;
+  }
+  body .Authentication header .logo {
+    display: flex;
+    align-items: center;
+    margin: 0 70px;
+  }
+  body .Authentication header .logo i {
+    margin: 0 10px;
+  }
+  body .Authentication header .logo i svg {
+    color: #9D00BB;
+    font-size: 43px;
+  }
+  body .Authentication header .logo span {
+    font-size: 24px;
+    font-weight: bolder;
+  }
+  body .Authentication header .showOff {
+    width: 47%;
+    margin: 0 15px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  body .Authentication header .showOff .icon {
+    width: 160px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+  }
+  body .Authentication header .showOff .icon i {
+    background: white;
+    width: 60px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  body .Authentication header .showOff .icon i svg {
+    color: black;
+    font-size: 25px;
+  }
+  body .Authentication header .showOff .icon span {
+    font-weight: 700;
+    font-size: 14px;
+    translate: 0 2px;
+  }
+  body .Authentication header .showOff nav a {
+    text-decoration: none;
+    color: white;
+    margin: 0 5px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  body .Authentication header .showOff nav a:nth-child(2) {
+    border: 2px solid #9D00BB;
+    padding: 5px 15px;
+    border-radius: 20px;
+  }
+  body .Authentication header .showOff nav a:hover {
+    color: #9D00BB;
+    transition: 0.3s;
+  }
+  body .Authentication .body {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+  }
+  body .Authentication .body .BackGround {
+    background: rgba(128, 128, 128, 0.585);
+    height: 100vh;
+    z-index: 11;
+    position: fixed;
+    width: 100%;
+    transition: 0.7s;
+  }
+  body .Authentication .body .BackGround .Message {
+    position: fixed;
+    background: black;
+    padding: 25px;
+    border-radius: 10px;
+    display: flex;
+    z-index: 12;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    transition: 0.7s;
+  }
+  body .Authentication .body .BackGround .Message i {
+    font-size: 100px;
+  }
+  body .Authentication .body .BackGround .Message h3 {
+    width: 350px;
+  }
+  body .Authentication .body .BackGround .Message button {
+    margin-top: 20px;
+    background: none;
+    border: 2px solid red;
+    cursor: pointer;
+    padding: 7px 15px;
+    border-radius: 10px;
+    width: 70%;
+    color: white;
+    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+  }
+  body .Authentication .body .BackGround .Message button:hover {
+    transition: 0.3s;
+    background: red;
+  }
+  body .Authentication .body .BackGround .Message h4 {
+    margin-bottom: 10px;
+    width: 80%;
+  }
+  body .Authentication .body .Message.failed {
+    color: red;
+  }
+  body .Authentication .body .Message.success {
+    color: limegreen;
+  }
+  body .Authentication .body .Message.success button {
+    border: 2px solid limegreen;
+  }
+  body .Authentication .body .Message.success button:hover {
+    background: limegreen;
+  }
+  body .Authentication .body .Message.success .close {
+    position: absolute;
+    font-size: 22px;
+    color: red;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
+  body .Authentication .body .Message.success .error {
+    color: red;
+    margin-top: 20px;
+  }
+  body .Authentication .body .Message.Reset-Password {
+    text-align: left;
+    background: white;
+    color: black;
+    padding: 20px 0;
+  }
+  body .Authentication .body .Message.Reset-Password .close {
+    position: absolute;
+    font-size: 22px;
+    color: limegreen;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
+  body .Authentication .body .Message.Reset-Password h1 {
+    margin-top: 10px;
+    width: 70%;
+  }
+  body .Authentication .body .Message.Reset-Password label {
+    width: 70%;
+    margin-top: 15px;
+    line-height: 23px;
+    font-size: 17px;
+    opacity: 0.8;
+  }
+  body .Authentication .body .Message.Reset-Password input {
+    width: 66%;
+    background: rgba(204, 204, 204, 0.447);
+    border: none;
+    padding: 12px;
+    color: limegreen;
+    margin: 5px;
+    border-radius: 10px;
+    margin: 20px 0;
+  }
+  body .Authentication .body .Message.Reset-Password input:focus {
+    outline: none;
+  }
+  body .Authentication .body .Message.Reset-Password button {
+    margin: 0;
+    background: limegreen;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    width: 70%;
+    color: white;
+    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+  }
+  body .Authentication .body .Message.Reset-Password button:hover {
+    transition: 0.3s;
+    background: black;
+  }
+  body .Authentication .body .Message.Reset-Password h4 {
+    margin-top: 20px;
+    font-size: 15px;
+    text-align: center;
+  }
+  body .Authentication .body .LeftSide {
+    width: 50%;
+    align-self: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 70px;
+  }
+  body .Authentication .body .LeftSide .PhoneSizeOnly {
+    display: none;
+  }
+  body .Authentication .body .LeftSide h1 {
+    font-size: 45px;
+    text-transform: uppercase;
+  }
+  body .Authentication .body .LeftSide h4 {
+    margin: 10px;
+    font-size: 14px;
+  }
+  body .Authentication .body .LeftSide button {
+    width: 67%;
+    background: black;
+    color: white;
+    padding: 8px;
+    font-size: 17px;
+    display: flex;
+    justify-content: center;
+    border: none;
+    transition: 0.3s;
+    cursor: pointer;
+    font-weight: 500;
+    margin: 10px 0;
+    font-weight: bold;
+    align-items: center;
+  }
+  body .Authentication .body .LeftSide button svg {
+    margin: 1px 15px;
+    font-size: 22px;
+    color: white;
+  }
+  body .Authentication .body .LeftSide button img {
+    margin: 1px 15px;
+    width: 22px;
+    height: 22px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  body .Authentication .body .LeftSide button:hover {
+    color: white;
+    background: #9D00BB;
+    transition: 0.3s;
+  }
+  body .Authentication .body .LeftSide .or {
+    position: relative;
+    font-size: 15px;
+    margin: 10px;
+  }
+  body .Authentication .body .LeftSide .or::before {
+    content: "";
+    width: 85%;
+    height: 1.5px;
+    background: black;
+    position: absolute;
+    left: -138px;
+    top: 8px;
+    opacity: 0.4;
+  }
+  body .Authentication .body .LeftSide .or::after {
+    content: "";
+    width: 85%;
+    height: 1.5px;
+    background: black;
+    position: absolute;
+    right: -138px;
+    top: 8px;
+    opacity: 0.4;
+  }
+  body .Authentication .body .LeftSide .error {
+    color: red;
+    margin: 0;
+  }
+  body .Authentication .body .LeftSide .error i {
+    cursor: pointer;
+    margin: 10px;
+    translate: -2px;
+  }
+  body .Authentication .body .LeftSide input {
+    background: none;
+    border: 1px solid black;
+    padding: 12px;
+    width: 63%;
+    margin: 15px 0;
+    color: black;
+  }
+  body .Authentication .body .LeftSide input:focus {
+    outline: none;
+  }
+  body .Authentication .body .LeftSide .file {
+    display: none;
+  }
+  body .Authentication .body .LeftSide .passwords {
+    display: flex;
+    width: 67%;
+    gap: 10px;
+  }
+  body .Authentication .body .LeftSide .links {
+    display: flex;
+    justify-content: space-between;
+    width: 67%;
+    margin: 12px 0;
+  }
+  body .Authentication .body .LeftSide .links label {
+    color: #9D00BB;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  body .Authentication .body .LeftSide .links label i {
+    margin: 5px;
+    position: relative;
+    top: 1px;
+  }
+  body .Authentication .body .LeftSide .links label:hover {
+    color: black;
+    transition: 0.3s;
+  }
+  body .Authentication .body .LeftSide .links span {
+    font-size: 15px;
+    cursor: pointer;
+  }
+  body .Authentication .body .LeftSide .lastButton {
+    padding: 10px;
+    background: #9D00BB;
+    color: white;
+  }
+  body .Authentication .body .LeftSide .lastButton:hover {
+    color: #9D00BB;
+    background: black;
+  }
+  body .Authentication .body .LeftSide .already {
+    font-size: 14px;
+    margin: 10px 0;
+  }
+  body .Authentication .body .LeftSide .already span {
+    color: #9D00BB;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  body .Authentication .body .RightSide {
+    background: gray;
+    width: 50%;
+    z-index: 1;
+  }
+  body .Authentication .body .RightSide .swiper-slide {
+    height: 100vh;
+    width: 100%;
+  }
+  body .Authentication .body .RightSide .swiper-slide img {
+    width: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    height: 100%;
+    -o-object-position: top;
+       object-position: top;
+  }
+  body .Authentication .body .RightSide .swiper-slide .first {
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  body .Authentication .body .RightSide .swiper-slide .text {
+    position: absolute;
+    bottom: 80px;
+    color: white;
+    text-align: left;
+    z-index: 10;
+  }
+  body .Authentication .body .RightSide .swiper-slide .text i {
+    position: relative;
+    left: 60px;
+    font-size: 30px;
+  }
+  body .Authentication .body .RightSide .swiper-slide .text p {
+    font-size: 22px;
+    margin-left: 30px;
+    width: 80%;
+    line-height: 30px;
+  }
+  body .Authentication .body .RightSide .swiper-slide .navigation {
+    position: absolute;
+    bottom: 25px;
+    color: white;
+    right: 30px;
+    z-index: 10;
+    display: flex;
+    gap: 15px;
+  }
+  body .Authentication .body .RightSide .swiper-slide .navigation i {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid white;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  body .Authentication .body .RightSide .swiper-pagination-bullet {
+    cursor: pointer;
+    bottom: 10px;
+    right: 100px;
+    background: white;
+    z-index: 10;
+    width: 10px;
+    height: 10px;
+  }
+  body .Authentication .body .RightSide .swiper-button-prev {
+    color: white;
+  }
+  body .Authentication .body .RightSide .swiper-button-next {
+    color: white;
+  }
+  body .Authentication header {
+    justify-content: space-between;
+  }
+  body .Authentication header .phoneNone {
+    display: none;
+  }
+  body .Authentication header .logo {
+    margin: 0 15px;
+    color: white;
+    pointer-events: none;
+  }
+  body .Authentication header .showOff {
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: 0 15px;
+  }
+  body .Authentication header .showOff .icon {
+    display: none;
+  }
+  body .Authentication header nav a {
+    text-decoration: none;
+    color: white;
+    margin: 0 5px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s;
+    border: 2px solid #9D00BB;
+    padding: 5px 15px;
+    border-radius: 20px;
+  }
+  body .Authentication .body .RightSide {
+    width: 100%;
+  }
+  body .Authentication .body .RightSide .swiper-slide .text p {
+    font-size: 19px;
+  }
+  body .Authentication .body .RightSide .swiper-button-prev {
+    display: none;
+  }
+  body .Authentication .body .RightSide .swiper-button-next {
+    display: none;
+  }
+  body .Authentication .body .RightSide .swiper-slide {
+    height: 70vh;
+  }
+  body .Authentication .body .RightSide .swiper-slide .text {
+    bottom: 55px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  body .Authentication .body .RightSide .swiper-slide .text i {
+    left: 20%;
+    align-self: flex-start;
+  }
+  body .Authentication .body .RightSide .swiper-slide .text p {
+    margin: 0;
+    font-size: 19px;
+    width: 90%;
+  }
+  body .Authentication .body .RightSide .swiper-slide .navigation {
+    display: none;
+  }
+  body .Authentication .body .LeftSide {
+    display: none;
+  }
+  body .Authentication .body .phone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 105;
+    background: white;
+    color: black;
+    padding: 30px 0;
+    border-radius: 20px 20px 0 0;
+  }
+  body .Authentication .body .phone h1 {
+    font-size: 35px;
+    text-transform: uppercase;
+    pointer-events: none;
+  }
+  body .Authentication .body .phone p {
+    margin: 25px 0;
+    font-size: 18px;
+    width: 75%;
+    height: -moz-fit-content;
+    height: fit-content;
+    overflow: none;
+    pointer-events: none;
+  }
+  body .Authentication .body .phone .largeButton {
+    width: 75%;
+    background: black;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    position: relative;
+    overflow: hidden;
+  }
+  body .Authentication .body .phone .largeButton a {
+    background: none;
+    cursor: pointer;
+    border: none;
+    font-size: 18px;
+    width: 38%;
+    padding: 10px 0;
+    color: white;
+    text-decoration: none;
+  }
+  body .Authentication .body .phone .largeButton::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    translate: -50%;
+    top: 0;
+    height: 100px;
+    width: 2px;
+    z-index: 100;
+    background: white;
+    opacity: 0.7;
+  }
+}
+body .ResetPassword {
+  width: 100%;
+  height: 100vh;
+  background: white;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 20px;
+  align-items: center;
+}
+body .ResetPassword .logo {
+  position: fixed;
+  top: 30px;
+  left: 10px;
+  display: flex;
+  align-items: center;
+  margin: 0 70px;
+}
+body .ResetPassword .logo i {
+  margin: 0 10px;
+}
+body .ResetPassword .logo i svg {
+  color: limegreen;
+  font-size: 45px;
+}
+body .ResetPassword .logo span {
+  font-size: 25px;
+  font-weight: bolder;
+}
+body .ResetPassword .left img {
+  transform: scaleX(-1);
+  width: 90%;
+}
+body .ResetPassword .right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+body .ResetPassword .right p {
+  opacity: 0.8;
+  margin: 20px;
+  width: 70%;
+}
+body .ResetPassword .right input {
+  width: 70%;
+  background: rgba(204, 204, 204, 0.447);
+  border: none;
+  padding: 12px;
+  color: limegreen;
+  margin: 5px;
+  border-radius: 10px;
+  margin: 15px 0;
+}
+body .ResetPassword .right input:focus {
+  outline: none;
+}
+body .ResetPassword .right button {
+  margin: 20px 0;
+  background: limegreen;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: bold;
+  width: 75%;
+  color: white;
+  transition: 0.3s;
+  display: flex;
+  justify-content: center;
+}
+body .ResetPassword .right button:hover {
+  transition: 0.3s;
+  background: black;
+}
+body .ResetPassword .right a {
+  margin-top: 0px;
+  text-decoration: none;
+  color: limegreen;
+}
+body .ResetPassword .right h4 {
+  margin-top: 10px;
+  font-size: 15px;
+  text-align: center;
+}
+@media (min-width: 480px) and (max-width: 849px) {
+  body .ResetPassword {
+    flex-direction: column;
+    align-items: center;
+  }
+  body .ResetPassword .left img {
+    height: 300px;
+    width: 100%;
+  }
+  body .ResetPassword .right p {
+    margin: 10px;
+  }
+  body .ResetPassword .right input {
+    margin: 10px 0;
+  }
+}
+@media (max-width: 479px) {
+  body .ResetPassword {
+    flex-direction: column;
+    align-items: center;
+  }
+  body .ResetPassword .logo {
+    display: none;
+  }
+  body .ResetPassword .left img {
+    height: 290px;
+    width: 100%;
+  }
+  body .ResetPassword .right p {
+    margin: 15px;
+  }
+  body .ResetPassword .right input {
+    margin: 15px 0;
+  }
 }

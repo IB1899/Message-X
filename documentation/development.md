@@ -11,10 +11,17 @@
 2. Started the Low Level Design.
 3. Started the user interface design using *Figma*.
 
-## Ibrahim Ali- August 25-26 2023 Requirements
+## Ibrahim Ali- August 25-26 2023 
 1. Finished the entire user Interface design
 
-## Ibrahim Ali- August 28 2023 Requirements
+## Ibrahim Ali- August 28 2023 
 1. I've organized the project a bit.
 2. Continuing the Low Level Design (Started the database design).
 3. Started the development process (the authentication system) 
+
+## Ibrahim Ali- August 29-30-31 / September 1-2-3-4 2023 
+1. I've finished the entire project's authentication system.
+2. I've finished the logic, system design, backend, and frontend of the authentication system.
+3. Working on the database design and the low level design in deeper details. 
+4. I've Fixed a few bugs & security flaws in the system's design.  
+5. Organized the file structure & finished the Loading design.  

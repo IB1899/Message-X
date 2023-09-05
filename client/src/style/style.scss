@@ -1,8 +1,637 @@
 *{ padding:0; margin:0; }
 
-body{
+//! Variables 
+$violet:#9D00BB;
+$black:black;
+$white:white;
 
-    background:purple;
-    text-align:center;
+@mixin Desktop{
+    @media(min-width:1250px){ @content }
+};
+
+@mixin Laptop{
+    @media(min-width:1000px) and (max-width:1249px){  @content  }
+};
+
+@mixin LargeTablets{
+    @media(min-width:850px) and (max-width:999px){  @content  }
+};
+
+@mixin SmallTablets{
+    @media(min-width:480px) and (max-width:849px){  @content  }
+};
+
+@mixin phone{
+    @media(max-width:479px){  @content  }
+};
+
+ body{ font-family: Arial, Helvetica, sans-serif; text-align:center;
+
+    .Loading-Page{ width:100%; height:100vh; display:flex; align-items:center; justify-content:center;  }
+
+    //! Landing Page
+    .Home{ 
+        @mixin home{ height:100vh; position:relative;
+            .homeBackground{ object-position:top; }
+
+            header{ display: flex; justify-content:space-between;  align-items:center; padding:16px 0;
+
+                .logo{ display:flex; align-items:center; margin:0 70px;
+                    i{ margin:0 10px; svg{ color:$violet; font-size:45px;} }  
+                    span{ font-size: 25px; font-weight:bolder; }
+                }
+                nav{ display:flex; align-items:center; margin:0 70px;
+                    a{text-decoration:none; margin:0 10px; font-size:22px; font-weight:700; color:$black; transition:.3s;
+                        &:hover{ transition:.3s; color:$violet;  }
+
+                    }
+                    .phoneYes{display:none;}
+                    a:has(svg){ color:$violet; display:flex; align-items:center; svg{ font-size:22px;margin:5px; margin-top:4px; }  }
+                }
+            }
+
+            .landing{ display:flex;  margin-top:110px;  text-align:left;
+
+                .leftSide{ width:50%; margin:0 115px;
+                    h1{ font-size:45px; font-weight:lighter; line-height:60px; span{ color:$violet; font-weight:bold; } }
+                    
+                    p{ font-size:19px; line-height:30px; letter-spacing:1px; margin:20px 0; width:90%; text-shadow:2px 3px 3px rgb(182, 182, 182);
+                    }
+
+                    button{ background:$black; border:none; padding:11px 24px; font-size:19px; border-radius:10px; 
+                        cursor:pointer; margin-top:10px; color:$violet; font-weight:700; transition:.3s; 
+                        a{text-decoration:none; color:$violet; } 
+
+                        &:hover{ transition:.3s; background:$violet; a{color:$white;} }
+                    }
+
+                    h4{ position:absolute; bottom:40px; font-weight:600; font-size:19px;  left:185px; 
+                        span{ color:$violet; margin:0 8px; font-size:21px; }
+                        &::before{ content:""; width:60px; position:absolute; left:-80px; translate:0 4px; height:2px; background:$violet; margin:10px; }
+                    }
+
+                    .phoneYes{display:none;}
+                }
+
+                .rightSide{
+                    img{ object-fit:cover; transform:scaleX(-1) ; height:85%; width:auto; position:absolute; bottom:0; right:0 }
+                }
+            }
+        }
+
+        @include Desktop{
+            @include home;
+        }
+
+        @include Laptop{
+            @include home;
+
+            header{
+                .logo{ margin:0 40px; span{font-size:23px;} i{font-size:40px;} }
+                nav{ margin:0 40px; a{ font-size: 20px; } }
+            }
+            .landing{
+                .leftSide{  margin:0 90px;
+                    h1{ font-size:38px; line-height:50px; } p{font-size:18px; line-height:25px;}
+                     button{ font-size:18px;} h4{ font-size:18px;  left:150px; }  
+                }
+                .rightSide img{  width:400px; }
+            }
+        }
+
+        @include LargeTablets{
+            @include home;
+
+            header{
+                .logo{ margin:0 40px; span{font-size:22px;} i{font-size:37px;} }
+                nav{ margin:0 40px; a{ font-size: 19px; } }
+            }
+            .landing{
+                .leftSide{  margin:0 50px;
+                    h1{ font-size:32px; line-height:40px; } p{font-size:16px; line-height:23px;}
+                    button{ font-size:18px;}
+                    h4{ font-size:15px;  left:100px; span{font-size:18px; margin:0 4px;} 
+                        &::before{ width:40px; left: -60px; } 
+                    }  
+                }
+                .rightSide img{  width:360px; height:85%; }
+            }
+        }
+
+        @include SmallTablets{
+            @include home;
+
+            header{ justify-content:space-around;
+                .logo{ margin:0 20px; span{font-size:21px;} i{font-size:35px;} }
+                nav{ margin:0 20px; a{ font-size: 17px; margin:0 6px; } }
+            }
+            .landing{ flex-direction:column; height:80%; align-items:center; margin-top:0px; text-align:center; justify-content:center;
+
+                .leftSide{  margin:0 50px; width:85%;
+                    h1{ font-size:40px; line-height:50px; } p{font-size:20px; width:100%; margin:30px 0;  line-height:30px;}
+                    button{ font-size:19px;}
+                    h4{ font-size:18px;  left:50%;  translate:-50%; bottom:30px;  margin:0;  margin-top:20px;  span{font-size:20px; margin:0 7px;} 
+                        &::before{ display: none;} 
+                    }  
+                    .phoneNone{display:none;} .phoneYes{display:block;}
+                }
+                .rightSide img{  display:none; }
+            }
+        }
+
+        @include phone{
+            @include home;
+
+            *{ pointer-events:none; &::selection{ background:none; } }
+
+            header{ justify-content:center; padding-top:35px;  }
+            
+            .landing .rightSide img{display:none;}
+            
+            header nav{ position:absolute; bottom: 100px;  background-color:$black; border-radius:10px; padding:8px 14px; width:67%;
+                display:flex; justify-content:center; align-items:center;
+                
+                .phoneYes{display:flex; svg{translate:3px 2px;} margin-bottom:-2px;}
+                .phoneNone{display:none;}
+
+                a{ margin:0; padding:0 13px; font-size:17px; color:$white; border-left:1px solid $white; pointer-events:painted; } 
+
+                a:has(svg){ border:none }
+            }
+
+            .landing{ flex-direction:column; height:80%; align-items:center; margin-top:-50px; text-align:center; justify-content:center;
+
+                .leftSide{  margin:0 50px; width:85%;
+                    h1{ font-size:30px; line-height:40px; font-weight:bold; } p{font-size:19px; width:100%; margin:10px 0;  line-height:27px;}
+                    button{ font-size:16px; pointer-events:painted; a{pointer-events: painted;}}
+                    h4{ display:none;} 
+                    .phoneNone{display:none;} .phoneYes{display:inline;}
+
+                }
+            }
+
+        }
+    }
+
+    .Status{ height:100vh; background:$black; color:$white; h1{padding-top:200px; }   }
+
+    @mixin Auth{ height:100vh; background: $white; color:$black;
+
+        header{ display:flex; align-items:center; justify-content:space-between; 
+            position:absolute; top:20px; width:100%; z-index:10;
+
+            .phoneYes{ display:none; }
+
+            .logo{ display:flex; align-items:center; margin:0 70px;
+                i{ margin:0 10px; svg{ color:$violet; font-size:43px;} }  
+                span{ font-size: 24px; font-weight:bolder; }
+            }
+
+            .showOff{  width:47%; margin:0 15px; position: relative;
+                display:flex; justify-content:space-between; align-items:center;
+
+                .icon{ width:160px; display:flex; justify-content:space-between; align-items:center;  color:$white;
+                    i{ background:$white; width:60px; height:40px;  border-radius:50%; display:flex; justify-content:center;
+                        align-items: center;
+                        svg{color:$black; font-size:25px;} 
+                    }
+                    span{ font-weight:700; font-size:14px; translate:0 2px; }
+                }
+
+                nav{
+                    a{ text-decoration:none; color:$white; margin:0 5px; font-size: 16px; font-weight:bold; transition:.3s;  }
+                    a:nth-child(2){ border:2px solid $violet; padding:5px 15px; border-radius:20px }
+
+                    a:hover{ color:$violet; transition:.3s; }
+                }
+            }
+        }
+
+        .body{ display:flex; justify-content:space-between; height:100%; 
+
+            //! Pop-up component
+            .BackGround{ background: rgba(128, 128, 128, 0.585); height:100vh; z-index:11; position:fixed; width:100%; transition:.7s;
+
+                .Message{ position:fixed; background:$black; padding:25px; border-radius:10px; display:flex; z-index:12;
+                    flex-direction:column; align-items:center; color:$white; top:50%; left:50%; translate:-50% -50%; transition:.7s;
+
+                    i{ font-size:100px; }
+                    h3{width:350px;}
+
+                    button{ margin-top:20px; background:none; border:2px solid red; cursor:pointer; padding:7px 15px; border-radius:10px; 
+                        width:70%; color:$white; transition:.3s; &:hover{ transition:.3s; background:red; }display:flex; justify-content:center;
+                    }
+                    h4{ margin-bottom:10px; width:80%; }
+                }
+            }
+            .Message.failed{ color:red; }
+            .Message.success{ color:limegreen; button{ border:2px solid limegreen; &:hover{background:limegreen;} } 
+                .close{ position:absolute; font-size:22px; color:red; top:20px; right:20px; cursor:pointer; }
+                .error{ color:red; margin-top:20px; }
+            }
+
+            .Message.Reset-Password{ text-align:left; background:$white; color:$black; padding:20px 0; 
+                .close{ position:absolute; font-size:22px; color:limegreen; top:20px; right:20px; cursor:pointer; }
+
+                h1{margin-top:10px; width:70%;}
+
+                label{ width:70%; margin-top:15px; line-height:23px; font-size:17px; opacity:.8; }
+                    
+                input{ width:66%; background:rgba(204, 204, 204, 0.447); border:none;  padding:12px; 
+                    color:limegreen; margin:5px;  &:focus{outline:none;}  border-radius:10px; margin:20px 0;
+                }
+
+                button{ margin:0; background:limegreen; border:none; cursor:pointer; padding:10px 20px; border-radius:10px; font-weight:bold; 
+                    width:70%; color:$white; transition:.3s; &:hover{ transition:.3s; background:$black; }display:flex; justify-content:center;
+                }
+
+                h4{ margin-top:20px; font-size:15px; text-align:center; }
+            }
+
+            .LeftSide{ width:50%; align-self:center; text-align:center; display:flex; flex-direction:column;
+                align-items:center; margin-top:70px;
+
+                .PhoneSizeOnly{display:none;}
+
+                h1{ font-size:45px; text-transform:uppercase;  }
+                h4{ margin:10px; font-size:14px;  }
+
+                button{ width:67%; background:$black; color:$white; padding:8px; font-size:17px; display:flex; justify-content:center;
+                    border:none; transition:.3s; cursor:pointer; font-weight:500; margin:10px 0; font-weight:bold; align-items: center;
+                    svg{ margin:1px 15px; font-size:22px; color:$white; }
+                    img{  margin:1px 15px; width:22px; height:22px; object-fit:cover; }
+
+                    &:hover{ color:$white; background:$violet; transition: .3s; }
+                }
+
+                .or{ position: relative; font-size:15px; margin:10px;
+                    &::before{ content:""; width:85%; height:1.5px; background:$black; position:absolute; left:-138px; top:8px;
+                        opacity:.4; 
+                    }
+                    &::after{ content:""; width:85%; height:1.5px; background:$black; position:absolute; right:-138px; top:8px;
+                        opacity:.4; 
+                    }
+                }
+                .error{ color:red; margin:0; i{ cursor:pointer; margin:10px; translate:-2px; } }
+
+                input{ background:none; border:1px solid $black; padding:12px; width:63%; margin:15px 0; 
+                    color:$black; &:focus{ outline:none; }
+                }
+                .file{display:none;}
+
+                .passwords{ display:flex; width:67%; gap:10px;}
+
+                .links{ display:flex; justify-content:space-between; width:67%; margin:12px 0;
+
+                    label{ color:$violet; font-size:15px; font-weight:bold; cursor: pointer; transition:.3s;
+                        i{margin:5px;position: relative; top:1px;}
+                        &:hover{ color:$black; transition:.3s; }
+                    }
+
+                    span{ font-size:15px; cursor: pointer;}
+                }
+
+                .lastButton{ padding:10px; background:$violet; color:$white; &:hover{ color:$violet; background:$black; } }
+
+                .already{ font-size:14px;  margin:10px 0; span{ color:$violet; font-weight:bold; cursor: pointer; } }
+            }
+            .RightSide{ background:gray; width:50%; z-index:1; 
+
+                .swiper-slide{
+                    height:100vh; width:100%; 
+
+                    img{ width:100% ; object-fit:cover; height:100%; object-position:top;  }
+                    .first{ object-fit:cover }
+
+                    .text{ position:absolute; bottom:80px; color:$white;  text-align:left; z-index:10;
+                        i{ position:relative; left:60px; font-size:30px; }
+                        p{  font-size:22px; margin-left:30px; width:80%;   line-height:30px }
+                    }
+                    .navigation{ position:absolute; bottom:25px; color:$white; right:30px; z-index:10; display:flex; gap:15px;
+                        i{ width:30px; height:30px; border-radius:50%; border:2px solid $white; font-size:25px; 
+                            display:flex;  justify-content:center; align-items: center; cursor:pointer;
+                        }
+                    }
+                }
+                .swiper-pagination-bullet{ cursor: pointer;  bottom:10px; right:100px; background:$white; z-index:10; 
+                    width:10px; height:10px; 
+                }
+
+                .swiper-button-prev{ color:$white; }
+                .swiper-button-next{ color:$white }
+            }
+
+        }
+    }
+
+    .LogIn , .SignUp{
+
+        //* Normal
+        @include Desktop{
+            @include Auth;
+        }
+        //* Normal
+        @include Laptop{
+            @include Auth;
+
+            header .showOff{ width:45%; }
+           
+            .body{
+
+                .LeftSide{ width:52%;
+                    h1{font-size:38px;}
+                    h4{ width:90%; }
+
+                    .or::before { width:60%; left:-100px;}
+                    .or::after{ width:60%; right:-100px; }
+                }
+
+
+                .RightSide{ width:48%;  .swiper-slide .text p{font-size:20px;}}
+            }
+           
+        }
+        //* Normal
+        @include LargeTablets{
+            @include Auth;
+
+            header .showOff{ width:45%; }
+           
+            .body{
+
+                .LeftSide{ width:52%;
+                    h1{font-size:36px;}
+                    h4{ width:90%; }
+
+                    .or::before { width:45%; left:-75px;}
+                    .or::after{ width:45%; right:-75px; }
+                }
+
+
+                .RightSide{ width:48%;  .swiper-slide .text p{font-size:19px;}}
+            }
+        }
+        //! Only left side because there is the authentication intermediary page
+        @include SmallTablets(){
+            @include Auth;
+
+            header{ justify-content:space-evenly; top:30px; align-items:center;
+                .phoneYes{ display:block; font-size:42px; }
+               
+                .logo{display:none;}
+                
+                .showOff{ width:fit-content; margin:0; .icon{display:none;}
+
+                    nav a{ text-decoration:none; color:$black; margin:0; font-size: 21px;
+                        border:none; padding:5px 15px; border-radius:20px
+                    }
+                }
+            }
+           
+           
+            .body{
+                .LeftSide{ width:100%;
+                    h1 , h4{display:none;}
+
+                    button{ width:74%; padding:10px; font-size:17px;  margin:12px 0; border-radius:20px;}
+
+                    .PhoneSizeOnly{ display:block; font-weight:bold; text-transform:uppercase; width:71%; text-align:left;  }
+
+                    input{ border:none; border-bottom:1px solid $black; padding:10px 0; width:70%; margin:0; margin-bottom:30px; }
+
+                    .passwords{ display:grid; grid-template-columns:repeat(2,55%); gap:0;  width:70%;
+                        input{ width:80%; padding:9px 0;}
+                    }
+
+                    .already{ font-size:16px;  margin:10px 0; pointer-events:none; span{ pointer-events:none; } }
+
+                    .or{  font-size:16px; margin:20px; pointer-events:none;
+                        &::before{  width:65%;  left:-120px; top:9px; }
+                        &::after{  width:65%;  right:-120px; top:9px; }
+                    }
+
+                }
+                
+                //! Hide this 
+                .RightSide{display:none;}
+
+            }
+        }
+        //! Only left side because there is the authentication intermediary page
+        @include phone{
+            @include Auth; width:100%;
+
+            header{ justify-content:space-evenly; top:40px; align-items:center;
+                .phoneYes{ display:block; font-size:42px; }
+               
+                .logo{display:none;}
+                
+                .showOff{ width:fit-content; margin:0; .icon{display:none;}
+
+                    nav a{ text-decoration:none; color:$black; margin:0; font-size: 20px;
+                        border:none; padding:5px 15px; border-radius:20px
+                    }
+                }
+
+            }
+           
+            .body{ 
+                .BackGround .Message.Reset-Password{ width:320px; button{width:75%;} }
+                
+                .LeftSide{ width:100%;
+                    h1 , h4{display:none;}
+
+                    button{ width:74%; padding:10px; font-size:17px;  margin:15px 0; border-radius:20px; pointer-events:painted;}
+
+                    .PhoneSizeOnly{ display:block; font-weight:bold; text-transform:uppercase; width:71%; text-align:left;  }
+
+                    input{ border:none; border-bottom:1px solid $black; padding:10px 0; width:70%; margin:0; margin-bottom:40px; 
+                    }
+
+                    .passwords{ display:grid; grid-template-columns:repeat(2,55%); gap:0;  width:70%;
+                        input{ width:80%; padding:9px 0; margin-bottom:25px;}
+                    }
+
+                    .already{ font-size:16px;  margin:10px 0; pointer-events:none; span{ pointer-events:none; } }
+
+                    .error{ display:inline; width:80%; color:red; margin:0; }
+
+                    .or{  font-size:16px; margin:20px; pointer-events:none;
+                        &::before{  width:45%;  left:-80px; top:9px; }
+                        &::after{  width:45%;  right:-80px; top:9px; }
+                    }
+
+                }
+                .BackGround .Message{  width:64%; h3{font-size:19px; width:90%; } }
+                
+                //! Hide this 
+                .RightSide{display:none;}
+
+            }
+        }
+    }
+
+    .Authentication{
+
+        @include SmallTablets(){
+            @include Auth;
+
+            header{ justify-content:space-between;
+                .phoneNone{ display:none; }
+                .logo{margin:0 50px; color:$white; pointer-events:none;}
+                .showOff{ width:fit-content; margin:0 50px; .icon{display:none;} }
+            }
+           
+            .body{
+                
+                .RightSide{ width:100%;  
+                    
+                    .swiper-button-prev{ display:none; }
+                    .swiper-button-next{display:none; }
+
+                    .swiper-slide{ height:70vh;
+
+                        .text{bottom:50px; width:100%; text-align:center; display:flex; flex-direction:column; align-items:center;
+                            i{left:20%; align-self:flex-start;}
+                            p{ margin:0; font-size:20px; }
+                        }
+
+                        .navigation{ display:none; }
+                    }
+                }
+                
+                //! Hide this 
+                .LeftSide{ display: none;}
+
+                //! Show this
+                .phone{display:flex; flex-direction:column; align-items:center; position:fixed; bottom:0; width:100%; z-index:105; background:$white;
+                    color:$black; padding:30px 0; border-radius:20px 20px 0 0;
+
+                    h1{ font-size:45px; text-transform:uppercase; pointer-events:none; }
+                    p{ margin:22px 0; margin-bottom:30px; font-size:18px; width:55%; height:42px; overflow:hidden; pointer-events:none;}
+
+                    .largeButton{ width:55%;  background:$black; border-radius:20px; display:flex; justify-content:space-evenly;
+                        position: relative; overflow:hidden;
+
+                        a{ background:none; cursor:pointer; border:none; font-size:18px; width:38%; padding:10px 0; color:$white; text-decoration:none;   }
+
+                        &::before{ content:""; position:absolute; left:50%; translate:-50%; top:0; height:100px; width:2px; z-index:100; background:$white;
+                            opacity:.7;
+                        }
+                    }
+    
+                }
+            }
+        }
+
+        @include phone{
+            @include Auth;
+
+            header{ justify-content:space-between;
+                .phoneNone{ display:none; }
+                .logo{margin:0 15px; color:$white; pointer-events:none;}
+                .showOff{ width:fit-content; margin:0 15px; .icon{display:none;} }
+
+                nav a{ text-decoration:none; color:$white; margin:0 5px; font-size: 16px; font-weight:bold; transition:.3s;
+                    border:2px solid $violet; padding:5px 15px; border-radius:20px
+                }
+            }
+           
+            .body{
+                .RightSide{ width:100%;  
+                    .swiper-slide .text p{font-size:19px;}
+                    
+                    .swiper-button-prev{ display:none; }
+                    .swiper-button-next{display:none; }
+
+                    .swiper-slide{ height:70vh;
+
+                        .text{bottom:55px; width:100%; text-align:center; display:flex; flex-direction:column; align-items:center;
+                            i{left:20%; align-self:flex-start;}
+                            p{ margin:0; font-size:19px; width:90%;}
+                        }
+
+                        .navigation{ display:none; }
+                    }
+                }
+                
+                //! Hide this 
+                .LeftSide{ display: none;}
+
+                //! Show this
+                .phone{display:flex; flex-direction:column; align-items:center; position:fixed; bottom:0; width:100%; z-index:105; background:$white;
+                    color:$black; padding:30px 0; border-radius:20px 20px 0 0;
+
+                    h1{ font-size:35px; text-transform:uppercase; pointer-events:none; }
+                    p{ margin:25px 0; font-size:18px; width:75%; height:fit-content; overflow:none; pointer-events:none;}
+
+                    .largeButton{ width:75%;  background:$black; border-radius:20px; display:flex; justify-content:space-evenly;
+                        position: relative; overflow:hidden;
+
+                        a{ background:none; cursor:pointer; border:none; font-size:18px; width:38%; padding:10px 0; color:$white; text-decoration:none;   }
+
+                        &::before{ content:""; position:absolute; left:50%; translate:-50%; top:0; height:100px; width:2px; z-index:100; background:$white;
+                            opacity:.7;
+                        }
+                    }
+    
+                }
+            }
+        }
+    }
+
+    .ResetPassword{
+
+        width:100%; height:100vh; background:$white;
+        display: flex; justify-content:space-evenly; gap:20px; align-items:center;
+
+        .logo{ position:fixed; top:30px; left:10px;   display:flex; align-items:center; margin:0 70px;
+
+            i{ margin:0 10px; svg{ color:limegreen; font-size:45px;} }  
+            span{ font-size: 25px; font-weight:bolder; }
+        }
+        .left img{ transform:scaleX(-1); width:90% }
+        
+        .right{ display:flex; flex-direction:column; align-items:center; text-align:center;
+
+            p{opacity:.8; margin:20px; width:70%; }
+            
+            input{ width:70%; background:rgba(204, 204, 204, 0.447); border:none;  padding:12px; 
+                color:limegreen; margin:5px;  &:focus{outline:none;}  border-radius:10px; margin:15px 0;
+            }
+
+            button{ margin:20px 0; background:limegreen; border:none; cursor:pointer; padding:10px 20px; border-radius:10px; font-weight:bold; 
+                width:75%; color:$white; transition:.3s; &:hover{ transition:.3s; background:$black; }display:flex; justify-content:center;
+            }
+            
+            a{ margin-top:0px; text-decoration:none; color:limegreen;   }
+            h4{ margin-top:10px; font-size:15px; text-align:center; }
+            
+        }
+        
+        @include SmallTablets(){
+            flex-direction:column; align-items:center;
+            
+            .left img{height:300px; width:100%; }
+
+            .right{
+                p{margin:10px;}
+                input{margin:10px 0;}
+            }
+        }
+
+        @include phone(){
+            .logo{ display:none; }
+            
+            flex-direction:column; align-items:center;
+            
+            .left img{height:290px; width:100%; }
+
+            .right{
+                p{margin:15px;}
+                input{margin:15px 0;}
+            }
+        }
+    }
 
 }
