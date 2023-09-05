@@ -26,11 +26,21 @@
 ## Backend
 
 ## User Interface Structure
-1. This is an overall image of the [user interface design](./assets/Screenshot%20from%202023-08-28%2016-52-49.png)
+1. This is an overall image of the [user interface design](./assets//user-interface.png).
+2. This is the link to the [figma file](https://www.figma.com/file/ApodrSdWEShpHn36QqRmDV/Chat-Call-app?type=design&mode=design&t=3ujTHEChPxCtH6T4-0)
 
 ## File Structure
-1. This is a [diagram](./assets/kerm%20AI%202.jpg) of the File Structure in depth.  
+1. This is a [diagram](./assets//user-interface.png) of the File Structure in depth.  
 
 ## DataBase
-1. This project uses one model which is the **User** model for database interaction & storing the data.
+1. This project uses the **UserModel** which is the used for database interaction & storing the data.
+2. And uses the **AccountModel** which is used for the accounts collection in the database.
+
+3. ### The messages process
+   1. In each user's document there is a connections array that has the user's each connection.
+   2. For each connection, we store the other user's information, including their name, ID, email, and profile image. Additionally, we maintain a 'messages' array that records the conversation between the two users.
+   3. Each connection is uniquely identified by a ***RoomConnectionID***. This ensures that only those specific users can communicate with each other.
+   4. When users exchange messages between each other, we'll preform send & receive through the socket connection, and then update the messages array of that connection (with each message we'll update the database. in a O(n) time complexity) The sown side of this will be a heavy load on the database. 
+   5. The users receive the new fresh messages from the socket connection not the database, but when refreshing they'll receive it from the database.
+   6. During the initial page refresh, we retrieve the user's complete data, which includes the most recent connections and messages.
     

@@ -24,4 +24,12 @@
 2. I've finished the logic, system design, backend, and frontend of the authentication system.
 3. Working on the database design and the low level design in deeper details. 
 4. I've Fixed a few bugs & security flaws in the system's design.  
-5. Organized the file structure & finished the Loading design.  
+5. Organized the file structure & finished the Loading design.
+
+## Ibrahim Ali- September 5 2023 
+1. Fixed critical stupid important bugs.
+2. Finished last touches on the Authentication system.
+3. implemented some unit tests & integration tests & Regression tests.
+4. Wrote in the documentation & revised Socket.io.
+5. Started planing the main page functionality.
+5. Started designing the system performance of the main page as the low level design.

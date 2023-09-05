@@ -21,6 +21,7 @@ let UserSchema = new Schema({
     connections: [
         {
             //! The other user's info
+            RoomConnectionId:String,
             TheirID: String,
             TheirImage: String,
             TheirName: String,

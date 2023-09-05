@@ -2,8 +2,8 @@
 This is a **Chat Website** project built with **Next.js 13** and **express-socket.io**  
 - Check **[Requirements.md](./documentation/Requirements.md)** To see the project's requirements.  
 - Check **[HighLevelDesign.md](./documentation/High-Level-Design.md)** (HLD) to see the project's HLD.  
-- Check **[LowLevelDesign.md](LowLevelDesign.md)** (LLD) to see the project's LLD.  
-- Check **[Timeline.md](Timeline.md)** to see the project's developing timeline.  
+- Check **[LowLevelDesign.md](./documentation/LowLevelDesign.md)** (LLD) to see the project's LLD.  
+- Check **[Development.md](./documentation/development.md)** to see the project's development timeline.  
 
 
 ## Project's Management
@@ -22,7 +22,7 @@ Budget: *0$*.
 
 # GETTING STARTED
 
-We Host Next.js & eExpress-Socket.io & Peer.js
+We Host Next.js & Express-Socket.io & Peer.js
 ```bash 
 # For Backend & frontend
 npm run dev
