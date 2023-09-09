@@ -13,13 +13,15 @@ export default function useSignUp(data: { email: string, image: any }, setData?:
     let router = useRouter()
 
     //! Send the user's data to the backend to check them
-    let SendData = async ({ name, email, password, image }: Form) => {
+    let SendData = async ({ name, username, email, password, image }: Form) => {
 
         dispatch(setLoading(true))
 
+        username = username.toLowerCase()
+
         let response = await fetch("http://localhost:3000/api/signup", {
             method: "POST", headers: { "Content-Type": "Application/json" },
-            body: JSON.stringify({ name, email, password })
+            body: JSON.stringify({ name, username, email, password })
         })
 
         let result = await response.json();
@@ -37,6 +39,7 @@ export default function useSignUp(data: { email: string, image: any }, setData?:
     //! Send the user's email to the backend to verify that he/she verified their email
     let Validate = async () => {
 
+        setVerifyEmail('')
         dispatch(setLoading(true))
         let formData = new FormData();
 

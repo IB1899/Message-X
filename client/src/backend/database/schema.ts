@@ -16,28 +16,47 @@ let UserSchema = new Schema({
     image: {
         type: String,
     },
+    username:String,
+
+    requests:[
+        {
+            name:String,
+            email:String,
+            id:String,
+            image:String,
+        
+        }
+    ],
 
     //! Necessary but not required
     connections: [
         {
+            //! The connection's settings
+            RoomConnectionId: String,
+            notification: Boolean,
+
             //! The other user's info
-            RoomConnectionId:String,
-            TheirID: String,
-            TheirImage: String,
-            TheirName: String,
-            TheirEmail: String,
+            id: String,
+            image: String,
+            username:String,
+            name: String,
+            email: String,
+            description: String,
+            story:String,
 
             //! The messages
             messages: [
                 {
                     from: String,
                     message: String,
+                    time: String
                 }
             ]
         }
     ],
 
     //! Optional
+    story: String,
     PrivateAccount: Boolean,
     notification: {
         type: Boolean
@@ -65,7 +84,7 @@ let UserSchema = new Schema({
     gender: {
         type: String
     },
-    Country: {
+    country: {
         type: String
     }
 

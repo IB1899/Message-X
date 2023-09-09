@@ -13,7 +13,7 @@ export let POST = async (request: Request) => {
         let { email, password } = await request.json()
         if (!email || !password) throw Error("The data wasn't provided")
 
-        let user = await UserModel.findOne({ email }, { name: 1, password: 1 })
+        let user = await UserModel.findOne({ email })
         if (!user?.name) throw Error("There's no such a user. please create account if you don't have one")
 
         //! If the user has an account, but was created through OAuth

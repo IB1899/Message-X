@@ -19,12 +19,12 @@ import { useRouter } from "next/navigation";
 //! Lazily load this component 
 let Message = dynamic(() => import("../auth/Message"))
 
-export type Form = { name: string, email: string, password: string, confirmPassword: string, image?: any }
+export type Form = { name: string, email: string, password: string, confirmPassword: string, username: string, image?: any }
 const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/png", "image/svg"];
 
 export default function LeftSide() {
 
-    let {push} = useRouter()
+    let { push, prefetch } = useRouter()
 
     //! Redux: Only the SignUpSlice is used in the 'signup' route
     let dispatch = useDispatch<AppDispatch>()
@@ -34,6 +34,7 @@ export default function LeftSide() {
     //! Zod Validation
     let schema: ZodType<Form> = z.object({
         name: z.string().min(3).max(20),
+        username: z.string().min(3).max(20),
         email: z.string().email(),
         password: z.string().min(10),
         confirmPassword: z.string(),
@@ -44,6 +45,9 @@ export default function LeftSide() {
     }).refine((data) => data.password === data.confirmPassword, {
         message: "The passwords you entered don't match",
         path: ['confirmPassword']
+    }).refine((data) => !data.username.includes(" "), {
+        message: "The username mustn't contain space",
+        path: ['username']
     })
 
     let { register, handleSubmit, formState: { errors } } = useForm<Form>({ resolver: zodResolver(schema) })
@@ -51,6 +55,7 @@ export default function LeftSide() {
     //* To show only one message at a time
     let ZodErrors = () => {
         if (errors.name) return <h4 className="error"> Please Enter your name, and must be for than 3 characters less & than 30 </h4>
+        if (errors.username) return <h4 className="error">Please enter the username & it must not contain any spaces </h4>
         else if (errors.email) return <h4 className="error"> {errors.email.message} </h4>
         else if (errors.password) return <h4 className="error"> Password must be at least 10 characters </h4>
         else if (errors.confirmPassword) return <h4 className="error"> {errors.confirmPassword.message} </h4>
@@ -81,9 +86,13 @@ export default function LeftSide() {
                 </button>
                 <p className="or"> or continue with email </p>
 
-                <label className="PhoneSizeOnly">Name</label>
-                <input disabled={Loading} type="text" placeholder="name*" {...register("name")} />
+                <div className="passwords">
+                    <label className="PhoneSizeOnly">Name</label>
+                    <label className="PhoneSizeOnly">username</label>
+                    <input disabled={Loading} type="text" placeholder="name*" {...register("name")} />
+                    <input disabled={Loading} type="text" placeholder="username*" {...register("username")} />
 
+                </div>
                 <label className="PhoneSizeOnly">Email</label>
                 <input disabled={Loading} type="email" placeholder="Email*" {...register("email")} />
 
@@ -101,14 +110,14 @@ export default function LeftSide() {
 
                 </div>
 
-                <button className="lastButton" disabled={Loading} type="submit">
+                <button className="lastButton" disabled={Loading} type="submit" onMouseOver={() => prefetch("/main")} >
                     {Success ? "Create Account" :
                         Loading ? <LineWobble size={80} lineWeight={5} speed={1.75} color="white" /> : "Create Account"
                     }
                 </button>
 
                 <p className="already"> Already have an account?
-                    <span onClick={()=> push("/authentication/login") } >Log in</span>
+                    <span style={{ pointerEvents: Loading ? "none" : "painted" }} onClick={() => push("/authentication/login")} >Log in</span>
                 </p>
             </form>
         </>

@@ -22,7 +22,7 @@ export default function LeftSide() {
 
     let dispatch = useDispatch<AppDispatch>()
 
-    let { push } = useRouter()
+    let { push , prefetch } = useRouter()
 
     let { Success, Failed, Loading, isForgotPassword } = useAppSelector((state => state.AuthSlice))
 
@@ -60,17 +60,17 @@ export default function LeftSide() {
                 <input disabled={Loading} type="password" required placeholder="password*" ref={passwordRef} />
 
                 <div className="links">
-                    <span onClick={() => dispatch(setIsForgotPassword(true))} > Forgot Your Password? </span>
+                    <span style={{ pointerEvents:Loading?"none":"painted" }} onClick={() => dispatch(setIsForgotPassword(true))} > Forgot Your Password? </span>
                 </div>
 
-                <button className="lastButton" disabled={Loading} type="submit">
+                <button className="lastButton" disabled={Loading} type="submit" onMouseOver={()=> prefetch("/main") } >
                     {isForgotPassword ? "Log in" :
                         Loading ? <LineWobble size={80} lineWeight={5} speed={1.75} color="white" /> : "Log in"
                     }
                 </button>
 
                 <p className="already"> Don`t have an account yet?
-                    <span onClick={() => push("/authentication/signup")} >Signup</span>
+                    <span style={{ pointerEvents:Loading?"none":"painted" }} onClick={() => push("/authentication/signup")} >Signup</span>
                 </p>
             </form>
         </>

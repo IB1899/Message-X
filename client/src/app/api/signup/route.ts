@@ -17,9 +17,9 @@ const firebaseApp = initializeApp(firebaseConfig);
 export let POST = async (request: NextRequest) => {
     try {
         //* The signup data that we receive from the frontend 
-        let { name, email, password }: { name: string, email: string, password: string } = await request.json()
+        let { name, email, password, username }: { name: string, email: string, password: string , username:string } = await request.json()
 
-        if (!name || !email || !password) { return NextResponse.json({ failed: "The user's information wasn't provided" }) }
+        if (!name || !email || !password || !username) { return NextResponse.json({ failed: "The user's information wasn't provided" }) }
 
         //? Verify that the email is not taken. O(n)
         let isEmailExists = await UserModel.findOne({ email }, { name: 1 })
@@ -63,7 +63,7 @@ export let POST = async (request: NextRequest) => {
                 <body><h1>This is an email from the Messages app</h1><p>it is sent to you because you are 
                 trying to create an account in our application. please click the link down blow to verify 
                 your email. If you are not trying to create an account in the Messages app, just ignore 
-                this email. </p><a href="http://localhost:3000/api/signup?&token=${token}&email=${email}&password=${password}&name=${name}" >Verify Your Email </a></body></html>
+                this email. </p><a href="http://localhost:3000/api/signup?&token=${token}&email=${email}&password=${password}&name=${name}&username=${username}" >Verify Your Email </a></body></html>
             `
         })
 
@@ -95,6 +95,7 @@ export let GET = async (request: Request) => {
     try {
         let url = new URL(request.url)
         let name = url.searchParams.get("name")
+        let username = url.searchParams.get("username")
         let email = url.searchParams.get("email")
         let password = url.searchParams.get("password")
         let token = url.searchParams.get("token")
@@ -108,7 +109,7 @@ export let GET = async (request: Request) => {
             if (isVerified) {
 
                 //* O(1)
-                let result = await UserModel.create({ name, email, password })
+                let result = await UserModel.create({ name, username, email, password })
 
                 return NextResponse.redirect("http://localhost:3000/status?message=verified", { status: 302, headers })
             }
@@ -149,7 +150,7 @@ export let PUT = async (request: NextRequest) => {
 
         let user = await UserModel.findOneAndUpdate({ email }, { image: downloadURL })
 
-        return NextResponse.json({ success: "success", user })
+        return NextResponse.json({ success: "success", user: { name: user.name, email: user.email, _id: user._id, image: downloadURL } })
     }
     catch (err: any) {
         console.log(err.message);

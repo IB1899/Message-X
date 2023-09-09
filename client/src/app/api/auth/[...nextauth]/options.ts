@@ -34,8 +34,6 @@ let authOptions: NextAuthOptions = {
             },
 
             async authorize(credentials, request) {
-                console.log(credentials);
-                
 
                 if (credentials?.operation === "SIGNUP" || credentials?.operation === "LOGIN") {
                     let { operation, ...rest } = credentials!
@@ -88,7 +86,7 @@ let authOptions: NextAuthOptions = {
             let authToken = await new jose.SignJWT({ name: user.name }).setProtectedHeader({ alg: "HS256" }).setIssuedAt()
                 .setExpirationTime("1d").sign(new TextEncoder().encode(process.env.JWT_SECRET!))
 
-            cookies().set("authToken", authToken, { maxAge: 1000 * 60 * 60 * 24 })
+            cookies().set("authToken", authToken, { maxAge: 1000 * 60 * 60 * 60})
 
             return true
         }
