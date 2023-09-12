@@ -5,36 +5,49 @@ interface session {
     image: string
 }
 
-
 interface FullUser {
-    name:string,
-    email:string,
-    image:string,
+    _id:string
+    name: string,
+    email: string,
+    image: string,
+    username:string,
+    requests?: {
+        name: String,
+        email: String,
+        id: String,
+        image: String,
+    }[],
     connections?: [
         {
-            RoomConnectionId:string,
-            TheirID: string,
-            TheirImage: string,
-            TheirName: string,
-            TheirEmail: string,
+            RoomConnectionId: string,
+            notification: boolean,
+
+            id: string,
+            image: string,
+            username: string,
+            name: string,
+            email: string,
+            description: string,
+            story: string,
 
             messages: [
                 {
                     from: string,
                     message: string,
-                    time:string
+                    time: string
                 }
             ]
         }
     ],
-    PrivateAccount?: boolean,
-    notification?:boolean
-    status?:boolean
-    stories?:boolean
+    story?:string,
+    privateAccount?: boolean,
+    notification?: boolean
+    status?: boolean
+    publicStories?: boolean
     password?: string,
-    description?:string
-    age?:number
+    description?: string
+    age?: number
     phoneNumber?: number,
     gender?: string
-    Country?:string
+    Country?: string
 }

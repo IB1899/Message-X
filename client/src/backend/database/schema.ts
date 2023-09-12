@@ -57,14 +57,14 @@ let UserSchema = new Schema({
 
     //! Optional
     story: String,
-    PrivateAccount: Boolean,
+    privateAccount: Boolean,
     notification: {
         type: Boolean
     },
     status: {
         type: Boolean
     },
-    stories: {
+    publicStories: {
         type: Boolean
     },
     password: {

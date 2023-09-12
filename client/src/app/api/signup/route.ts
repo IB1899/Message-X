@@ -109,7 +109,7 @@ export let GET = async (request: Request) => {
             if (isVerified) {
 
                 //* O(1)
-                let result = await UserModel.create({ name, username, email, password })
+                let result = await UserModel.create({ name, username, email, password , notification:true , status:true, privateAccount:false , publicStories:true })
 
                 return NextResponse.redirect("http://localhost:3000/status?message=verified", { status: 302, headers })
             }

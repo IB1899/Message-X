@@ -42,5 +42,10 @@
    3. Each connection is uniquely identified by a ***RoomConnectionID***. This ensures that only those specific users can communicate with each other.
    4. When users exchange messages between each other, we'll preform send & receive through the socket connection, and then update the messages array of that connection (with each message we'll update the database. in a O(n) time complexity) The sown side of this will be a heavy load on the database. 
    5. The users receive the new fresh messages from the socket connection not the database, but when refreshing they'll receive it from the database.
-   6. During the initial page refresh, we retrieve the user's complete data, which includes the most recent connections and messages.
-    
+   6. During the initial page refresh, we retrieve the user's complete data, which includes the most recent connections and messages. 
+
+4. ### The users settings
+    1. When a user wants to connect with a private user, the private user must accept the connection request.
+    2. When a user searches for another user and clicks on it. each user will be add to the connections fo the other.
+    3. When a user deletes another user from his contacts, it will be deleted only from his contacts. The deleted user still has the user who deleted him in his contacts , and when he messages the other user it will be add again.
+    4. When a user clicks on the yser that he searched for, a new connection will be made between the two users.

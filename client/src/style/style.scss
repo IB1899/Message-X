@@ -668,7 +668,7 @@ $white:white;
                 span{ background:$white; width:150%; height:1px; margin:10px 0; }
             }
 
-            .profile{ margin-bottom:20px; 
+            .profile{ margin-bottom:20px;  border-radius:none; background:none; border: none;
                 img{border-radius:50%; padding:2px; background:$white; border:2px solid $violet; object-fit:cover; }
             }
         }
@@ -677,7 +677,7 @@ $white:white;
             .BigBar{ width:300px; background:#202020; color:$white; height:100vh; display:flex; flex-direction:column;
                 align-items:center; position:relative; border-right:1px solid $violet; 
     
-                .Stories{ display:flex; justify-content:center;  width:90%; margin-top:15px; height:145px;
+                .Stories{ display:flex; justify-content:center;  width:90%; margin-top:15px; 
                     
                     .swiper-wrapper .swiper-slide{  
                         img{ border-radius:50%; object-fit:cover; border:2px solid $violet; cursor:pointer; }
@@ -759,27 +759,48 @@ $white:white;
                         }
                     }
                 }
+
+                .Settings{ display: flex; flex-direction:column; align-items:center; width:95%; color:$white;
+
+                    h2{font-size:25px; margin:20px 15px; text-align:left; align-self:flex-start;}
+
+                    .setting{ display:flex; justify-content:space-around; margin:7px 0; width:100%;
+
+                        i{ font-size:29px; color:$violet; }
+                        
+                        .description{text-align:left; display: grid; grid-template-columns: repeat(2,auto); position:relative; width:80%;
+
+                            p{opacity: .7; font-size:12px; grid-column:1/3; margin:10px 0;}
+                            h3{margin-right:15px; font-size:18px;}
+
+                            input{background:$white; width:50px; height:25px; border-radius:20px; position:absolute; right:2px; top:0; outline:none; appearance:none;
+                                transition:.5s;
+                                &::before{content: '';cursor:pointer;  position:absolute; width:23px; height:23px; border-radius:50%; top:1px; background:gray; left:2px; transition:.5s;}
     
-            }
-        }
-
-        .Setting{ background: rebeccapurple; width:100%;
-
-            .BigBar{ width:300px; background:#202020; color:$white; height:100vh; display:flex; flex-direction:column;
-                align-items:center; position:relative; border-right:1px solid $violet;  
-
-                .Stories{ display:flex; justify-content:center;  width:90%; margin-top:15px; height:90px;
-                    
-                    .swiper-wrapper .swiper-slide{  
-                        img{ border-radius:50%; object-fit:cover; border:2px solid $violet; cursor:pointer; }
+                                &:checked::before{content: ''; cursor:pointer; position:absolute; transition:.5s; width:23px; height:23px; border-radius:50%; top:1px; background:$violet; left:25px;}
+                            }
+                        }
                     }
-    
-                    .swiper-pagination-bullet{ cursor: pointer;   bottom:0; background:$white; z-index:10; 
-                        width:11px; height:11px; 
+
+                    button{ width:93%; background:$white; color:$black; cursor: pointer; padding:10px 15px; margin:10px 0; border:none; 
+                        font-size:18px; border-radius:15px; font-weight:bold; position: relative; text-align:left; transition:.4; 
+                        svg{color:$violet; font-size:24px; position:absolute; right:20px;} 
+
+                        &:hover{ background:$violet; color:$white; transition:.4s; text-align:center; svg{display:none;} }
                     }
+
+                    .buttons{ display:flex; justify-content:space-between; width:95%; margin-top:10px; margin-bottom:20px;
+                        button{ margin:0 5px; width:100%; svg{right:10px} margin:0 5px;}
+                    }
+                    .delete{ color:red; background:$black; svg{ color:red; }}
+
+                    span{ width:95%; height:1px; background:$white; opacity:.8px; margin:3px 0; }
                 }
+    
             }
         }
+
+        
     }
 
 }

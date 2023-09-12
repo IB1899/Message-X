@@ -5,12 +5,10 @@ import MongoDbConnection from "@/backend/database/connect";
 MongoDbConnection()
 
 
+//! This route to get the user's full information after they login 
 export async function GET(request: Request, { params }: { params: { userId: string } }) {
     try {
-
-        
-        let user = await UserModel.findById(params.userId,
-            { _id: 1, image: 1, name: 1, username: 1, email: 1, story: 1, connections: 1, requests: 1, description: 1 });
+        let user = await UserModel.findById(params.userId);
 
         return NextResponse.json({ success: "success", user })
     }
@@ -19,5 +17,4 @@ export async function GET(request: Request, { params }: { params: { userId: stri
         return NextResponse.json({ failed: err.message })
 
     }
-
 }

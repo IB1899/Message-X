@@ -1,12 +1,12 @@
 import Image from "next/image";
 
-export default function Contacts({ connections }: { connections: any[] }) {
+export default function Contacts({ connections }: { connections?: any[] }) {
 
 
 
     return (
         <div className="Contacts">
-            {connections.map(connection => (
+            {connections && connections.map(connection => (
                 <div className="contact" key={connection._id}>
 
                     <Image src={connection.image} alt="user image" width={50} height={50} />

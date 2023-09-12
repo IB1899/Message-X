@@ -1,19 +1,26 @@
 "use client"
 
-import {  FaMicrosoft, FaRegCommentDots, FaXing } from "react-icons/fa"
-import { MdOutlineWebStories , MdLogout } from "react-icons/md"
+import { FaMicrosoft, FaRegCommentDots, FaXing } from "react-icons/fa"
+import { MdOutlineWebStories, MdLogout } from "react-icons/md"
 import { IoIosCreate } from "react-icons/io"
-import {RiSettings5Fill} from "react-icons/ri"
+import { RiSettings5Fill } from "react-icons/ri"
 
 import Link from "next/link"
-import { useSession } from "next-auth/react"
+import { signOut, useSession } from "next-auth/react"
 import { usePathname } from "next/navigation"
 import Image from "next/image"
+import { useDispatch } from "react-redux"
+import { AppDispatch, useAppSelector } from "@/toolkit/store"
+import { setIsProfile, setIsSettings } from "@/toolkit/slices/MainSlice"
 
 export default function SideBar() {
 
     let pathname = usePathname()
     let { data: session } = useSession()
+
+    let dispatch = useDispatch<AppDispatch>()
+
+    let { isSettings, isProfile } = useAppSelector((state => state.MainSlice))
 
     return (
         <nav>
@@ -23,26 +30,34 @@ export default function SideBar() {
             </div>
 
             <div className="links">
-                <Link href={"/main"} id="A1" className={ pathname === "/main" ? "active" : "" } > <FaRegCommentDots /> </Link>
-                <Link href={"/main/groups"} id="A2" className={ pathname === "/main/groups" ? "active" : "" } > <FaMicrosoft /> </Link>
+
+                <Link onClick={() => dispatch(setIsSettings(false))} href={"/main"} id="A1" className={pathname === "/main" ? "active" : ""} >
+                    <FaRegCommentDots />
+                </Link>
+
+                <Link onClick={() => dispatch(setIsSettings(false))} href={"/main/groups"} id="A2" className={pathname === "/main/groups" ? "active" : ""} >
+                    <FaMicrosoft />
+                </Link>
+
                 <span></span>
 
-                <Link href={"/main/stories"} id="A3" className={ pathname === "/main/stories" ? "active" : "" } > <MdOutlineWebStories /> </Link>
-                <button  id="A4" className={ pathname === "" ? "active" : "" } > <IoIosCreate /> </button>
+                <Link onClick={() => dispatch(setIsSettings(false))} href={"/main/stories"} id="A3" className={pathname === "/main/stories" ? "active" : ""} >
+                    <MdOutlineWebStories />
+                </Link>
+
+                <button id="A4" className={pathname === "" ? "active" : ""} > <IoIosCreate /> </button>
                 <span></span>
 
-                <button id="A5" className={ pathname === "" ? "active" : "" } > <MdLogout /> </button>
-                <Link href={"/main/settings"} id="A6" className={ pathname === "/main/settings" ? "active" : "" } > <RiSettings5Fill /> </Link>
+                <button id="A5" onClick={() => null}> <MdLogout /> </button>
+                <button id="A6" onClick={() => dispatch(setIsSettings(!isSettings))} > <RiSettings5Fill /> </button>
             </div>
 
-            <div className="profile">
-                {session ?
-                    <Link href={"/main/settings"}> <Image src={session.user.image} alt="profile image" width={45} quality={100} height={45} priority /> </Link> :
-                    null
-                }
-
-            </div>
-
+            {session ?
+                <button className="profile" onClick={() => dispatch(setIsProfile(!isProfile))}>
+                    <Image src={session.user.image} alt="profile image" width={45} quality={100} height={45} priority />
+                </button> :
+                null
+            }
         </nav>
     )
 }
