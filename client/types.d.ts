@@ -46,8 +46,8 @@ interface FullUser {
     publicStories?: boolean
     password?: string,
     description?: string
-    age?: number
-    phoneNumber?: number,
+    age?: string
+    phoneNumber?: string,
     gender?: string
     Country?: string
 }

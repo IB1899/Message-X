@@ -668,23 +668,26 @@ $white:white;
                 span{ background:$white; width:150%; height:1px; margin:10px 0; }
             }
 
-            .profile{ margin-bottom:20px;  border-radius:none; background:none; border: none;
+            .profile{ margin-bottom:20px;  border-radius:none; background:none; border: none; cursor: pointer;
                 img{border-radius:50%; padding:2px; background:$white; border:2px solid $violet; object-fit:cover; }
             }
         }
 
-        .Messages{
+        .Messages{ display:flex; width:100%;
+
             .BigBar{ width:300px; background:#202020; color:$white; height:100vh; display:flex; flex-direction:column;
-                align-items:center; position:relative; border-right:1px solid $violet; 
+                align-items:center; position:relative; border-right:1.5px solid $violet; 
     
-                .Stories{ display:flex; justify-content:center;  width:90%; margin-top:15px; 
+                .Stories{  width:100%;
+                    .Stories-swiper{ display:flex; justify-content:center;  width:90%; margin-top:15px;  padding-bottom:25px;
                     
-                    .swiper-wrapper .swiper-slide{  
-                        img{ border-radius:50%; object-fit:cover; border:2px solid $violet; cursor:pointer; }
-                    }
-    
-                    .swiper-pagination-bullet{ cursor: pointer;   bottom:0; background:$white; z-index:10; 
-                        width:11px; height:11px; 
+                        .swiper-wrapper .swiper-slide{  
+                            img{ border-radius:50%; object-fit:cover; border:2px solid $violet; cursor:pointer; }
+                        }
+        
+                        .swiper-pagination-bullet{ cursor: pointer;   bottom:0px; background:$white; z-index:10; 
+                            width:11px; height:11px; 
+                        }
                     }
                 }
     
@@ -760,43 +763,82 @@ $white:white;
                     }
                 }
 
-                .Settings{ display: flex; flex-direction:column; align-items:center; width:95%; color:$white;
+                
+            }
+            .Settings{ width:300px; background:#202020; color:$white; height:100vh; display:flex; flex-direction:column;
+                align-items:center; position:relative; border-right:1.5px solid $violet; 
 
-                    h2{font-size:25px; margin:20px 15px; text-align:left; align-self:flex-start;}
+                h2{font-size:25px; margin:20px 15px; text-align:left; align-self:flex-start;}
 
-                    .setting{ display:flex; justify-content:space-around; margin:7px 0; width:100%;
+                .setting{ display:flex; justify-content:space-around; margin:7px 0; width:100%;
 
-                        i{ font-size:29px; color:$violet; }
-                        
-                        .description{text-align:left; display: grid; grid-template-columns: repeat(2,auto); position:relative; width:80%;
+                    i{ font-size:29px; color:$violet; }
+                    
+                    .description{text-align:left; display: grid; grid-template-columns: repeat(2,auto); position:relative; width:80%;
 
-                            p{opacity: .7; font-size:12px; grid-column:1/3; margin:10px 0;}
-                            h3{margin-right:15px; font-size:18px;}
+                        p{opacity: .7; font-size:12px; grid-column:1/3; margin:10px 0;}
+                        h3{margin-right:15px; font-size:18px;}
 
-                            input{background:$white; width:50px; height:25px; border-radius:20px; position:absolute; right:2px; top:0; outline:none; appearance:none;
-                                transition:.5s;
-                                &::before{content: '';cursor:pointer;  position:absolute; width:23px; height:23px; border-radius:50%; top:1px; background:gray; left:2px; transition:.5s;}
-    
-                                &:checked::before{content: ''; cursor:pointer; position:absolute; transition:.5s; width:23px; height:23px; border-radius:50%; top:1px; background:$violet; left:25px;}
-                            }
+                        input{background:$white; width:50px; height:25px; border-radius:20px; position:absolute; right:2px; top:0; outline:none; appearance:none;
+                            transition:.5s;
+                            &::before{content: '';cursor:pointer;  position:absolute; width:23px; height:23px; border-radius:50%; top:1px; background:gray; left:2px; transition:.5s;}
+
+                            &:checked::before{content: ''; cursor:pointer; position:absolute; transition:.5s; width:23px; height:23px; border-radius:50%; top:1px; background:$violet; left:25px;}
                         }
                     }
-
-                    button{ width:93%; background:$white; color:$black; cursor: pointer; padding:10px 15px; margin:10px 0; border:none; 
-                        font-size:18px; border-radius:15px; font-weight:bold; position: relative; text-align:left; transition:.4; 
-                        svg{color:$violet; font-size:24px; position:absolute; right:20px;} 
-
-                        &:hover{ background:$violet; color:$white; transition:.4s; text-align:center; svg{display:none;} }
-                    }
-
-                    .buttons{ display:flex; justify-content:space-between; width:95%; margin-top:10px; margin-bottom:20px;
-                        button{ margin:0 5px; width:100%; svg{right:10px} margin:0 5px;}
-                    }
-                    .delete{ color:red; background:$black; svg{ color:red; }}
-
-                    span{ width:95%; height:1px; background:$white; opacity:.8px; margin:3px 0; }
                 }
-    
+
+                button{ width:93%; background:$white; color:$black; cursor: pointer; padding:10px 15px; margin:10px 0; border:none; 
+                    font-size:18px; border-radius:15px; font-weight:bold; position: relative; text-align:left; transition:.4; 
+                    svg{color:$violet; font-size:24px; position:absolute; right:20px;} 
+
+                    &:hover{ background:$violet; color:$white; transition:.4s; text-align:center; svg{display:none;} }
+                }
+
+                .buttons{ display:flex; justify-content:space-between; width:95%; margin-top:10px; margin-bottom:20px;
+                    button{ margin:0 5px; width:100%; svg{right:10px} margin:0 5px;}
+                }
+                .delete{ color:red; background:$black; svg{ color:red; }}
+
+                span{ width:95%; height:1px; background:$white; opacity:.8px; margin:3px 0; }
+            }
+
+            .Profile{  width:70%; height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; color:$violet;
+
+                .top{ display:flex; justify-content:space-between;  align-items:center;
+                    img{ border-radius:50%; object-fit:cover;  }
+
+                    label{ cursor: pointer; position:relative; right:20px; top:30px; font-size:22px; background:$violet; color:$white; border-radius:50%; 
+                        width:29px; height:29px; display:flex; align-items:center; justify-content:center;
+                    }
+                    #file{ display:none }
+
+                    .user-details{text-align:left; 
+                        p{ color:$white; opacity:.8; }
+                    }
+                }
+
+                .middle{ display:grid; grid-template-columns:repeat(2,auto); justify-content:left; text-align:left; margin:25px;
+
+                    div{ display:flex; flex-direction:column; align-items:flex-start;  margin:20px 30px;
+                        
+                        label{margin:5px;}
+
+                        input{ outline:none; background:none; border:none; border-bottom:1px solid $violet; padding:10px; width:210px; color:$white; }
+                    }
+                }
+
+                .bottom{ display:flex; justify-content:space-between; color:$white; width:50%;
+                    
+                    button{ border:none; background:$white; cursor: pointer; padding:8px 15px; font-weight:bold; display:flex; align-items:center;
+                        i{color:$black; font-size:22px; margin:0 5px; translate:0 2px;} transition:.4 ease;
+
+                        &:hover{ background:$violet; color:$white; transition:.4s ease; }
+                    }
+                }
+
+                .message{ margin-top:40px; p{ font-weight:700; color:$white; } }
+
             }
         }
 

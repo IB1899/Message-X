@@ -7,20 +7,32 @@ import { RiSettings5Fill } from "react-icons/ri"
 
 import Link from "next/link"
 import { signOut, useSession } from "next-auth/react"
-import { usePathname } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 import Image from "next/image"
 import { useDispatch } from "react-redux"
 import { AppDispatch, useAppSelector } from "@/toolkit/store"
 import { setIsProfile, setIsSettings } from "@/toolkit/slices/MainSlice"
+import useLogOut from "@/hooks/logout"
 
 export default function SideBar() {
 
     let pathname = usePathname()
+    let router = useRouter()
     let { data: session } = useSession()
 
     let dispatch = useDispatch<AppDispatch>()
 
     let { isSettings, isProfile } = useAppSelector((state => state.MainSlice))
+
+    //! Open the settings popup
+    let openSettings = () => {
+        if (pathname !== "/main") {
+            router.push("/main")
+        }
+        dispatch(setIsSettings(!isSettings))
+    }
+
+    let { SignOut } = useLogOut()
 
     return (
         <nav>
@@ -31,11 +43,11 @@ export default function SideBar() {
 
             <div className="links">
 
-                <Link onClick={() => dispatch(setIsSettings(false))} href={"/main"} id="A1" className={pathname === "/main" ? "active" : ""} >
+                <Link onClick={() => dispatch(setIsSettings(false))} href={"/main"} id="A1" className={pathname === "/main" && !isSettings ? "active" : ""} >
                     <FaRegCommentDots />
                 </Link>
 
-                <Link onClick={() => dispatch(setIsSettings(false))} href={"/main/groups"} id="A2" className={pathname === "/main/groups" ? "active" : ""} >
+                <Link onClick={() => dispatch(setIsSettings(false))} href={"/main/groups"} id="A2" className={pathname === "/main/groups" && !isSettings ? "active" : ""} >
                     <FaMicrosoft />
                 </Link>
 
@@ -48,8 +60,8 @@ export default function SideBar() {
                 <button id="A4" className={pathname === "" ? "active" : ""} > <IoIosCreate /> </button>
                 <span></span>
 
-                <button id="A5" onClick={() => null}> <MdLogout /> </button>
-                <button id="A6" onClick={() => dispatch(setIsSettings(!isSettings))} > <RiSettings5Fill /> </button>
+                <button id="A5" onClick={SignOut}> <MdLogout /> </button>
+                <button id="A6" className={isSettings ? "active" : ""} onClick={openSettings} > <RiSettings5Fill /> </button>
             </div>
 
             {session ?

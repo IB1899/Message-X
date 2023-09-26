@@ -8,7 +8,7 @@ import { MdLogout } from "react-icons/md";
 import { LuRefreshCw } from "react-icons/lu";
 import { ChangeEvent, useState } from "react";
 import { useRouter } from "next/navigation";
-import { signOut } from "next-auth/react";
+import useLogOut from "@/hooks/logout";
 
 export default function SettingsBigBar({ user }: { user: FullUser }) {
 
@@ -56,17 +56,7 @@ export default function SettingsBigBar({ user }: { user: FullUser }) {
 
 
     //! sign users out
-    let SignOut = async () => {
-
-        //! 1- Clear the Auth cookie
-        let response = await fetch("http://localhost:3000/api/settings");
-        let result = await response.json();
-        console.log(`result:`, result)
-
-        //! 2- Clear the session 
-        await signOut()
-        window.location.reload()
-    }
+    let {SignOut} = useLogOut()
 
     return (
         <div className="Settings">

@@ -7,6 +7,7 @@ import Contacts from "./Contacts"
 import { useDispatch } from "react-redux"
 import { AppDispatch, useAppSelector } from "@/toolkit/store"
 import SettingsBigBar from "../settings/SettingsBigBar"
+import Profile from "../settings/Profile"
 
 export default function MessagesBigBar({ user }: { user: FullUser }) {
 
@@ -23,28 +24,32 @@ export default function MessagesBigBar({ user }: { user: FullUser }) {
     let { isSettings, isProfile } = useAppSelector((state => state.MainSlice))
 
     return (
-        <div className="BigBar" >
-
-
+        <>
             {isSettings ?
                 <SettingsBigBar user={user} />
                 :
-                <>
-                    <Stories />
-                    <div className="title">
-                        <h2>Messages   </h2>
-                        <span>22 new</span>
-                        <i> <FaGlassCheers /> </i>
-                    </div>
+                <div className="BigBar" >
 
-                    <Search user={user} />
+                    <>
+                        <Stories />
+                        <div className="title">
+                            <h2>Messages   </h2>
+                            <span>22 new</span>
+                            <i> <FaGlassCheers /> </i>
+                        </div>
 
-                    <h2 className="h2">Contacts</h2>
-                    <Contacts connections={user.connections} />
-                </>
+                        <Search user={user} />
+
+                        <h2 className="h2">Contacts</h2>
+                        <Contacts connections={user.connections} />
+                    </>
+
+                </div>
             }
 
-
-        </div>
+            {isProfile ?
+                <Profile user={user} /> : null
+            }
+        </>
     )
 }

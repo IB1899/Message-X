@@ -20,66 +20,69 @@ export default function Stories() {
 
 
     return (
-        <Swiper className="Stories"
+        <div className="Stories">
 
-            // effect="coverflow"
-            modules={[Navigation, Pagination]}
-            navigation={true}
-            slidesPerView={4}
-            pagination={{ clickable: true, dynamicBullets: true, }}
+            <Swiper className="Stories-swiper"
+
+                // effect="coverflow"
+                modules={[Navigation, Pagination]}
+                // navigation={true}
+                slidesPerView={4}
+                pagination={{ clickable: true, dynamicBullets: true, }}
 
 
 
-        // onSlideChange={() => console.log('slide change')}
-        >
-            <SwiperSlide>
-                <Image src={img1} width={55} height={55} alt="astronaut" priority />
-            </SwiperSlide>
+            // onSlideChange={() => console.log('slide change')}
+            >
+                <SwiperSlide>
+                    <Image src={img1} width={55} height={55} alt="astronaut" priority />
+                </SwiperSlide>
 
-            <SwiperSlide>
-                <Image src={img2} width={55} height={55} alt="astronaut" priority />
-            </SwiperSlide>
+                <SwiperSlide>
+                    <Image src={img2} width={55} height={55} alt="astronaut" priority />
+                </SwiperSlide>
 
-            <SwiperSlide>
-                <Image src={img3} quality={100} width={55} height={55} alt="astronaut" priority />
-            </SwiperSlide>
+                <SwiperSlide>
+                    <Image src={img3} quality={100} width={55} height={55} alt="astronaut" priority />
+                </SwiperSlide>
 
-            <SwiperSlide>
-                <Image src={img4} quality={100} width={55} height={55} alt="astronaut" priority />
-            </SwiperSlide>
-            <SwiperSlide>
-                <Image src={img1} quality={100} width={55} height={55} alt="astronaut" priority />
-            </SwiperSlide>
-            <SwiperSlide>
-                <Image src={img1} width={55} height={55} alt="astronaut" priority />
-            </SwiperSlide>
+                <SwiperSlide>
+                    <Image src={img4} quality={100} width={55} height={55} alt="astronaut" priority />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <Image src={img1} quality={100} width={55} height={55} alt="astronaut" priority />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <Image src={img1} width={55} height={55} alt="astronaut" priority />
+                </SwiperSlide>
 
-            <SwiperSlide>
-                <Image src={img2} width={55} height={55} alt="astronaut" priority />
-            </SwiperSlide>
+                <SwiperSlide>
+                    <Image src={img2} width={55} height={55} alt="astronaut" priority />
+                </SwiperSlide>
 
-            <SwiperSlide>
-                <Image src={img3} quality={100} width={55} height={55} alt="astronaut" priority />
-            </SwiperSlide>
+                <SwiperSlide>
+                    <Image src={img3} quality={100} width={55} height={55} alt="astronaut" priority />
+                </SwiperSlide>
 
-            <SwiperSlide>
-                <Image src={img4} quality={100} width={55} height={55} alt="astronaut" priority />
-            </SwiperSlide>
-            <SwiperSlide>
-                <Image src={img1} quality={100} width={55} height={55} alt="astronaut" priority />
-            </SwiperSlide>
+                <SwiperSlide>
+                    <Image src={img4} quality={100} width={55} height={55} alt="astronaut" priority />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <Image src={img1} quality={100} width={55} height={55} alt="astronaut" priority />
+                </SwiperSlide>
 
-            <SwiperSlide>
-                <Image src={img2} quality={100} width={55} height={55} alt="astronaut" priority />
-            </SwiperSlide>
+                <SwiperSlide>
+                    <Image src={img2} quality={100} width={55} height={55} alt="astronaut" priority />
+                </SwiperSlide>
 
-            <SwiperSlide>
-                <Image src={img3} quality={100} width={55} height={55} alt="astronaut" priority />
-            </SwiperSlide>
+                <SwiperSlide>
+                    <Image src={img3} quality={100} width={55} height={55} alt="astronaut" priority />
+                </SwiperSlide>
 
-            <SwiperSlide>
-                <Image src={img4} quality={100} width={55} height={55} alt="astronaut" priority />
-            </SwiperSlide>
-        </Swiper>
+                <SwiperSlide>
+                    <Image src={img4} quality={100} width={55} height={55} alt="astronaut" priority />
+                </SwiperSlide>
+            </Swiper>
+        </div>
     )
 }

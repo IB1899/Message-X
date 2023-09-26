@@ -73,8 +73,7 @@ export default function useSignUp(data: { email: string, image: any }, setData?:
                 callbackUrl: "/"
             })
 
-            router.replace("/main")
-            router.refresh()
+            window.location.reload()
         }
         else {
             dispatch(setVerifyEmail("Something went wrong"))

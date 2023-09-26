@@ -44,9 +44,8 @@ export default function useLogIn() {
                 redirect: false,
                 callbackUrl: "/"
             })
-
-            router.replace("/main")
-            router.refresh()
+            
+            window.location.reload()
         }
         else {
             dispatch(setFailed("Something went wrong"))

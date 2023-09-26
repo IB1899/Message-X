@@ -37,7 +37,9 @@ export async function middleware(request: NextRequest) {
 
         //! The User isn't authenticated
         return NextResponse.next()
-    } else {
+    } 
+    
+    else {
         if (cookie) {
             try {
                 let result = await jose.jwtVerify(cookie.value, new TextEncoder().encode(process.env.JWT_SECRET!))

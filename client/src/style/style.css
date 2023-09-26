@@ -4925,6 +4925,7 @@ body .Main nav .profile {
   border-radius: none;
   background: none;
   border: none;
+  cursor: pointer;
 }
 body .Main nav .profile img {
   border-radius: 50%;
@@ -4933,6 +4934,10 @@ body .Main nav .profile img {
   border: 2px solid #9D00BB;
   -o-object-fit: cover;
      object-fit: cover;
+}
+body .Main .Messages {
+  display: flex;
+  width: 100%;
 }
 body .Main .Messages .BigBar {
   width: 300px;
@@ -4943,24 +4948,28 @@ body .Main .Messages .BigBar {
   flex-direction: column;
   align-items: center;
   position: relative;
-  border-right: 1px solid #9D00BB;
+  border-right: 1.5px solid #9D00BB;
 }
 body .Main .Messages .BigBar .Stories {
+  width: 100%;
+}
+body .Main .Messages .BigBar .Stories .Stories-swiper {
   display: flex;
   justify-content: center;
   width: 90%;
   margin-top: 15px;
+  padding-bottom: 25px;
 }
-body .Main .Messages .BigBar .Stories .swiper-wrapper .swiper-slide img {
+body .Main .Messages .BigBar .Stories .Stories-swiper .swiper-wrapper .swiper-slide img {
   border-radius: 50%;
   -o-object-fit: cover;
      object-fit: cover;
   border: 2px solid #9D00BB;
   cursor: pointer;
 }
-body .Main .Messages .BigBar .Stories .swiper-pagination-bullet {
+body .Main .Messages .BigBar .Stories .Stories-swiper .swiper-pagination-bullet {
   cursor: pointer;
-  bottom: 0;
+  bottom: 0px;
   background: white;
   z-index: 10;
   width: 11px;
@@ -5181,47 +5190,51 @@ body .Main .Messages .BigBar .Contacts .contact .messagesInfo .missedMessages {
   align-items: center;
   justify-content: center;
 }
-body .Main .Messages .BigBar .Settings {
+body .Main .Messages .Settings {
+  width: 300px;
+  background: #202020;
+  color: white;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 95%;
-  color: white;
+  position: relative;
+  border-right: 1.5px solid #9D00BB;
 }
-body .Main .Messages .BigBar .Settings h2 {
+body .Main .Messages .Settings h2 {
   font-size: 25px;
   margin: 20px 15px;
   text-align: left;
   align-self: flex-start;
 }
-body .Main .Messages .BigBar .Settings .setting {
+body .Main .Messages .Settings .setting {
   display: flex;
   justify-content: space-around;
   margin: 7px 0;
   width: 100%;
 }
-body .Main .Messages .BigBar .Settings .setting i {
+body .Main .Messages .Settings .setting i {
   font-size: 29px;
   color: #9D00BB;
 }
-body .Main .Messages .BigBar .Settings .setting .description {
+body .Main .Messages .Settings .setting .description {
   text-align: left;
   display: grid;
   grid-template-columns: repeat(2, auto);
   position: relative;
   width: 80%;
 }
-body .Main .Messages .BigBar .Settings .setting .description p {
+body .Main .Messages .Settings .setting .description p {
   opacity: 0.7;
   font-size: 12px;
   grid-column: 1/3;
   margin: 10px 0;
 }
-body .Main .Messages .BigBar .Settings .setting .description h3 {
+body .Main .Messages .Settings .setting .description h3 {
   margin-right: 15px;
   font-size: 18px;
 }
-body .Main .Messages .BigBar .Settings .setting .description input {
+body .Main .Messages .Settings .setting .description input {
   background: white;
   width: 50px;
   height: 25px;
@@ -5235,7 +5248,7 @@ body .Main .Messages .BigBar .Settings .setting .description input {
           appearance: none;
   transition: 0.5s;
 }
-body .Main .Messages .BigBar .Settings .setting .description input::before {
+body .Main .Messages .Settings .setting .description input::before {
   content: "";
   cursor: pointer;
   position: absolute;
@@ -5247,7 +5260,7 @@ body .Main .Messages .BigBar .Settings .setting .description input::before {
   left: 2px;
   transition: 0.5s;
 }
-body .Main .Messages .BigBar .Settings .setting .description input:checked::before {
+body .Main .Messages .Settings .setting .description input:checked::before {
   content: "";
   cursor: pointer;
   position: absolute;
@@ -5259,7 +5272,7 @@ body .Main .Messages .BigBar .Settings .setting .description input:checked::befo
   background: #9D00BB;
   left: 25px;
 }
-body .Main .Messages .BigBar .Settings button {
+body .Main .Messages .Settings button {
   width: 93%;
   background: white;
   color: black;
@@ -5274,47 +5287,150 @@ body .Main .Messages .BigBar .Settings button {
   text-align: left;
   transition: 0.4;
 }
-body .Main .Messages .BigBar .Settings button svg {
+body .Main .Messages .Settings button svg {
   color: #9D00BB;
   font-size: 24px;
   position: absolute;
   right: 20px;
 }
-body .Main .Messages .BigBar .Settings button:hover {
+body .Main .Messages .Settings button:hover {
   background: #9D00BB;
   color: white;
   transition: 0.4s;
   text-align: center;
 }
-body .Main .Messages .BigBar .Settings button:hover svg {
+body .Main .Messages .Settings button:hover svg {
   display: none;
 }
-body .Main .Messages .BigBar .Settings .buttons {
+body .Main .Messages .Settings .buttons {
   display: flex;
   justify-content: space-between;
   width: 95%;
   margin-top: 10px;
   margin-bottom: 20px;
 }
-body .Main .Messages .BigBar .Settings .buttons button {
+body .Main .Messages .Settings .buttons button {
   margin: 0 5px;
   width: 100%;
   margin: 0 5px;
 }
-body .Main .Messages .BigBar .Settings .buttons button svg {
+body .Main .Messages .Settings .buttons button svg {
   right: 10px;
 }
-body .Main .Messages .BigBar .Settings .delete {
+body .Main .Messages .Settings .delete {
   color: red;
   background: black;
 }
-body .Main .Messages .BigBar .Settings .delete svg {
+body .Main .Messages .Settings .delete svg {
   color: red;
 }
-body .Main .Messages .BigBar .Settings span {
+body .Main .Messages .Settings span {
   width: 95%;
   height: 1px;
   background: white;
   opacity: 0.8px;
   margin: 3px 0;
+}
+body .Main .Messages .Profile {
+  width: 70%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #9D00BB;
+}
+body .Main .Messages .Profile .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body .Main .Messages .Profile .top img {
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+body .Main .Messages .Profile .top label {
+  cursor: pointer;
+  position: relative;
+  right: 20px;
+  top: 30px;
+  font-size: 22px;
+  background: #9D00BB;
+  color: white;
+  border-radius: 50%;
+  width: 29px;
+  height: 29px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body .Main .Messages .Profile .top #file {
+  display: none;
+}
+body .Main .Messages .Profile .top .user-details {
+  text-align: left;
+}
+body .Main .Messages .Profile .top .user-details p {
+  color: white;
+  opacity: 0.8;
+}
+body .Main .Messages .Profile .middle {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  justify-content: left;
+  text-align: left;
+  margin: 25px;
+}
+body .Main .Messages .Profile .middle div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 20px 30px;
+}
+body .Main .Messages .Profile .middle div label {
+  margin: 5px;
+}
+body .Main .Messages .Profile .middle div input {
+  outline: none;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #9D00BB;
+  padding: 10px;
+  width: 210px;
+  color: white;
+}
+body .Main .Messages .Profile .bottom {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  width: 50%;
+}
+body .Main .Messages .Profile .bottom button {
+  border: none;
+  background: white;
+  cursor: pointer;
+  padding: 8px 15px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  transition: 0.4 ease;
+}
+body .Main .Messages .Profile .bottom button i {
+  color: black;
+  font-size: 22px;
+  margin: 0 5px;
+  translate: 0 2px;
+}
+body .Main .Messages .Profile .bottom button:hover {
+  background: #9D00BB;
+  color: white;
+  transition: 0.4s ease;
+}
+body .Main .Messages .Profile .message {
+  margin-top: 40px;
+}
+body .Main .Messages .Profile .message p {
+  font-weight: 700;
+  color: white;
 }
