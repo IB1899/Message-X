@@ -1,5 +1,5 @@
 import { ObjectId } from "mongodb";
-import mongoose, { model, models, Schema } from "mongoose";
+import { model, models, Schema } from "mongoose";
 
 let AccountsSchema = new Schema({
 

@@ -15,8 +15,17 @@ let UserSchema = new Schema({
     },
     image: {
         type: String,
+        unique: true,
     },
-    username:String,
+
+    imageName:{
+        type: String,
+        unique: true,
+    },
+    username:{
+        unique: true,
+        type:String
+    },
 
     requests:[
         {
@@ -42,7 +51,7 @@ let UserSchema = new Schema({
             name: String,
             email: String,
             description: String,
-            story:String,
+            phoneNumber:Number,
 
             //! The messages
             messages: [
@@ -56,7 +65,6 @@ let UserSchema = new Schema({
     ],
 
     //! Optional
-    story: String,
     privateAccount: Boolean,
     notification: {
         type: Boolean
@@ -75,6 +83,7 @@ let UserSchema = new Schema({
         type: String
     },
     age: {
+        max:[1e3],
         type: Number
     },
     phoneNumber: {

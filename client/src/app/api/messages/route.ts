@@ -30,10 +30,12 @@ export async function GET(request: Request) {
         })
         if (cancel) return NextResponse.json({ no: "The user is already in your contacts" })
 
-        let user = await UserModel.findOne({ name: searchWord }, { _id: 1, name: 1, image: 1, story: 1, email: 1, description: 1, username: 1 })
+        //* Find by name
+        let user = await UserModel.findOne({ name: searchWord }, { _id: 1, name: 1, image: 1, story: 1, email: 1, description: 1, username: 1, phoneNumber:1 })
 
+        //* find by username if name not found
         searchWord = searchWord?.toLowerCase()
-        if (!user?.name) user = await UserModel.findOne({ username: searchWord }, { _id: 1, name: 1, image: 1, story: 1, email: 1, description: 1, username: 1 })
+        if (!user?.name) user = await UserModel.findOne({ username: searchWord }, { _id: 1, name: 1, image: 1, story: 1, email: 1, description: 1, username: 1, phoneNumber:1 })
 
         if (!user?.name) return NextResponse.json({ failed: "user not found" })
 
@@ -49,10 +51,10 @@ export async function PUT(request: Request) {
     try {
 
         //* The current user's data
-        let { name, email, id, image, description, username, story, ...rest } = await request.json()
+        let { name, email, id, image, description, phoneNumber , username, story, ...rest } = await request.json()
 
         //* The other user's data
-        let { OName, OEmail, O_id, OImage, ODescription, OUsername, OStroy } = rest
+        let { OName, OEmail, O_id, OImage, ODescription, OPhoneNumber ,  OUsername, OStroy } = rest
 
         //* Generating a unique RoomConnectionId
         let RoomConnectionId = uuid()
@@ -69,13 +71,13 @@ export async function PUT(request: Request) {
                     image: OImage,
                     description: ODescription,
                     username: OUsername,
-                    story: OStroy
+                    story: OStroy,
+                    phoneNumber:OPhoneNumber
                 }
             }
         })
 
         if (x.modifiedCount === 1) {
-
 
             //? Adding the current user o the other user's connections
             let y = await UserModel.updateOne({ email: OEmail }, {
@@ -89,7 +91,8 @@ export async function PUT(request: Request) {
                         id,
                         image,
                         description,
-                        story
+                        story,
+                        phoneNumber
                     }
                 }
             })

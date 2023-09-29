@@ -14,11 +14,10 @@ import { AppDispatch, useAppSelector } from "@/toolkit/store"
 import { setIsProfile, setIsSettings } from "@/toolkit/slices/MainSlice"
 import useLogOut from "@/hooks/logout"
 
-export default function SideBar() {
+export default function SideBar({ user }: { user: FullUser }) {
 
     let pathname = usePathname()
     let router = useRouter()
-    let { data: session } = useSession()
 
     let dispatch = useDispatch<AppDispatch>()
 
@@ -30,6 +29,13 @@ export default function SideBar() {
             router.push("/main")
         }
         dispatch(setIsSettings(!isSettings))
+    }
+
+    let openProfile = () => {
+        if (pathname !== "/main") {
+            router.push("/main")
+        }
+        dispatch(setIsProfile(!isProfile))
     }
 
     let { SignOut } = useLogOut()
@@ -64,9 +70,9 @@ export default function SideBar() {
                 <button id="A6" className={isSettings ? "active" : ""} onClick={openSettings} > <RiSettings5Fill /> </button>
             </div>
 
-            {session ?
-                <button className="profile" onClick={() => dispatch(setIsProfile(!isProfile))}>
-                    <Image src={session.user.image} alt="profile image" width={45} quality={100} height={45} priority />
+            {user?.image ?
+                <button className="profile" onClick={() => openProfile()}>
+                    <Image src={user.image} alt="profile image" width={45} quality={100} height={45} priority />
                 </button> :
                 null
             }

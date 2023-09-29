@@ -4996,6 +4996,12 @@ body .Main .Messages .BigBar .title i {
   justify-self: flex-end;
   position: absolute;
   right: 0px;
+  transition: 0.4s ease;
+}
+body .Main .Messages .BigBar .title i:hover {
+  color: white;
+  transition: 0.4s ease;
+  scale: 1.1;
 }
 body .Main .Messages .BigBar form {
   width: 90%;
@@ -5073,6 +5079,7 @@ body .Main .Messages .BigBar .searchResults {
   position: relative;
   background: white;
   border-radius: 30px;
+  margin: 15px 0;
 }
 body .Main .Messages .BigBar .searchResults img {
   border-radius: 50%;
@@ -5084,7 +5091,8 @@ body .Main .Messages .BigBar .searchResults img {
 body .Main .Messages .BigBar .searchResults .info {
   margin: 7px 10px;
   color: #9D00BB;
-  justify-self: center;
+  justify-self: flex-start;
+  text-align: left;
 }
 body .Main .Messages .BigBar .searchResults .info h3 {
   margin: 2px 0;
@@ -5331,6 +5339,117 @@ body .Main .Messages .Settings span {
   opacity: 0.8px;
   margin: 3px 0;
 }
+body .Main .Messages .BackGround {
+  background: rgba(128, 128, 128, 0.585);
+  height: 100vh;
+  z-index: 11;
+  position: fixed;
+  width: 100%;
+  transition: 0.7s;
+}
+body .Main .Messages .BackGround .Message {
+  position: fixed;
+  background: black;
+  padding: 25px;
+  border-radius: 10px;
+  display: flex;
+  z-index: 12;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  transition: 0.7s;
+}
+body .Main .Messages .BackGround .Message i {
+  font-size: 100px;
+}
+body .Main .Messages .BackGround .Message h3 {
+  width: 350px;
+}
+body .Main .Messages .BackGround .Message button {
+  margin-top: 20px;
+  background: none;
+  border: 2px solid red;
+  cursor: pointer;
+  padding: 7px 15px;
+  border-radius: 10px;
+  width: 70%;
+  color: white;
+  transition: 0.3s;
+  display: flex;
+  justify-content: center;
+}
+body .Main .Messages .BackGround .Message button:hover {
+  transition: 0.3s;
+  background: red;
+}
+body .Main .Messages .BackGround .Message h4 {
+  margin-bottom: 10px;
+  width: 80%;
+}
+body .Main .Messages .Message.Reset-Password {
+  text-align: left;
+  background: white;
+  color: black;
+  padding: 20px 0;
+}
+body .Main .Messages .Message.Reset-Password .close {
+  position: absolute;
+  font-size: 22px;
+  color: limegreen;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+body .Main .Messages .Message.Reset-Password h1 {
+  margin-top: 10px;
+  width: 70%;
+}
+body .Main .Messages .Message.Reset-Password label {
+  width: 70%;
+  margin-top: 15px;
+  line-height: 23px;
+  font-size: 17px;
+  opacity: 0.8;
+}
+body .Main .Messages .Message.Reset-Password input {
+  width: 66%;
+  background: rgba(204, 204, 204, 0.447);
+  border: none;
+  padding: 12px;
+  color: limegreen;
+  margin: 5px;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+body .Main .Messages .Message.Reset-Password input:focus {
+  outline: none;
+}
+body .Main .Messages .Message.Reset-Password button {
+  margin: 0;
+  background: limegreen;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: bold;
+  width: 70%;
+  color: white;
+  transition: 0.3s;
+  display: flex;
+  justify-content: center;
+}
+body .Main .Messages .Message.Reset-Password button:hover {
+  transition: 0.3s;
+  background: black;
+}
+body .Main .Messages .Message.Reset-Password h4 {
+  margin-top: 20px;
+  font-size: 15px;
+  text-align: center;
+}
 body .Main .Messages .Profile {
   width: 70%;
   height: 100vh;
@@ -5399,12 +5518,16 @@ body .Main .Messages .Profile .middle div input {
   padding: 10px;
   width: 210px;
   color: white;
+  transition: 1s;
+}
+body .Main .Messages .Profile .middle div input:disabled {
+  opacity: 0.5;
+  transition: 1s;
+  border: 1px solid #9D00BB;
 }
 body .Main .Messages .Profile .bottom {
   display: flex;
   justify-content: space-between;
-  color: white;
-  width: 50%;
 }
 body .Main .Messages .Profile .bottom button {
   border: none;
@@ -5427,10 +5550,529 @@ body .Main .Messages .Profile .bottom button:hover {
   color: white;
   transition: 0.4s ease;
 }
+body .Main .Messages .Profile .bottom button:disabled {
+  opacity: 0.8;
+  transition: 1s;
+}
+body .Main .Messages .Profile .bottom button:disabled:hover {
+  background: white;
+  color: black;
+}
 body .Main .Messages .Profile .message {
   margin-top: 40px;
+  width: 70%;
 }
 body .Main .Messages .Profile .message p {
   font-weight: 700;
   color: white;
+}
+body .Main .BackGround-AddStory {
+  position: fixed;
+  background: rgba(128, 128, 128, 0.585);
+  height: 100vh;
+  width: 100%;
+  z-index: 10;
+}
+body .Main .BackGround-AddStory .HideComponent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 37%;
+  height: 330px;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  translate: -50% -50%;
+  background: white;
+  border-radius: 20px;
+  padding: 13px 0;
+  box-shadow: 2px 2px 3px #9D00BB;
+  opacity: 0;
+  z-index: -10;
+  transition: 1s;
+  transform: scaleX(-1);
+}
+body .Main .BackGround-AddStory .HideComponent header {
+  display: flex;
+  width: 100%;
+  position: relative;
+  justify-content: center;
+  border-bottom: 1.5px solid #9D00BB;
+  padding-bottom: 7px;
+  align-items: center;
+}
+body .Main .BackGround-AddStory .HideComponent header h3 {
+  font-weight: bold;
+}
+body .Main .BackGround-AddStory .HideComponent header i {
+  position: absolute;
+  right: 15px;
+  font-size: 25px;
+  color: #9D00BB;
+  translate: 0px 2px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+body .Main .BackGround-AddStory .HideComponent header i:hover {
+  color: black;
+  transition: 0.4s;
+}
+body .Main .BackGround-AddStory .HideComponent img {
+  width: 250px;
+  margin: 20px 0;
+}
+body .Main .BackGround-AddStory .HideComponent input {
+  display: none;
+}
+body .Main .BackGround-AddStory .HideComponent label, body .Main .BackGround-AddStory .HideComponent button {
+  color: white;
+  background: #9D00BB;
+  cursor: pointer;
+  width: 60%;
+  padding: 7px;
+  font-size: 18px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+  transition: 0.4s;
+}
+body .Main .BackGround-AddStory .HideComponent label i, body .Main .BackGround-AddStory .HideComponent button i {
+  margin-top: 2px;
+}
+body .Main .BackGround-AddStory .HideComponent label:hover, body .Main .BackGround-AddStory .HideComponent button:hover {
+  color: black;
+  transition: 0.4s;
+}
+body .Main .BackGround-AddStory .SelectImage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 37%;
+  height: 330px;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  translate: -50% -50%;
+  background: white;
+  border-radius: 20px;
+  padding: 13px 0;
+  box-shadow: 2px 2px 3px #9D00BB;
+  transition: 1s;
+  transform: scaleX(1);
+}
+body .Main .BackGround-AddStory .SelectImage header {
+  display: flex;
+  width: 100%;
+  position: relative;
+  justify-content: center;
+  border-bottom: 1.5px solid #9D00BB;
+  padding-bottom: 7px;
+  align-items: center;
+}
+body .Main .BackGround-AddStory .SelectImage header h3 {
+  font-weight: bold;
+}
+body .Main .BackGround-AddStory .SelectImage header i {
+  position: absolute;
+  right: 15px;
+  font-size: 25px;
+  color: #9D00BB;
+  translate: 0px 2px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+body .Main .BackGround-AddStory .SelectImage header i:hover {
+  color: black;
+  transition: 0.4s;
+}
+body .Main .BackGround-AddStory .SelectImage img {
+  width: 250px;
+  margin: 20px 0;
+}
+body .Main .BackGround-AddStory .SelectImage input {
+  display: none;
+}
+body .Main .BackGround-AddStory .SelectImage label {
+  color: white;
+  background: #9D00BB;
+  cursor: pointer;
+  width: 60%;
+  padding: 7px;
+  font-size: 18px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+  transition: 0.4s;
+}
+body .Main .BackGround-AddStory .SelectImage label i {
+  margin-top: 2px;
+}
+body .Main .BackGround-AddStory .SelectImage label:hover {
+  color: black;
+  transition: 0.4s;
+}
+body .Main .BackGround-AddStory .ShareStory {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 37%;
+  height: 330px;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  translate: -50% -50%;
+  background: white;
+  border-radius: 20px;
+  padding: 13px 0;
+  box-shadow: 2px 2px 3px #9D00BB;
+  transition: 1s;
+  transform: scaleX(1);
+}
+body .Main .BackGround-AddStory .ShareStory header {
+  display: flex;
+  width: 100%;
+  position: relative;
+  justify-content: center;
+  border-bottom: 1.5px solid #9D00BB;
+  padding-bottom: 7px;
+  align-items: center;
+}
+body .Main .BackGround-AddStory .ShareStory header .go-back {
+  position: absolute;
+  left: 15px;
+  font-size: 25px;
+  color: #9D00BB;
+  translate: 0px 2px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+body .Main .BackGround-AddStory .ShareStory header .go-back:hover {
+  color: black;
+  transition: 0.4s;
+}
+body .Main .BackGround-AddStory .ShareStory header h3 {
+  font-weight: bold;
+}
+body .Main .BackGround-AddStory .ShareStory header .close {
+  position: absolute;
+  right: 15px;
+  font-size: 25px;
+  color: #9D00BB;
+  translate: 0px 2px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+body .Main .BackGround-AddStory .ShareStory header .close:hover {
+  color: black;
+  transition: 0.4s;
+}
+body .Main .BackGround-AddStory .ShareStory img {
+  width: 280px;
+  height: 220;
+  margin: 20px 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 2px 2px 3px #9D00BB;
+}
+body .Main .BackGround-AddStory .ShareStory input {
+  display: none;
+}
+body .Main .BackGround-AddStory .ShareStory button {
+  color: white;
+  background: #9D00BB;
+  cursor: pointer;
+  width: 62%;
+  padding: 7px;
+  font-size: 18px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+  border: none;
+  transition: 0.4s;
+  height: 40px;
+}
+body .Main .BackGround-AddStory .ShareStory button i {
+  margin-top: 2px;
+}
+body .Main .BackGround-AddStory .ShareStory button:hover {
+  color: black;
+  transition: 0.4s;
+}
+body .Main .BackGround-AddStory .ShareStory p {
+  margin: 10px;
+  color: #9D00BB;
+  font-weight: 700;
+  font-size: 16px;
+}
+body .Main .StoriesPage {
+  height: 100vh;
+  width: 100%;
+  background: red;
+  display: flex;
+}
+body .Main .StoriesPage .BigBar {
+  width: 300px;
+  background: #202020;
+  color: white;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  border-right: 1.5px solid #9D00BB;
+}
+body .Main .StoriesPage .BigBar .Stories {
+  width: 100%;
+}
+body .Main .StoriesPage .BigBar .Stories .Stories-swiper {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  margin-top: 15px;
+  padding-bottom: 25px;
+}
+body .Main .StoriesPage .BigBar .Stories .Stories-swiper .swiper-wrapper .swiper-slide img {
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border: 2px solid #9D00BB;
+  cursor: pointer;
+}
+body .Main .StoriesPage .BigBar .Stories .Stories-swiper .swiper-pagination-bullet {
+  cursor: pointer;
+  bottom: 0px;
+  background: white;
+  z-index: 10;
+  width: 11px;
+  height: 11px;
+}
+body .Main .StoriesPage .BigBar .title {
+  display: flex;
+  margin: 5px 0;
+  width: 87%;
+  position: relative;
+}
+body .Main .StoriesPage .BigBar .title h2 {
+  font-size: 25px;
+}
+body .Main .StoriesPage .BigBar .title span {
+  color: #9D00BB;
+  margin: 5px 10px;
+  font-weight: bold;
+}
+body .Main .StoriesPage .BigBar .title i {
+  color: #9D00BB;
+  font-size: 28px;
+  cursor: pointer;
+  justify-self: flex-end;
+  position: absolute;
+  right: 0px;
+  transition: 0.4s ease;
+}
+body .Main .StoriesPage .BigBar .title i:hover {
+  color: white;
+  transition: 0.4s ease;
+  scale: 1.1;
+}
+body .Main .StoriesPage .BigBar form {
+  width: 90%;
+  display: flex;
+  background: white;
+  border-radius: 20px;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 10px 0;
+}
+body .Main .StoriesPage .BigBar form input {
+  border: none;
+  background: none;
+  color: #9D00BB;
+  padding: 15px 5px;
+  font-weight: bold;
+  width: 70%;
+}
+body .Main .StoriesPage .BigBar form input:focus {
+  outline: none;
+}
+body .Main .StoriesPage .BigBar form input::-moz-placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #9D00BB;
+  opacity: 1; /* Firefox */
+}
+body .Main .StoriesPage .BigBar form input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #9D00BB;
+  opacity: 1; /* Firefox */
+}
+body .Main .StoriesPage .BigBar form input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #9D00BB;
+}
+body .Main .StoriesPage .BigBar form input::-ms-input-placeholder { /* Microsoft Edge */
+  color: #9D00BB;
+}
+body .Main .StoriesPage .BigBar form button {
+  background: none;
+  padding: 7px;
+  color: #9D00BB;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  position: relative;
+  top: 2px;
+}
+body .Main .StoriesPage .BigBar .error {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  width: 90%;
+  border-radius: 20px;
+  padding: 7px 0;
+  margin: 10px 0;
+}
+body .Main .StoriesPage .BigBar .error i {
+  color: red;
+  font-size: 25px;
+  margin: 0 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+body .Main .StoriesPage .BigBar .error i:hover {
+  transition: 0.3s;
+  color: black;
+}
+body .Main .StoriesPage .BigBar .error p {
+  color: red;
+  font-weight: bold;
+  margin: 0 15px;
+}
+body .Main .StoriesPage .BigBar .searchResults {
+  display: flex;
+  width: 90%;
+  position: relative;
+  background: white;
+  border-radius: 30px;
+  margin: 15px 0;
+}
+body .Main .StoriesPage .BigBar .searchResults img {
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  justify-self: flex-start;
+  align-self: flex-start;
+}
+body .Main .StoriesPage .BigBar .searchResults .info {
+  margin: 7px 10px;
+  color: #9D00BB;
+  justify-self: flex-start;
+  text-align: left;
+}
+body .Main .StoriesPage .BigBar .searchResults .info h3 {
+  margin: 2px 0;
+  font-size: 17px;
+}
+body .Main .StoriesPage .BigBar .searchResults .info h5 {
+  opacity: 0.6;
+  color: black;
+}
+body .Main .StoriesPage .BigBar .searchResults i {
+  font-size: 26px;
+  cursor: pointer;
+  color: #9D00BB;
+  position: absolute;
+  right: 10px;
+  top: 15px;
+  transition: 0.2;
+}
+body .Main .StoriesPage .BigBar .searchResults i:hover {
+  color: black;
+}
+body .Main .StoriesPage .BigBar .searchResults .x {
+  right: 92%;
+  font-size: 25px;
+  color: #9D00BB;
+  top: -14px;
+}
+body .Main .StoriesPage .BigBar .searchResults .x:hover {
+  color: red;
+}
+body .Main .StoriesPage .BigBar .h2 {
+  border-bottom: 1.5px solid #9D00BB;
+  width: 85%;
+  text-align: left;
+  font-size: 17px;
+  color: #9D00BB;
+  margin-top: 5px;
+  font-weight: normal;
+  padding: 5px 0;
+}
+body .Main .StoriesPage .BigBar .Contacts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+  width: 95%;
+  overflow-y: auto;
+}
+body .Main .StoriesPage .BigBar .Contacts::-webkit-scrollbar {
+  background: none;
+  width: 7px;
+}
+body .Main .StoriesPage .BigBar .Contacts::-webkit-scrollbar-thumb {
+  background: #9D00BB;
+  border-radius: 10px;
+  cursor: pointer;
+}
+body .Main .StoriesPage .BigBar .Contacts .contact {
+  display: flex;
+  width: 90%;
+  position: relative;
+  justify-content: left;
+  color: white;
+  cursor: pointer;
+  margin: 13px 0;
+}
+body .Main .StoriesPage .BigBar .Contacts .contact img {
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  justify-self: flex-start;
+  align-self: flex-start;
+}
+body .Main .StoriesPage .BigBar .Contacts .contact .contactInfo {
+  margin: 7px 10px;
+  justify-self: center;
+}
+body .Main .StoriesPage .BigBar .Contacts .contact .contactInfo h3 {
+  margin: 2px 0;
+  font-size: 15px;
+}
+body .Main .StoriesPage .BigBar .Contacts .contact .contactInfo h5 {
+  opacity: 0.6;
+  text-align: left;
+}
+body .Main .StoriesPage .BigBar .Contacts .contact .messagesInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  right: 5px;
+}
+body .Main .StoriesPage .BigBar .Contacts .contact .messagesInfo span {
+  font-size: 14px;
+}
+body .Main .StoriesPage .BigBar .Contacts .contact .messagesInfo .missedMessages {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: red;
+  margin: 3px 0;
+  display: grid;
+  align-items: center;
+  justify-content: center;
 }

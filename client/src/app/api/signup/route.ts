@@ -17,25 +17,23 @@ const firebaseApp = initializeApp(firebaseConfig);
 export let POST = async (request: NextRequest) => {
     try {
         //* The signup data that we receive from the frontend 
-        let { name, email, password, username }: { name: string, email: string, password: string , username:string } = await request.json()
+        let { name, email, password, username }: { name: string, email: string, password: string, username: string } = await request.json()
 
         if (!name || !email || !password || !username) { return NextResponse.json({ failed: "The user's information wasn't provided" }) }
 
+        username = username.toLowerCase()
+
         //? Verify that the email is not taken. O(n)
         let isEmailExists = await UserModel.findOne({ email }, { name: 1 })
-
-        //? This means the user already exists
-        if (isEmailExists?.name) {
-            return NextResponse.json({ failed: "The email already exists please login, or use another email" })
-        }
+        if (isEmailExists?.name) throw Error("The email already exists please login, or use another email")
 
         //? Verify that the name is not taken. O(n)
         let isNameExists = await UserModel.findOne({ name }, { name: 1 })
+        if (isNameExists?.name) throw Error("The name already exists, please use another one")
 
-        //? This name is already used
-        if (isNameExists?.name) {
-            return NextResponse.json({ failed: "The name already exists please use another name" })
-        }
+        //? Verify that the username is not taken. O(n)
+        let isUsernameExists = await UserModel.findOne({ username }, { name: 1 })
+        if (isUsernameExists?.name) throw Error("The username already exists, please use another one")
 
         //* The user's information is valid, and they continue to step -2-
         let transporter = nodemailer.createTransport({
@@ -78,7 +76,7 @@ export let POST = async (request: NextRequest) => {
     }
     catch (err: any) {
         console.log(err.message);
-        return NextResponse.json({ Error: err.message })
+        return NextResponse.json({ failed: err.message })
     }
 }
 
@@ -109,7 +107,7 @@ export let GET = async (request: Request) => {
             if (isVerified) {
 
                 //* O(1)
-                let result = await UserModel.create({ name, username, email, password , notification:true , status:true, privateAccount:false , publicStories:true })
+                let result = await UserModel.create({ name, username, email, password, notification: true, status: true, privateAccount: false, publicStories: true })
 
                 return NextResponse.redirect("http://localhost:3000/status?message=verified", { status: 302, headers })
             }
@@ -141,14 +139,16 @@ export let PUT = async (request: NextRequest) => {
         const image: any = formData.get('image')
         const buffer = Buffer.from(await image.arrayBuffer());
 
-        //* Save the user's image to firebase
+        //* Images are saved in firebase under this [name] therefore I must save it in mongodb as well
         let imageName = uuid() + image.name
 
         let storage = getStorage()
+
+        //* Save the user's image to firebase
         let snapshot = await uploadBytesResumable(ref(storage, `user-images/${imageName}`), buffer, { contentType: image.type })
         let downloadURL = await getDownloadURL(snapshot.ref)
 
-        let user = await UserModel.findOneAndUpdate({ email }, { image: downloadURL })
+        let user = await UserModel.findOneAndUpdate({ email }, { image: downloadURL, imageName })
 
         return NextResponse.json({ success: "success", user: { name: user.name, email: user.email, _id: user._id, image: downloadURL } })
     }

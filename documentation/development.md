@@ -33,3 +33,23 @@
 4. Wrote in the documentation & revised Socket.io.
 5. Started planing the main page functionality.
 5. Started designing the system performance of the main page as the low level design.
+
+## Ibrahim Ali- September 7-8-9-10 2023
+1. Designed and implemented the reset password process.
+2. Fixed Bugs.
+3. Finished the full sizes css for the rest of what is left form the authentication system.  
+
+## Ibrahim Ali- September 11-12-13 2023
+1. Finished the Main Navbar for the main page.
+2. Finished The settings pop-up and its entire functionality.
+3. Finished the sign out process. 
+
+## Ibrahim Ali- September 26-27-28 2023
+1. I have revised the process & some parts of the application quickly. 
+1. Finished the Profile page and its entire functionality.
+2. Organized the code & ensured clean code is being written.
+3. Fix some bugs with the code & design. 
+
+## Ibrahim Ali- September 29 2023
+1. Started the Stories section of the application.
+2. Made some progress with the stories process.

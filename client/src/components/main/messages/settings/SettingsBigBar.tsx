@@ -123,7 +123,7 @@ export default function SettingsBigBar({ user }: { user: FullUser }) {
 
                     <input onChange={(e) => updateSettings(e, "status")} checked={status} type="checkbox" name="checkbox" id="checkbox" />
 
-                    <p>Do you want others to know you're connected</p>
+                    <p>Do you want others to know you are connected</p>
                 </div>
 
             </div>

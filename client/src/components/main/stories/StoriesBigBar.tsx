@@ -1,17 +1,17 @@
 "use client"
 
-import Search from "./Search"
-import Stories from "./Stories"
-import { FaGlassCheers } from "react-icons/fa"
-import Contacts from "./Contacts"
-import { useDispatch } from "react-redux"
 import { AppDispatch, useAppSelector } from "@/toolkit/store"
-import SettingsBigBar from "./settings/SettingsBigBar"
-import Profile from "./settings/Profile"
-import AddNewStory from "@/components/main/stories/addNewStory"
+import { useDispatch } from "react-redux"
+import AddNewStory from "./addNewStory"
+import SettingsBigBar from "../messages/settings/SettingsBigBar"
+import Stories from "../messages/Stories"
+import { FaGlassCheers } from "react-icons/fa"
 import { setIsAddStory } from "@/toolkit/slices/MainSlice"
+import Search from "../messages/Search"
+import Contacts from "../messages/Contacts"
+import Profile from "../messages/settings/Profile"
 
-export default function MessagesBigBar({ user }: { user: FullUser }) {
+export default function StoriesBigBar({ user }: { user: FullUser }) {
 
     //! Redux: Only the MainSlice is used in the 'main' route
     let dispatch = useDispatch<AppDispatch>()

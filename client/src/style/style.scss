@@ -635,6 +635,7 @@ $white:white;
     }
 
     .Main{ display:flex; background:#202020;
+       
         nav{ display:flex; flex-direction:column; align-items:center; height:100vh; background:$black; color:$white;
             position:relative; left:0; width:70px; justify-content:space-between; border-radius: 0 30px 30px 0;
  
@@ -675,6 +676,7 @@ $white:white;
 
         .Messages{ display:flex; width:100%;
 
+            //! The main big bar
             .BigBar{ width:300px; background:#202020; color:$white; height:100vh; display:flex; flex-direction:column;
                 align-items:center; position:relative; border-right:1.5px solid $violet; 
     
@@ -694,7 +696,9 @@ $white:white;
                 .title{ display:flex; margin:5px 0;  width:87%;  position: relative;
                     h2{font-size:25px;}
                     span{ color:$violet; margin:5px 10px; font-weight:bold;  }
-                    i{color:$violet; font-size:28px; cursor: pointer; justify-self:flex-end; position:absolute; right:0px;}
+                    i{color:$violet; font-size:28px; cursor: pointer; justify-self:flex-end; position:absolute; right:0px;
+                        transition: .4s ease; &:hover{color:$white; transition:.4s ease; scale:1.1;}
+                    }
                 }
     
                 form{ width:90%; display:flex; background:$white; border-radius:20px; justify-content:space-evenly;
@@ -726,13 +730,15 @@ $white:white;
                     p{ color:red; font-weight:bold; margin:0 15px;}
                 }
     
-                .searchResults{ display:flex; width:90%;  position: relative; background:$white; border-radius:30px;
+                .searchResults{ display:flex; width:90%;  position: relative; background:$white; border-radius:30px; margin:15px 0;
     
                     img{border-radius:50%; object-fit:cover; justify-self:flex-start; align-self:flex-start;}
-                    .info{margin:7px 10px; color:$violet; justify-self:center;
+                    
+                    .info{margin:7px 10px; color:$violet; justify-self:flex-start; text-align:left;
                         h3{margin:2px 0; font-size:17px;}
                         h5{opacity:.6; color:$black;}
                     }
+                    
                     i{font-size:26px; cursor: pointer; color:$violet; position: absolute; right:10px; top:15px; transition:.2;
                         &:hover{color:$black;}
                     }
@@ -761,10 +767,10 @@ $white:white;
     
                         }
                     }
-                }
-
-                
+                }   
             }
+            
+            //! Settings conditional rendered
             .Settings{ width:300px; background:#202020; color:$white; height:100vh; display:flex; flex-direction:column;
                 align-items:center; position:relative; border-right:1.5px solid $violet; 
 
@@ -803,6 +809,40 @@ $white:white;
                 span{ width:95%; height:1px; background:$white; opacity:.8px; margin:3px 0; }
             }
 
+            //! Pop-up component for resetting the password
+            .BackGround{ background: rgba(128, 128, 128, 0.585); height:100vh; z-index:11; position:fixed; width:100%; transition:.7s;
+
+                .Message{ position:fixed; background:$black; padding:25px; border-radius:10px; display:flex; z-index:12;
+                    flex-direction:column; align-items:center; color:$white; top:50%; left:50%; translate:-50% -50%; transition:.7s;
+
+                    i{ font-size:100px; }
+                    h3{width:350px;}
+
+                    button{ margin-top:20px; background:none; border:2px solid red; cursor:pointer; padding:7px 15px; border-radius:10px; 
+                        width:70%; color:$white; transition:.3s; &:hover{ transition:.3s; background:red; }display:flex; justify-content:center;
+                    }
+                    h4{ margin-bottom:10px; width:80%; }
+                }
+            }
+            .Message.Reset-Password{ text-align:left; background:$white; color:$black; padding:20px 0; 
+                .close{ position:absolute; font-size:22px; color:limegreen; top:20px; right:20px; cursor:pointer; }
+
+                h1{margin-top:10px; width:70%;}
+
+                label{ width:70%; margin-top:15px; line-height:23px; font-size:17px; opacity:.8; }
+                    
+                input{ width:66%; background:rgba(204, 204, 204, 0.447); border:none;  padding:12px; 
+                    color:limegreen; margin:5px;  &:focus{outline:none;}  border-radius:10px; margin:20px 0;
+                }
+
+                button{ margin:0; background:limegreen; border:none; cursor:pointer; padding:10px 20px; border-radius:10px; font-weight:bold; 
+                    width:70%; color:$white; transition:.3s; &:hover{ transition:.3s; background:$black; }display:flex; justify-content:center;
+                }
+
+                h4{ margin-top:20px; font-size:15px; text-align:center; }
+            }
+
+            //! Profile conditional rendered
             .Profile{  width:70%; height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; color:$violet;
 
                 .top{ display:flex; justify-content:space-between;  align-items:center;
@@ -824,25 +864,203 @@ $white:white;
                         
                         label{margin:5px;}
 
-                        input{ outline:none; background:none; border:none; border-bottom:1px solid $violet; padding:10px; width:210px; color:$white; }
+                        input{ outline:none; background:none; border:none; border-bottom:1px solid $violet; padding:10px; width:210px; color:$white; transition:1s; }
+
+                        input:disabled{ opacity:0.5; transition:1s; border:1px solid $violet }
                     }
                 }
 
-                .bottom{ display:flex; justify-content:space-between; color:$white; width:50%;
+                .bottom{ display:flex; justify-content:space-between;  
                     
                     button{ border:none; background:$white; cursor: pointer; padding:8px 15px; font-weight:bold; display:flex; align-items:center;
                         i{color:$black; font-size:22px; margin:0 5px; translate:0 2px;} transition:.4 ease;
 
                         &:hover{ background:$violet; color:$white; transition:.4s ease; }
+                        &:disabled{ opacity:.8; &:hover{ background:$white; color:$black; } transition:1s; }
                     }
                 }
 
-                .message{ margin-top:40px; p{ font-weight:700; color:$white; } }
+                .message{ margin-top:40px; width:70%; p{ font-weight:700; color:$white;  } }
 
             }
         }
 
-        
-    }
+        .BackGround-AddStory{ position:fixed; background:rgba(128, 128, 128, 0.585); height:100vh; width:100%; z-index:10;
 
+            .HideComponent{  display: flex; flex-direction:column; align-items:center; width:37%; height:330px; position:absolute; top:45%; left:50%;
+                translate:-50% -50%; background:$white; border-radius:20px; padding:13px 0; box-shadow:2px 2px 3px $violet; 
+
+                header{ display:flex; width:100%; position: relative; justify-content:center; border-bottom:1.5px solid $violet;
+                    padding-bottom:7px; align-items:center;
+
+                    h3{  font-weight:bold; }
+
+                    i{ position: absolute; right:15px; font-size:25px; color:$violet; translate:0px 2px; cursor: pointer; 
+                        transition:.4s; &:hover{ color:$black; transition:.4s; }
+                    }
+                }
+
+                img{ width:250px; margin:20px 0; }
+
+                input{display:none;}
+                label , button{ color:$white; background:$violet; cursor: pointer; width:60%; padding:7px; font-size:18px;  
+                    border-radius:15px; display:flex; justify-content:center; gap:10px; align-items:center;
+                    transition:.4s ; i{ margin-top:2px;}
+                    
+                    &:hover{ color:$black; transition:.4s; }
+                }
+                opacity:0; z-index:-10; transition:1s; transform:scaleX(-1); 
+            }
+
+            .SelectImage{ display: flex; flex-direction:column; align-items:center; width:37%; height:330px; position:absolute; top:45%; left:50%;
+                translate:-50% -50%; background:$white; border-radius:20px; padding:13px 0; box-shadow:2px 2px 3px $violet; transition:1s; transform:scaleX(1);
+
+                header{ display:flex; width:100%; position: relative; justify-content:center; border-bottom:1.5px solid $violet;
+                    padding-bottom:7px; align-items:center;
+
+                    h3{  font-weight:bold; }
+
+                    i{ position: absolute; right:15px; font-size:25px; color:$violet; translate:0px 2px; cursor: pointer; 
+                        transition:.4s; &:hover{ color:$black; transition:.4s; }
+                    }
+                }
+
+                img{ width:250px; margin:20px 0; }
+
+                input{display:none;}
+                label{ color:$white; background:$violet; cursor: pointer; width:60%; padding:7px; font-size:18px;  
+                    border-radius:15px; display:flex; justify-content:center; gap:10px; align-items:center;
+                    transition:.4s ; i{ margin-top:2px;}
+                    
+                    &:hover{ color:$black; transition:.4s; }
+                }
+            }
+
+            .ShareStory{ display: flex; flex-direction:column; align-items:center; width:37%; height:330px; position:absolute; top:45%; left:50%;
+                translate:-50% -50%; background:$white; border-radius:20px; padding:13px 0; box-shadow:2px 2px 3px $violet; transition:1s; transform:scaleX(1);
+
+                header{ display:flex; width:100%; position: relative; justify-content:center; border-bottom:1.5px solid $violet;
+                    padding-bottom:7px; align-items:center;
+
+                    .go-back{ position: absolute; left:15px; font-size:25px; color:$violet; translate:0px 2px; cursor: pointer; 
+                        transition:.4s; &:hover{ color:$black; transition:.4s; } }
+ 
+                    h3{ font-weight:bold; }
+ 
+                    .close{ position: absolute; right:15px; font-size:25px; color:$violet; translate:0px 2px; cursor: pointer; 
+                        transition:.4s; &:hover{ color:$black; transition:.4s; }
+                    }
+                }
+
+                img{ width:280px; height:220; margin:20px 0; object-fit:cover; border-radius:20px; box-shadow:2px 2px 3px $violet; }
+
+                input{display:none;}
+                button{ color:$white; background:$violet; cursor: pointer; width:62%; padding:7px; font-size:18px;  
+                    border-radius:15px; display:flex; justify-content:center; gap:10px; align-items:center; border:none;
+                    transition:.4s ; height:40px; i{ margin-top:2px;}
+                    
+                    &:hover{ color:$black; transition:.4s; }
+                }
+
+                p{ margin:10px; color:$violet; font-weight:700;font-size:16px;  }
+            }
+        }
+
+        .StoriesPage{ height:100vh; width:100%; background:red; display:flex;
+
+            //! The main big bar
+            .BigBar{ width:300px; background:#202020; color:$white; height:100vh; display:flex; flex-direction:column;
+                align-items:center; position:relative; border-right:1.5px solid $violet; 
+    
+                .Stories{  width:100%;
+                    .Stories-swiper{ display:flex; justify-content:center;  width:90%; margin-top:15px;  padding-bottom:25px;
+                    
+                        .swiper-wrapper .swiper-slide{  
+                            img{ border-radius:50%; object-fit:cover; border:2px solid $violet; cursor:pointer; }
+                        }
+        
+                        .swiper-pagination-bullet{ cursor: pointer;   bottom:0px; background:$white; z-index:10; 
+                            width:11px; height:11px; 
+                        }
+                    }
+                }
+    
+                .title{ display:flex; margin:5px 0;  width:87%;  position: relative;
+                    h2{font-size:25px;}
+                    span{ color:$violet; margin:5px 10px; font-weight:bold;  }
+                    i{color:$violet; font-size:28px; cursor: pointer; justify-self:flex-end; position:absolute; right:0px;
+                        transition: .4s ease; &:hover{color:$white; transition:.4s ease; scale:1.1;}
+                    }
+                }
+    
+                form{ width:90%; display:flex; background:$white; border-radius:20px; justify-content:space-evenly;
+                    align-items:center; margin:10px 0;
+    
+                    input{ border:none; background:none; color:$violet; padding:15px 5px; font-weight:bold;  width:70%; 
+                        &:focus{outline:none;}
+    
+                        &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+                            color: $violet;
+                            opacity: 1; /* Firefox */
+                          }
+                          
+                        &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+                            color: $violet;
+                        }
+                          
+                        &::-ms-input-placeholder { /* Microsoft Edge */
+                            color: $violet;
+                        }
+                    }
+                    button{ background:none; padding:7px; color:$violet; border:none; font-size:22px; cursor:pointer; position: relative; top:2px; }
+                }
+    
+                .error{ display:flex; justify-content: space-between; align-items:center; background:$white;
+                    width:90%;  border-radius:20px; padding:7px 0; margin:10px 0;
+                    
+                    i{color:red; font-size:25px; margin:0 15px; cursor: pointer; transition:.3s; &:hover{transition:.3s; color:$black;}}
+                    p{ color:red; font-weight:bold; margin:0 15px;}
+                }
+    
+                .searchResults{ display:flex; width:90%;  position: relative; background:$white; border-radius:30px; margin:15px 0;
+    
+                    img{border-radius:50%; object-fit:cover; justify-self:flex-start; align-self:flex-start;}
+                    
+                    .info{margin:7px 10px; color:$violet; justify-self:flex-start; text-align:left;
+                        h3{margin:2px 0; font-size:17px;}
+                        h5{opacity:.6; color:$black;}
+                    }
+                    
+                    i{font-size:26px; cursor: pointer; color:$violet; position: absolute; right:10px; top:15px; transition:.2;
+                        &:hover{color:$black;}
+                    }
+                    .x{ right:92%; font-size:25px; color:$violet; top:-14px; &:hover{color:red} }
+                }
+    
+                .h2{ border-bottom:1.5px solid $violet; width:85%; text-align:left; font-size:17px; color:$violet; margin-top:5px; font-weight:normal; padding:5px 0; }
+    
+                .Contacts{display:flex; flex-direction: column; align-items:center;  margin:20px 0; width:95%; overflow-y: auto; 
+    
+                    &::-webkit-scrollbar{background:none; width:7px;}
+                    &::-webkit-scrollbar-thumb{ background:$violet; border-radius:10px; cursor:pointer;}
+    
+                    .contact{ display:flex; width:90%;  position: relative; justify-content:left; color:$white; cursor:pointer; margin:13px 0;
+    
+                        img{border-radius:50%; object-fit:cover; justify-self:flex-start; align-self:flex-start;}
+    
+                        .contactInfo{margin:7px 10px; justify-self:center;
+                            h3{margin:2px 0; font-size:15px;}
+                            h5{opacity:.6; text-align:left; }
+                        }
+    
+                        .messagesInfo{ display:flex; flex-direction:column; align-items:center; position:absolute; right:5px; 
+                            span{font-size: 14px; }
+                            .missedMessages{ width:20px; height:20px; border-radius:50%; background:red;  margin:3px 0; display:grid; align-items:center; justify-content:center; }
+    
+                        }
+                    }
+                }   
+            }
+        }
+    }
 }

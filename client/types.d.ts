@@ -6,11 +6,11 @@ interface session {
 }
 
 interface FullUser {
-    _id:string
+    _id: string
     name: string,
     email: string,
     image: string,
-    username:string,
+    username: string,
     requests?: {
         name: String,
         email: String,
@@ -39,7 +39,7 @@ interface FullUser {
             ]
         }
     ],
-    story?:string,
+    story?: string,
     privateAccount?: boolean,
     notification?: boolean
     status?: boolean
@@ -49,5 +49,26 @@ interface FullUser {
     age?: string
     phoneNumber?: string,
     gender?: string
-    Country?: string
+    country?: string
+}
+
+interface Connection {
+    RoomConnectionId: string,
+    notification: boolean,
+
+    id: string,
+    image: string,
+    username: string,
+    name: string,
+    email: string,
+    description: string,
+    story: string,
+
+    messages: [
+        {
+            from: string,
+            message: string,
+            time: string
+        }
+    ]
 }

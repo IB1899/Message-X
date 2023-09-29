@@ -59,7 +59,7 @@ export default function useLogIn() {
         dispatch(setLoading(true))
 
         if(!email){ 
-            dispatch(setVerifyEmail("How the hell did you manage to do tha"))
+            dispatch(setVerifyEmail("How the hell did you manage to do that"))
             return
         }
 
