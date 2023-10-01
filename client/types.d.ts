@@ -72,3 +72,13 @@ interface Connection {
         }
     ]
 }
+
+interface story {
+    user: string,
+    story: string,
+    _id: string,
+    storyName: string,
+    createdAt: string,
+    userImage: string,
+    username: string
+}

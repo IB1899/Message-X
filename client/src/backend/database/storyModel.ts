@@ -14,7 +14,16 @@ let StorySchema = new Schema({
     user: {
         type: String,
         unique: true,
+    },
+    userImage: {
+        type: String,
+        unique: true,
+    },
+    username: {
+        type: String,
+        unique: true,
     }
+
 }, { timestamps: true })
 
 export default models.story || model("story", StorySchema)

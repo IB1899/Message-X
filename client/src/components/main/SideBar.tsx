@@ -25,9 +25,7 @@ export default function SideBar({ user }: { user: FullUser }) {
 
     //! Open the settings popup
     let openSettings = () => {
-        if (pathname !== "/main") {
-            router.push("/main")
-        }
+
         dispatch(setIsSettings(!isSettings))
     }
 
@@ -49,17 +47,23 @@ export default function SideBar({ user }: { user: FullUser }) {
 
             <div className="links">
 
-                <Link onClick={() => dispatch(setIsSettings(false))} href={"/main"} id="A1" className={pathname === "/main" && !isSettings ? "active" : ""} >
+                <Link onClick={() => dispatch(setIsSettings(false))} href={"/main"} id="A1
+                " className={pathname === "/main" && !isSettings ? "active" : ""}
+                >
                     <FaRegCommentDots />
                 </Link>
 
-                <Link onClick={() => dispatch(setIsSettings(false))} href={"/main/groups"} id="A2" className={pathname === "/main/groups" && !isSettings ? "active" : ""} >
+                <Link onClick={() => dispatch(setIsSettings(false))} href={"/main/groups"} id="A2"
+                    className={pathname === "/main/groups" && !isSettings ? "active" : ""}
+                >
                     <FaMicrosoft />
                 </Link>
 
                 <span></span>
 
-                <Link onClick={() => dispatch(setIsSettings(false))} href={"/main/stories"} id="A3" className={pathname === "/main/stories" ? "active" : ""} >
+                <Link onClick={() => dispatch(setIsSettings(false))} href={"/main/stories"} id="A3"
+                    className={pathname === "/main/stories" ? "active" : ""}
+                >
                     <MdOutlineWebStories />
                 </Link>
 
@@ -67,7 +71,9 @@ export default function SideBar({ user }: { user: FullUser }) {
                 <span></span>
 
                 <button id="A5" onClick={SignOut}> <MdLogout /> </button>
-                <button id="A6" className={isSettings ? "active" : ""} onClick={openSettings} > <RiSettings5Fill /> </button>
+                <button id="A6" className={isSettings ? "active" : ""} onClick={() => dispatch(setIsSettings(!isSettings))} >
+                    <RiSettings5Fill />
+                </button>
             </div>
 
             {user?.image ?

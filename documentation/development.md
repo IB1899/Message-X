@@ -53,3 +53,6 @@
 ## Ibrahim Ali- September 29 2023
 1. Started the Stories section of the application.
 2. Made some progress with the stories process.
+
+## Ibrahim Ali- September 30 - October 1 2023
+1. Completed the entire stories section of the application

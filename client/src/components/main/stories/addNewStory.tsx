@@ -15,7 +15,7 @@ import useStories from "@/hooks/stories";
 
 const lobster = Lobster({ subsets: ["latin"], weight: ["400"] })
 
-export default function AddNewStory({ email }: { email: string }) {
+export default function AddNewStory({ email, userImage, username }: { email: string, userImage: string, username: string }) {
 
     let [message, setMessage] = useState("");
     let [image, setImage] = useState<File | string>("");
@@ -24,7 +24,7 @@ export default function AddNewStory({ email }: { email: string }) {
 
     let dispatch = useDispatch<AppDispatch>()
 
-    let { SubmitStory, handelImageChange } = useStories(setImage, setMessage, setLoading, setImageURL, image, email)
+    let { SubmitStory, handelImageChange } = useStories(setImage, setMessage, setLoading, setImageURL, image, email, userImage, username)
 
     return (
         <div className="BackGround-AddStory">

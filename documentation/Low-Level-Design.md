@@ -63,3 +63,9 @@
    3. The user can only add one story each day.
    4. The story will be removed automatically from the database after a one day.
    5. A user can only see the stories of his/her friends (connections).
+   6. Deleting the users stories automatically can be done through multiple ways: (3ed) is chosen.
+      1. In A common visited page, we trigger a request to a backend API end point that evaluates & deletes expired stories. ***Benefit:*** Big accuracy ***Drawback:*** Big demand on your database & server.
+      2. **In Node.js server:** we can implement a cron job or scheduled job(They are in forms of functions just like setTimeOut) using a library like node-cron or cron to periodically check and delete expired stories inside the server level-code. ***Benefit:*** Less demand on the server & database ***Drawback:*** Low accuracy.
+      3. **In Next.js** we'll have in our nodejs server a cron job that will trigger a request to a Next.js end point that deletes the expired stories. ***Benefit:*** Less demand on the server & database ***Drawback:*** Low accuracy.
+      4. Use an outside service cron-job that will trigger a request to our backend API end point ***Benefits & Drawbacks*** depend on you cron job configuration.
+   

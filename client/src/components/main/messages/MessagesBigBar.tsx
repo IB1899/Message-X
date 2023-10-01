@@ -21,7 +21,7 @@ export default function MessagesBigBar({ user }: { user: FullUser }) {
     return (
         <>
             {/* The Add story pop-up  rendered conditionally */}
-            {isAddStory ? <AddNewStory email={user.email} /> : null}
+            {isAddStory ? <AddNewStory email={user.email} userImage={user.image} username={user.username} /> : null}
 
             {/* Switching between the setting bar and the messages bar */}
             {isSettings ?

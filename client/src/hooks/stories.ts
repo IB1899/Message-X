@@ -6,7 +6,7 @@ export default function useStories(
     setMessage: Dispatch<SetStateAction<string>>,
     setLoading: Dispatch<SetStateAction<boolean>>,
     setImageURL: Dispatch<SetStateAction<string>>,
-    image: File | string, email: string
+    image: File | string, email: string, userImage:string, username:string
 ) {
 
     //! To immediately show the selected image on the page
@@ -32,6 +32,8 @@ export default function useStories(
 
         formData.append("story", image)
         formData.append("email", email)
+        formData.append("userImage", userImage)
+        formData.append("username", username)
 
         let response = await fetch("http://localhost:3000/api/stories", {
             method: "POST", body: formData
