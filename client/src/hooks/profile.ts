@@ -51,6 +51,8 @@ let useProfile = (
                 method: "POST", body: formData
             })
             let result = await response.json()
+
+            if(!result.success) return setFailed("image was not updated")
         }
 
         let response = await fetch("http://localhost:3000/api/settings", {

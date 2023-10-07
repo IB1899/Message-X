@@ -1,15 +1,28 @@
 import express, { Request, Response, json } from "express"
 import cors from "cors"
 import { job } from "./controller/cron-jobs"
+import http from "http"
+import { ConnectToDB, UserModel } from "./model/UserModel"
+import { Server } from "socket.io"
+import { SocketCode } from "./controller/socket"
 
-let server = express()
-server.use(express.json())
-server.use(cors())
+let app = express()
+app.use(express.json())
+app.use(cors())
 
+let server = http.createServer(app)
+ConnectToDB(() => server.listen(3001))
 
 //! Run the cron job
 job()
 
-server.listen(3001, () => {
-    console.log("listening");
+
+export let io = new Server(server, {
+    cors: {
+        origin: ["http://localhost:3000"],
+        allowedHeaders: ['GET', "PUT", "POST", "DELETE"]
+    }
 })
+
+
+io.on('connection', (socket)=> SocketCode(socket , io)  )

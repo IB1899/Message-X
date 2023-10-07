@@ -3,10 +3,7 @@ import SideBar from "@/components/main/SideBar"
 import { Metadata } from "next"
 import { getServerSession } from "next-auth"
 
-export const metadata: Metadata = {
-    title: "Messages",
-    description: "This is the messages dashboard"
-}
+
 
 export default async function Main({ children }: { children: React.ReactNode }) {
 

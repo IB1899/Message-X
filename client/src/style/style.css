@@ -4941,7 +4941,7 @@ body .Main .Messages {
   width: 100%;
 }
 body .Main .Messages .BigBar {
-  width: 300px;
+  min-width: 300px;
   background: #202020;
   color: white;
   height: 100vh;
@@ -5200,7 +5200,8 @@ body .Main .Messages .BigBar .Contacts .contact .messagesInfo .missedMessages {
   justify-content: center;
 }
 body .Main .Messages .Settings {
-  width: 300px;
+  min-width: 300px;
+  max-width: 310px;
   background: #202020;
   color: white;
   height: 100vh;
@@ -5452,7 +5453,7 @@ body .Main .Messages .Message.Reset-Password h4 {
   text-align: center;
 }
 body .Main .Messages .Profile {
-  width: 70%;
+  width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -5566,6 +5567,447 @@ body .Main .Messages .Profile .message {
 body .Main .Messages .Profile .message p {
   font-weight: 700;
   color: white;
+}
+body .Main .Messages .Message {
+  width: 100%;
+  display: flex;
+}
+body .Main .Messages .Message .Left {
+  width: 70%;
+  background-image: url("./backgrounds//home-dark.jpg");
+  color: white;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body .Main .Messages .Message .Left header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.203);
+  height: 10vh;
+  align-items: center;
+  padding: 3px 0;
+}
+body .Main .Messages .Message .Left header i {
+  font-size: 28px;
+  color: #9D00BB;
+  cursor: pointer;
+  transition: 0.3s;
+}
+body .Main .Messages .Message .Left header i:hover {
+  color: white;
+  transition: 0.3s;
+}
+body .Main .Messages .Message .Left header .i {
+  display: flex;
+  align-items: center;
+  margin: 0 10px;
+}
+body .Main .Messages .Message .Left header .i img {
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-right: 5px;
+}
+body .Main .Messages .Message .Left header .ii h3 {
+  font-size: 18px;
+  color: #9D00BB;
+}
+body .Main .Messages .Message .Left header .ii h5 {
+  color: limegreen;
+  font-size: 16px;
+}
+body .Main .Messages .Message .Left header .iii {
+  display: flex;
+  align-items: center;
+}
+body .Main .Messages .Message .Left .TheMessages {
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 88vh;
+  width: 100%;
+  position: relative;
+}
+body .Main .Messages .Message .Left .TheMessages::-webkit-scrollbar {
+  background: none;
+  width: 8px;
+}
+body .Main .Messages .Message .Left .TheMessages::-webkit-scrollbar-thumb {
+  background: #9D00BB;
+}
+body .Main .Messages .Message .Left .TheMessages .msgs {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 20px;
+}
+body .Main .Messages .Message .Left .TheMessages .msgs .msg {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 15px 10px;
+  text-align: left;
+}
+body .Main .Messages .Message .Left .TheMessages .msgs .msg img {
+  border-radius: 50%;
+  -o-object-fit: content;
+     object-fit: content;
+}
+body .Main .Messages .Message .Left .TheMessages .msgs .msg .text {
+  color: white;
+}
+body .Main .Messages .Message .Left .TheMessages .msgs .msg .text .msg-head {
+  display: flex;
+  align-items: center;
+}
+body .Main .Messages .Message .Left .TheMessages .msgs .msg .text .msg-head h3 {
+  font-size: 18px;
+}
+body .Main .Messages .Message .Left .TheMessages .msgs .msg .text .msg-head span {
+  font-size: 14px;
+  opacity: 0.7;
+  margin: 0 20px;
+}
+body .Main .Messages .Message .Left .TheMessages .msgs .msg .text p {
+  font-size: 15px;
+  padding: 10px;
+  border-radius: 10px 0 10px 0;
+  margin: 5px 0;
+  grid-column: 1/3;
+  font-weight: 200;
+}
+body .Main .Messages .Message .Left .TheMessages .msgs #me {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+body .Main .Messages .Message .Left .TheMessages .msgs #me .text p {
+  background: #9D00BB;
+}
+body .Main .Messages .Message .Left .TheMessages .msgs #me .text .msg-head {
+  justify-content: flex-end;
+}
+body .Main .Messages .Message .Left .TheMessages .msgs #them {
+  align-self: flex-start;
+}
+body .Main .Messages .Message .Left .TheMessages .msgs #them .text p {
+  background: #202020;
+  border-radius: 0 10px 0 10px;
+}
+body .Main .Messages .Message .Left .TheMessages .sendMessage {
+  width: 90%;
+  display: flex;
+  border-radius: 10px;
+  height: 40px;
+  background: #202020;
+  position: sticky;
+  bottom: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+body .Main .Messages .Message .Left .TheMessages .sendMessage i, body .Main .Messages .Message .Left .TheMessages .sendMessage button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #9D00BB;
+  cursor: pointer;
+  margin: 0 5px;
+  transition: 0.3s;
+}
+body .Main .Messages .Message .Left .TheMessages .sendMessage i:hover, body .Main .Messages .Message .Left .TheMessages .sendMessage button:hover {
+  color: white;
+  transition: 0.3s;
+}
+body .Main .Messages .Message .Left .TheMessages .sendMessage .i {
+  height: inherit;
+  margin: 0 10px;
+  display: flex;
+  align-items: center;
+  width: 82%;
+}
+body .Main .Messages .Message .Left .TheMessages .sendMessage .i i {
+  translate: 0 2px;
+}
+body .Main .Messages .Message .Left .TheMessages .sendMessage .i input {
+  width: 100%;
+  background: none;
+  outline: none;
+  color: #9D00BB;
+  height: inherit;
+  border: none;
+  margin: 0 10px;
+  font-weight: bold;
+}
+body .Main .Messages .Message .Left .TheMessages .sendMessage .ii {
+  margin: 0 10px;
+  width: 18%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+body .Main .Messages .Message .Left .TheMessages .sendMessage .ii span {
+  width: 0.7px;
+  background: white;
+  opacity: 0.6;
+  height: 25px;
+  display: block;
+}
+body .Main .Messages .Message .Right {
+  width: 30%;
+  height: 100vh;
+  background: #202020;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+body .Main .Messages .Message .Right .img .profileImage {
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border: 2px solid #9D00BB;
+  margin: 6px 0;
+  position: relative;
+}
+body .Main .Messages .Message .Right h1 {
+  color: #9D00BB;
+  font-size: 22px;
+}
+body .Main .Messages .Message .Right .h3 {
+  display: flex;
+  align-items: center;
+  font-weight: 200;
+  font-size: 14px;
+  transition: 0.4s;
+  cursor: pointer;
+  gap: 10px;
+}
+body .Main .Messages .Message .Right .h3 i {
+  color: #9D00BB;
+  font-size: 20px;
+}
+body .Main .Messages .Message .Right .h3:hover {
+  transition: 0.4s;
+  color: #9D00BB;
+  translate: 0 2px;
+}
+body .Main .Messages .Message .Right p {
+  margin: 3px 0;
+  letter-spacing: 1px;
+  font-size: 13px;
+  font-weight: 100;
+}
+body .Main .Messages .Message .Right .CallChat {
+  display: flex;
+  width: 93%;
+  justify-content: space-evenly;
+  margin: 10px 0;
+}
+body .Main .Messages .Message .Right .CallChat button {
+  border: none;
+  background: #9D00BB;
+  color: white;
+  padding: 7px 13px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: 0.4s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+body .Main .Messages .Message .Right .CallChat button i {
+  font-size: 16px;
+}
+body .Main .Messages .Message .Right .CallChat button:hover {
+  background: white;
+  color: #9D00BB;
+  transition: 0.4s;
+}
+body .Main .Messages .Message .Right .SearchChat {
+  width: 78%;
+  display: flex;
+  background: white;
+  border-radius: 20px;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 10px 0;
+}
+body .Main .Messages .Message .Right .SearchChat input {
+  border: none;
+  background: none;
+  color: #9D00BB;
+  padding: 10px 5px;
+  font-weight: bold;
+  width: 70%;
+}
+body .Main .Messages .Message .Right .SearchChat input:focus {
+  outline: none;
+}
+body .Main .Messages .Message .Right .SearchChat input::-moz-placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #9D00BB;
+  opacity: 1; /* Firefox */
+}
+body .Main .Messages .Message .Right .SearchChat input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #9D00BB;
+  opacity: 1; /* Firefox */
+}
+body .Main .Messages .Message .Right .SearchChat input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #9D00BB;
+}
+body .Main .Messages .Message .Right .SearchChat input::-ms-input-placeholder { /* Microsoft Edge */
+  color: #9D00BB;
+}
+body .Main .Messages .Message .Right .SearchChat button {
+  background: none;
+  padding: 7px;
+  color: #9D00BB;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  position: relative;
+  top: 2px;
+}
+body .Main .Messages .Message .Right .Options {
+  width: 82%;
+  background: #202020;
+  color: white;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+body .Main .Messages .Message .Right .Options .setting {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 17px;
+  width: 100%;
+}
+body .Main .Messages .Message .Right .Options .setting i {
+  font-size: 28px;
+  color: #9D00BB;
+}
+body .Main .Messages .Message .Right .Options .setting .description {
+  text-align: left;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  position: relative;
+  width: 80%;
+}
+body .Main .Messages .Message .Right .Options .setting .description p {
+  opacity: 0.7;
+  font-size: 11px;
+  grid-column: 1/3;
+  margin-top: 10px;
+}
+body .Main .Messages .Message .Right .Options .setting .description h3 {
+  margin-right: 15px;
+  font-size: 16px;
+}
+body .Main .Messages .Message .Right .Options .setting .description input {
+  background: white;
+  width: 50px;
+  height: 25px;
+  border-radius: 20px;
+  position: absolute;
+  right: 2px;
+  top: 0;
+  outline: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  transition: 0.5s;
+}
+body .Main .Messages .Message .Right .Options .setting .description input::before {
+  content: "";
+  cursor: pointer;
+  position: absolute;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  top: 1px;
+  background: gray;
+  left: 2px;
+  transition: 0.5s;
+}
+body .Main .Messages .Message .Right .Options .setting .description input:checked::before {
+  content: "";
+  cursor: pointer;
+  position: absolute;
+  transition: 0.5s;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  top: 1px;
+  background: #9D00BB;
+  left: 25px;
+}
+body .Main .Messages .Message .Right .sharedPhotos {
+  font-weight: 700;
+  pointer-events: none;
+  align-self: flex-start;
+  margin-left: 35px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  position: relative;
+  top: -12px;
+}
+body .Main .Messages .Message .Right .sharedPhotos i {
+  font-size: 29px;
+  margin: 3x;
+  color: #9D00BB;
+}
+body .Main .Messages .Message .Right .images {
+  width: 90%;
+  display: grid;
+  grid-template-columns: repeat(3, 70px);
+  -moz-column-gap: 5px;
+       column-gap: 5px;
+  row-gap: 5px;
+  position: relative;
+  justify-content: center;
+}
+body .Main .Messages .Message .Right .images img {
+  border-radius: 10px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+body .Main .Messages .Message .Right .images::after {
+  content: "";
+  position: absolute;
+  width: 80%;
+  height: 45px;
+  left: 22px;
+  bottom: 0;
+  background: rgba(183, 183, 183, 0.304);
+}
+body .Main .Messages .Message .Right .delete {
+  border: none;
+  background: none;
+  color: red;
+  padding: 7px 13px;
+  cursor: pointer;
+  border-top: 1px solid gray;
+  transition: 0.4s;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 17px;
+  margin-top: 10px;
+  justify-content: center;
+}
+body .Main .Messages .Message .Right .delete i {
+  font-size: 23px;
 }
 body .Main .BackGround-AddStory {
   position: fixed;
@@ -5898,7 +6340,8 @@ body .Main .StoriesPage .VerticalStories .swiper .swiper-pagination-bullet {
   height: 11px;
 }
 body .Main .StoriesPage .Settings {
-  width: 300px;
+  min-width: 300px;
+  max-width: 310px;
   background: #202020;
   color: white;
   height: 100vh;

@@ -325,7 +325,7 @@ $white:white;
     }
 
     @mixin Settings{
-        width:300px; background:#202020; color:$white; height:100vh; display:flex; flex-direction:column;
+        min-width:300px; max-width:310px; background:#202020; color:$white; height:100vh; display:flex; flex-direction:column;
         align-items:center; position:relative; border-right:1.5px solid $violet; 
 
         h2{font-size:25px; margin:20px 15px; text-align:left; align-self:flex-start;}
@@ -716,7 +716,7 @@ $white:white;
         .Messages{ display:flex; width:100%;
 
             //! The main big bar
-            .BigBar{ width:300px; background:#202020; color:$white; height:100vh; display:flex; flex-direction:column;
+            .BigBar{ min-width:300px; background:#202020; color:$white; height:100vh; display:flex; flex-direction:column;
                 align-items:center; position:relative; border-right:1.5px solid $violet; 
     
                 .Stories{  width:100%;
@@ -846,7 +846,7 @@ $white:white;
             }
 
             //! Profile conditional rendered
-            .Profile{  width:70%; height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; color:$violet;
+            .Profile{  width:100%; height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; color:$violet;
 
                 .top{ display:flex; justify-content:space-between;  align-items:center;
                     img{ border-radius:50%; object-fit:cover;  }
@@ -884,6 +884,184 @@ $white:white;
                 }
 
                 .message{ margin-top:40px; width:70%; p{ font-weight:700; color:$white;  } }
+
+            }
+
+            //! The Message page
+            .Message{ width:100%; display:flex; 
+                
+                .Left{width:70%; background-image:url("./backgrounds//home-dark.jpg"); color:$white; background-position:center; 
+                    background-repeat:no-repeat; background-attachment:fixed; background-size:cover; display:flex; flex-direction:column; align-items:center;
+                    
+                    header{ display:flex; justify-content:space-between; width:100%; background:rgba(255, 255, 255, 0.203); height:10vh; 
+                        align-items:center; padding:3px 0;
+
+                        i{font-size:28px; color:$violet; cursor: pointer; transition:.3s;
+                            &:hover{ color:$white; transition:.3s; } 
+                        }
+
+                        .i{ display:flex; align-items:center; margin:0 10px;
+                            img{ border-radius:50%; object-fit:cover; margin-right:5px;} 
+                        }
+                        .ii{
+                            h3{font-size:18px; color:$violet;}
+                            h5{color:limegreen; font-size:16px;}
+                        }
+                        .iii{
+                            display:flex; align-items:center;
+                        }
+                    }
+
+                    .TheMessages{ overflow-y:auto; display:flex; flex-direction:column; align-items:center; height:88vh; width:100%; position:relative;
+
+                        &::-webkit-scrollbar{ background:none; width:8px; }
+                        &::-webkit-scrollbar-thumb{ background:$violet; }
+
+
+                        .msgs{ display:flex; flex-direction:column; width:100%; margin-bottom:20px;
+                            
+                            .msg{  display:flex; align-items:center; gap:10px; margin:15px 10px;  text-align:left; 
+
+                                img{ border-radius:50%; object-fit:content; }
+
+                                .text{ color:$white;  
+                                    
+                                    .msg-head{ display:flex; align-items:center; 
+                                        h3{ font-size:18px; }
+                                        span{ font-size:14px; opacity:.7; margin:0 20px;}
+                                    }
+                                    p{font-size:15px; padding:10px; border-radius:10px 0 10px 0; margin:5px 0; grid-column:1/3;
+                                        font-weight:200;
+                                    }
+                                }
+                            }
+                        
+                            #me{ align-self:flex-end;  flex-direction: row-reverse; 
+                                .text p{ background:$violet; } 
+                                .text .msg-head{justify-content:flex-end;} 
+                            }
+                            #them{align-self:flex-start; 
+                                .text p{ background:#202020; border-radius:0 10px 0 10px; } 
+                            }
+                        }
+
+                        .sendMessage{ width:90%; display:flex; border-radius:10px; height:40px; background: #202020;
+                            position:sticky; bottom:20px; align-items:center; justify-content:space-between;
+
+                            i , button{ background:none; border:none; font-size:24px; color:$violet; cursor:pointer; margin:0 5px; transition:.3s;
+                                &:hover{ color:$white; transition:.3s; } 
+                            }
+
+
+                            .i{ height:inherit; margin:0 10px; display:flex; align-items:center; width:82%;
+                                
+                                i{ translate:0 2px; }
+                                
+                                input{ width:100%; background:none; outline:none; color:$violet; height:inherit; border:none; margin:0 10px;
+                                    font-weight:bold;
+                                }
+                            }
+                            
+                            .ii{ margin:0 10px; width:18%; display:flex; align-items:center; justify-content:space-between;
+                                
+                                span{ width:.7px; background:$white; opacity:.6; height:25px; display:block; }
+                            }
+                            
+                        }
+
+                    }
+                }
+
+                .Right{ width:30%; height:100vh; background:#202020; display:flex; flex-direction:column; align-items:center; color:$white;
+
+                    .img{ 
+                        .profileImage{ border-radius:50%;  object-fit:cover; border:2px solid $violet; margin:6px 0;
+                            position: relative;
+                        }
+                    }
+
+                    h1{ color:$violet; font-size: 22px;}
+                    
+                    .h3{ display:flex; align-items:center; font-weight:200; font-size:14px;  transition:.4s; cursor: pointer;
+                        i{ color:$violet; font-size:20px; }  gap:10px;
+                        &:hover{ transition:.4s; color:$violet; translate:0 2px; }
+                    }
+
+                    p{ margin:3px 0; letter-spacing:1px; font-size:13px; font-weight:100; }
+
+                    .CallChat{ display:flex; width:93%; justify-content:space-evenly; margin:10px 0;
+
+                        button{ border:none; background:$violet; color:$white; padding:7px 13px; font-weight:bold; cursor: pointer; border-radius:20px;
+                            transition:.4s; display:flex; align-items:center; gap:10px; i{ font-size:16px; } 
+                            &:hover{ background:$white; color:$violet; transition:.4s; }
+                        }
+                    }
+
+                    .SearchChat{ width:78%; display:flex; background:$white; border-radius:20px; justify-content:space-evenly;
+                        align-items:center; margin:10px 0;
+        
+                        input{ border:none; background:none; color:$violet; padding:10px 5px; font-weight:bold;  width:70%; 
+                            &:focus{outline:none;}
+        
+                            &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+                                color: $violet;
+                                opacity: 1; /* Firefox */
+                              }
+                              
+                            &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+                                color: $violet;
+                            }
+                              
+                            &::-ms-input-placeholder { /* Microsoft Edge */
+                                color: $violet;
+                            }
+                        }
+                        button{ background:none; padding:7px; color:$violet; border:none; font-size:22px; cursor:pointer; position: relative; top:2px; }
+
+                    }
+
+                    .Options{ width:82%; background:#202020; color:$white; height:100vh; display:flex; flex-direction:column;
+                        align-items:center; position:relative; 
+                
+                        .setting{ display:flex; justify-content:space-around; margin-top:17px; width:100%;
+
+                            i{ font-size:28px; color:$violet; }
+                            
+                            .description{text-align:left; display: grid; grid-template-columns: repeat(2,auto); position:relative; width:80%;
+                
+                                p{opacity: .7; font-size:11px; grid-column:1/3; margin-top:10px;}
+                                h3{margin-right:15px; font-size:16px;}
+                
+                                input{background:$white; width:50px; height:25px; border-radius:20px; position:absolute; right:2px; top:0; outline:none; appearance:none;
+                                    transition:.5s;
+                                    &::before{content: '';cursor:pointer;  position:absolute; width:23px; height:23px; border-radius:50%; top:1px; background:gray; left:2px; transition:.5s;}
+                
+                                    &:checked::before{content: ''; cursor:pointer; position:absolute; transition:.5s; width:23px; height:23px; border-radius:50%; top:1px; background:$violet; left:25px;}
+                                }
+                            }
+                        }
+                    }
+
+                    .sharedPhotos{ font-weight:700; pointer-events:none; align-self:flex-start; margin-left:35px;
+                        display:flex; align-items:center; gap:10px; font-size:14px;  position: relative;
+                        top:-12px;
+                        i{ font-size:29px; margin:3x; color:$violet; }  
+                    }
+
+                    .images{ width:90%; display:grid; grid-template-columns:repeat(3, 70px); column-gap:5px; row-gap:5px;
+                        position: relative; justify-content:center;
+
+                        img{ border-radius:10px; object-fit:cover; }
+
+                        &::after{content:''; position:absolute; width:80%; height:45px; left:22px; bottom:0; background:rgba(183, 183, 183, 0.304); }
+                    }
+
+                    .delete{  border:none; background:none; color:red; padding:7px 13px; cursor: pointer;  border-top:1px solid gray;
+                        transition:.4s; width:80%; i{ font-size:23px; } 
+                        display:flex; align-items:center; gap:10px; font-size:17px; margin-top:10px; justify-content:center;
+                    }  
+
+                }
 
             }
         }

@@ -13,7 +13,7 @@ export default function StoriesBigBar({ user, stories }: { user: FullUser, stori
     //! Redux: Only the MainSlice is used in the 'main' route
     let dispatch = useDispatch<AppDispatch>()
 
-    let { isSettings, isProfile, isAddStory } = useAppSelector((state => state.MainSlice))
+    let { isSettings, isAddStory } = useAppSelector((state => state.MainSlice))
     
     return (
         <>

@@ -28,7 +28,7 @@ export async function middleware(request: NextRequest) {
                 let result = await jose.jwtVerify(cookie.value, new TextEncoder().encode(process.env.JWT_SECRET!))
                 if (!result.payload.name)   return NextResponse.next()
 
-                return NextResponse.redirect("http://localhost:3000/main")
+                return NextResponse.redirect("http://localhost:3000/main/messages")
             }
             catch (err: any) {
                 return NextResponse.next()
@@ -45,7 +45,7 @@ export async function middleware(request: NextRequest) {
                 let result = await jose.jwtVerify(cookie.value, new TextEncoder().encode(process.env.JWT_SECRET!))
                 if (!result.payload.name) return NextResponse.next()
 
-                return NextResponse.redirect("http://localhost:3000/main")
+                return NextResponse.redirect("http://localhost:3000/main/messages")
             }
             catch (err: any) {
                 return NextResponse.next()

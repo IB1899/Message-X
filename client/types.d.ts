@@ -17,24 +17,27 @@ interface FullUser {
         id: String,
         image: String,
     }[],
-    connections?: [
+    connections: [
         {
             RoomConnectionId: string,
             notification: boolean,
 
-            id: string,
+            _id: string,
             image: string,
             username: string,
             name: string,
             email: string,
             description: string,
             story: string,
+            phoneNumber: string,
 
             messages: [
                 {
+                    _id: string,
                     from: string,
                     message: string,
-                    time: string
+                    time: Date,
+                    MessageType: "message" | "image"
                 }
             ]
         }
@@ -56,19 +59,23 @@ interface Connection {
     RoomConnectionId: string,
     notification: boolean,
 
-    id: string,
+    _id: string,
     image: string,
     username: string,
     name: string,
     email: string,
     description: string,
     story: string,
+    phoneNumber: string,
 
     messages: [
         {
+            _id: string,
             from: string,
             message: string,
-            time: string
+            time: Date,
+            MessageType: "message" | "image"
+
         }
     ]
 }
@@ -81,4 +88,12 @@ interface story {
     createdAt: string,
     userImage: string,
     username: string
+}
+
+type Message = {
+    from: string,
+    message: string,
+    _id: string,
+    time: Date | number,
+    MessageType: "message" | "image"
 }

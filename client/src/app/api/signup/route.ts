@@ -45,7 +45,7 @@ export let POST = async (request: NextRequest) => {
         })
 
         //? Creating a JWT to secure the operation
-        let token = jwt.sign({ email }, process.env.JWT_SECRET!, { expiresIn: 60 * 2 })
+        let token = jwt.sign({ email }, process.env.JWT_SECRET!, { expiresIn: 60 * 3 })
 
         let result = await transporter.sendMail({
             from: process.env.EMAIL_AUTHENTICATIONER!,
@@ -106,8 +106,9 @@ export let GET = async (request: Request) => {
             //* The user has verified their email successfully under the 2 minute
             if (isVerified) {
 
+                let imageName = uuid()
                 //* O(1)
-                let result = await UserModel.create({ name, username, email, password, notification: true, status: true, privateAccount: false, publicStories: true })
+                let result = await UserModel.create({ name, username, imageName, email, password, notification: true, status: true, privateAccount: false, publicStories: true })
 
                 return NextResponse.redirect("http://localhost:3000/status?message=verified", { status: 302, headers })
             }

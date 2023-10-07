@@ -18,7 +18,6 @@ export async function GET() {
         console.log(err.message);
         return NextResponse.json({ failed: err.message })
     }
-
 }
 
 
@@ -47,7 +46,7 @@ export async function POST(request: Request) {
 
         username = username.toLowerCase()
 
-        //? Verify that the name name has actually changed
+        //? Verify that the name has actually changed
         if (username !== originalUsername) {
 
             //? Verify that the username is not taken. O(n)
@@ -73,7 +72,7 @@ export async function POST(request: Request) {
                     { $set: { "connections.$.username": username, "connections.$.description": description, "connections.$.phoneNumber": phoneNumber } }
                 )
 
-                if(update.modifiedCount !== 1 ) throw Error ("Can't update your data to the other users")
+                if (update.modifiedCount !== 1) throw Error("Can't update your data to the other users")
             })
 
             return NextResponse.json({ success: "The information has been updated successfully" })

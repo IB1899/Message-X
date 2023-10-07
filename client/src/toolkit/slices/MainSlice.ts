@@ -5,7 +5,6 @@ type Types = {
     searchMessage: string,
     loading: boolean,
     isSettings: boolean,
-    isProfile: boolean,
     isAddStory: boolean
 }
 
@@ -13,7 +12,7 @@ let MainSlice = createSlice({
 
     name: "Main page slice",
 
-    initialState: { searchedUser: {}, searchMessage: "", loading: false, isAddStory: false, isSettings: false, isProfile: false } as Types,
+    initialState: { searchedUser: {}, searchMessage: "", loading: false, isAddStory: false, isSettings: false } as Types,
 
     reducers: {
 
@@ -29,14 +28,11 @@ let MainSlice = createSlice({
         setIsSettings: (state, action: PayloadAction<boolean>) => {
             return { ...state, isSettings: action.payload }
         },
-        setIsProfile: (state, action: PayloadAction<boolean>) => {
-            return { ...state, isProfile: action.payload }
-        },
         setIsAddStory: (state, action: PayloadAction<boolean>) => {
             return { ...state, isAddStory: action.payload }
         },
     }
 })
 
-export const { setSearchedUser, setSearchMessage, setLoading, setIsSettings, setIsProfile, setIsAddStory } = MainSlice.actions;
+export const { setSearchedUser, setSearchMessage, setLoading, setIsSettings, setIsAddStory } = MainSlice.actions;
 export default MainSlice.reducer

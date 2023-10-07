@@ -3,6 +3,7 @@ import { TypedUseSelectorHook, useSelector } from "react-redux"
 import AuthSlice from "./slices/AuthSlice";
 import ResetPasswordSlice from "./slices/ResetPassSlice";
 import MainSlice from "./slices/MainSlice";
+import SocketSlice from "./slices/SocketsSlice"
 
 /*
 ! NOTE: The states that are declared using Redux are global states, and when a global state
@@ -13,7 +14,8 @@ export let store = configureStore({
     reducer: {
         AuthSlice,
         ResetPasswordSlice,
-        MainSlice
+        MainSlice,
+        SocketSlice
     }
 })
 

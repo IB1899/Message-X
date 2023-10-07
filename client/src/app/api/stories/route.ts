@@ -23,7 +23,7 @@ export async function GET(request: NextRequest) {
 
         let emails: string[] = [email]
 
-        //! Get the emails of the user connections O(n)
+        //! Get the emails of the user's contacts O(n)
         user?.connections?.forEach(async (connection) => {
             emails.push(connection.email)
         })

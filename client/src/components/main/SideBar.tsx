@@ -11,7 +11,7 @@ import { usePathname, useRouter } from "next/navigation"
 import Image from "next/image"
 import { useDispatch } from "react-redux"
 import { AppDispatch, useAppSelector } from "@/toolkit/store"
-import { setIsProfile, setIsSettings } from "@/toolkit/slices/MainSlice"
+import { setIsSettings } from "@/toolkit/slices/MainSlice"
 import useLogOut from "@/hooks/logout"
 
 export default function SideBar({ user }: { user: FullUser }) {
@@ -21,19 +21,12 @@ export default function SideBar({ user }: { user: FullUser }) {
 
     let dispatch = useDispatch<AppDispatch>()
 
-    let { isSettings, isProfile } = useAppSelector((state => state.MainSlice))
-
-    //! Open the settings popup
-    let openSettings = () => {
-
-        dispatch(setIsSettings(!isSettings))
-    }
+    let { isSettings } = useAppSelector((state => state.MainSlice))
 
     let openProfile = () => {
-        if (pathname !== "/main") {
-            router.push("/main")
+        if (pathname !== "/main/messages") {
+            router.push("/main/messages")
         }
-        dispatch(setIsProfile(!isProfile))
     }
 
     let { SignOut } = useLogOut()
@@ -47,8 +40,8 @@ export default function SideBar({ user }: { user: FullUser }) {
 
             <div className="links">
 
-                <Link onClick={() => dispatch(setIsSettings(false))} href={"/main"} id="A1
-                " className={pathname === "/main" && !isSettings ? "active" : ""}
+                <Link onClick={() => dispatch(setIsSettings(false))} href={"/main/messages"} id="A1
+                " className={pathname === "/main/messages" && !isSettings ? "active" : ""}
                 >
                     <FaRegCommentDots />
                 </Link>

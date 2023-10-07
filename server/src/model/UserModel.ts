@@ -1,4 +1,5 @@
-import { Schema } from "mongoose";
+import { Schema, connect, model } from "mongoose";
+import dotenv from "dotenv"
 
 let UserSchema = new Schema({
 
@@ -56,7 +57,7 @@ let UserSchema = new Schema({
                 {
                     from: String,
                     message: String,
-                    time: Date,
+                    time: String,
                     MessageType: String
                 }
             ]
@@ -99,4 +100,24 @@ let UserSchema = new Schema({
 
 }, { timestamps: true })
 
-export default UserSchema
+export let UserModel = model("user", UserSchema)
+
+//! Accessing the env file
+dotenv.config();
+
+export let ConnectToDB = async (callback:Function) => {
+
+    try {
+        let uri = process.env.MONGODB_URI
+
+        if (!uri) throw Error(" The mongoDB uri wasn't found ")
+
+        await connect(uri)
+
+        console.log("connected to DB");
+        callback()
+    }
+    catch (err: any) {
+        console.log(err.message);
+    }
+}

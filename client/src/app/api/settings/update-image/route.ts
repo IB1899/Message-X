@@ -46,6 +46,24 @@ export async function POST(request: NextRequest) {
             let snapshot = await uploadBytesResumable(ref(storage, `user-images/${imageName}`), buffer, { contentType: image.type })
             let downloadURL = await getDownloadURL(snapshot.ref)
 
+            //! Now we need to update the image value to the connections that this user has in order to show the new image
+            
+            //* 1- Get the connections of the current user
+            let connections: { connections: Connection[], _id: String } | null = await UserModel.findOne({ email }, { connections: 1 })
+
+            //* 2- The connections contain the data of the users that the current user is connected with. O(n) and not O(n^3)
+            connections?.connections.forEach(async (connection) => {
+
+                let { email: OtherUserEmail } = connection
+
+                //* 3- Update the current user's details in the connections of the other user
+                let update = await UserModel.updateOne({ email: OtherUserEmail, 'connections.email': email },
+                    { $set: { "connections.$.image": downloadURL } }
+                )
+
+                if (update.modifiedCount !== 1) throw Error("Can't update your data to the other users")
+            })
+
             //*  Update the user's information in their document
             let update = await UserModel.updateOne({ email }, { image: downloadURL, imageName })
 

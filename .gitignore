@@ -6,6 +6,8 @@
 /.vscode
 TODO
 
+.env
+
 # testing
 /coverage
 

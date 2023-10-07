@@ -1,3 +1,5 @@
+"use client"
+
 import ForgotPassword from "@/components/auth/forgotPassword";
 import useProfile from "@/hooks/profile";
 import { setIsForgotPassword } from "@/toolkit/slices/AuthSlice";
