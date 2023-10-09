@@ -47,10 +47,8 @@ export default function useSignUp(data: { email: string, image: any }, setData?:
         formData.append("email", data.email)
 
         //* Debugging
-        if (!data.image[0] || !data.email) {
-            dispatch(setSuccess(""))
-            return
-        }
+        if (!data.image[0] || !data.email) return dispatch(setSuccess(""))
+
 
         let response = await fetch("http://localhost:3000/api/signup", {
             method: "PUT", body: formData
@@ -58,9 +56,7 @@ export default function useSignUp(data: { email: string, image: any }, setData?:
 
         let result = await response.json();
 
-        if (result?.failed) {
-            dispatch(setVerifyEmail(result.failed))
-        }
+        if (result?.failed) { dispatch(setVerifyEmail(result.failed)) }
 
         //! Now Authenticate the user
         else if (result?.success) {
@@ -75,11 +71,9 @@ export default function useSignUp(data: { email: string, image: any }, setData?:
 
             window.location.reload()
         }
-        else {
-            dispatch(setVerifyEmail("Something went wrong"))
-        }
+        else { dispatch(setVerifyEmail("Something went wrong")) }
+        
         dispatch(setLoading(false))
     }
-
     return { Validate, SendData }
 }

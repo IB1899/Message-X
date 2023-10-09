@@ -31,11 +31,11 @@ export async function GET(request: Request) {
         if (cancel) return NextResponse.json({ no: "The user is already in your contacts" })
 
         //* Find by name
-        let user = await UserModel.findOne({ name: searchWord }, { _id: 1, name: 1, image: 1, story: 1, email: 1, description: 1, username: 1, phoneNumber:1 })
+        let user = await UserModel.findOne({ name: searchWord }, { _id: 1, name: 1, image: 1, story: 1, email: 1, description: 1, username: 1, phoneNumber: 1 })
 
         //* find by username if name not found
         searchWord = searchWord?.toLowerCase()
-        if (!user?.name) user = await UserModel.findOne({ username: searchWord }, { _id: 1, name: 1, image: 1, story: 1, email: 1, description: 1, username: 1, phoneNumber:1 })
+        if (!user?.name) user = await UserModel.findOne({ username: searchWord }, { _id: 1, name: 1, image: 1, story: 1, email: 1, description: 1, username: 1, phoneNumber: 1 })
 
         if (!user?.name) return NextResponse.json({ failed: "user not found" })
 
@@ -51,10 +51,10 @@ export async function PUT(request: Request) {
     try {
 
         //* The current user's data
-        let { name, email, id, image, description, phoneNumber , username, story, ...rest } = await request.json()
+        let { name, email, id, image, description, phoneNumber, username, story, ...rest } = await request.json()
 
         //* The other user's data
-        let { OName, OEmail, O_id, OImage, ODescription, OPhoneNumber ,  OUsername, OStroy } = rest
+        let { OName, OEmail, O_id, OImage, ODescription, OPhoneNumber, OUsername, OStroy } = rest
 
         //* Generating a unique RoomConnectionId
         let RoomConnectionId = uuid()
@@ -72,7 +72,7 @@ export async function PUT(request: Request) {
                     description: ODescription,
                     username: OUsername,
                     story: OStroy,
-                    phoneNumber:OPhoneNumber
+                    phoneNumber: OPhoneNumber
                 }
             }
         })

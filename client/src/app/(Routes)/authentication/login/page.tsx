@@ -6,7 +6,7 @@ import { FaAngleDoubleLeft, FaUsers, FaXing } from "react-icons/fa"
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
-    title: "Log in - Messages",
+    title: "Messages - Log in",
     description: "This page is for users to log in the website"
 }
 

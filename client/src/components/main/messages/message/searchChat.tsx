@@ -17,13 +17,24 @@ export default function SearchChat() {
 
     let dispatch = useDispatch<AppDispatch>()
 
+    const scrollToTarget = (id:string) => {
+        const element = document.getElementById(id);
+        
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
 
     let SearchChat = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
 
         dispatch(setSearchChat(searchRef.current!.value))
-    }
 
+        setTimeout(()=>{
+            scrollToTarget("TheFoundWord")
+        },200)
+        searchRef.current!.value = ''
+    }
 
     return (
         <form className="SearchChat" onSubmit={(e) => SearchChat(e)}>

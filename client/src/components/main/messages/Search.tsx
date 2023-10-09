@@ -23,6 +23,7 @@ export default function Search({ user }: { user: FullUser }) {
     return (
         <>
             {
+                //* After we searched for the user, and found them 
                 searchedUser?.name ?
                     <div className="searchResults">
                         <Image src={searchedUser.image} alt="user image" width={55} height={55} />
@@ -32,7 +33,7 @@ export default function Search({ user }: { user: FullUser }) {
                         </div>
 
                         {loading ?
-                            <ThreeBody size={30} speed={0.7} color="#9D00BB" />
+                            <div className="animation"> <ThreeBody size={30} speed={0.7} color="#9D00BB" /> </div>
                             :
                             <i onClick={() => AddUser()}> <FaPlusSquare /> </i>
                         }
@@ -40,16 +41,19 @@ export default function Search({ user }: { user: FullUser }) {
                         <i className="x" onClick={() => { dispatch(setSearchedUser({})); dispatch(setSearchMessage("")) }} ><AiFillCloseCircle /> </i>
                     </div>
                     :
+                    //* After we searched for the user, didn't find them
                     searchMessage ?
                         <div className="error">
                             <p> {searchMessage} </p>
                             <i className="x" onClick={() => { dispatch(setSearchedUser({})); dispatch(setSearchMessage("")) }} ><AiFillCloseCircle /> </i>
                         </div>
                         :
+
+                        //* The default component to search for users
                         <form onSubmit={(e) => SearchUsers(e, SearchWord.current!.value)}>
                             <input type="text" ref={SearchWord} required placeholder="Search by name or username" />
                             {loading ?
-                                <ThreeBody size={30} speed={0.7} color="#9D00BB" />
+                                <div className="animation"> <ThreeBody size={30} speed={0.7} color="#9D00BB" /> </div>
                                 :
                                 <button disabled={loading}> <FaSearch /> </button>
                             }

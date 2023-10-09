@@ -1,15 +1,18 @@
-import { setSearchMessage, setSearchedUser , setLoading } from "@/toolkit/slices/MainSlice";
+import { setSearchMessage, setSearchedUser, setLoading } from "@/toolkit/slices/MainSlice";
 import { AppDispatch, useAppSelector } from "@/toolkit/store";
+import { useRouter } from "next/navigation";
 import { FormEvent } from "react";
 import { useDispatch } from "react-redux";
 
-let useSearch = (user:FullUser) => {
+let useSearch = (user: FullUser) => {
 
     let dispatch = useDispatch<AppDispatch>()
     let { searchedUser } = useAppSelector((state => state.MainSlice))
 
+    let { refresh } = useRouter()
+
     //! Searching for a user
-    let SearchUsers = async (e: FormEvent<HTMLFormElement> , searchWord:string) => {
+    let SearchUsers = async (e: FormEvent<HTMLFormElement>, searchWord: string) => {
         e.preventDefault()
 
 
@@ -67,12 +70,15 @@ let useSearch = (user:FullUser) => {
         })
 
         let result = await response.json()
+        
+        //! to refetch the new data(instead of updating the cache)
+        refresh()
         dispatch(setSearchedUser({}));
         dispatch(setLoading(false))
     }
 
 
-    return {SearchUsers , AddUser}
+    return { SearchUsers, AddUser }
 }
 
 export default useSearch

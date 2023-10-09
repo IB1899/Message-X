@@ -5,7 +5,7 @@ import ReduxProvider from './providers/Redux'
 
 
 export const metadata: Metadata = {
-    title: "Messages",
+    title: "Message X",
     description: "This is a messages website"
 }
 

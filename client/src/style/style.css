@@ -5124,6 +5124,12 @@ body .Main .Messages .BigBar .searchResults .x {
 body .Main .Messages .BigBar .searchResults .x:hover {
   color: red;
 }
+body .Main .Messages .BigBar .searchResults .animation {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  translate: 0 -50%;
+}
 body .Main .Messages .BigBar .h2 {
   border-bottom: 1.5px solid #9D00BB;
   width: 85%;

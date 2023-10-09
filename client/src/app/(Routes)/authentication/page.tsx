@@ -4,7 +4,7 @@ import Link from "next/link"
 import { FaXing, FaUsers } from "react-icons/fa"
 
 export const metadata: Metadata = {
-    title: "Authentication - Messages",
+    title: "Message X - Authentication",
     description: "This page to introduce users to the page authentication"
 }
 

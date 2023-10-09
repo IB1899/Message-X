@@ -1,3 +1,4 @@
+import { useRouter } from "next/navigation"
 import { Dispatch, FormEvent, SetStateAction } from "react"
 
 
@@ -11,6 +12,7 @@ let useProfile = (
 
 ) => {
 
+    let { refresh } = useRouter()
 
     //! submit the changes to the backend
     let UpdateUserData = async (
@@ -52,7 +54,7 @@ let useProfile = (
             })
             let result = await response.json()
 
-            if(!result.success) return setFailed("image was not updated")
+            if (!result.success) return setFailed("image was not updated")
         }
 
         let response = await fetch("http://localhost:3000/api/settings", {
@@ -64,8 +66,14 @@ let useProfile = (
 
         setLoading(false)
 
-        if (result.success) return setSuccess(result.success)
-        if (result.failed) return setFailed(result.failed); setIsEditing(true)
+        if (result.success) {
+            setSuccess(result.success);
+            return refresh()
+        }
+        if (result.failed) {
+            setFailed(result.failed);
+            return setIsEditing(true)
+        }
     }
 
 

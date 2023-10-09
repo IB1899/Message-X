@@ -17,10 +17,7 @@ export default function useLogIn() {
         e.preventDefault()
         dispatch(setLoading(true))
 
-        if(!email || !password){ 
-            dispatch(setVerifyEmail("How the hell did you manage to do tha"))
-            return
-        }
+        if (!email || !password) return dispatch(setVerifyEmail("How the hell did you manage to do tha"))
 
         let response = await fetch("http://localhost:3000/api/login", {
             method: "POST", body: JSON.stringify({ email, password }),
@@ -44,7 +41,7 @@ export default function useLogIn() {
                 redirect: false,
                 callbackUrl: "/"
             })
-            
+
             window.location.reload()
         }
         else {
@@ -58,10 +55,7 @@ export default function useLogIn() {
         e.preventDefault()
         dispatch(setLoading(true))
 
-        if(!email){ 
-            dispatch(setVerifyEmail("How the hell did you manage to do that"))
-            return
-        }
+        if (!email) return dispatch(setVerifyEmail("How the hell did you manage to do that"))
 
         let response = await fetch("http://localhost:3000/api/resetPassword", {
             method: "POST", body: JSON.stringify({ email }),
@@ -72,18 +66,17 @@ export default function useLogIn() {
 
         dispatch(setLoading(false))
 
-        if (result?.failed) {
-            dispatch(setVerifyEmail(result.failed))
-        }
+        if (result?.failed) dispatch(setVerifyEmail(result.failed))
+
         else if (result?.success) {
             dispatch(setVerifyEmail(result.success))
 
-            setTimeout(()=>{
+            setTimeout(() => {
                 dispatch(setVerifyEmail(""));
-                dispatch( setIsForgotPassword(false) )
-            },4000)
+                dispatch(setIsForgotPassword(false))
+            }, 4000)
         }
     }
 
-    return { LogIn , ResetPassword}
+    return { LogIn, ResetPassword }
 }

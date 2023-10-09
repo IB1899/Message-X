@@ -6,7 +6,7 @@ import { getServerSession } from "next-auth"
 
 
 export const metadata: Metadata = {
-    title: "Messages",
+    title: "Message X - Dashboard",
     description: "This is the messages dashboard"
 }
 
@@ -20,13 +20,26 @@ export default async function layout({ children }: { children: React.ReactNode }
 
     if (result.failed) return <h1>error {result.failed} </h1>
 
-    return (
-        <div className="Messages">
+    //! If the user doesn't have connections yet show them a list of recommended users
+    if (result.user.connections.length < 1) {
+        let response2 = await fetch(`http://localhost:3000/api/getAllUsers?email=${session.user.email}`, { cache: "no-store" })
+        let result2: { failed?: string, users: any[] } = await response2.json()
 
-            <BigBar user={result.user} stories={result.stories} />
+        if (result.failed) return <h1>error {result.failed} </h1>
 
-            {children}
-
-        </div>
-    )
+        return (
+            <div className="Messages">
+                <BigBar user={result.user} stories={result.stories} noConnections={result2.users} />
+                {children}
+            </div>
+        )
+    }
+    else {
+        return (
+            <div className="Messages">
+                <BigBar user={result.user} stories={result.stories} />
+                {children}
+            </div>
+        )
+    }
 }

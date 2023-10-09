@@ -11,7 +11,7 @@ import Profile from "./settings/Profile"
 import AddNewStory from "@/components/main/stories/addNewStory"
 import { setIsAddStory } from "@/toolkit/slices/MainSlice"
 
-export default function MessagesBigBar({ user , stories }: { user: FullUser , stories:story[] }) {
+export default function MessagesBigBar({ user, stories, noConnections }: { user: FullUser, stories: story[], noConnections?: any[] }) {
 
     //! Redux: Only the MainSlice is used in the 'main' route
     let dispatch = useDispatch<AppDispatch>()
@@ -28,8 +28,8 @@ export default function MessagesBigBar({ user , stories }: { user: FullUser , st
                 <SettingsBigBar user={user} />
                 :
                 <div className="BigBar" >
-                    <Stories stories={ stories } />
-                    
+                    <Stories stories={stories} />
+
                     <div className="title">
                         <h2>Messages   </h2>
                         <span>22 new</span>
@@ -38,8 +38,8 @@ export default function MessagesBigBar({ user , stories }: { user: FullUser , st
 
                     <Search user={user} />
 
-                    <h2 className="h2">Contacts</h2>
-                    <Contacts user={user} connections={user.connections} />
+                    <h2 className="h2">{user.connections.length > 1 ? "Contacts" : "Recommended" }</h2>
+                    <Contacts user={user} connections={user.connections} noConnections={noConnections} />
                 </div>
             }
         </>

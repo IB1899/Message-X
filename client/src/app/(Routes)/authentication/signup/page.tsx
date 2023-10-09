@@ -5,7 +5,7 @@ import Link from "next/link"
 import { FaXing, FaUsers, FaArrowLeft, FaAngleLeft, FaAngleDoubleLeft } from "react-icons/fa"
 
 export const metadata: Metadata = {
-    title: "New User - Messages",
+    title: "Message X - New User",
     description: "This page to sign up new users to our website"
 }
 

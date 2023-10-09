@@ -143,7 +143,7 @@ export default function Profile({ user }: { user: FullUser }) {
 
                 {success &&
                     <div className="message">
-                        <p style={{ color: "limegreen" }} > {success} - A reload is required </p>
+                        <p style={{ color: "limegreen" }} > {success} </p>
                     </div>
                 }
                 {failed &&

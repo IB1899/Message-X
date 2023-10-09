@@ -1,12 +1,12 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Email verification - Messages",
+    title: "Message X -Email verification",
     description: "This page is a status page"
 }
 
 //! The purpose of this page is only to show a message
-export default function Status({ params, searchParams }: { params: {}, searchParams: { message: string} }) {
+export default function Status({ params, searchParams }: { params: {}, searchParams: { message: string } }) {
     const message = searchParams.message
 
     let Message: JSX.Element;

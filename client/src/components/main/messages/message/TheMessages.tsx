@@ -13,7 +13,7 @@ import { useTheMessage } from "@/hooks/theMessage";
 export default function TheMessages({ user, connection }: { user: FullUser, connection: Connection }) {
 
     //! Accessing the socket from a global state
-    let { socket } = useAppSelector((state => state.SocketSlice))
+    let { socket, searchChat } = useAppSelector((state => state.SocketSlice))
 
     //! Send the message
     let MessageRef = useRef<HTMLInputElement>(null)
@@ -35,7 +35,7 @@ export default function TheMessages({ user, connection }: { user: FullUser, conn
     useEffect(() => {
         if (ContainerRef.current) ContainerRef.current.scrollTop = ContainerRef.current.scrollHeight
 
-        if (messages[messages.length - 1].from === "them") {
+        if (messages[messages.length - 1]?.from === "them") {
             let audio = new Audio('/MessageTone.mp3')
             audio.play()
         }
@@ -58,7 +58,9 @@ export default function TheMessages({ user, connection }: { user: FullUser, conn
                                     <span> {formatDistanceToNow(new Date(message.time))} </span>
                                     <h3> you </h3>
                                 </div>
-                                <p> {message.message} </p>
+                                {searchChat === message.message ? <p id="TheFoundWord" style={{ background: "red", fontWeight: "bold" }}>
+                                    {message.message} </p> : <p> {message.message} </p>
+                                }
                             </div>
                             :
                             <div className="text">
@@ -66,7 +68,9 @@ export default function TheMessages({ user, connection }: { user: FullUser, conn
                                     <h3> {connection.name} </h3>
                                     <span> {formatDistanceToNow(new Date(message.time))} </span>
                                 </div>
-                                <p> {message.message} </p>
+                                {searchChat === message.message ? <p id="TheFoundWord" style={{ background: "red", fontWeight: "bold" }}>
+                                    {message.message} </p> : <p> {message.message} </p>
+                                }
                             </div>
                         }
 

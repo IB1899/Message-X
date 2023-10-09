@@ -1,10 +1,16 @@
 import Left from "@/components/main/messages/message/left";
 import Right from "@/components/main/messages/message/right";
+import { Metadata } from "next";
 import { io } from "socket.io-client";
 
 
 type params = { connectionId: string }
 type searchParams = { id: string }
+
+export const metadata: Metadata = {
+    title: "Message X - page",
+    description: "This is the messages dashboard"
+}
 
 export default async function Message({ params: { connectionId }, searchParams: { id } }: { params: params, searchParams: searchParams }) {
 
@@ -20,8 +26,8 @@ export default async function Message({ params: { connectionId }, searchParams: 
     return (
         <div className="Message">
 
-            <Left user={result.user} connection={connection[0]}/>
-            <Right user={result.user} connection={connection[0]}  />
+            <Left user={result.user} connection={connection[0]} />
+            <Right user={result.user} connection={connection[0]} />
 
         </div>
     )

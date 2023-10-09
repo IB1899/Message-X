@@ -36,7 +36,7 @@ export default function Stories({ stories }: { stories: story[] }) {
 
             // onSlideChange={() => console.log('slide change')}
             >
-                {stories ?
+                {stories.length > 0 ?
                     stories.map(story => (
                         <SwiperSlide key={story._id} onClick={() => push(`/main/stories/${story._id}`)} >
                             <Image src={story.userImage} width={55} height={55} alt="astronaut" priority />

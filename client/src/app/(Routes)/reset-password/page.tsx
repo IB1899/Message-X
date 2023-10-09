@@ -7,7 +7,7 @@ import { redirect } from 'next/navigation';
 //todo Check The low level design to understand the password resting & email verification approaches
 
 export const metadata: Metadata = {
-    title: "Reset password - Messages",
+    title: "Messages X - Reset password",
     description: "This page is for users to reset their passwords"
 }
 

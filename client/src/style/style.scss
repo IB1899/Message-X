@@ -769,7 +769,7 @@ $white:white;
                     p{ color:red; font-weight:bold; margin:0 15px;}
                 }
     
-                .searchResults{ display:flex; width:90%;  position: relative; background:$white; border-radius:30px; margin:15px 0;
+                .searchResults{ display:flex; width:90%; position: relative; background:$white; border-radius:30px; margin:15px 0;
     
                     img{border-radius:50%; object-fit:cover; justify-self:flex-start; align-self:flex-start;}
                     
@@ -782,6 +782,8 @@ $white:white;
                         &:hover{color:$black;}
                     }
                     .x{ right:92%; font-size:25px; color:$violet; top:-14px; &:hover{color:red} }
+
+                    .animation{ position:absolute; right:10px; top:50%; translate:0 -50%; }
                 }
     
                 .h2{ border-bottom:1.5px solid $violet; width:85%; text-align:left; font-size:17px; color:$violet; margin-top:5px; font-weight:normal; padding:5px 0; }
