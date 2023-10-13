@@ -47,7 +47,7 @@ export default function Right({ user, connection }: { user: FullUser, connection
 
             </div>
 
-            <DeleteChat />
+            <DeleteChat email={user.email} connectionId={connection._id} />
         </div>
     )
 }

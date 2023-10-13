@@ -916,15 +916,31 @@ $white:white;
 
                     .TheMessages{ overflow-y:auto; display:flex; flex-direction:column; align-items:center; height:88vh; width:100%; position:relative;
 
+                        .HasMe{ position:absolute; top:45%; left: 50%; translate:-50% -50%; background:$white; color:$violet; 
+                            border-radius:15px; z-index:10; padding:20px 30px; display:flex; flex-direction:column; align-items:center;
+                            box-shadow: 4px 4px 4px $violet;
+
+                            p{ width:350px; font-size:19px; font-weight:700; line-height:25px; }
+
+                            i{margin-top:15px; cursor: pointer; color:$violet; font-size:28px; transition:.3s; &:hover{color:$black; transition:.3s;}}
+
+                        }
+
                         &::-webkit-scrollbar{ background:none; width:8px; }
                         &::-webkit-scrollbar-thumb{ background:$violet; }
 
 
                         .msgs{ display:flex; flex-direction:column; width:100%; margin-bottom:20px;
+
+                            .error{ position:fixed; width:100%; height:100vh; background:rgba(128, 128, 128, 0.585); z-index: 11;
+                                display: flex; flex-direction:column; justify-content:center; align-items:center; left:0; top:0;
+
+                                p{ font-size:30px; padding:20px 40px; background:red; color:white; width:60%; border-radius:10px; font-weight:700;  }
+                            }
                             
                             .msg{  display:flex; align-items:center; gap:10px; margin:15px 10px;  text-align:left; 
 
-                                img{ border-radius:50%; object-fit:content; }
+                                #userImage{ border-radius:50%; object-fit:content; }
 
                                 .text{ color:$white;  
                                     
@@ -935,6 +951,8 @@ $white:white;
                                     p{font-size:15px; padding:10px; border-radius:10px 0 10px 0; margin:5px 0; grid-column:1/3;
                                         font-weight:200;
                                     }
+
+                                    #messageImage{ border-radius:15px; margin:7px; grid-column:1/3; }
                                 }
                             }
                         
@@ -950,14 +968,15 @@ $white:white;
                         .sendMessage{ width:90%; display:flex; border-radius:10px; height:40px; background: #202020;
                             position:sticky; bottom:20px; align-items:center; justify-content:space-between;
 
-                            i , button{ background:none; border:none; font-size:24px; color:$violet; cursor:pointer; margin:0 5px; transition:.3s;
+                            label , i , button{ background:none; border:none; font-size:24px; color:$violet; cursor:pointer; margin:0 5px; transition:.3s;
                                 &:hover{ color:$white; transition:.3s; } 
                             }
 
 
                             .i{ height:inherit; margin:0 10px; display:flex; align-items:center; width:82%;
                                 
-                                i{ translate:0 2px; }
+                                label{ translate:0 2px; }
+                                #imageInput{display:none;}
                                 
                                 input{ width:100%; background:none; outline:none; color:$violet; height:inherit; border:none; margin:0 10px;
                                     font-weight:bold;
@@ -970,7 +989,6 @@ $white:white;
                             }
                             
                         }
-
                     }
                 }
 

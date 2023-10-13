@@ -44,23 +44,23 @@ export default function Stories({ stories }: { stories: story[] }) {
                     ))
                     :
                     <>
-                        <SwiperSlide>
+                        <SwiperSlide onClick={() => push(`/main/stories`)}>
                             <Image src={img1} width={55} height={55} alt="astronaut" priority />
                         </SwiperSlide>
 
-                        <SwiperSlide>
+                        <SwiperSlide onClick={() => push(`/main/stories`)}>
                             <Image src={img2} width={55} height={55} alt="astronaut" priority />
                         </SwiperSlide>
 
-                        <SwiperSlide>
+                        <SwiperSlide onClick={() => push(`/main/stories`)}>
                             <Image src={img3} quality={100} width={55} height={55} alt="astronaut" priority />
                         </SwiperSlide>
 
-                        <SwiperSlide>
+                        <SwiperSlide onClick={() => push(`/main/stories`)}>
                             <Image src={img4} quality={100} width={55} height={55} alt="astronaut" priority />
                         </SwiperSlide>
 
-                        <SwiperSlide>
+                        <SwiperSlide onClick={() => push(`/main/stories`)}>
                             <Image src={img1} quality={100} width={55} height={55} alt="astronaut" priority />
                         </SwiperSlide>
                     </>

@@ -5,7 +5,7 @@ let AccountsSchema = new Schema({
 
     type: ObjectId,
     provider: String,
-    userId: String,
+    userId: ObjectId,
     scope: String,
     id_token: String,
     expires_ar: Number,

@@ -29,7 +29,19 @@ export default function SideBar({ user }: { user: FullUser }) {
         }
     }
 
-    let { SignOut } = useLogOut()
+    //! Log users out
+    let SignOut = async () => {
+
+        //! 1- Clear the Auth cookie
+        let response = await fetch("http://localhost:3000/api/settings");
+        let result = await response.json();
+
+        //! 2- Clear the session 
+        if (result?.success) {
+            await signOut();
+            window.location.reload()
+        }
+    }
 
     return (
         <nav>

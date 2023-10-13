@@ -81,16 +81,15 @@ export async function DELETE(request: NextRequest) {
         const twentyFourHoursAgo = new Date();
         twentyFourHoursAgo.setHours(twentyFourHoursAgo.getHours() - 24);
 
-    
-        let stories = await StoryModel.find({ createdAt:{ $lt:twentyFourHoursAgo } })
+        let stories = await StoryModel.find({ createdAt: { $lt: twentyFourHoursAgo } })
 
-        if(!stories || stories.length === 0) throw Error("No stories to delete");
+        if (!stories || stories.length === 0) throw Error("No stories to delete");
 
         let storage = getStorage()
 
-        stories.forEach(async(story)=>{
+        stories.forEach(async (story) => {
 
-            let deleted = await deleteObject(ref( storage , `stories/${story.storyName}` ))
+            let deleted = await deleteObject(ref(storage, `stories/${story.storyName}`))
         })
 
         let result = await StoryModel.deleteMany({ createdAt: { $lt: twentyFourHoursAgo } });

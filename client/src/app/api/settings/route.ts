@@ -1,10 +1,19 @@
-import UserModel from "@/backend/database/model"
 import { NextResponse } from "next/server";
-import MongoDbConnection from "@/backend/database/connect";
 import { cookies } from "next/dist/client/components/headers";
-import { BsArrowReturnLeft } from "react-icons/bs";
+
+import MongoDbConnection from "@/backend/database/connect";
+import { ObjectId } from "mongodb";
+
+import { deleteObject, getStorage, ref } from "firebase/storage";
+import { initializeApp } from "firebase/app";
+import { firebaseConfig } from "@/backend/config/firebase";
+
+import UserModel from "@/backend/database/model"
+import storyModel from "@/backend/database/storyModel";
+import accountsModel from "@/backend/database/accountsModel"
 
 MongoDbConnection()
+const firebaseApp = initializeApp(firebaseConfig);
 
 
 //! This route is to log users out
@@ -34,7 +43,6 @@ export async function PUT(request: Request) {
         console.log(err.message);
         return NextResponse.json({ failed: err.message })
     }
-
 }
 
 //! This route updates the user's profile details
@@ -83,5 +91,50 @@ export async function POST(request: Request) {
         console.log(err.message);
         return NextResponse.json({ failed: err.message })
     }
+}
 
+//! Delete a user
+export async function DELETE(request: Request) {
+    try {
+
+        let { email, imageName, _id }: { [key: string]: string } = await request.json()
+        let storage = getStorage()
+
+        //? Delete The user from mongoDB -1-
+        let deletedUser = await UserModel.deleteOne({ email })
+
+        if (deletedUser.deletedCount !== 1) throw Error("Couldn't delete the user")
+
+        //! Check if the user has saved their image in our database or not 
+        if (imageName) {
+            //? Delete The Image from Firebase if existed -2-
+            let deleted = await deleteObject(ref(storage, `user-images/${imageName}`))
+        }
+
+        //? Delete the story from the stories model if existed -3-
+        let deletedStory = await storyModel.findOneAndDelete({ user: email }, { storyName: 1 })
+
+        //? Delete the story's image from Firebase -4-
+        if (deletedStory?.storyName) await deleteObject(ref(storage, `stories/${deletedStory.storyName}`))
+
+        //TODO I tried very hard to delete the account immediately using the userId with _id but I couldn't.
+        //TODO To solve it just find a way to delete the account using its userId value of type ObjectId
+        //TODO That is way I am using this grotesque way of doing it
+        let accounts = await accountsModel.find({}, { userId: 1, _id: 1 })
+
+        let TheAccount: any[] = accounts.filter(account => {
+            let id = String(account.userId)
+            if (id === _id) return account
+        })
+        let deletedAccount = await accountsModel.deleteOne({ _id: String(TheAccount[0]._id) })
+
+        //? Log them out after successful deletion -6-
+        cookies().set("authToken", 'null', { maxAge: 1 })
+
+        return NextResponse.json({ success: "user has been deleted successfully" })
+    }
+    catch (err: any) {
+        console.log(err.message);
+        return NextResponse.json({ failed: err.message })
+    }
 }

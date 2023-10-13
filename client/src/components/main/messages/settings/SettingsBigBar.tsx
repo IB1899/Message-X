@@ -6,9 +6,12 @@ import { IoIosCreate } from "react-icons/io";
 import { FaGlassCheers, FaTrashAlt } from "react-icons/fa";
 import { MdLogout } from "react-icons/md";
 import { LuRefreshCw } from "react-icons/lu";
-import { ChangeEvent, useState } from "react";
-import { useRouter } from "next/navigation";
-import useLogOut from "@/hooks/logout";
+import { useState } from "react";
+import { AppDispatch, useAppSelector } from "@/toolkit/store";
+import { useDispatch } from "react-redux";
+import { setIsAddStory } from "@/toolkit/slices/MainSlice";
+import useSettings from "@/hooks/logout";
+import { LineWobble } from "@uiball/loaders";
 
 export default function SettingsBigBar({ user }: { user: FullUser }) {
 
@@ -21,42 +24,17 @@ export default function SettingsBigBar({ user }: { user: FullUser }) {
     }
     let [isDark, setIsDark] = useState(test)
 
-    let switchMode = () => {
-
-        if (isDark) {
-            localStorage.setItem("dark", JSON.stringify({ dark: false }))
-            setIsDark(false)
-        }
-        else {
-            localStorage.setItem("dark", JSON.stringify({ dark: true }))
-            setIsDark(true)
-        }
-    }
-
-    let router = useRouter()
-
+    //! To get the values of the switched inputs
     let [notification, setNotification] = useState(user.notification ? user.notification : false)
-    let [privateAccount, setPrivateAccount] = useState(user.privateAccount ? user.privateAccount : false)
     let [status, setStatus] = useState(user.status ? user.status : false)
-
-    //! update a setting by its name
-    let updateSettings = async (e: ChangeEvent<HTMLInputElement>, value: "notification" | "privateAccount" | "status") => {
-
-        if (value === "notification") setNotification(e.target.checked)
-        else if (value === "status") setStatus(e.target.checked)
-        else if (value === "privateAccount") setPrivateAccount(e.target.checked)
-
-        let response = await fetch("http://localhost:3000/api/settings", {
-            method: "PUT", headers: { "Content-Type": "application/jon" },
-            body: JSON.stringify({ email: user.email, nameOfValue: value, theValue: e.target.checked })
-        })
-
-        let result = await response.json()
-    }
-
+    let [privateAccount, setPrivateAccount] = useState(user.privateAccount ? user.privateAccount : false)
+    let [loading, setLoading] = useState(false)
 
     //! sign users out
-    let {SignOut} = useLogOut()
+    let { SignOut, updateSettings, switchMode, DeleteUser } = useSettings(setNotification, setStatus, setPrivateAccount, user.email, isDark, setIsDark, setLoading)
+
+    //! Open and close the addStory pop-up
+    let dispatch = useDispatch<AppDispatch>()
 
     return (
         <div className="Settings">
@@ -131,7 +109,7 @@ export default function SettingsBigBar({ user }: { user: FullUser }) {
             <span></span>
 
             <button> <IoIosCreate /> Create New Group</button>
-            <button> <FaGlassCheers /> Add New Story</button>
+            <button onClick={() => dispatch(setIsAddStory(true))} > <FaGlassCheers /> Add New Story</button>
 
             <div className="buttons">
                 <button onClick={() => SignOut()} ><MdLogout /> Sign out</button>
@@ -140,8 +118,9 @@ export default function SettingsBigBar({ user }: { user: FullUser }) {
 
             <span></span>
 
-            <button className="delete"> <FaTrashAlt /> Delete You Account</button>
-
+            <button className="delete" onClick={() => DeleteUser(user.imageName , user._id)} >
+                {loading ? <LineWobble size={250} lineWeight={7} speed={1.75} color="white" /> : <><FaTrashAlt /> Delete You Account</>}
+            </button>
         </div>
     )
 }

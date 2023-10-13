@@ -5,7 +5,6 @@ let UserSchema = new Schema({
     //! Required
     name: {
         type: String,
-        unique: true,
         required: true
     },
     email: {
@@ -21,7 +20,6 @@ let UserSchema = new Schema({
         type: String,
     },
     username: {
-        unique: true,
         type: String
     },
 
@@ -43,7 +41,6 @@ let UserSchema = new Schema({
             notification: Boolean,
 
             //! The other user's info
-            id: String,
             image: String,
             username: String,
             name: String,
@@ -57,7 +54,8 @@ let UserSchema = new Schema({
                     from: String,
                     message: String,
                     time: Date,
-                    MessageType: String
+                    MessageType: String,
+                    MessageImageName: String
                 }
             ]
         }

@@ -17,7 +17,7 @@ export async function GET(request: NextRequest) {
 
         let users = await UserModel.find({}, { _id: 1, name: 1, image: 1, story: 1, email: 1, description: 1, username: 1, phoneNumber: 1 }).limit(7);
 
-        //! To make sure that we don't the user to him/her self
+        //! To make sure that we don't send the user to him/her self
         users = users.filter(user => user.email !== email)
 
         return NextResponse.json({ success: "success", users })

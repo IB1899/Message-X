@@ -11,6 +11,7 @@ interface FullUser {
     email: string,
     image: string,
     username: string,
+    imageName: string,
     requests?: {
         name: String,
         email: String,
@@ -37,7 +38,8 @@ interface FullUser {
                     from: string,
                     message: string,
                     time: Date,
-                    MessageType: "message" | "image"
+                    MessageType: "message" | "image",
+                    MessageImageName?: String
                 }
             ]
         }
@@ -75,7 +77,7 @@ interface Connection {
             message: string,
             time: Date,
             MessageType: "message" | "image"
-
+            MessageImageName?: String
         }
     ]
 }
@@ -96,4 +98,5 @@ type Message = {
     _id: string,
     time: Date | number,
     MessageType: "message" | "image"
+    MessageImageName?: String
 }

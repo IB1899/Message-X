@@ -5,7 +5,7 @@ import { GoCopy } from "react-icons/go"
 import TheMessages from "./TheMessages";
 import { Socket } from "socket.io-client";
 
-export default function Left({ user, connection }: { user: FullUser, connection: Connection }) {
+export default function Left({ user, connection, haveMe }: { user: FullUser, connection: Connection, haveMe: "yes" | "no" }) {
 
     return (
         <div className="Left">
@@ -29,8 +29,7 @@ export default function Left({ user, connection }: { user: FullUser, connection:
 
             </header>
 
-            <TheMessages user={user} connection={connection} />
-
+            <TheMessages user={user} connection={connection} haveMe={haveMe} />
 
         </div>
     )

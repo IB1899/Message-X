@@ -108,3 +108,22 @@ export async function PUT(request: Request) {
         return NextResponse.json({ failed: err.message })
     }
 }
+
+//! Deleting a contact
+export async function DELETE(request: Request) {
+    try {
+
+        let { email, connectionId } = await request.json()
+        if (!email || !connectionId) throw Error("The email wasn't provided")
+
+        //* deleting a nested document by Id
+        let result = await UserModel.updateOne({ email }, { $pull: { connections: { _id: connectionId } } })
+
+        if (result.modifiedCount !== 1) throw Error("Couldn't delete the contact")
+
+        return NextResponse.json({ success: result })
+    }
+    catch (err: any) {
+        return NextResponse.json({ failed: err.message })
+    }
+}

@@ -7,6 +7,7 @@ import { useState } from "react";
 import { FaPlusSquare } from "react-icons/fa";
 
 export default function Contacts({ user, connections, noConnections }: { user: FullUser, connections: Connection[], noConnections?: any[] }) {
+    console.log(`noConnections:`, noConnections)
 
     let { push, prefetch } = useRouter()
 
@@ -52,26 +53,23 @@ export default function Contacts({ user, connections, noConnections }: { user: F
     //! Only show the recommended connection because the user doesn't have any yet
     let Show = () => {
 
-        return NoConnections!.filter(potentialConnection => {
-            if (potentialConnection.email !== user.email) return potentialConnection
-        })
-            .map((potentialConnection) => (
-                <div key={potentialConnection._id} className="searchResults"
-                >
-                    <Image src={potentialConnection.image} alt="user image" width={55} height={55} />
-                    <div className="info">
-                        <h3> {potentialConnection.name} </h3>
-                        <h5> {potentialConnection.username} </h5>
-                    </div>
-
-                    {loading.email === potentialConnection.email ?
-                        <div className="animation"> <ThreeBody size={30} speed={0.7} color="#9D00BB" /> </div>
-                        :
-                        <i onClick={() => AddUser(potentialConnection)}> <FaPlusSquare /> </i>
-                    }
+        return NoConnections?.map((potentialConnection) => (
+            <div key={potentialConnection._id} className="searchResults"
+            >
+                <Image src={potentialConnection.image} alt="user image" width={55} height={55} />
+                <div className="info">
+                    <h3> {potentialConnection.name} </h3>
+                    <h5> {potentialConnection.username} </h5>
                 </div>
-            ))
+
+                {loading.email === potentialConnection.email ?
+                    <div className="animation"> <ThreeBody size={30} speed={0.7} color="#9D00BB" /> </div>
+                    :
+                    <i onClick={() => AddUser(potentialConnection)}> <FaPlusSquare /> </i>
+                }
+            </div>
+        ))
     }
 
-    return <div className="Contacts"> {connections?.length > 0 ? JoinShow() : Show()} </div>
+    return <div className="Contacts"> {noConnections?.length ? Show() : JoinShow()} </div>
 }
