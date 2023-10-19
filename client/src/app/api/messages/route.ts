@@ -56,35 +56,70 @@ export async function PUT(request: Request) {
         //* The other user's data
         let { OName, OEmail, O_id, OImage, ODescription, OPhoneNumber, OUsername, OStroy } = rest
 
-        //* Generating a unique RoomConnectionId
-        let RoomConnectionId = uuid()
-        let notification = true;
+        //! Before adding each user to the contacts of each other we check first if the current user does exist in the other user's contacts
+        //! And if they do exist we only add the other user to the current user contacts.
+        //! since this current user can't add a user that is already in their contacts, so it's one way problem.
 
-        //? Adding the other user to the current user's connections
-        let x = await UserModel.updateOne({ email }, {
-            $push: {
-                connections: {
-                    RoomConnectionId, notification,
-                    name: OName,
-                    email: OEmail,
-                    id: O_id,
-                    image: OImage,
-                    description: ODescription,
-                    username: OUsername,
-                    story: OStroy,
-                    phoneNumber: OPhoneNumber
+        //* This query returns the entire parent document with all the connections if both criteria are met
+        // let check = await UserModel.findOne({ email: OEmail, "connections.email": email }) 
+
+        //* This query returns the parent's _id and the request connection
+        let check: { _id: string, connections: Connection[] } | null = await UserModel.findOne({ email: OEmail, "connections.email": email }, { "connections.$": 1 })
+
+        //! If the current user already exists in the other user's contacts
+        if (check?._id) {
+
+            //? Adding the other user to the current user's connections
+            let x = await UserModel.updateOne({ email }, {
+                $push: {
+                    connections: {
+                        RoomConnectionId: check.connections[0].RoomConnectionId,
+                        notification: true,
+                        name: OName,
+                        email: OEmail,
+                        id: O_id,
+                        image: OImage,
+                        description: ODescription,
+                        username: OUsername,
+                        story: OStroy,
+                        phoneNumber: OPhoneNumber,
+                    }
                 }
-            }
-        })
+            })
 
-        if (x.modifiedCount === 1) {
+            return NextResponse.json({ success: "Only the other user was added to the contacts of the current user" })
+        }
+        else {
+
+            //* Generating a unique RoomConnectionId
+            let RoomConnectionId = uuid()
+
+            //? Adding the other user to the current user's connections
+            let x = await UserModel.updateOne({ email }, {
+                $push: {
+                    connections: {
+                        RoomConnectionId,
+                        notification: true,
+                        name: OName,
+                        email: OEmail,
+                        id: O_id,
+                        image: OImage,
+                        description: ODescription,
+                        username: OUsername,
+                        story: OStroy,
+                        phoneNumber: OPhoneNumber
+                    }
+                }
+            })
+
+            if (x.modifiedCount !== 1) throw Error("failed")
 
             //? Adding the current user o the other user's connections
             let y = await UserModel.updateOne({ email: OEmail }, {
                 $push: {
                     connections: {
                         RoomConnectionId,
-                        notification,
+                        notification: true,
                         name,
                         username,
                         email,
@@ -97,12 +132,10 @@ export async function PUT(request: Request) {
                 }
             })
 
-            if (y.modifiedCount === 1) {
-                return NextResponse.json({ success: "user add" })
-            }
-            throw Error("failed")
+            if (y.modifiedCount !== 1) throw Error("failed")
+
+            return NextResponse.json({ success: "both users are added to the contacts of each others" })
         }
-        throw Error("failed")
     }
     catch (err: any) {
         return NextResponse.json({ failed: err.message })

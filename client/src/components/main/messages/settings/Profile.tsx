@@ -27,16 +27,13 @@ export default function Profile({ user }: { user: FullUser }) {
         setImageURL(fileUrl)
     }
 
-
     let [loading, setLoading] = useState(false)
     let [success, setSuccess] = useState("")
     let [failed, setFailed] = useState("")
     let [isEditing, setIsEditing] = useState(false)
 
-
     let dispatch = useDispatch<AppDispatch>()
     let { isForgotPassword } = useAppSelector((state => state.AuthSlice))
-
 
     let usernameRef = useRef<HTMLInputElement>(null)
     let descriptionRef = useRef<HTMLInputElement>(null)
@@ -47,7 +44,6 @@ export default function Profile({ user }: { user: FullUser }) {
 
 
     let { UpdateUserData } = useProfile(setLoading, setSuccess, setFailed, setIsEditing, image, user)
-
 
     return (
         <>
@@ -63,7 +59,6 @@ export default function Profile({ user }: { user: FullUser }) {
                     ageRef.current!.value
                 )
             }} >
-
 
                 <div className="top">
                     <Image src={image ? imageURL : user.image} alt="personal profile" priority width={120} height={120} />

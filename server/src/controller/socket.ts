@@ -6,27 +6,43 @@ import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "../config/firebase";
 import { getStorage, ref, getDownloadURL, uploadBytesResumable, deleteObject } from "firebase/storage";
 
+let rooms: { [key: string]: string[] } = {}
+
 export let SocketCode = (socket: Socket, io: Server<DefaultEventsMap, DefaultEventsMap, DefaultEventsMap, any>) => {
 
-    let JoinRoom = ({ room }: { room: string }) => {
+    let HandelDisconnect = (room: string, email: string) => {
+        socket.leave(room);
 
+        //! remove the disconnected user from the main backend track
+        rooms[room] = rooms[room].filter(userEmail => userEmail !== email)
+
+        //! remove the disconnected user from the frontend track => to show that the user is not active
+
+        socket.to(room).emit("UserLeft", { email })
+    }
+
+    let JoinRoom = ({ room, email }: { room: string, email: string }) => {
         socket.join(room)
 
+        if (!rooms[room]) rooms[room] = []
+        rooms[room].push(email)
+
+        //! Notify both users that a new user has joined
+        io.to(room).emit("UserJoined", { room, rooms })
+
         //! Notify the other user that a new user has joined
-        socket.to(room).emit("UserJoined", { room })
+        // socket.to(room).emit("UserJoined", { room })
 
-        socket.on("disconnect", () => {
-            socket.leave(room)
-        })
-
+        socket.on("disconnect", () => HandelDisconnect(room, email))
     }
+    socket.on("JoinRoom", JoinRoom)
 
     //? Exchanging messages process
     let Messages = async ({ message, room, email, otherUserEmail }: { [key: string]: string }) => {
         try {
             let _id = uuid()
 
-            socket.to(room).emit("Messages-BackEndSends-FrontEndReceives", { _id, message, MessageType: "message", time: Date.now(), from: "them" })
+            socket.to(room).emit("Messages-BackEndSends-FrontEndReceives", { _id, message, MessageType: "message", time: Date.now(), from: "them", room })
 
             let time = Date.now()
 
@@ -81,7 +97,6 @@ export let SocketCode = (socket: Socket, io: Server<DefaultEventsMap, DefaultEve
     }
 
 
-    socket.on("JoinRoom", JoinRoom)
     socket.on("Messages-FrontEndSends-BackEndReceives", Messages)
     socket.on("Images-FrontEndSends-BackEndReceives", Images)
 }

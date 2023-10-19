@@ -39,5 +39,20 @@ export let usePotentialConnection = (
         //! To give it the sense that we have updated the cache seamlessly
         if (NoConnections.length - 1 < 1) { refresh() }
     }
-    return { AddUser }
+
+    let CalculateMissedMessages = (messages: Message[]): string => {
+
+        if (messages.length === 0) return "0"
+
+        let MissedMessages = 0
+
+        for (let i = messages.length - 1; i >= 0; i--) {
+            if (messages[i].from === "them") MissedMessages++
+            else return MissedMessages.toString()
+        }
+
+        return MissedMessages.toString()
+    }
+
+    return { AddUser, CalculateMissedMessages }
 }

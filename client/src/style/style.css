@@ -5164,7 +5164,9 @@ body .Main .Messages .BigBar .Contacts .contact {
   justify-content: left;
   color: white;
   cursor: pointer;
-  margin: 13px 0;
+  margin: 7px 0;
+  border-radius: 20px;
+  padding: 5px;
 }
 body .Main .Messages .BigBar .Contacts .contact img {
   border-radius: 50%;
@@ -5204,6 +5206,15 @@ body .Main .Messages .BigBar .Contacts .contact .messagesInfo .missedMessages {
   display: grid;
   align-items: center;
   justify-content: center;
+}
+body .Main .Messages .BigBar .Contacts .contact.active {
+  transition: 0.3s;
+}
+body .Main .Messages .BigBar .Contacts .contact.active img {
+  border: 3px dotted limegreen;
+}
+body .Main .Messages .BigBar .Contacts .contact.active .contactInfo {
+  color: limegreen;
 }
 body .Main .Messages .Settings {
   min-width: 300px;
@@ -5354,6 +5365,8 @@ body .Main .Messages .BackGround {
   position: fixed;
   width: 100%;
   transition: 0.7s;
+  left: 0;
+  top: 0;
 }
 body .Main .Messages .BackGround .Message {
   position: fixed;
@@ -5402,6 +5415,7 @@ body .Main .Messages .Message.Reset-Password {
   background: white;
   color: black;
   padding: 20px 0;
+  width: 35%;
 }
 body .Main .Messages .Message.Reset-Password .close {
   position: absolute;
@@ -5621,11 +5635,12 @@ body .Main .Messages .Message .Left header .i img {
   margin-right: 5px;
 }
 body .Main .Messages .Message .Left header .ii h3 {
-  font-size: 18px;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 4px 0;
   color: #9D00BB;
 }
 body .Main .Messages .Message .Left header .ii h5 {
-  color: limegreen;
   font-size: 16px;
 }
 body .Main .Messages .Message .Left header .iii {
@@ -5642,7 +5657,7 @@ body .Main .Messages .Message .Left .TheMessages {
   position: relative;
 }
 body .Main .Messages .Message .Left .TheMessages .HasMe {
-  position: absolute;
+  position: fixed;
   top: 45%;
   left: 50%;
   translate: -50% -50%;
@@ -5688,25 +5703,28 @@ body .Main .Messages .Message .Left .TheMessages .msgs {
 }
 body .Main .Messages .Message .Left .TheMessages .msgs .error {
   position: fixed;
-  width: 100%;
-  height: 100vh;
-  background: rgba(128, 128, 128, 0.585);
+  width: 400px;
+  background: red;
   z-index: 11;
+  border-radius: 10px;
+  padding: 10px 20px;
+  min-height: 60px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  left: 0;
-  top: 0;
+  left: 100px;
+  bottom: 50px;
+  transition: 0.8s;
 }
 body .Main .Messages .Message .Left .TheMessages .msgs .error p {
-  font-size: 30px;
-  padding: 20px 40px;
-  background: red;
   color: white;
-  width: 60%;
-  border-radius: 10px;
-  font-weight: 700;
+  width: 100%;
+  text-align: left;
+}
+body .Main .Messages .Message .Left .TheMessages .msgs .error.hide {
+  left: -500px;
+  transition: 0.8s;
 }
 body .Main .Messages .Message .Left .TheMessages .msgs .msg {
   display: flex;
@@ -6557,7 +6575,7 @@ body .Main .Error {
   align-items: center;
   color: #9D00BB;
 }
-body .Story {
+body .Main .Story {
   width: 100%;
   height: 100vh;
   display: flex;
@@ -6567,7 +6585,7 @@ body .Story {
   position: relative;
   color: white;
 }
-body .Story .user-header {
+body .Main .Story .user-header {
   z-index: 4;
   display: flex;
   position: relative;
@@ -6575,22 +6593,22 @@ body .Story .user-header {
   width: 580px;
   top: -10px;
 }
-body .Story .user-header .userImage {
+body .Main .Story .user-header .userImage {
   border-radius: 50%;
   border: 3px dotted #9D00BB;
   -o-object-fit: cover;
      object-fit: cover;
   translate: -40px 20px;
 }
-body .Story .user-header h3 {
+body .Main .Story .user-header h3 {
   text-transform: uppercase;
 }
-body .Story .user-header span {
+body .Main .Story .user-header span {
   position: absolute;
   right: 10px;
   font-weight: bold;
 }
-body .Story .story {
+body .Main .Story .story {
   margin: 10px;
   border-radius: 20px;
   -o-object-fit: cover;
@@ -6598,4 +6616,131 @@ body .Story .story {
   box-shadow: 2px 2px 5px #9D00BB;
   z-index: 2;
   margin-top: -40px;
+}
+body .NotFound {
+  width: 100%;
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+body .NotFound .left {
+  width: 50%;
+  height: 100%;
+}
+body .NotFound .left img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 0 25px 25px 0;
+}
+body .NotFound .right {
+  width: 50%;
+  height: 100%;
+}
+body .NotFound .right img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+  border-radius: 25px 0 0 25px;
+}
+body .NotFound .center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vh;
+  justify-content: space-around;
+}
+body .NotFound .center header i {
+  color: #9D00BB;
+  font-size: 50px;
+  margin: 3px 0;
+}
+body .NotFound .center header h3 {
+  font-size: 26px;
+}
+body .NotFound .center header h3::first-letter {
+  color: #9D00BB;
+}
+body .NotFound .center .body {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+body .NotFound .center .body h1 {
+  font-size: 80px;
+}
+body .NotFound .center .body h1 span {
+  color: #9D00BB;
+}
+body .NotFound .center .body h3 {
+  font-size: 35px;
+  text-transform: uppercase;
+}
+body .NotFound .center .body p {
+  width: 80%;
+  font-size: 17px;
+}
+body .NotFound .center .body a {
+  background: black;
+  text-decoration: none;
+  font-size: 19px;
+  font-family: 700;
+  border: none;
+  width: 70%;
+  padding: 8px;
+  border-radius: 25px 0 25px 0;
+  color: #9D00BB;
+  transition: 0.7s;
+}
+body .NotFound .center .body a:hover {
+  color: white;
+  box-shadow: 2px 2px 3px #9D00BB;
+  border-radius: 0 25px 0 25px;
+  transition: 0.7s;
+}
+body .NotFound .center .body button {
+  background: black;
+  cursor: pointer;
+  font-size: 19px;
+  font-family: 700;
+  border: none;
+  width: 70%;
+  padding: 8px;
+  border-radius: 0 25px 0 25px;
+  color: #9D00BB;
+  transition: 0.7s;
+}
+body .NotFound .center .body button:hover {
+  color: white;
+  box-shadow: 2px 2px 3px #9D00BB;
+  border-radius: 25px 0 25px 0;
+  transition: 0.7s;
+}
+body .NotFound .center footer .icons {
+  display: flex;
+  margin: 15px;
+}
+body .NotFound .center footer .icons i {
+  color: white;
+  background: #9D00BB;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  font-size: 24px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px;
+  transition: 0.5s;
+}
+body .NotFound .center footer .icons i:hover {
+  color: black;
+  transition: 0.5s;
+}
+body .NotFound .center footer p {
+  font-size: 20px;
 }

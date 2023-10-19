@@ -5,6 +5,7 @@ import nodemailer from "nodemailer"
 import jwt from "jsonwebtoken"
 import bcrypt from "bcrypt"
 import AccountModel from "@/backend/database/accountsModel"
+import { ObjectId } from "mongodb"
 
 MongoDbConnection()
 
@@ -13,18 +14,19 @@ export let POST = async (request: Request) => {
         let { email } = await request.json()
         if (!email) throw Error("The data wasn't provided")
 
-        let user = await UserModel.findOne({ email }, {name:1 , password:1})
-        if (!user?.name) throw Error("There's no such a user associated with this email ")
+        let user: { email: string, _id: ObjectId, password?: string } | null = await UserModel.findOne({ email }, { password: 1, _id: 1, email: 1 })
+        if (!user) throw Error("There's no such a user associated with this email ")
 
         //! If the user has an account, but was created through OAuth
         if (!user?.password) {
             let users = await AccountModel.find()
 
-            let result = users.filter(one => one.userId === user._id.toString() ? one : null)
+            let result = users.filter(one => one.userId.toString() === user!._id.toString() ? one : null)
+            console.log(`result:`, result)
 
             throw Error(`This user account was created using ${result[0].provider} . please log in through ${result[0].provider} `)
         }
-        
+
         //* The user's information is valid, and they continue to step -2-
         let transporter = nodemailer.createTransport({
             service: "gmail",

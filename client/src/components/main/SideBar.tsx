@@ -67,7 +67,7 @@ export default function SideBar({ user }: { user: FullUser }) {
                 <span></span>
 
                 <Link onClick={() => dispatch(setIsSettings(false))} href={"/main/stories"} id="A3"
-                    className={pathname === "/main/stories" ? "active" : ""}
+                    className={pathname === "/main/stories" && !isSettings ? "active" : ""}
                 >
                     <MdOutlineWebStories />
                 </Link>
@@ -76,7 +76,7 @@ export default function SideBar({ user }: { user: FullUser }) {
                 <span></span>
 
                 <button id="A5" onClick={SignOut}> <MdLogout /> </button>
-                <button id="A6" className={isSettings ? "active" : ""} onClick={() => dispatch(setIsSettings(!isSettings))} >
+                <button id="A6" className={isSettings ? "active" : ""} onClick={() => dispatch(setIsSettings(true))} >
                     <RiSettings5Fill />
                 </button>
             </div>

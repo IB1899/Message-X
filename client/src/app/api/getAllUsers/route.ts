@@ -4,6 +4,8 @@ import MongoDbConnection from "@/backend/database/connect";
 
 MongoDbConnection()
 
+//! To prevent dynamic-server-error 
+export const dynamic = "force-dynamic"
 
 //! This route to get the user's full information after they login 
 export async function GET(request: NextRequest) {

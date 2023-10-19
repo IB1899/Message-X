@@ -6,9 +6,6 @@ import { LineWobble } from "@uiball/loaders"
 import { useRouter } from "next/navigation"
 import { FormEvent, MutableRefObject, useRef } from "react"
 import { useDispatch } from "react-redux"
-import Image from "next/image"
-import ResetPasswordImage from "@/../public/images/resetPassword 2.svg"
-import { FaXing } from "react-icons/fa"
 import Link from "next/link"
 
 export default function ResetPasswordForm({ email }: { email: string }) {
@@ -16,7 +13,7 @@ export default function ResetPasswordForm({ email }: { email: string }) {
     let dispatch = useDispatch<AppDispatch>()
     let { message, Loading } = useAppSelector((state => state.ResetPasswordSlice))
 
-    let { push } = useRouter()
+    let { replace } = useRouter()
 
     let passwordRef = useRef() as MutableRefObject<HTMLInputElement>
     let confirmRef = useRef() as MutableRefObject<HTMLInputElement>
@@ -55,25 +52,16 @@ export default function ResetPasswordForm({ email }: { email: string }) {
         if (result.success) {
             dispatch(setMessage(result.success))
 
-            setTimeout(()=>{
-                push("/authentication/login")
-            },6000)
+            setTimeout(() => {
+                replace("/authentication/login")
+            }, 6000)
         } else {
             dispatch(setMessage(result.failed))
         }
     }
 
     return (
-        <div className="ResetPassword">
-
-            <div className="logo">
-                <i> <FaXing /> </i>
-                <span> Messages </span>
-            </div>
-            <div className="left">
-                <Image src={ResetPasswordImage} alt="image" priority />
-            </div>
-
+        <>
             <form className="right" onSubmit={(e) => ResetPassword(e)}>
 
                 <h1>Reset Password</h1>
@@ -91,6 +79,6 @@ export default function ResetPasswordForm({ email }: { email: string }) {
                 <Link style={{ pointerEvents: Loading ? "none" : "painted" }} href={"/authentication/login"}>Go back to login?</Link>
                 <h4> {message} </h4>
             </form>
-        </div>
+        </>
     )
 }

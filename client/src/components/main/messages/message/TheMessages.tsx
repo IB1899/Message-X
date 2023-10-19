@@ -31,15 +31,10 @@ export default function TheMessages({ user, connection, haveMe }: { user: FullUs
         })
     }, [socket])
 
-    //! Scroll down by default
+    //! Scroll down by default and with each new message
     let ContainerRef = useRef<HTMLDivElement>(null)
     useEffect(() => {
         if (ContainerRef.current) ContainerRef.current.scrollTop = ContainerRef.current.scrollHeight
-
-        if (messages[messages.length - 1]?.from === "them") {
-            let audio = new Audio('/MessageTone.mp3')
-            audio.play()
-        }
     }, [messages])
 
     //! to check that if the other user has deleted the current user from their connections
@@ -64,7 +59,7 @@ export default function TheMessages({ user, connection, haveMe }: { user: FullUs
             {/* The Messages  */}
             <div className="msgs">
 
-                {error ? <div className="error"> <p>{error}</p> </div> : null}
+                {<div className={error ? "error" : "error hide"}> <p>{error}</p> </div>}
 
                 {messages && messages.map(message => (
 
@@ -76,7 +71,7 @@ export default function TheMessages({ user, connection, haveMe }: { user: FullUs
                             <div className="text">
 
                                 <div className="msg-head">
-                                    <span> {formatDistanceToNow(new Date(message.time))} </span>
+                                    <span suppressHydrationWarning> {formatDistanceToNow(new Date(message.time), { addSuffix: true })} </span>
                                     <h3> you </h3>
                                 </div>
 
@@ -92,7 +87,7 @@ export default function TheMessages({ user, connection, haveMe }: { user: FullUs
 
                                 <div className="msg-head">
                                     <h3> {connection.name} </h3>
-                                    <span> {formatDistanceToNow(new Date(message.time))} </span>
+                                    <span suppressHydrationWarning> {formatDistanceToNow(new Date(message.time), { addSuffix: true })} </span>
                                 </div>
 
                                 {message.MessageType === "message" ?

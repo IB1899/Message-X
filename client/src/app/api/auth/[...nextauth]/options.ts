@@ -73,12 +73,14 @@ let authOptions: NextAuthOptions = {
 
         //! what the session data will be
         async session({ session, user, token }) {
+            // console.log(`session:`, session)
             session.user = token as any;
             return session
         },
 
         //! This will run after a successful sign in
         async signIn({ user, account, credentials }) {
+        // console.log(`user:`, user)
 
             //* I send the cookies here to ensure that even if the user sign's in with Oauth gets their cookie
 

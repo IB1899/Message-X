@@ -98,6 +98,9 @@ export async function DELETE(request: Request) {
     try {
 
         let { email, imageName, _id }: { [key: string]: string } = await request.json()
+        console.log(`_id:`, _id)
+        console.log(`imageName:`, imageName)
+        console.log(`email:`, email)
         let storage = getStorage()
 
         //? Delete The user from mongoDB -1-
@@ -122,10 +125,20 @@ export async function DELETE(request: Request) {
         //TODO That is way I am using this grotesque way of doing it
         let accounts = await accountsModel.find({}, { userId: 1, _id: 1 })
 
+        if (accounts.length === 0) {
+            cookies().set("authToken", 'null', { maxAge: 1 })
+            return NextResponse.json({ success: "user has been deleted successfully" })
+        }
+
         let TheAccount: any[] = accounts.filter(account => {
             let id = String(account.userId)
             if (id === _id) return account
         })
+
+        if (TheAccount.length === 0) {
+            cookies().set("authToken", 'null', { maxAge: 1 })
+            return NextResponse.json({ success: "user has been deleted successfully" })
+        }
         let deletedAccount = await accountsModel.deleteOne({ _id: String(TheAccount[0]._id) })
 
         //? Log them out after successful deletion -6-

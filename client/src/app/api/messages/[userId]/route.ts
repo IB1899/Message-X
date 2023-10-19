@@ -10,6 +10,8 @@ export async function GET(request: Request, { params }: { params: { userId: stri
     try {
         let user = await UserModel.findById(params.userId);
 
+        if(!user) throw Error("The user was deleted")
+
         return NextResponse.json({ success: "success", user })
     }
     catch (err: any) {

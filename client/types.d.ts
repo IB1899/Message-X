@@ -98,5 +98,6 @@ type Message = {
     _id: string,
     time: Date | number,
     MessageType: "message" | "image"
-    MessageImageName?: String
+    MessageImageName?: String,
+    room?:string
 }

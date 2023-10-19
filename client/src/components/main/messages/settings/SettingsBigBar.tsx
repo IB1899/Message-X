@@ -113,13 +113,13 @@ export default function SettingsBigBar({ user }: { user: FullUser }) {
 
             <div className="buttons">
                 <button onClick={() => SignOut()} ><MdLogout /> Sign out</button>
-                <button onClick={() => window.location.reload()} ><LuRefreshCw /> ReFresh</button>
+                <button onClick={() => window.location.reload()} ><LuRefreshCw /> Refresh</button>
             </div>
 
             <span></span>
 
-            <button className="delete" onClick={() => DeleteUser(user.imageName , user._id)} >
-                {loading ? <LineWobble size={250} lineWeight={7} speed={1.75} color="white" /> : <><FaTrashAlt /> Delete You Account</>}
+            <button className="delete" onClick={() => DeleteUser(user.imageName, user._id)} disabled={loading} >
+                {loading ? <LineWobble size={250} lineWeight={7} speed={1.75} color="white" /> : <><FaTrashAlt /> Delete Your Account</>}
             </button>
         </div>
     )

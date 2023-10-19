@@ -4,6 +4,7 @@ import AuthSlice from "./slices/AuthSlice";
 import ResetPasswordSlice from "./slices/ResetPassSlice";
 import MainSlice from "./slices/MainSlice";
 import SocketSlice from "./slices/SocketsSlice"
+import loggerMiddleware from "./reduxMiddleware";
 
 /*
 ! NOTE: The states that are declared using Redux are global states, and when a global state
@@ -16,7 +17,8 @@ export let store = configureStore({
         ResetPasswordSlice,
         MainSlice,
         SocketSlice
-    }
+    },
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware({serializableCheck:false}).concat(loggerMiddleware),
 })
 
 export type RootState = ReturnType<typeof store.getState>;

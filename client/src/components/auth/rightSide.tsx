@@ -38,7 +38,7 @@ export default function RightSide() {
             // onSlideChange={() => console.log('slide change')}
         >
             <SwiperSlide>
-                <Image className="first" src={astronaut4} fill quality={100} alt="astronaut" priority />
+                <Image className="first" src={astronaut4} quality={100} alt="astronaut" priority />
                 <div className="text">
                     <i> <FaQuoteLeft /> </i>
                     <p> Embark on an exhilarating journey, where each conversation unveils new horizons of excitement and discovery. </p>
@@ -49,7 +49,7 @@ export default function RightSide() {
                 </div>
             </SwiperSlide>
             <SwiperSlide>
-                <Image className="first" src={astronaut1} fill quality={100} alt="astronaut" priority />
+                <Image className="first" src={astronaut1} quality={100} alt="astronaut" priority />
                 <div className="text">
                     <i> <FaQuoteLeft /> </i>
                     <p> Experience the thrill of vibrant interactions, as our platform ignites your sense of digital exploration.. </p>
@@ -60,7 +60,7 @@ export default function RightSide() {
                 </div>
             </SwiperSlide>
             <SwiperSlide>
-                <Image className="first" src={astronaut2} fill quality={100} alt="astronaut" priority />
+                <Image className="first" src={astronaut2} quality={100} alt="astronaut" priority />
                 <div className="text">
                     <i> <FaQuoteLeft /> </i>
                     <p> Discover the limitless adventure in communication, where every exchange is a new and exhilarating path. </p>
@@ -71,7 +71,7 @@ export default function RightSide() {
                 </div>
             </SwiperSlide>
             <SwiperSlide>
-                <Image className="first" src={astronaut3} fill quality={100} alt="astronaut" priority />
+                <Image className="first" src={astronaut3} quality={100} alt="astronaut" priority />
                 <div className="text">
                     <i> <FaQuoteLeft /> </i>
                     <p> Our platform redefines the ordinary, offering an awesome adventure where words become gateways to amazement . </p>

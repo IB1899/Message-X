@@ -3,10 +3,16 @@ import { PiFolderOpen } from "react-icons/pi";
 import CallChat from "./CallChat";
 import SearchChat from "./searchChat";
 import Options from "./options";
-import img1 from "@/../public/test1.jpg"
-import img2 from "@/../public/test2.png"
-import img3 from "@/../public/test3.png"
-import img4 from "@/../public/test3.png"
+import img1 from "@/../public/images/right1.png"
+import img2 from "@/../public/images/right2.png"
+import img3 from "@/../public/images/right3.png"
+import img4 from "@/../public/images/right4.png"
+import img5 from "@/../public/images/right5.png"
+import img6 from "@/../public/images/right6.png"
+import img7 from "@/../public/images/right7.png"
+import img8 from "@/../public/images/right8.png"
+import img9 from "@/../public/images/right9.png"
+
 import DeleteChat from "./deleteChat";
 import Copy from "./copy";
 
@@ -39,11 +45,11 @@ export default function Right({ user, connection }: { user: FullUser, connection
                 <Image src={img2} alt="shared" width={60} height={50} />
                 <Image src={img3} alt="shared" width={60} height={50} />
                 <Image src={img4} alt="shared" width={60} height={50} />
-                <Image src={img1} alt="shared" width={60} height={50} />
-                <Image src={img2} alt="shared" width={60} height={50} />
-                <Image src={img3} alt="shared" width={60} height={50} />
-                <Image src={img4} alt="shared" width={60} height={50} />
-                <Image src={img2} alt="shared" width={60} height={50} />
+                <Image src={img5} alt="shared" width={60} height={50} />
+                <Image src={img6} alt="shared" width={60} height={50} />
+                <Image src={img7} alt="shared" width={60} height={50} />
+                <Image src={img8} alt="shared" width={60} height={50} />
+                <Image src={img9} alt="shared" width={60} height={50} />
 
             </div>
 

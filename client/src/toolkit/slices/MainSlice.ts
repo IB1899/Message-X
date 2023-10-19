@@ -5,14 +5,15 @@ type Types = {
     searchMessage: string,
     loading: boolean,
     isSettings: boolean,
-    isAddStory: boolean
+    isAddStory: boolean,
+    newMessage: { [room: string]: Message }
 }
 
 let MainSlice = createSlice({
 
     name: "Main page slice",
 
-    initialState: { searchedUser: {}, searchMessage: "", loading: false, isAddStory: false, isSettings: false } as Types,
+    initialState: { searchedUser: {}, searchMessage: "", loading: false, isAddStory: false, isSettings: false, newMessage: {} } as Types,
 
     reducers: {
 
@@ -31,8 +32,11 @@ let MainSlice = createSlice({
         setIsAddStory: (state, action: PayloadAction<boolean>) => {
             return { ...state, isAddStory: action.payload }
         },
+        setNewMessage: (state, action: PayloadAction<Message>) => {
+            return { ...state, newMessage: { ...state?.newMessage, [action.payload.room!]: action.payload } }
+        }
     }
 })
 
-export const { setSearchedUser, setSearchMessage, setLoading, setIsSettings, setIsAddStory } = MainSlice.actions;
+export const { setSearchedUser, setSearchMessage, setLoading, setIsSettings, setIsAddStory, setNewMessage } = MainSlice.actions;
 export default MainSlice.reducer

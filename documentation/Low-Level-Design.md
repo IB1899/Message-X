@@ -34,6 +34,11 @@
 ## File Structure
 1. This is a [diagram](./assets//user-interface.png) of the File Structure in depth.  
 
+## The Cache
+1. I either maintain manual hold of the cache through assigning it to a state and with end of each operation(making the requests to the backend)
+   I update that state.
+2. Or I refresh the page using next refresh that causes the data to be re-fetched.
+
 ## DataBase
 1. This project uses the **UserModel** which is the used for database interaction & storing the data.
 2. And uses the **AccountModel** which is used for the accounts collection in the database.
@@ -68,4 +73,10 @@
       2. **In Node.js server:** we can implement a cron job or scheduled job(They are in forms of functions just like setTimeOut) using a library like node-cron or cron to periodically check and delete expired stories inside the server level-code. ***Benefit:*** Less demand on the server & database ***Drawback:*** Low accuracy.
       3. **In Next.js** we'll have in our nodejs server a cron job that will trigger a request to a Next.js end point that deletes the expired stories. ***Benefit:*** Less demand on the server & database ***Drawback:*** Low accuracy.
       4. Use an outside service cron-job that will trigger a request to our backend API end point ***Benefits & Drawbacks*** depend on you cron job configuration.
-   
+ 
+7. ### The Connections process
+   1. When the current user adds another user to his/her connection each user will be added to the connections of each other.
+   2. When the current user deletes another user from his/her connection, it will only be deleted in the current user's connections.
+   3. Before adding each user to the connections of each other we check first if the current user does exist in the other user's contacts,
+      and if they do exist we only add the other user to the current user connections
+ 

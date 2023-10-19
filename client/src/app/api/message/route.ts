@@ -5,6 +5,8 @@ import { ObjectId } from "mongodb";
 
 MongoDbConnection()
 
+//! To prevent dynamic-server-error that is caused by getServerSession
+export const dynamic = "force-dynamic"
 
 //! This route to get the user's full information & check if the clicked contact didn't delete this user from their contacts
 export async function GET(request: Request) {
@@ -22,16 +24,16 @@ export async function GET(request: Request) {
 
         //! to check that if the other user has deleted the current user from their connections
         let connection: Connection[] = user.connections.filter(connection => {
-            let id:string = String(connection._id)
+            let id: string = String(connection._id)
             if (connectionId === id) return connection
         })
         let TheirEmail = connection[0].email;
 
         let result = await UserModel.findOne({ email: TheirEmail, "connections.email": user.email }, { email: 1 })
-        
+
         //! to check that if the other user has deleted the current user from their connections
         if (result?.email) return NextResponse.json({ user, connection: connection[0], yes: true })
-        
+
         return NextResponse.json({ user, connection: connection[0], yes: false })
     }
     catch (err: any) {
