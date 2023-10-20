@@ -5,8 +5,8 @@ import ReduxProvider from './providers/Redux'
 
 
 export const metadata: Metadata = {
-    title: "Message X",
-    description: "This is a messages website"
+    title: "Messages X",
+    description: "This is the Messages-X website that is used for messaging"
 }
 
 export default function RootLayout({

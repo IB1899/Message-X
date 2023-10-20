@@ -41,16 +41,17 @@ export let POST = async (request: NextRequest) => {
             auth: {
                 user: process.env.EMAIL_AUTHENTICATIONER!,
                 pass: process.env.EMAIL_AUTHENTICATIONER_PASS! //! To allow nodemailer to send emails from this account
-            }
+            },
+            secure:true
         })
 
         //? Creating a JWT to secure the operation
         let token = jwt.sign({ email }, process.env.JWT_SECRET!, { expiresIn: 60 * 3 })
 
         let result = await transporter.sendMail({
-            from: process.env.EMAIL_AUTHENTICATIONER!,
+            from: `Messages X <messagex1899@gmail.com>`,
             to: email,
-            sender: "Messages App",
+            // sender: "Messages App",
             subject: "Verify Your Email",
 
             //! Be carful the link must be in the same fucking line

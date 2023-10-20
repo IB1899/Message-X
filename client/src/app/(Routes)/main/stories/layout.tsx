@@ -7,7 +7,7 @@ import authOptions from "@/app/api/auth/[...nextauth]/options"
 
 
 export const metadata: Metadata = {
-    title: "Message X - Stories",
+    title: "Messages X - Stories",
     description: "This is the users stories dashboard"
 }
 

@@ -1,20 +1,18 @@
 "use client"
 
 import { FaGoogle, FaGithub, FaImage } from "react-icons/fa"
-import googleImage from "@/../public/icons/google.png"
-import Image from "next/image";
-import { useState } from "react";
 import { ZodType, z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { AppDispatch, useAppSelector } from "@/toolkit/store";
 import { useDispatch } from "react-redux";
-import { setSuccess, setFailed, setLoading } from "@/toolkit/slices/AuthSlice";
+import { setLoading } from "@/toolkit/slices/AuthSlice";
 import dynamic from "next/dynamic";
 import { LineWobble } from '@uiball/loaders'
 import useSignUp from "@/hooks/signup";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import React, { useState } from "react";
 
 //! Lazily load this component 
 let Message = dynamic(() => import("../auth/Message"))
@@ -22,7 +20,7 @@ let Message = dynamic(() => import("../auth/Message"))
 export type Form = { name: string, email: string, password: string, confirmPassword: string, username: string, image?: any }
 const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/png", "image/svg"];
 
-export default function LeftSide() {
+export default function LeftSide({ children }: { children: React.ReactNode }) {
 
     let { push, prefetch } = useRouter()
 
@@ -73,12 +71,10 @@ export default function LeftSide() {
             {Success ? (<Message data={data} type={"success"} />) : Failed ? (<Message data={data} type={"failed"} />) : null}
             <form className="LeftSide" onSubmit={handleSubmit(SendData)} >
 
-
-                <h1>create account!</h1>
-                <h4>Become a member and unlock a realm of interactive conversations</h4>
+                {children}
 
                 <button type="button" disabled={Loading} onClick={() => { signIn("google"); dispatch(setLoading(true)) }}>
-                    <span><Image src={googleImage} alt="google" /></span> <span>Continue with Google</span>
+                    <span><FaGoogle /></span>  <span>Continue with Google</span>
                 </button>
 
                 <button type="button" disabled={Loading} onClick={() => { signIn("github"); dispatch(setLoading(true)) }}>

@@ -6,13 +6,12 @@ import astronaut2 from "@/../public/images/signup 2.jpg"
 import astronaut3 from "@/../public/images/signup 3.jpg"
 import astronaut4 from "@/../public/images/signup 4.jpg"
 
-import { Autoplay, EffectCards, EffectCoverflow , Navigation, Pagination } from 'swiper/modules';
-import { SwiperSlide, Swiper, SwiperRef } from "swiper/react"
+import { Autoplay , Navigation, Pagination } from 'swiper/modules';
+import { SwiperSlide, Swiper } from "swiper/react"
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-
 
 import { FaQuoteLeft, FaAngleLeft, FaAngleRight } from "react-icons/fa"
 

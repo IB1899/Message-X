@@ -8,11 +8,10 @@ import { useDispatch } from "react-redux"
 import { AppDispatch, useAppSelector } from "@/toolkit/store"
 import { setIsAddStory } from "@/toolkit/slices/MainSlice"
 import dynamic from "next/dynamic"
-import Profile from "./settings/Profile"
 
 //! Lazily load conditional rendered client components
 let AddNewStory = dynamic(() => import("@/components/main/stories/addNewStory"), { loading: () => <p>Loading...</p> })
-let SettingsBigBar = dynamic(() => import("./settings/SettingsBigBar"), { loading: () => <p>Loading...</p> })
+let SettingsBigBar = dynamic(() => import("../settings/SettingsBigBar"), { loading: () => <p>Loading...</p> })
 
 export default function MessagesBigBar({ user, stories, noConnections }: { user: FullUser, stories: story[], noConnections?: any[] }) {
 

@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Message X -Email verification",
+    title: "Messages X -Email verification",
     description: "This page is a status page"
 }
 

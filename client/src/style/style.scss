@@ -897,8 +897,8 @@ body{ font-family: Arial, Helvetica, sans-serif; text-align:center;
 
             }
 
-            //! The Message page
-            .Message{ width:100%; display:flex; 
+            //! The connection page
+            .Connection{ width:100%; display:flex;  overflow:hidden;
                 
                 .Left{width:70%; background-image:url("./backgrounds//home-dark.jpg"); color:$white; background-position:center; 
                     background-repeat:no-repeat; background-attachment:fixed; background-size:cover; display:flex; flex-direction:column; align-items:center;
@@ -923,6 +923,7 @@ body{ font-family: Arial, Helvetica, sans-serif; text-align:center;
                     }
 
                     .TheMessages{ overflow-y:auto; display:flex; flex-direction:column; align-items:center; height:88vh; width:100%; position:relative;
+                        overflow:hidden;
 
                         .HasMe{ position:fixed; top:45%; left: 50%; translate:-50% -50%; background:$white; color:$violet; 
                             border-radius:15px; z-index:10; padding:20px 30px; display:flex; flex-direction:column; align-items:center;
@@ -1000,6 +1001,40 @@ body{ font-family: Arial, Helvetica, sans-serif; text-align:center;
                             
                         }
                     }
+
+                    .VideoCall{ width:100%; height:100%; position: relative; overflow:hidden;   
+
+                        .remote{ position:absolute; top:25px; left:25px; width:250px; height:150px;  z-index:2;
+
+                            .remoteVideo{ position:relative; width:250px; height:150px; background:gray; border-radius:15px;
+
+                            }
+                            
+                            .remoteOptions{ position:absolute; background:$black; padding:5px; border-radius:20px; 
+                                bottom:10px; left:20px; display:flex; 
+    
+                                i{ color:$violet; background:$white; margin:0 5px; padding:5px; display:grid; justify-content:center; align-items:center; 
+                                    cursor:pointer; border-radius:50%;
+                                }
+                            }
+                        }
+                        
+                        
+                        .local{ position:absolute; width:100%; height:100%; z-index:1; top:0;  display:flex; flex-direction:column;
+                            .localVideo{ width:108%; margin-left:-6%;  }
+
+                            .localOptions{display:flex; justify-content:space-evenly; color:$violet; background:$violet;
+                                width:100%; bottom:0; height:100px;
+
+                                i{ color:$violet; background:$white; margin:0 5px; padding:5px; display:grid; justify-content:center; align-items:center; 
+                                    cursor:pointer; border-radius:50%; font-size:20px;
+                                }
+
+                                .x , .xx , .xxx{display:flex; align-items:center; justify-content:center;}
+                            }
+                        }
+
+                    }
                 }
 
                 .Right{ width:30%; height:100vh; background:#202020; display:flex; flex-direction:column; align-items:center; color:$white;
@@ -1019,12 +1054,14 @@ body{ font-family: Arial, Helvetica, sans-serif; text-align:center;
 
                     p{ margin:3px 0; letter-spacing:1px; font-size:13px; font-weight:100; }
 
-                    .CallChat{ display:flex; width:93%; justify-content:space-evenly; margin:10px 0;
+                    .CallChat{ display:flex; width:91%; justify-content:space-evenly; margin:10px 0;
 
-                        button{ border:none; background:$violet; color:$white; padding:7px 13px; font-weight:bold; cursor: pointer; border-radius:20px;
+                        button{ border:none; background:$violet; color:$white; padding:7px 12px; font-weight:bold; cursor: pointer; border-radius:20px;
                             transition:.4s; display:flex; align-items:center; gap:10px; i{ font-size:16px; } 
                             &:hover{ background:$white; color:$violet; transition:.4s; }
                         }
+
+                        .disable{ opacity:.6; &:hover{ background:$violet; color:$white; cursor:not-allowed; } }
                     }
 
                     .SearchChat{ width:78%; display:flex; background:$white; border-radius:20px; justify-content:space-evenly;
@@ -1254,13 +1291,13 @@ body{ font-family: Arial, Helvetica, sans-serif; text-align:center;
 
             .body{ text-align:center; display:flex; flex-direction:column; align-items:center; gap:25px;
 
-                h1{ font-size:80px; span{color:$violet;} }
+                h1{ font-size:90px; span{color:$violet;} }
                 h3{ font-size:35px; text-transform:uppercase;  }
 
                 p{ width:80%; font-size:17px; }
 
                 a{ background:$black; text-decoration:none; font-size:19px; font-family:700;
-                    border:none;  width:70%; padding:8px; border-radius:25px 0 25px 0; color:$violet; transition:.7s;
+                    border:none;  width:66%; padding:8px; border-radius:25px 0 25px 0; color:$violet; transition:.7s;
                     &:hover{ color:$white; box-shadow:2px 2px 3px $violet; border-radius:0 25px 0 25px; transition:.7s;}
                 }
 
@@ -1279,6 +1316,25 @@ body{ font-family: Arial, Helvetica, sans-serif; text-align:center;
                 }
                 p{ font-size:20px;  }
             }
+        }
+
+    }
+
+    .Oops{ display:flex; flex-direction:column; align-items:center; color:$white;  gap:20px;
+
+        header{ margin:10px 0;
+            i{ color:$violet; font-size:50px; margin:3px 0; }
+            h3{ font-size:26px; &::first-letter{color:$violet;} }
+        }
+
+        h1{font-size:70px; margin-top:30px; &::first-letter{color:$violet;}}
+
+        h3{ font-size:40px;  }
+
+        p{ font-size:18px; width:40%; }
+
+        button{ background:none; color:$white; border:1.5px solid $white; opacity:.8; font-size:19px; padding:8px 15px; cursor:pointer;  
+            transition:.8s; &:hover{ border-radius:50px 0 50px 0; transition:.8s; padding:8px 20px; }
         }
 
     }

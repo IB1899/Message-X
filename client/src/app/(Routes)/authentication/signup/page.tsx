@@ -5,7 +5,7 @@ import Link from "next/link"
 import { FaXing, FaUsers, FaArrowLeft, FaAngleLeft, FaAngleDoubleLeft } from "react-icons/fa"
 
 export const metadata: Metadata = {
-    title: "Message X - New User",
+    title: "Messages X - New User",
     description: "This page to sign up new users to our website"
 }
 
@@ -39,7 +39,10 @@ export default function SignUp() {
             <div className="body">
 
                 {/* Contains the Sign up logic */}
-                <LeftSide />
+                <LeftSide >
+                    <h1>create account!</h1>
+                    <h4>Become a member and unlock a realm of interactive conversations</h4>
+                </LeftSide>
 
                 {/* Contains the swiper effects */}
                 <RightSide />

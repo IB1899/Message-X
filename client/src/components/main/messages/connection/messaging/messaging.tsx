@@ -1,17 +1,16 @@
-"use client"
 import Image from "next/image";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import { IoImages } from "react-icons/io5"
-import { FaLeaf, FaMicrophone } from "react-icons/fa";
-import { BiMailSend } from "react-icons/bi";
 import { useEffect, useRef, useState } from "react";
-import { Socket } from "socket.io-client";
 import { useAppSelector } from "@/toolkit/store";
 import { useTheMessage } from "@/hooks/theMessage";
 import { AiFillCloseCircle } from "react-icons/ai";
+import { FaMicrophone } from "react-icons/fa";
+import { BiMailSend } from "react-icons/bi";
 
+type props = { user: FullUser, connection: Connection, haveMe: "yes" | "no" }
 
-export default function TheMessages({ user, connection, haveMe }: { user: FullUser, connection: Connection, haveMe: "yes" | "no" }) {
+export default function TextMessaging({ user, connection, haveMe }: props) {
 
     //! Accessing the socket from a global state
     let { socket, searchChat } = useAppSelector((state => state.SocketSlice))
@@ -42,6 +41,7 @@ export default function TheMessages({ user, connection, haveMe }: { user: FullUs
 
     //! The custom Hook for this page
     let { sendMessage } = useTheMessage(MessageRef, socket, connection, user, setMessage, ImageRef, setError)
+
 
     return (
         <div className="TheMessages" ref={ContainerRef}>

@@ -3,7 +3,7 @@ import Profile from "@/components/main/messages/settings/Profile";
 import { getServerSession } from "next-auth";
 
 export default async function Message() {
-    
+
     let session = await getServerSession(authOptions)
     if (!session?.user) return <h1>error the session was not found </h1>
 
@@ -12,10 +12,15 @@ export default async function Message() {
 
     if (result.failed) return <h1>error {result.failed} </h1>
 
-    
     return (
         <div className="Messages">
-            <Profile user={result.user} />
+            <Profile user={result.user} >
+                <div className="user-details">
+                    <h3> {result.user.name} </h3>
+                    <p> {result.user.username} </p>
+                    <p> {result.user.description} </p>
+                </div>
+            </Profile>
         </div>
     )
 }

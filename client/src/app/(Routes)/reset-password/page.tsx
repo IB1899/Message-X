@@ -1,4 +1,3 @@
-import React from 'react'
 import jwt from "jsonwebtoken"
 import ResetPasswordForm from '@/components/reset-password/reset-password-form';
 import { Metadata } from 'next';
@@ -6,6 +5,7 @@ import { redirect } from 'next/navigation';
 import Image from "next/image"
 import { FaXing } from "react-icons/fa"
 import ResetPasswordImage from "@/../public/images/resetPassword 2.svg"
+import Link from 'next/link';
 
 //todo Check The low level design to understand the password resting & email verification approaches
 
@@ -33,8 +33,10 @@ export default function ResetPassword({ params, searchParams }: { params: {}, se
             <div className="left">
                 <Image src={ResetPasswordImage} alt="image" priority />
             </div>
-            
-            <ResetPasswordForm email={Verified.email} />
+
+            <ResetPasswordForm email={Verified.email} >
+                <Link href={"/authentication/login"}>Go back to login?</Link>
+            </ResetPasswordForm>
         </div>
     }
     catch (err: any) {

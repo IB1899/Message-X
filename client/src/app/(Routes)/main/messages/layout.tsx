@@ -1,12 +1,12 @@
 import authOptions from "@/app/api/auth/[...nextauth]/options"
 import Error from "@/app/error"
-import BigBar from "@/components/main/messages/MessagesBigBar"
+import BigBar from "@/components/main/messages/leftBar/MessagesBigBar"
 import { Metadata } from "next"
 import { getServerSession } from "next-auth"
 
 
 export const metadata: Metadata = {
-    title: "Message X - Dashboard",
+    title: "Messages X - Dashboard",
     description: "This is the messages dashboard"
 }
 

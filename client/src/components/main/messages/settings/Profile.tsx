@@ -1,10 +1,10 @@
 "use client"
 
-import ForgotPassword from "@/components/auth/forgotPassword";
 import useProfile from "@/hooks/profile";
 import { setIsForgotPassword } from "@/toolkit/slices/AuthSlice";
 import { AppDispatch, useAppSelector } from "@/toolkit/store";
 import { LineWobble } from "@uiball/loaders";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import { ChangeEvent, useRef, useState } from "react";
 import { BiPencil } from "react-icons/bi"
@@ -12,7 +12,9 @@ import { BsShieldLockFill } from "react-icons/bs"
 import { HiMiniShieldCheck } from "react-icons/hi2"
 import { useDispatch } from "react-redux";
 
-export default function Profile({ user }: { user: FullUser }) {
+let ForgotPassword = dynamic(() => import("@/components/auth/forgotPassword"))
+
+export default function Profile({ children, user }: { children: React.ReactNode, user: FullUser }) {
 
     let [image, setImage] = useState<File | string>("")
     let [imageURL, setImageURL] = useState<string>("")
@@ -48,7 +50,7 @@ export default function Profile({ user }: { user: FullUser }) {
     return (
         <>
             {isForgotPassword ? (<ForgotPassword />) : null}
-            
+
             <form className="Profile" onSubmit={(e) => {
                 UpdateUserData(e,
                     usernameRef.current!.value,
@@ -66,11 +68,7 @@ export default function Profile({ user }: { user: FullUser }) {
                     <label htmlFor="file"> <BiPencil /> </label>
                     <input type="file" disabled={isEditing ? false : true} id="file" onChange={(e) => handelImageChange(e)} />
 
-                    <div className="user-details">
-                        <h3> {user.name} </h3>
-                        <p> {user.username} </p>
-                        <p> {user.description} </p>
-                    </div>
+                    {children}
                 </div>
 
                 <div className="middle">

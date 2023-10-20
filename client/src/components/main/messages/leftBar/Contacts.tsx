@@ -30,7 +30,6 @@ export default function Contacts({ user, connections, noConnections }: { user: F
 
     //! Keep track of active users in the current user's contacts
     let [actives, setActives] = useState<string[]>([])
-    console.log(`actives:`, actives)
 
     useEffect(() => {
         (async () => {

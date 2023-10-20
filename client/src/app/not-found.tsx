@@ -10,7 +10,7 @@ import { Metadata } from "next"
 import { Lobster } from "next/font/google"
 
 export const metadata: Metadata = {
-    title: "Message X - 404",
+    title: "Messages X - 404",
     description: "This is the 404 page. NotFound"
 }
 
@@ -28,7 +28,7 @@ export default function NotFound() {
         <div className="NotFound">
 
             <div className="left">
-                <Image src={left} alt="left 404 image" />
+                <Image src={left} alt="left 404 image" priority />
             </div>
 
             <div className="center">
@@ -59,7 +59,7 @@ export default function NotFound() {
             </div>
 
             <div className="right">
-                <Image src={right} alt="right 404 image" />
+                <Image src={right} alt="right 404 image" priority />
             </div>
         </div>
     )

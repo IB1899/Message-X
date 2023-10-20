@@ -22,7 +22,6 @@ export let POST = async (request: Request) => {
             let users = await AccountModel.find()
 
             let result = users.filter(one => one.userId.toString() === user!._id.toString() ? one : null)
-            console.log(`result:`, result)
 
             throw Error(`This user account was created using ${result[0].provider} . please log in through ${result[0].provider} `)
         }
@@ -33,16 +32,17 @@ export let POST = async (request: Request) => {
             auth: {
                 user: process.env.EMAIL_AUTHENTICATIONER!,
                 pass: process.env.EMAIL_AUTHENTICATIONER_PASS! //! To allow nodemailer to send emails from this account
-            }
+            },
+            secure:true
         })
 
         //? Creating a JWT to secure the operation
         let token = jwt.sign({ email }, process.env.JWT_SECRET!, { expiresIn: 60 * 2 })
 
         let result = await transporter.sendMail({
-            from: process.env.EMAIL_AUTHENTICATIONER!,
+            from: `Messages X <messagex1899@gmail.com>`,
             to: email,
-            sender: "Messages App",
+            // sender: "Messages App",
             subject: "Rest your password",
 
             html: `<!DOCTYPE html><html lang="en"><head><title>Reset your Password </title><style>body{ text-align:center;

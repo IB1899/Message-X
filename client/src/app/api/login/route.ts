@@ -20,7 +20,7 @@ export let POST = async (request: Request) => {
         if (!user?.password) {
             let users = await AccountModel.find()
 
-            let result = users.filter(one => one.userId === user._id.toString() ? one : null)
+            let result = users.filter(one => one.userId.toString() === user!._id.toString() ? one : null)
 
             throw Error(`This user account was created using ${result[0].provider} . please log in through ${result[0].provider} `)
         }

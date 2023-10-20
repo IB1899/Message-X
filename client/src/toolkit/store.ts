@@ -1,9 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit"
 import { TypedUseSelectorHook, useSelector } from "react-redux"
+
 import AuthSlice from "./slices/AuthSlice";
 import ResetPasswordSlice from "./slices/ResetPassSlice";
 import MainSlice from "./slices/MainSlice";
 import SocketSlice from "./slices/SocketsSlice"
+import PeerSlice from "./slices/PeerSlice";
+
 import loggerMiddleware from "./reduxMiddleware";
 
 /*
@@ -16,7 +19,8 @@ export let store = configureStore({
         AuthSlice,
         ResetPasswordSlice,
         MainSlice,
-        SocketSlice
+        SocketSlice,
+        PeerSlice
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({serializableCheck:false}).concat(loggerMiddleware),
 })

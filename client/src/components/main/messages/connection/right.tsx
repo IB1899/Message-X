@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { PiFolderOpen } from "react-icons/pi";
-import CallChat from "./CallChat";
-import SearchChat from "./searchChat";
-import Options from "./options";
+import CallChat from "./messaging/CallChat";
+import SearchChat from "./messaging/searchChat";
+import Options from "./messaging/options";
 import img1 from "@/../public/images/right1.png"
 import img2 from "@/../public/images/right2.png"
 import img3 from "@/../public/images/right3.png"
@@ -13,8 +13,8 @@ import img7 from "@/../public/images/right7.png"
 import img8 from "@/../public/images/right8.png"
 import img9 from "@/../public/images/right9.png"
 
-import DeleteChat from "./deleteChat";
-import Copy from "./copy";
+import DeleteChat from "./messaging/deleteChat";
+import Copy from "./messaging/copy";
 
 export default function Right({ user, connection }: { user: FullUser, connection: Connection }) {
 
@@ -37,7 +37,7 @@ export default function Right({ user, connection }: { user: FullUser, connection
             <Options user={user} />
 
 
-            <h3 className="sharedPhotos"> <i> <PiFolderOpen /> </i> <span>Shared Photos  </span></h3>
+            <h3 className="sharedPhotos"> <i> <PiFolderOpen /> </i> <span>Shared Photos</span></h3>
 
             <div className="images">
 

@@ -4,7 +4,7 @@ import { AppDispatch, useAppSelector } from "@/toolkit/store"
 import { useDispatch } from "react-redux"
 import AddNewStory from "./addNewStory"
 import SettingsBigBar from "../messages/settings/SettingsBigBar"
-import Stories from "../messages/Stories"
+import Stories from "../messages/leftBar/Stories"
 import VerticalStories from "./verticalStory"
 
 

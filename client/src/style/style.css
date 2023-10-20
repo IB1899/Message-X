@@ -5588,11 +5588,12 @@ body .Main .Messages .Profile .message p {
   font-weight: 700;
   color: white;
 }
-body .Main .Messages .Message {
+body .Main .Messages .Connection {
   width: 100%;
   display: flex;
+  overflow: hidden;
 }
-body .Main .Messages .Message .Left {
+body .Main .Messages .Connection .Left {
   width: 70%;
   background-image: url("./backgrounds//home-dark.jpg");
   color: white;
@@ -5604,7 +5605,7 @@ body .Main .Messages .Message .Left {
   flex-direction: column;
   align-items: center;
 }
-body .Main .Messages .Message .Left header {
+body .Main .Messages .Connection .Left header {
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -5613,41 +5614,41 @@ body .Main .Messages .Message .Left header {
   align-items: center;
   padding: 3px 0;
 }
-body .Main .Messages .Message .Left header i {
+body .Main .Messages .Connection .Left header i {
   font-size: 28px;
   color: #9D00BB;
   cursor: pointer;
   transition: 0.3s;
 }
-body .Main .Messages .Message .Left header i:hover {
+body .Main .Messages .Connection .Left header i:hover {
   color: white;
   transition: 0.3s;
 }
-body .Main .Messages .Message .Left header .i {
+body .Main .Messages .Connection .Left header .i {
   display: flex;
   align-items: center;
   margin: 0 10px;
 }
-body .Main .Messages .Message .Left header .i img {
+body .Main .Messages .Connection .Left header .i img {
   border-radius: 50%;
   -o-object-fit: cover;
      object-fit: cover;
   margin-right: 5px;
 }
-body .Main .Messages .Message .Left header .ii h3 {
+body .Main .Messages .Connection .Left header .ii h3 {
   font-size: 20px;
   font-weight: bold;
   margin: 4px 0;
   color: #9D00BB;
 }
-body .Main .Messages .Message .Left header .ii h5 {
+body .Main .Messages .Connection .Left header .ii h5 {
   font-size: 16px;
 }
-body .Main .Messages .Message .Left header .iii {
+body .Main .Messages .Connection .Left header .iii {
   display: flex;
   align-items: center;
 }
-body .Main .Messages .Message .Left .TheMessages {
+body .Main .Messages .Connection .Left .TheMessages {
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -5655,8 +5656,9 @@ body .Main .Messages .Message .Left .TheMessages {
   height: 88vh;
   width: 100%;
   position: relative;
+  overflow: hidden;
 }
-body .Main .Messages .Message .Left .TheMessages .HasMe {
+body .Main .Messages .Connection .Left .TheMessages .HasMe {
   position: fixed;
   top: 45%;
   left: 50%;
@@ -5671,37 +5673,37 @@ body .Main .Messages .Message .Left .TheMessages .HasMe {
   align-items: center;
   box-shadow: 4px 4px 4px #9D00BB;
 }
-body .Main .Messages .Message .Left .TheMessages .HasMe p {
+body .Main .Messages .Connection .Left .TheMessages .HasMe p {
   width: 350px;
   font-size: 19px;
   font-weight: 700;
   line-height: 25px;
 }
-body .Main .Messages .Message .Left .TheMessages .HasMe i {
+body .Main .Messages .Connection .Left .TheMessages .HasMe i {
   margin-top: 15px;
   cursor: pointer;
   color: #9D00BB;
   font-size: 28px;
   transition: 0.3s;
 }
-body .Main .Messages .Message .Left .TheMessages .HasMe i:hover {
+body .Main .Messages .Connection .Left .TheMessages .HasMe i:hover {
   color: black;
   transition: 0.3s;
 }
-body .Main .Messages .Message .Left .TheMessages::-webkit-scrollbar {
+body .Main .Messages .Connection .Left .TheMessages::-webkit-scrollbar {
   background: none;
   width: 8px;
 }
-body .Main .Messages .Message .Left .TheMessages::-webkit-scrollbar-thumb {
+body .Main .Messages .Connection .Left .TheMessages::-webkit-scrollbar-thumb {
   background: #9D00BB;
 }
-body .Main .Messages .Message .Left .TheMessages .msgs {
+body .Main .Messages .Connection .Left .TheMessages .msgs {
   display: flex;
   flex-direction: column;
   width: 100%;
   margin-bottom: 20px;
 }
-body .Main .Messages .Message .Left .TheMessages .msgs .error {
+body .Main .Messages .Connection .Left .TheMessages .msgs .error {
   position: fixed;
   width: 400px;
   background: red;
@@ -5717,43 +5719,43 @@ body .Main .Messages .Message .Left .TheMessages .msgs .error {
   bottom: 50px;
   transition: 0.8s;
 }
-body .Main .Messages .Message .Left .TheMessages .msgs .error p {
+body .Main .Messages .Connection .Left .TheMessages .msgs .error p {
   color: white;
   width: 100%;
   text-align: left;
 }
-body .Main .Messages .Message .Left .TheMessages .msgs .error.hide {
+body .Main .Messages .Connection .Left .TheMessages .msgs .error.hide {
   left: -500px;
   transition: 0.8s;
 }
-body .Main .Messages .Message .Left .TheMessages .msgs .msg {
+body .Main .Messages .Connection .Left .TheMessages .msgs .msg {
   display: flex;
   align-items: center;
   gap: 10px;
   margin: 15px 10px;
   text-align: left;
 }
-body .Main .Messages .Message .Left .TheMessages .msgs .msg #userImage {
+body .Main .Messages .Connection .Left .TheMessages .msgs .msg #userImage {
   border-radius: 50%;
   -o-object-fit: content;
      object-fit: content;
 }
-body .Main .Messages .Message .Left .TheMessages .msgs .msg .text {
+body .Main .Messages .Connection .Left .TheMessages .msgs .msg .text {
   color: white;
 }
-body .Main .Messages .Message .Left .TheMessages .msgs .msg .text .msg-head {
+body .Main .Messages .Connection .Left .TheMessages .msgs .msg .text .msg-head {
   display: flex;
   align-items: center;
 }
-body .Main .Messages .Message .Left .TheMessages .msgs .msg .text .msg-head h3 {
+body .Main .Messages .Connection .Left .TheMessages .msgs .msg .text .msg-head h3 {
   font-size: 18px;
 }
-body .Main .Messages .Message .Left .TheMessages .msgs .msg .text .msg-head span {
+body .Main .Messages .Connection .Left .TheMessages .msgs .msg .text .msg-head span {
   font-size: 14px;
   opacity: 0.7;
   margin: 0 20px;
 }
-body .Main .Messages .Message .Left .TheMessages .msgs .msg .text p {
+body .Main .Messages .Connection .Left .TheMessages .msgs .msg .text p {
   font-size: 15px;
   padding: 10px;
   border-radius: 10px 0 10px 0;
@@ -5761,29 +5763,29 @@ body .Main .Messages .Message .Left .TheMessages .msgs .msg .text p {
   grid-column: 1/3;
   font-weight: 200;
 }
-body .Main .Messages .Message .Left .TheMessages .msgs .msg .text #messageImage {
+body .Main .Messages .Connection .Left .TheMessages .msgs .msg .text #messageImage {
   border-radius: 15px;
   margin: 7px;
   grid-column: 1/3;
 }
-body .Main .Messages .Message .Left .TheMessages .msgs #me {
+body .Main .Messages .Connection .Left .TheMessages .msgs #me {
   align-self: flex-end;
   flex-direction: row-reverse;
 }
-body .Main .Messages .Message .Left .TheMessages .msgs #me .text p {
+body .Main .Messages .Connection .Left .TheMessages .msgs #me .text p {
   background: #9D00BB;
 }
-body .Main .Messages .Message .Left .TheMessages .msgs #me .text .msg-head {
+body .Main .Messages .Connection .Left .TheMessages .msgs #me .text .msg-head {
   justify-content: flex-end;
 }
-body .Main .Messages .Message .Left .TheMessages .msgs #them {
+body .Main .Messages .Connection .Left .TheMessages .msgs #them {
   align-self: flex-start;
 }
-body .Main .Messages .Message .Left .TheMessages .msgs #them .text p {
+body .Main .Messages .Connection .Left .TheMessages .msgs #them .text p {
   background: #202020;
   border-radius: 0 10px 0 10px;
 }
-body .Main .Messages .Message .Left .TheMessages .sendMessage {
+body .Main .Messages .Connection .Left .TheMessages .sendMessage {
   width: 90%;
   display: flex;
   border-radius: 10px;
@@ -5794,7 +5796,7 @@ body .Main .Messages .Message .Left .TheMessages .sendMessage {
   align-items: center;
   justify-content: space-between;
 }
-body .Main .Messages .Message .Left .TheMessages .sendMessage label, body .Main .Messages .Message .Left .TheMessages .sendMessage i, body .Main .Messages .Message .Left .TheMessages .sendMessage button {
+body .Main .Messages .Connection .Left .TheMessages .sendMessage label, body .Main .Messages .Connection .Left .TheMessages .sendMessage i, body .Main .Messages .Connection .Left .TheMessages .sendMessage button {
   background: none;
   border: none;
   font-size: 24px;
@@ -5803,24 +5805,24 @@ body .Main .Messages .Message .Left .TheMessages .sendMessage label, body .Main 
   margin: 0 5px;
   transition: 0.3s;
 }
-body .Main .Messages .Message .Left .TheMessages .sendMessage label:hover, body .Main .Messages .Message .Left .TheMessages .sendMessage i:hover, body .Main .Messages .Message .Left .TheMessages .sendMessage button:hover {
+body .Main .Messages .Connection .Left .TheMessages .sendMessage label:hover, body .Main .Messages .Connection .Left .TheMessages .sendMessage i:hover, body .Main .Messages .Connection .Left .TheMessages .sendMessage button:hover {
   color: white;
   transition: 0.3s;
 }
-body .Main .Messages .Message .Left .TheMessages .sendMessage .i {
+body .Main .Messages .Connection .Left .TheMessages .sendMessage .i {
   height: inherit;
   margin: 0 10px;
   display: flex;
   align-items: center;
   width: 82%;
 }
-body .Main .Messages .Message .Left .TheMessages .sendMessage .i label {
+body .Main .Messages .Connection .Left .TheMessages .sendMessage .i label {
   translate: 0 2px;
 }
-body .Main .Messages .Message .Left .TheMessages .sendMessage .i #imageInput {
+body .Main .Messages .Connection .Left .TheMessages .sendMessage .i #imageInput {
   display: none;
 }
-body .Main .Messages .Message .Left .TheMessages .sendMessage .i input {
+body .Main .Messages .Connection .Left .TheMessages .sendMessage .i input {
   width: 100%;
   background: none;
   outline: none;
@@ -5830,21 +5832,101 @@ body .Main .Messages .Message .Left .TheMessages .sendMessage .i input {
   margin: 0 10px;
   font-weight: bold;
 }
-body .Main .Messages .Message .Left .TheMessages .sendMessage .ii {
+body .Main .Messages .Connection .Left .TheMessages .sendMessage .ii {
   margin: 0 10px;
   width: 18%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-body .Main .Messages .Message .Left .TheMessages .sendMessage .ii span {
+body .Main .Messages .Connection .Left .TheMessages .sendMessage .ii span {
   width: 0.7px;
   background: white;
   opacity: 0.6;
   height: 25px;
   display: block;
 }
-body .Main .Messages .Message .Right {
+body .Main .Messages .Connection .Left .VideoCall {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+body .Main .Messages .Connection .Left .VideoCall .remote {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  width: 250px;
+  height: 150px;
+  z-index: 2;
+}
+body .Main .Messages .Connection .Left .VideoCall .remote .remoteVideo {
+  position: relative;
+  width: 250px;
+  height: 150px;
+  background: gray;
+  border-radius: 15px;
+}
+body .Main .Messages .Connection .Left .VideoCall .remote .remoteOptions {
+  position: absolute;
+  background: black;
+  padding: 5px;
+  border-radius: 20px;
+  bottom: 10px;
+  left: 20px;
+  display: flex;
+}
+body .Main .Messages .Connection .Left .VideoCall .remote .remoteOptions i {
+  color: #9D00BB;
+  background: white;
+  margin: 0 5px;
+  padding: 5px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 50%;
+}
+body .Main .Messages .Connection .Left .VideoCall .local {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+}
+body .Main .Messages .Connection .Left .VideoCall .local .localVideo {
+  width: 108%;
+  margin-left: -6%;
+}
+body .Main .Messages .Connection .Left .VideoCall .local .localOptions {
+  display: flex;
+  justify-content: space-evenly;
+  color: #9D00BB;
+  background: #9D00BB;
+  width: 100%;
+  bottom: 0;
+  height: 100px;
+}
+body .Main .Messages .Connection .Left .VideoCall .local .localOptions i {
+  color: #9D00BB;
+  background: white;
+  margin: 0 5px;
+  padding: 5px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 20px;
+}
+body .Main .Messages .Connection .Left .VideoCall .local .localOptions .x, body .Main .Messages .Connection .Left .VideoCall .local .localOptions .xx, body .Main .Messages .Connection .Left .VideoCall .local .localOptions .xxx {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body .Main .Messages .Connection .Right {
   width: 30%;
   height: 100vh;
   background: #202020;
@@ -5853,7 +5935,7 @@ body .Main .Messages .Message .Right {
   align-items: center;
   color: white;
 }
-body .Main .Messages .Message .Right .img .profileImage {
+body .Main .Messages .Connection .Right .img .profileImage {
   border-radius: 50%;
   -o-object-fit: cover;
      object-fit: cover;
@@ -5861,11 +5943,11 @@ body .Main .Messages .Message .Right .img .profileImage {
   margin: 6px 0;
   position: relative;
 }
-body .Main .Messages .Message .Right h1 {
+body .Main .Messages .Connection .Right h1 {
   color: #9D00BB;
   font-size: 22px;
 }
-body .Main .Messages .Message .Right .h3 {
+body .Main .Messages .Connection .Right .h3 {
   display: flex;
   align-items: center;
   font-weight: 200;
@@ -5874,32 +5956,32 @@ body .Main .Messages .Message .Right .h3 {
   cursor: pointer;
   gap: 10px;
 }
-body .Main .Messages .Message .Right .h3 i {
+body .Main .Messages .Connection .Right .h3 i {
   color: #9D00BB;
   font-size: 20px;
 }
-body .Main .Messages .Message .Right .h3:hover {
+body .Main .Messages .Connection .Right .h3:hover {
   transition: 0.4s;
   color: #9D00BB;
   translate: 0 2px;
 }
-body .Main .Messages .Message .Right p {
+body .Main .Messages .Connection .Right p {
   margin: 3px 0;
   letter-spacing: 1px;
   font-size: 13px;
   font-weight: 100;
 }
-body .Main .Messages .Message .Right .CallChat {
+body .Main .Messages .Connection .Right .CallChat {
   display: flex;
-  width: 93%;
+  width: 91%;
   justify-content: space-evenly;
   margin: 10px 0;
 }
-body .Main .Messages .Message .Right .CallChat button {
+body .Main .Messages .Connection .Right .CallChat button {
   border: none;
   background: #9D00BB;
   color: white;
-  padding: 7px 13px;
+  padding: 7px 12px;
   font-weight: bold;
   cursor: pointer;
   border-radius: 20px;
@@ -5908,15 +5990,23 @@ body .Main .Messages .Message .Right .CallChat button {
   align-items: center;
   gap: 10px;
 }
-body .Main .Messages .Message .Right .CallChat button i {
+body .Main .Messages .Connection .Right .CallChat button i {
   font-size: 16px;
 }
-body .Main .Messages .Message .Right .CallChat button:hover {
+body .Main .Messages .Connection .Right .CallChat button:hover {
   background: white;
   color: #9D00BB;
   transition: 0.4s;
 }
-body .Main .Messages .Message .Right .SearchChat {
+body .Main .Messages .Connection .Right .CallChat .disable {
+  opacity: 0.6;
+}
+body .Main .Messages .Connection .Right .CallChat .disable:hover {
+  background: #9D00BB;
+  color: white;
+  cursor: not-allowed;
+}
+body .Main .Messages .Connection .Right .SearchChat {
   width: 78%;
   display: flex;
   background: white;
@@ -5925,7 +6015,7 @@ body .Main .Messages .Message .Right .SearchChat {
   align-items: center;
   margin: 10px 0;
 }
-body .Main .Messages .Message .Right .SearchChat input {
+body .Main .Messages .Connection .Right .SearchChat input {
   border: none;
   background: none;
   color: #9D00BB;
@@ -5933,24 +6023,24 @@ body .Main .Messages .Message .Right .SearchChat input {
   font-weight: bold;
   width: 70%;
 }
-body .Main .Messages .Message .Right .SearchChat input:focus {
+body .Main .Messages .Connection .Right .SearchChat input:focus {
   outline: none;
 }
-body .Main .Messages .Message .Right .SearchChat input::-moz-placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+body .Main .Messages .Connection .Right .SearchChat input::-moz-placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #9D00BB;
   opacity: 1; /* Firefox */
 }
-body .Main .Messages .Message .Right .SearchChat input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+body .Main .Messages .Connection .Right .SearchChat input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #9D00BB;
   opacity: 1; /* Firefox */
 }
-body .Main .Messages .Message .Right .SearchChat input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+body .Main .Messages .Connection .Right .SearchChat input:-ms-input-placeholder { /* Internet Explorer 10-11 */
   color: #9D00BB;
 }
-body .Main .Messages .Message .Right .SearchChat input::-ms-input-placeholder { /* Microsoft Edge */
+body .Main .Messages .Connection .Right .SearchChat input::-ms-input-placeholder { /* Microsoft Edge */
   color: #9D00BB;
 }
-body .Main .Messages .Message .Right .SearchChat button {
+body .Main .Messages .Connection .Right .SearchChat button {
   background: none;
   padding: 7px;
   color: #9D00BB;
@@ -5960,7 +6050,7 @@ body .Main .Messages .Message .Right .SearchChat button {
   position: relative;
   top: 2px;
 }
-body .Main .Messages .Message .Right .Options {
+body .Main .Messages .Connection .Right .Options {
   width: 82%;
   background: #202020;
   color: white;
@@ -5970,34 +6060,34 @@ body .Main .Messages .Message .Right .Options {
   align-items: center;
   position: relative;
 }
-body .Main .Messages .Message .Right .Options .setting {
+body .Main .Messages .Connection .Right .Options .setting {
   display: flex;
   justify-content: space-around;
   margin-top: 17px;
   width: 100%;
 }
-body .Main .Messages .Message .Right .Options .setting i {
+body .Main .Messages .Connection .Right .Options .setting i {
   font-size: 28px;
   color: #9D00BB;
 }
-body .Main .Messages .Message .Right .Options .setting .description {
+body .Main .Messages .Connection .Right .Options .setting .description {
   text-align: left;
   display: grid;
   grid-template-columns: repeat(2, auto);
   position: relative;
   width: 80%;
 }
-body .Main .Messages .Message .Right .Options .setting .description p {
+body .Main .Messages .Connection .Right .Options .setting .description p {
   opacity: 0.7;
   font-size: 11px;
   grid-column: 1/3;
   margin-top: 10px;
 }
-body .Main .Messages .Message .Right .Options .setting .description h3 {
+body .Main .Messages .Connection .Right .Options .setting .description h3 {
   margin-right: 15px;
   font-size: 16px;
 }
-body .Main .Messages .Message .Right .Options .setting .description input {
+body .Main .Messages .Connection .Right .Options .setting .description input {
   background: white;
   width: 50px;
   height: 25px;
@@ -6011,7 +6101,7 @@ body .Main .Messages .Message .Right .Options .setting .description input {
           appearance: none;
   transition: 0.5s;
 }
-body .Main .Messages .Message .Right .Options .setting .description input::before {
+body .Main .Messages .Connection .Right .Options .setting .description input::before {
   content: "";
   cursor: pointer;
   position: absolute;
@@ -6023,7 +6113,7 @@ body .Main .Messages .Message .Right .Options .setting .description input::befor
   left: 2px;
   transition: 0.5s;
 }
-body .Main .Messages .Message .Right .Options .setting .description input:checked::before {
+body .Main .Messages .Connection .Right .Options .setting .description input:checked::before {
   content: "";
   cursor: pointer;
   position: absolute;
@@ -6035,7 +6125,7 @@ body .Main .Messages .Message .Right .Options .setting .description input:checke
   background: #9D00BB;
   left: 25px;
 }
-body .Main .Messages .Message .Right .sharedPhotos {
+body .Main .Messages .Connection .Right .sharedPhotos {
   font-weight: 700;
   pointer-events: none;
   align-self: flex-start;
@@ -6047,12 +6137,12 @@ body .Main .Messages .Message .Right .sharedPhotos {
   position: relative;
   top: -12px;
 }
-body .Main .Messages .Message .Right .sharedPhotos i {
+body .Main .Messages .Connection .Right .sharedPhotos i {
   font-size: 29px;
   margin: 3x;
   color: #9D00BB;
 }
-body .Main .Messages .Message .Right .images {
+body .Main .Messages .Connection .Right .images {
   width: 90%;
   display: grid;
   grid-template-columns: repeat(3, 70px);
@@ -6062,12 +6152,12 @@ body .Main .Messages .Message .Right .images {
   position: relative;
   justify-content: center;
 }
-body .Main .Messages .Message .Right .images img {
+body .Main .Messages .Connection .Right .images img {
   border-radius: 10px;
   -o-object-fit: cover;
      object-fit: cover;
 }
-body .Main .Messages .Message .Right .images::after {
+body .Main .Messages .Connection .Right .images::after {
   content: "";
   position: absolute;
   width: 80%;
@@ -6076,7 +6166,7 @@ body .Main .Messages .Message .Right .images::after {
   bottom: 0;
   background: rgba(183, 183, 183, 0.304);
 }
-body .Main .Messages .Message .Right .delete {
+body .Main .Messages .Connection .Right .delete {
   border: none;
   background: none;
   color: red;
@@ -6092,7 +6182,7 @@ body .Main .Messages .Message .Right .delete {
   margin-top: 10px;
   justify-content: center;
 }
-body .Main .Messages .Message .Right .delete i {
+body .Main .Messages .Connection .Right .delete i {
   font-size: 23px;
 }
 body .Main .BackGround-AddStory {
@@ -6671,7 +6761,7 @@ body .NotFound .center .body {
   gap: 25px;
 }
 body .NotFound .center .body h1 {
-  font-size: 80px;
+  font-size: 90px;
 }
 body .NotFound .center .body h1 span {
   color: #9D00BB;
@@ -6690,7 +6780,7 @@ body .NotFound .center .body a {
   font-size: 19px;
   font-family: 700;
   border: none;
-  width: 70%;
+  width: 66%;
   padding: 8px;
   border-radius: 25px 0 25px 0;
   color: #9D00BB;
@@ -6743,4 +6833,54 @@ body .NotFound .center footer .icons i:hover {
 }
 body .NotFound .center footer p {
   font-size: 20px;
+}
+body .Oops {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  gap: 20px;
+}
+body .Oops header {
+  margin: 10px 0;
+}
+body .Oops header i {
+  color: #9D00BB;
+  font-size: 50px;
+  margin: 3px 0;
+}
+body .Oops header h3 {
+  font-size: 26px;
+}
+body .Oops header h3::first-letter {
+  color: #9D00BB;
+}
+body .Oops h1 {
+  font-size: 70px;
+  margin-top: 30px;
+}
+body .Oops h1::first-letter {
+  color: #9D00BB;
+}
+body .Oops h3 {
+  font-size: 40px;
+}
+body .Oops p {
+  font-size: 18px;
+  width: 40%;
+}
+body .Oops button {
+  background: none;
+  color: white;
+  border: 1.5px solid white;
+  opacity: 0.8;
+  font-size: 19px;
+  padding: 8px 15px;
+  cursor: pointer;
+  transition: 0.8s;
+}
+body .Oops button:hover {
+  border-radius: 50px 0 50px 0;
+  transition: 0.8s;
+  padding: 8px 20px;
 }

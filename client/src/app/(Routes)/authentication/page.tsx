@@ -4,13 +4,12 @@ import Link from "next/link"
 import { FaXing, FaUsers } from "react-icons/fa"
 
 export const metadata: Metadata = {
-    title: "Message X - Authentication",
+    title: "Messages X - Authentication",
     description: "This page to introduce users to the page authentication"
 }
 
 //! This page only appears to the phone size website
 export default function Authentication() {
-
 
     return (
         <div className="Authentication">

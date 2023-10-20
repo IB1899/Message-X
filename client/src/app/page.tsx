@@ -1,4 +1,3 @@
-
 import { FaArrowRight, FaHome, FaXing } from "react-icons/fa"
 import Link from "next/link"
 import Image from "next/image"
@@ -19,7 +18,7 @@ export default function Home() {
             <header>
                 <div className="logo">
                     <i> <FaXing /> </i>
-                    <span> Messages </span>
+                    <span> Messages X </span>
                 </div>
                 <nav>
                     <Link href={"/"}> <FaHome /> Home </Link>

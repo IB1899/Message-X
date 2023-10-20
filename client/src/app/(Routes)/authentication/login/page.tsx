@@ -6,7 +6,7 @@ import { FaAngleDoubleLeft, FaUsers, FaXing } from "react-icons/fa"
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
-    title: "Messages - Log in",
+    title: "Messages X - Log in",
     description: "This page is for users to log in the website"
 }
 
@@ -40,7 +40,10 @@ export default function LogIn() {
             <div className="body">
 
                 {/* Contains the Sign up logic */}
-                <LeftSide />
+                <LeftSide>
+                    <h1>Welcome Back</h1>
+                    <h4>Log in to your account, and continue connecting with your friends</h4>
+                </LeftSide>
 
                 {/* Contains the swiper effects */}
                 <RightSide />

@@ -1,9 +1,9 @@
 import Image from "next/image";
-import { BiDotsVerticalRounded } from "react-icons/bi";
+import { BiDotsVerticalRounded, BiMailSend } from "react-icons/bi";
 import { AiFillCaretDown } from "react-icons/ai"
 import { GoCopy } from "react-icons/go"
-import TheMessages from "./TheMessages";
-import { Socket } from "socket.io-client";
+import Operation from "./operation";
+import { FaMicrophone } from "react-icons/fa";
 
 type props = {
     user: FullUser, connection: Connection, haveMe: "yes" | "no", active: "true" | "false"
@@ -17,7 +17,7 @@ export default function Left({ user, connection, haveMe, active }: props) {
             <header>
 
                 <div className="i">
-                    <Image src={connection.image} alt="userImage" width={60} height={60} />
+                    <Image src={connection.image} alt="userImage" width={60} height={60} quality={100} />
                     <i> <AiFillCaretDown /> </i>
                 </div>
 
@@ -33,7 +33,7 @@ export default function Left({ user, connection, haveMe, active }: props) {
 
             </header>
 
-            <TheMessages user={user} connection={connection} haveMe={haveMe} />
+            <Operation user={user} connection={connection} haveMe={haveMe} />
 
         </div>
     )
