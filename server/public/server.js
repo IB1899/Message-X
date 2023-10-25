@@ -10,6 +10,8 @@ const http_1 = __importDefault(require("http"));
 const UserModel_1 = require("./model/UserModel");
 const socket_io_1 = require("socket.io");
 const socket_1 = require("./controller/socket");
+const peer_1 = require("peer");
+const peerServer = (0, peer_1.PeerServer)({ port: 3002, path: "/calls-peer" });
 let app = (0, express_1.default)();
 app.use(express_1.default.json());
 app.use((0, cors_1.default)());

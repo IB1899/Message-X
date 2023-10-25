@@ -13,7 +13,7 @@ import dynamic from "next/dynamic"
 let AddNewStory = dynamic(() => import("@/components/main/stories/addNewStory"), { loading: () => <p>Loading...</p> })
 let SettingsBigBar = dynamic(() => import("../settings/SettingsBigBar"), { loading: () => <p>Loading...</p> })
 
-export default function MessagesBigBar({ user, stories, noConnections }: { user: FullUser, stories: story[], noConnections?: any[] }) {
+export default function MessagesBigBar({ user, stories, noConnections=null }: { user: FullUser, stories: story[], noConnections: any[]|null }) {
 
     //! Redux: Only the MainSlice is used in the 'main' route
     let dispatch = useDispatch<AppDispatch>()

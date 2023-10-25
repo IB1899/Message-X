@@ -37,7 +37,7 @@ export default async function layout({ children }: { children: React.ReactNode }
     else {
         return (
             <div className="Messages">
-                <BigBar user={result.user} stories={result.stories} />
+                <BigBar user={result.user} stories={result.stories} noConnections={null} />
                 {children}
             </div>
         )

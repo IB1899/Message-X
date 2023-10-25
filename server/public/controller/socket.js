@@ -24,6 +24,7 @@ let SocketCode = (socket, io) => {
         //! remove the disconnected user from the frontend track => to show that the user is not active
         socket.to(room).emit("UserLeft", { email });
     };
+    //? When a user Opens the website join them with their each contact
     let JoinRoom = ({ room, email }) => {
         socket.join(room);
         if (!rooms[room])
@@ -35,7 +36,6 @@ let SocketCode = (socket, io) => {
         // socket.to(room).emit("UserJoined", { room })
         socket.on("disconnect", () => HandelDisconnect(room, email));
     };
-    socket.on("JoinRoom", JoinRoom);
     //? Exchanging messages process
     let Messages = ({ message, room, email, otherUserEmail }) => __awaiter(void 0, void 0, void 0, function* () {
         try {
@@ -72,6 +72,23 @@ let SocketCode = (socket, io) => {
             console.log(err.message);
         }
     });
+    //? Initiate the call between two peers -1- the current users initiates
+    let StartVideoCall = ({ room, name, image, connectionId, userId }) => {
+        //? Show the other user that the current user is calling him -2-
+        socket.to(room).emit("ShowThereIsVideoCall", { name, image, room, connectionId, userId });
+    };
+    //? The other user has answer the call of the current user with either a yes or no
+    let VideoCallAnswer = ({ answer, room, peerId }) => {
+        if (answer === "no") {
+            socket.to(room).emit("VideoCallAnswer-BackendSends-FrontendReceives", { answer });
+        }
+        else {
+            socket.to(room).emit("VideoCallAnswer-BackendSends-FrontendReceives", { answer, peerId });
+        }
+    };
+    socket.on("VideoCallAnswer-FrontendSends-BackendReceives", VideoCallAnswer);
+    socket.on("StartVideoCall", StartVideoCall);
+    socket.on("JoinRoom", JoinRoom);
     socket.on("Messages-FrontEndSends-BackEndReceives", Messages);
     socket.on("Images-FrontEndSends-BackEndReceives", Images);
 };

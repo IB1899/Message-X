@@ -21,6 +21,7 @@ export let SocketCode = (socket: Socket, io: Server<DefaultEventsMap, DefaultEve
         socket.to(room).emit("UserLeft", { email })
     }
 
+    //? When a user Opens the website join them with their each contact
     let JoinRoom = ({ room, email }: { room: string, email: string }) => {
         socket.join(room)
 
@@ -35,7 +36,6 @@ export let SocketCode = (socket: Socket, io: Server<DefaultEventsMap, DefaultEve
 
         socket.on("disconnect", () => HandelDisconnect(room, email))
     }
-    socket.on("JoinRoom", JoinRoom)
 
     //? Exchanging messages process
     let Messages = async ({ message, room, email, otherUserEmail }: { [key: string]: string }) => {
@@ -96,7 +96,36 @@ export let SocketCode = (socket: Socket, io: Server<DefaultEventsMap, DefaultEve
         }
     }
 
+    //? Initiate the call between two peers -1- the current users initiates
+    let StartVideoCall = ({ room, name, image, connectionId, userId }: { [key: string]: string }) => {
 
+        //? Show the other user that the current user is calling him -2-
+        socket.to(room).emit("ShowThereIsVideoCall", { name, image, room, connectionId, userId })
+    }
+
+    //? The other user has answer the call of the current user with either a yes or no
+    let VideoCallAnswer = ({ answer, room, peerId }: { answer: "no" | "yes", room: string, peerId: string }) => {
+
+        if (answer === "no") {
+
+            socket.to(room).emit("VideoCallAnswer-BackendSends-FrontendReceives", { answer })
+        } else {
+            socket.to(room).emit("VideoCallAnswer-BackendSends-FrontendReceives", { answer, peerId })
+        }
+    }
+
+    //? End the call between two peers
+    let EndCall = ({ room }: { room: string }) => {
+
+        console.log(room);
+        
+        socket.to(room).emit("user-disconnected", { room })
+    }
+
+    socket.on("EndCall-FrontendSends-BackendReceives", EndCall)
+    socket.on("VideoCallAnswer-FrontendSends-BackendReceives", VideoCallAnswer)
+    socket.on("StartVideoCall", StartVideoCall)
+    socket.on("JoinRoom", JoinRoom)
     socket.on("Messages-FrontEndSends-BackEndReceives", Messages)
     socket.on("Images-FrontEndSends-BackEndReceives", Images)
 }

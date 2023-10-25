@@ -5,7 +5,6 @@ import { SwiperSlide, Swiper, SwiperRef } from "swiper/react"
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-
 import Image from "next/image"
 
 import img1 from "@/../public/test1.jpg"
@@ -15,11 +14,13 @@ import img4 from "@/../public/test4.jpg"
 
 import { FaQuoteLeft, FaAngleLeft, FaAngleRight } from "react-icons/fa"
 import { useRouter } from 'next/navigation';
-
+import { useAppSelector } from '@/toolkit/store';
 
 export default function Stories({ stories }: { stories: story[] }) {
 
     let { push } = useRouter()
+    let { Operation } = useAppSelector((state => state.PeerSlice))
+
 
     return (
         <div className="Stories">
@@ -32,40 +33,43 @@ export default function Stories({ stories }: { stories: story[] }) {
                 slidesPerView={stories.length === 1 ? 1 : stories.length === 2 ? 2 : stories.length === 3 ? 3 : 4}
                 pagination={{ clickable: true, dynamicBullets: true, }}
 
-
-
             // onSlideChange={() => console.log('slide change')}
             >
                 {stories.length > 0 ?
                     stories.map(story => (
-                        <SwiperSlide key={story._id} onClick={() => push(`/main/stories/${story._id}`)} >
+                        <SwiperSlide key={story._id} style={{ pointerEvents: Operation === "VideoCalling" || Operation === "VoiceCalling" ? "none" : "painted" }}
+                            onClick={() => push(`/main/stories/${story._id}`)} >
                             <Image src={story.userImage} width={55} height={55} alt="astronaut" priority />
                         </SwiperSlide>
                     ))
                     :
                     <>
-                        <SwiperSlide onClick={() => push(`/main/stories`)}>
+                        <SwiperSlide style={{ pointerEvents: Operation === "VideoCalling" || Operation === "VoiceCalling" ? "none" : "painted" }}
+                            onClick={() => push(`/main/stories`)}>
                             <Image src={img1} width={55} height={55} alt="astronaut" priority />
                         </SwiperSlide>
 
-                        <SwiperSlide onClick={() => push(`/main/stories`)}>
+                        <SwiperSlide style={{ pointerEvents: Operation === "VideoCalling" || Operation === "VoiceCalling" ? "none" : "painted" }}
+                            onClick={() => push(`/main/stories`)}>
                             <Image src={img2} width={55} height={55} alt="astronaut" priority />
                         </SwiperSlide>
 
-                        <SwiperSlide onClick={() => push(`/main/stories`)}>
+                        <SwiperSlide style={{ pointerEvents: Operation === "VideoCalling" || Operation === "VoiceCalling" ? "none" : "painted" }}
+                            onClick={() => push(`/main/stories`)}>
                             <Image src={img3} quality={100} width={55} height={55} alt="astronaut" priority />
                         </SwiperSlide>
 
-                        <SwiperSlide onClick={() => push(`/main/stories`)}>
+                        <SwiperSlide style={{ pointerEvents: Operation === "VideoCalling" || Operation === "VoiceCalling" ? "none" : "painted" }}
+                            onClick={() => push(`/main/stories`)}>
                             <Image src={img4} quality={100} width={55} height={55} alt="astronaut" priority />
                         </SwiperSlide>
 
-                        <SwiperSlide onClick={() => push(`/main/stories`)}>
+                        <SwiperSlide style={{ pointerEvents: Operation === "VideoCalling" || Operation === "VoiceCalling" ? "none" : "painted" }}
+                            onClick={() => push(`/main/stories`)}>
                             <Image src={img1} quality={100} width={55} height={55} alt="astronaut" priority />
                         </SwiperSlide>
                     </>
                 }
-
             </Swiper>
         </div>
     )

@@ -25,9 +25,9 @@ let VoiceCall = dynamic(() => import("@/components/main/messages/connection/call
             </div>
     }
 )
-type props = { user: FullUser, connection: Connection, haveMe: "yes" | "no" }
+type props = { user: FullUser, connection: Connection, haveMe: "yes" | "no", now: "now" | null }
 
-export default function Operation({ user, connection, haveMe }: props) {
+export default function Operation({ user, connection, haveMe, now = null }: props) {
 
     let { Operation } = useAppSelector((state => state.PeerSlice))
 
@@ -36,7 +36,7 @@ export default function Operation({ user, connection, haveMe }: props) {
         <TextMessaging user={user} connection={connection} haveMe={haveMe} />
         :
         Operation === "VideoCalling" ?
-            <VideoCall />
+            <VideoCall connection={connection} now={now} />
             :
             <VoiceCall />
     )

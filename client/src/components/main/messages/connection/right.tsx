@@ -30,7 +30,7 @@ export default function Right({ user, connection }: { user: FullUser, connection
             <Copy username={connection.username} />
             <p> {connection.description} </p>
 
-            <CallChat />
+            <CallChat connection={connection} user={user} />
 
             <SearchChat />
 

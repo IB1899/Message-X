@@ -3,7 +3,7 @@ import Right from "@/components/main/messages/connection/right";
 import { Metadata } from "next";
 
 type params = { connectionId: string }
-type searchParams = { id: string, active: "true" | "false" }
+type searchParams = { id: string, active: "true" | "false", now: "now" | null }
 
 //! Generating dynamic metaData
 export async function generateMetadata({ params: { connectionId }, searchParams: { id } }: { params: params, searchParams: searchParams }) {
@@ -24,7 +24,7 @@ export async function generateMetadata({ params: { connectionId }, searchParams:
     }
 }
 
-export default async function Message({ params: { connectionId }, searchParams: { id, active } }: { params: params, searchParams: searchParams }) {
+export default async function Message({ params: { connectionId }, searchParams: { id, active, now=null } }: { params: params, searchParams: searchParams }) {
 
     let response = await fetch(`http://localhost:3000/api/message?userId=${id}&connectionId=${connectionId}`, { cache: "no-store" })
     let result: { failed?: string, user: FullUser, connection: Connection, yes: boolean } = await response.json()
@@ -34,7 +34,7 @@ export default async function Message({ params: { connectionId }, searchParams: 
     return (
         <div className="Connection">
 
-            <Left user={result.user} connection={result.connection} haveMe={result.yes ? "yes" : "no"} active={active} />
+            <Left user={result.user} connection={result.connection} haveMe={result.yes ? "yes" : "no"} active={active} now={now} />
             <Right user={result.user} connection={result.connection} />
 
         </div>

@@ -5852,40 +5852,70 @@ body .Main .Messages .Connection .Left .VideoCall {
   position: relative;
   overflow: hidden;
 }
+body .Main .Messages .Connection .Left .VideoCall .instructions {
+  position: fixed;
+  background: rgba(128, 128, 128, 0.585);
+  height: 100vh;
+  width: 100%;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.6s ease;
+}
+body .Main .Messages .Connection .Left .VideoCall .instructions .content {
+  background: white;
+  color: #9D00BB;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 2px 2px 3px #9D00BB;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  gap: 10px;
+  width: 43%;
+}
+body .Main .Messages .Connection .Left .VideoCall .instructions .content .i {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+}
+body .Main .Messages .Connection .Left .VideoCall .instructions .content ol {
+  text-align: left;
+  margin: 0 40px;
+}
+body .Main .Messages .Connection .Left .VideoCall .instructions .content ol li {
+  margin: 3px;
+}
+body .Main .Messages .Connection .Left .VideoCall .instructions .content ol li i {
+  color: limegreen;
+  font-size: 20px;
+}
+body .Main .Messages .Connection .Left .VideoCall .instructions.hide {
+  left: -100%;
+  transition: 0.6s ease;
+}
 body .Main .Messages .Connection .Left .VideoCall .remote {
   position: absolute;
   top: 25px;
   left: 25px;
-  width: 250px;
-  height: 150px;
-  z-index: 2;
+  width: -moz-fit-content;
+  width: fit-content;
+  z-index: 5;
+  border-radius: 10px;
 }
 body .Main .Messages .Connection .Left .VideoCall .remote .remoteVideo {
-  position: relative;
-  width: 250px;
-  height: 150px;
-  background: gray;
   border-radius: 15px;
-}
-body .Main .Messages .Connection .Left .VideoCall .remote .remoteOptions {
-  position: absolute;
-  background: black;
-  padding: 5px;
-  border-radius: 20px;
-  bottom: 10px;
-  left: 20px;
-  display: flex;
-}
-body .Main .Messages .Connection .Left .VideoCall .remote .remoteOptions i {
-  color: #9D00BB;
-  background: white;
-  margin: 0 5px;
-  padding: 5px;
-  display: grid;
-  justify-content: center;
-  align-items: center;
+  max-width: 210px;
+  background: #9D00BB;
+  z-index: 5;
   cursor: pointer;
-  border-radius: 50%;
 }
 body .Main .Messages .Connection .Left .VideoCall .local {
   position: absolute;
@@ -5895,36 +5925,136 @@ body .Main .Messages .Connection .Left .VideoCall .local {
   top: 0;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 body .Main .Messages .Connection .Left .VideoCall .local .localVideo {
   width: 108%;
   margin-left: -6%;
+}
+body .Main .Messages .Connection .Left .VideoCall .local .help {
+  color: #9D00BB;
+  font-size: 26px;
+  cursor: pointer;
+  z-index: 5;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+body .Main .Messages .Connection .Left .VideoCall .local .help:hover {
+  color: white;
 }
 body .Main .Messages .Connection .Left .VideoCall .local .localOptions {
   display: flex;
   justify-content: space-evenly;
   color: #9D00BB;
   background: #9D00BB;
+  position: absolute;
   width: 100%;
   bottom: 0;
-  height: 100px;
-}
-body .Main .Messages .Connection .Left .VideoCall .local .localOptions i {
-  color: #9D00BB;
-  background: white;
-  margin: 0 5px;
-  padding: 5px;
-  display: grid;
-  justify-content: center;
+  height: 75px;
   align-items: center;
-  cursor: pointer;
-  border-radius: 50%;
-  font-size: 20px;
+  bottom: 0;
 }
 body .Main .Messages .Connection .Left .VideoCall .local .localOptions .x, body .Main .Messages .Connection .Left .VideoCall .local .localOptions .xx, body .Main .Messages .Connection .Left .VideoCall .local .localOptions .xxx {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+body .Main .Messages .Connection .Left .VideoCall .local .localOptions i {
+  color: #9D00BB;
+  background: white;
+  margin: 0 8px;
+  padding: 7px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 21px;
+  transition: 0.3s;
+}
+body .Main .Messages .Connection .Left .VideoCall .local .localOptions i:hover {
+  transition: 0.3s;
+  background: black;
+}
+body .Main .Messages .Connection .Left .VideoCall .local .localOptions .x i:hover {
+  background: white;
+}
+body .Main .Messages .Connection .Left .VideoCall .local .localOptions input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  position: relative;
+  left: -10px;
+}
+body .Main .Messages .Connection .Left .VideoCall .local .localOptions input:focus {
+  outline: none;
+}
+body .Main .Messages .Connection .Left .VideoCall .local .localOptions input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px #000000;
+  background: white;
+  border-radius: 1px;
+  border: 0px solid #000000;
+}
+body .Main .Messages .Connection .Left .VideoCall .local .localOptions input[type=range]::-webkit-slider-thumb {
+  box-shadow: 0px 0px 0px #000000;
+  height: 18px;
+  width: 18px;
+  border-radius: 25px;
+  background: #9D00BB;
+  border: 2px solid white;
+  cursor: pointer;
+  -webkit-appearance: none;
+          appearance: none;
+  margin-top: -7px;
+}
+body .Main .Messages .Connection .Left .VideoCall .local .localOptions button {
+  background: white;
+  color: #9D00BB;
+  cursor: pointer;
+  padding: 0px 15px;
+  border-radius: 15px;
+  height: -moz-fit-content;
+  height: fit-content;
+  border: none;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+body .Main .Messages .Connection .Left .VideoCall .local .localOptions button:hover {
+  transition: 0.3s ease;
+  background: black;
+}
+body .Main .Messages .Connection .Left .VideoCall .local .localOptions button i {
+  background: none;
+  color: #9D00BB;
+  margin: 0 2px;
+  font-size: 20px;
+}
+body .Main .Messages .Connection .Left .VideoCall .local .localOptions button i:hover {
+  background: none;
+}
+body .Main .Messages .Connection .Left .VideoCall .local .userHasNotAnswered, body .Main .Messages .Connection .Left .VideoCall .local .userHasAnswered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  color: #9D00BB;
+}
+body .Main .Messages .Connection .Left .VideoCall .local .userHasNotAnswered img, body .Main .Messages .Connection .Left .VideoCall .local .userHasAnswered img {
+  border-radius: 50%;
+  border: 3px double #9D00BB;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+body .Main .Messages .Connection .Left .VideoCall .local .userHasNotAnswered .declined, body .Main .Messages .Connection .Left .VideoCall .local .userHasAnswered .declined {
+  border-radius: 0;
+  border: none;
+}
+body .Main .Messages .Connection .Left .VideoCall .local .userHasNotAnswered h3, body .Main .Messages .Connection .Left .VideoCall .local .userHasAnswered h3 {
+  color: white;
 }
 body .Main .Messages .Connection .Right {
   width: 30%;
@@ -6706,6 +6836,60 @@ body .Main .Story .story {
   box-shadow: 2px 2px 5px #9D00BB;
   z-index: 2;
   margin-top: -40px;
+}
+body .Main .bg {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+body .Main .bg .IamBeingCalled {
+  background: #9D00BB;
+  padding: 20px 30px;
+  border-radius: 20px;
+  box-shadow: 2px 2px 3px gray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  position: relative;
+}
+body .Main .bg .IamBeingCalled img {
+  border-radius: 50%;
+  border: 3px double white;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+body .Main .bg .IamBeingCalled .buttons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+body .Main .bg .IamBeingCalled .buttons button {
+  border: none;
+  color: #9D00BB;
+  background: white;
+  cursor: pointer;
+  padding: 8px 25px;
+  transition: 0.3s ease;
+}
+body .Main .bg .IamBeingCalled .buttons button:hover {
+  transition: 0.3s ease;
+  background: black;
+}
+body .Main .bg .IamBeingCalled .buttons #ID0 {
+  border-radius: 20px 0 20px 0;
+  color: limegreen;
+}
+body .Main .bg .IamBeingCalled .buttons #ID1 {
+  border-radius: 0 20px 0 20px;
+  color: red;
 }
 body .NotFound {
   width: 100%;

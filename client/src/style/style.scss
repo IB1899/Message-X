@@ -1004,33 +1004,80 @@ body{ font-family: Arial, Helvetica, sans-serif; text-align:center;
 
                     .VideoCall{ width:100%; height:100%; position: relative; overflow:hidden;   
 
-                        .remote{ position:absolute; top:25px; left:25px; width:250px; height:150px;  z-index:2;
+                        .instructions{ position:fixed; background:rgba(128, 128, 128, 0.585); height:100vh; width:100%; z-index:10; left:0; top:0;
+                            display:flex; justify-content:center; align-items:center; transition:.6s ease; 
 
-                            .remoteVideo{ position:relative; width:250px; height:150px; background:gray; border-radius:15px;
+                            .content{ background:$white; color:$violet; padding:20px; border-radius:20px; box-shadow:2px 2px 3px $violet; display:flex;
+                                flex-direction:column; align-items:center;  position:relative; gap:10px; width:43%;
 
-                            }
-                            
-                            .remoteOptions{ position:absolute; background:$black; padding:5px; border-radius:20px; 
-                                bottom:10px; left:20px; display:flex; 
-    
-                                i{ color:$violet; background:$white; margin:0 5px; padding:5px; display:grid; justify-content:center; align-items:center; 
-                                    cursor:pointer; border-radius:50%;
+                                .i{ position:absolute; right:10px; top:10px; font-size: 22px; font-weight:bold; cursor: pointer; }
+
+                                ol{ text-align:left; margin:0 40px; 
+                                    li{margin:3px; i{color:limegreen; font-size:20px;} }
                                 }
                             }
                         }
-                        
+                        .instructions.hide{ left:-100%; transition:.6s ease; }
+
+                        .remote{ position:absolute; top:25px; left:25px; width:fit-content; z-index:5; border-radius:10px;
+
+                            .remoteVideo{  border-radius:15px; max-width:210px; background:$violet; z-index:5; cursor: pointer;}
+                            
+                        }
                         
                         .local{ position:absolute; width:100%; height:100%; z-index:1; top:0;  display:flex; flex-direction:column;
-                            .localVideo{ width:108%; margin-left:-6%;  }
+                            justify-content:center;
+                            .localVideo{ width:108%; margin-left:-6%; }
 
-                            .localOptions{display:flex; justify-content:space-evenly; color:$violet; background:$violet;
-                                width:100%; bottom:0; height:100px;
+                            .help{ color:$violet; font-size:26px; cursor: pointer; z-index:5; position:absolute; right:10px; top:10px; 
+                                &:hover{ color:$white; }
+                            }
 
-                                i{ color:$violet; background:$white; margin:0 5px; padding:5px; display:grid; justify-content:center; align-items:center; 
-                                    cursor:pointer; border-radius:50%; font-size:20px;
-                                }
+                            .localOptions{display:flex; justify-content:space-evenly; color:$violet; background:$violet; position:absolute;
+                                width:100%; bottom:0; height:75px; align-items:center; bottom:0;
 
                                 .x , .xx , .xxx{display:flex; align-items:center; justify-content:center;}
+                                
+                                i{ color:$violet; background:$white; margin:0 8px; padding:7px; display:grid; justify-content:center; align-items:center; 
+                                    cursor:pointer; border-radius:50%; font-size:21px; transition:.3s;
+                                    &:hover{ transition: .3s; background:$black; }
+                                }
+
+                                .x i{&:hover{background:$white;}}
+
+                                input{ appearance: none; position: relative; left:-10px; }
+                                input:focus{ outline:none; }
+                                input[type=range]::-webkit-slider-runnable-track {
+                                    width: 100%;
+                                    height: 5px;
+                                    cursor: pointer;
+                                    box-shadow: 0px 0px 0px #000000;
+                                    background: $white;
+                                    border-radius: 1px;
+                                    border: 0px solid #000000;
+                                  }
+                                  input[type=range]::-webkit-slider-thumb {
+                                    box-shadow: 0px 0px 0px #000000;
+                                    height: 18px;
+                                    width: 18px;
+                                    border-radius: 25px;
+                                    background:$violet;
+                                    border:2px solid $white;
+                                    cursor: pointer;
+                                    appearance: none;
+                                    margin-top: -7px;
+                                  }
+
+                                button{ background:$white; color:$violet; cursor: pointer; padding:0px 15px; border-radius:15px; height:fit-content;
+                                    border:none; font-weight:bold; transition:.3s ease; &:hover{ transition:.3s ease; background:$black; }
+                                    i{ background:none; color:$violet; margin:0 2px; font-size:20px; &:hover{background:none;} }  
+                                }
+                            }
+
+                            .userHasNotAnswered , .userHasAnswered{ display:flex; flex-direction:column; align-items:center; gap:15px; color:$violet;
+                                img{ border-radius:50%; border:3px double $violet; object-fit:cover; }
+                                .declined{border-radius:0; border:none;}
+                                h3{ color:$white; }
                             }
                         }
 
@@ -1269,6 +1316,26 @@ body{ font-family: Arial, Helvetica, sans-serif; text-align:center;
     
             .story{ margin:10px; border-radius:20px; object-fit:cover; box-shadow:2px 2px 5px $violet; z-index: 2; 
                 margin-top:-40px;
+            }
+        }
+
+        .bg{ position:fixed; left:0; top:0; width:100%; height:100vh; z-index:10; display:grid; justify-content:center; align-items:center;
+            
+            .IamBeingCalled{ background:$violet; padding:20px 30px; border-radius:20px; box-shadow:2px 2px 3px gray;
+                display:flex; flex-direction:column; align-items:center; gap:10px; color:$white; position: relative;
+                
+                img{ border-radius:50%; border:3px double $white; object-fit:cover;}
+
+                .buttons{ display:flex; gap:10px; align-items:center;
+
+                    button{ border:none; color:$violet; background:$white; cursor:pointer; padding:8px 25px; 
+                        transition:.3s ease; &:hover{ transition:.3s ease; background:$black;  }
+                    }
+
+                    #ID0{ border-radius:20px 0 20px 0; color: limegreen; }
+                    #ID1{ border-radius:0 20px 0 20px; color: red; }
+
+                }
             }
         }
     }

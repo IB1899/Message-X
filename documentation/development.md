@@ -55,4 +55,13 @@
 2. Made some progress with the stories process.
 
 ## Ibrahim Ali- September 30 - October 1 2023
-1. Completed the entire stories section of the application
+1. Completed the entire stories section of the application.
+
+## Ibrahim Ali- October 2 - October 20 2023
+1. Finished the entire messing section with its functionality.
+2. Had some break days for other stuff.
+3. Fully Tested the whole application so far Unit/integration/regression/system testing.
+4. Fixed Very hard and serious Bugs.
+5. Fixed Low Level Design issues.
+6. Created new necessary pages & finished the website's necessary toughs logo, email, etc.
+7. Optimized many parts of the application.

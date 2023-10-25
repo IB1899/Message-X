@@ -4,7 +4,7 @@ import { Dispatch, SetStateAction } from "react";
 export let usePotentialConnection = (
     user: FullUser,
     setLoading: Dispatch<SetStateAction<{ email: string; }>>,
-    setNoConnections: Dispatch<SetStateAction<any[] | undefined>>,
+    setNoConnections: Dispatch<SetStateAction<any[] | null>>,
     NoConnections: any[]
 ) => {
 
@@ -33,7 +33,7 @@ export let usePotentialConnection = (
         let result = await response.json()
 
         //! Keeping track of the cache manually by removing the added user form the list, as a sign of him has been added
-        setNoConnections(prev => prev?.filter(con => con.email !== potentialConnection.email))
+        setNoConnections(prev => prev?.filter(con => con.email !== potentialConnection.email)!)
         setLoading({ email: "" })
 
         //! To give it the sense that we have updated the cache seamlessly

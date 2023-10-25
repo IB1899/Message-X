@@ -5,6 +5,9 @@ import http from "http"
 import { ConnectToDB, UserModel } from "./model/UserModel"
 import { Server } from "socket.io"
 import { SocketCode } from "./controller/socket"
+import { PeerServer } from "peer"
+
+const peerServer = PeerServer({ port:3002 , path:"/calls-peer" })
 
 let app = express()
 app.use(express.json())

@@ -6,10 +6,10 @@ import Operation from "./operation";
 import { FaMicrophone } from "react-icons/fa";
 
 type props = {
-    user: FullUser, connection: Connection, haveMe: "yes" | "no", active: "true" | "false"
+    user: FullUser, connection: Connection, haveMe: "yes" | "no", active: "true" | "false", now: "now"|null
 }
 
-export default function Left({ user, connection, haveMe, active }: props) {
+export default function Left({ user, connection, haveMe, active, now=null }: props) {
 
     return (
         <div className="Left">
@@ -33,7 +33,7 @@ export default function Left({ user, connection, haveMe, active }: props) {
 
             </header>
 
-            <Operation user={user} connection={connection} haveMe={haveMe} />
+            <Operation user={user} connection={connection} haveMe={haveMe} now={now} />
 
         </div>
     )

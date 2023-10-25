@@ -1,5 +1,6 @@
 import { usePotentialConnection } from "@/hooks/usePotentialConnection";
 import { setNewMessage } from "@/toolkit/slices/MainSlice";
+import { setOperation } from "@/toolkit/slices/PeerSlice";
 import { AppDispatch, useAppSelector } from "@/toolkit/store";
 import { ThreeBody } from "@uiball/loaders";
 import formatDistanceToNow from "date-fns/formatDistanceToNowStrict";
@@ -9,7 +10,7 @@ import { useEffect, useRef, useState } from "react";
 import { FaPlusSquare } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 
-export default function Contacts({ user, connections, noConnections }: { user: FullUser, connections: Connection[], noConnections?: any[] }) {
+export default function Contacts({ user, connections, noConnections = null }: { user: FullUser, connections: Connection[], noConnections: any[] | null }) {
 
     let { push, prefetch, refresh } = useRouter()
 
@@ -95,7 +96,7 @@ export default function Contacts({ user, connections, noConnections }: { user: F
                 <div key={connection._id}
 
                     //! To make a hard navigation when navigating between contacts
-                    onClick={() => { push(`/main/messages/${connection._id}?id=${user._id}&active=${active}`); refresh() }}
+                    onClick={() => { push(`/main/messages/${connection._id}?id=${user._id}&active=${active}`); refresh(); dispatch(setOperation("TextMessaging")) }}
                     onMouseOver={() => prefetch(`/main/messages/${connection._id}?id=${user._id}`)}
 
                     className={actives.includes(connection.email) ? "contact active" : "contact"}

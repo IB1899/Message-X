@@ -5,7 +5,7 @@ import chooseImage from "@/../public/images/chooseImage.svg"
 import { BsFillImageFill } from "react-icons/bs"
 import { MdPublishedWithChanges } from "react-icons/md"
 import { useState } from "react";
-import { AiFillBackward, AiFillCloseCircle, AiOutlineCloseCircle } from "react-icons/ai";
+import { AiFillBackward, AiFillCloseCircle } from "react-icons/ai";
 import { Lobster } from "next/font/google";
 import { LineWobble } from "@uiball/loaders";
 import { useDispatch } from "react-redux";
@@ -21,6 +21,7 @@ export default function AddNewStory({ email, userImage, username }: { email: str
     let [image, setImage] = useState<File | string>("");
     let [imageURL, setImageURL] = useState<string>("");
     let [loading, setLoading] = useState(false)
+
 
     let dispatch = useDispatch<AppDispatch>()
 
