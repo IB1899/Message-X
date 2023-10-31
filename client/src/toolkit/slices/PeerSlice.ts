@@ -3,8 +3,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 
 interface Types {
     Operation: "TextMessaging" | "VideoCalling" | "VoiceCalling",
-    // peer: Peer,
-    amIBeingCalled: { isCalling: boolean, name: string, image: string, room: string, connectionId: string, userId: string }
+    amIBeingCalled: { isCalling: boolean, name: string, image: string, room: string, connectionId: string, type: "voice" | "video" }
 }
 
 let PeerSlice = createSlice({
@@ -15,7 +14,6 @@ let PeerSlice = createSlice({
     initialState: {
         Operation: "TextMessaging",
         amIBeingCalled: { isCalling: false },
-        // peer: new Peer(uuid(), { host: "localhost", port: 3002, path: "/calls-peer" }),
 
     } as Types,
 
@@ -24,7 +22,10 @@ let PeerSlice = createSlice({
             return { ...state, Operation: action.payload };
         },
 
-        setAmIBeingCalled: (state, action: PayloadAction<{ isCalling: boolean, name: string, image: string, room: string, connectionId: string, userId: string }>) => {
+        setAmIBeingCalled: (state, action: PayloadAction<{
+            isCalling: boolean, name: string, image: string,
+            room: string, connectionId: string, type: "voice" | "video"
+        }>) => {
             return { ...state, amIBeingCalled: action.payload }
         }
 

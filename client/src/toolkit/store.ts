@@ -6,6 +6,7 @@ import ResetPasswordSlice from "./slices/ResetPassSlice";
 import MainSlice from "./slices/MainSlice";
 import SocketSlice from "./slices/SocketsSlice"
 import PeerSlice from "./slices/PeerSlice";
+import PhoneSizeSlice from "./slices/PhoneSizeSlice";
 
 import loggerMiddleware from "./reduxMiddleware";
 
@@ -20,7 +21,8 @@ export let store = configureStore({
         ResetPasswordSlice,
         MainSlice,
         SocketSlice,
-        PeerSlice
+        PeerSlice,
+        PhoneSizeSlice
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({serializableCheck:false}).concat(loggerMiddleware),
 })

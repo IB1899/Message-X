@@ -86,6 +86,12 @@ let SocketCode = (socket, io) => {
             socket.to(room).emit("VideoCallAnswer-BackendSends-FrontendReceives", { answer, peerId });
         }
     };
+    //? End the call between two peers
+    let EndCall = ({ room }) => {
+        console.log(room);
+        socket.to(room).emit("user-disconnected", { room });
+    };
+    socket.on("EndCall-FrontendSends-BackendReceives", EndCall);
     socket.on("VideoCallAnswer-FrontendSends-BackendReceives", VideoCallAnswer);
     socket.on("StartVideoCall", StartVideoCall);
     socket.on("JoinRoom", JoinRoom);

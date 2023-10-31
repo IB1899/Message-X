@@ -34,7 +34,7 @@ export default function VerticalStories({ stories }: { stories: story[] }) {
                 direction="vertical"
                 modules={[Navigation, Pagination]}
                 spaceBetween={12}
-                slidesPerView={3}
+                slidesPerView={window.innerWidth > 845 ? 3 : 1}
                 pagination={{ clickable: true, dynamicBullets: true, }}
 
             // onSlideChange={() => console.log('slide change')}
@@ -46,7 +46,7 @@ export default function VerticalStories({ stories }: { stories: story[] }) {
                         <Image className="story" src={story.story} width={250} height={210} alt="story" priority quality={100} />
                         <h5> {story.username} </h5>
                     </SwiperSlide>
-                    
+
                 ))}
 
             </Swiper>

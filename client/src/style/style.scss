@@ -173,8 +173,10 @@ body{ font-family: Arial, Helvetica, sans-serif; text-align:center;
         }
     }
 
+    //! After signing in page 
     .Status{ height:100vh; background:$black; color:$white; h1{padding-top:200px; }   }
 
+    
     @mixin Auth{ height:100vh; background: $white; color:$black;
 
         header{ display:flex; align-items:center; justify-content:space-between; 
@@ -324,6 +326,7 @@ body{ font-family: Arial, Helvetica, sans-serif; text-align:center;
         }
     }
 
+    //! The Settings big side bar
     @mixin Settings{
         min-width:300px; max-width:310px; background:#202020; color:$white; height:100vh; display:flex; flex-direction:column;
         align-items:center; position:relative; border-right:1.5px solid $violet; 
@@ -363,6 +366,7 @@ body{ font-family: Arial, Helvetica, sans-serif; text-align:center;
         span{ width:95%; height:1px; background:$white; opacity:.8px; margin:3px 0; }
     }
 
+    //! Login & Signup pages
     .LogIn , .SignUp{
 
         //* Normal
@@ -510,6 +514,7 @@ body{ font-family: Arial, Helvetica, sans-serif; text-align:center;
         }
     }
 
+    //! Authentication page for small devices
     .Authentication{
 
         @include SmallTablets(){
@@ -619,6 +624,7 @@ body{ font-family: Arial, Helvetica, sans-serif; text-align:center;
         }
     }
 
+    //! Reset Password page
     .ResetPassword{
 
         width:100%; height:100vh; background:$white;
@@ -673,721 +679,963 @@ body{ font-family: Arial, Helvetica, sans-serif; text-align:center;
         }
     }
 
-    .Main{ display:flex; background:#202020;
+    .Main{ 
+        @mixin HoverText { position:absolute; bottom:40px; color:$white; font-weight:bold; width:fit-content; transition:.3s;
+            font-size:15px; background:$black; padding:5px 15px; border-radius:0 10px 10px 0; top:-3px; z-index:10;
+        };
+
+        @mixin Main{
+            display:flex; background:#202020;
        
-        nav{ display:flex; flex-direction:column; align-items:center; height:100vh; background:$black; color:$white;
-            position:relative; left:0; width:70px; min-width:70px; justify-content:space-between; border-radius: 0 30px 30px 0;
- 
-            .logo{ margin-top:22px; font-size:45px;  color:$violet; border-bottom:1px solid $white;
-                padding:5px 0;
-            }
-
-            .links{ display:flex; flex-direction:column; align-items:center; justify-self:center;
-                
-                @mixin HoverText { position:absolute; left:40px; color:$white; font-weight:bold; width:fit-content; transition:.3s;
-                    font-size:15px; background:$black; padding:5px 15px; border-radius:0 10px 10px 0; top:-3px; z-index:10;
-                };
-
-                a{ text-decoration:none; color:$white; font-size:23px; margin:10px 0;  position: relative; transition:.2; &:hover{ color:$violet; transition:.2; } }
-                button{ background:none; cursor:pointer; color:$white; font-size:23px; margin:10px 0;  position: relative;
-                    transition:.2; border:none;  &:hover{ color:$violet; transition:.2; } 
-                }
-                #A1:hover::after{content: "Messages"; @include HoverText() }
-                #A2:hover::after{content: "Groups"; @include HoverText() }
-                #A3:hover::after{content: "Stories"; @include HoverText() }
-                #A4:hover::after{content: "Create"; @include HoverText() }
-                #A5:hover::after{content: "Logout"; @include HoverText() }
-                #A6:hover::after{content: "Settings"; @include HoverText() }
-
-                .active{ color:$violet; position:relative; 
-                    &::before{ content:"";  position:absolute; width:5px; height:42px; top:-7px; background:$violet; right:-24px; 
-                        border-radius:20px; z-index:5;
-                    } 
-                }
-
-                span{ background:$white; width:150%; height:1px; margin:10px 0; }
-            }
-
-            .profile{ margin-bottom:20px;  border-radius:none; background:none; border: none; cursor: pointer;
-                img{border-radius:50%; padding:2px; background:$white; border:2px solid $violet; object-fit:cover; }
-            }
-        }
-
-        .Messages{ display:flex; width:100%;
-
-            //! The main big bar
-            .BigBar{ min-width:300px; background:#202020; color:$white; height:100vh; display:flex; flex-direction:column;
-                align-items:center; position:relative; border-right:1.5px solid $violet; 
+            nav{ display:flex; flex-direction:column; align-items:center; height:100vh; background:$black; color:$white;
+                position:relative; left:0; width:70px; min-width:70px; justify-content:space-between; border-radius: 0 30px 30px 0;
     
-                .Stories{  width:100%;
-                    .Stories-swiper{ display:flex; justify-content:center;  width:90%; margin-top:15px;  padding-bottom:25px;
+                .logo{ margin-top:22px; font-size:45px;  color:$violet; border-bottom:1px solid $white;
+                    padding:5px 0;
+                }
+
+                .phoneOnly{display:none;}
+
+                .links{ display:flex; flex-direction:column; align-items:center; justify-self:center;
                     
-                        .swiper-wrapper .swiper-slide{  
-                            img{ border-radius:50%; object-fit:cover; border:3px dotted $violet; cursor:pointer; }
-                        }
+                
+                    a{ text-decoration:none; color:$white; font-size:23px; margin:10px 0;  position: relative; transition:.2; &:hover{ color:$violet; transition:.2; } }
+                    button{ background:none; cursor:pointer; color:$white; font-size:23px; margin:10px 0;  position: relative;
+                        transition:.2; border:none;  &:hover{ color:$violet; transition:.2; } 
+                    }
+                    #A1:hover::after{content: "Messages"; @include HoverText() }
+                    #A2:hover::after{content: "Groups"; @include HoverText() }
+                    #A3:hover::after{content: "Stories"; @include HoverText() }
+                    #A4:hover::after{content: "Create"; @include HoverText() }
+                    #A5:hover::after{content: "Logout"; @include HoverText() }
+                    #A6:hover::after{content: "Settings"; @include HoverText() }
+
+                    .active{ color:$violet; position:relative; 
+                        &::before{ content:"";  position:absolute; width:5px; height:42px; top:-7px; background:$violet; right:-24px; 
+                            border-radius:20px; z-index:5;
+                        } 
+                    }
+
+                    span{ background:$white; width:150%; height:1px; margin:10px 0; }
+                }
+
+                .profile{ margin-bottom:20px;  border-radius:none; background:none; border: none; cursor: pointer;
+                    img{border-radius:50%; padding:2px; background:$white; border:2px solid $violet; object-fit:cover; }
+                }
+            }
+
+            .Messages{ display:flex; width:100%;
+
+                //! The main big bar
+                .BigBar{ min-width:300px; background:#202020; color:$white; height:100vh; display:flex; flex-direction:column;
+                    align-items:center; position:relative; border-right:1.5px solid $violet; 
         
-                        .swiper-pagination-bullet{ cursor: pointer;   bottom:0px; background:$white; z-index:10; 
-                            width:11px; height:11px; 
-                        }
-                    }
-                }
-    
-                .title{ display:flex; margin:5px 0;  width:87%;  position: relative;
-                    h2{font-size:25px;}
-                    span{ color:$violet; margin:5px 10px; font-weight:bold;  }
-                    i{color:$violet; font-size:28px; cursor: pointer; justify-self:flex-end; position:absolute; right:0px;
-                        transition: .4s ease; &:hover{color:$white; transition:.4s ease; scale:1.1;}
-                    }
-                }
-    
-                form{ width:90%; display:flex; background:$white; border-radius:20px; justify-content:space-evenly;
-                    align-items:center; margin:10px 0;
-    
-                    input{ border:none; background:none; color:$violet; padding:15px 5px; font-weight:bold;  width:70%; 
-                        &:focus{outline:none;}
-    
-                        &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-                            color: $violet;
-                            opacity: 1; /* Firefox */
-                          }
-                          
-                        &:-ms-input-placeholder { /* Internet Explorer 10-11 */
-                            color: $violet;
-                        }
-                          
-                        &::-ms-input-placeholder { /* Microsoft Edge */
-                            color: $violet;
-                        }
-                    }
-                    button{ background:none; padding:7px; color:$violet; border:none; font-size:22px; cursor:pointer; position: relative; top:2px; }
-                }
-    
-                .error{ display:flex; justify-content: space-between; align-items:center; background:$white;
-                    width:90%;  border-radius:20px; padding:7px 0; margin:10px 0;
-                    
-                    i{color:red; font-size:25px; margin:0 15px; cursor: pointer; transition:.3s; &:hover{transition:.3s; color:$black;}}
-                    p{ color:red; font-weight:bold; margin:0 15px;}
-                }
-    
-                .searchResults{ display:flex; width:90%; position: relative; background:$white; border-radius:30px; margin:15px 0;
-    
-                    img{border-radius:50%; object-fit:cover; justify-self:flex-start; align-self:flex-start;}
-                    
-                    .info{margin:7px 10px; color:$violet; justify-self:flex-start; text-align:left;
-                        h3{margin:2px 0; font-size:17px;}
-                        h5{opacity:.6; color:$black;}
-                    }
-                    
-                    i{font-size:26px; cursor: pointer; color:$violet; position: absolute; right:10px; top:15px; transition:.2;
-                        &:hover{color:$black;}
-                    }
-                    .x{ right:92%; font-size:25px; color:$violet; top:-14px; &:hover{color:red} }
-
-                    .animation{ position:absolute; right:10px; top:50%; translate:0 -50%; }
-                }
-    
-                .h2{ border-bottom:1.5px solid $violet; width:85%; text-align:left; font-size:17px; color:$violet; margin-top:5px; font-weight:normal; padding:5px 0; }
-    
-                .Contacts{display:flex; flex-direction: column; align-items:center;  margin:20px 0; width:95%; overflow-y: auto; 
-    
-                    &::-webkit-scrollbar{background:none; width:7px;}
-                    &::-webkit-scrollbar-thumb{ background:$violet; border-radius:10px; cursor:pointer;}
-    
-                    .contact{ display:flex; width:90%;  position: relative; justify-content:left; color:$white; cursor:pointer; margin:7px 0;
-                        border-radius: 20px; padding:5px;
-    
-                        img{border-radius:50%; object-fit:cover; justify-self:flex-start; align-self:flex-start;}
-    
-                        .contactInfo{margin:7px 10px; justify-self:center;
-                            h3{margin:2px 0; font-size:15px;}
-                            h5{opacity:.6; text-align:left; }
-                        }
-    
-                        .messagesInfo{ display:flex; flex-direction:column; align-items:center; position:absolute; right:5px; 
-                            span{font-size: 14px; }
-                            .missedMessages{ width:20px; height:20px; border-radius:50%; background:red;  margin:3px 0; display:grid; align-items:center; justify-content:center; }
-    
-                        }
-                    }
-
-                    .contact.active{ transition: .3s;
-                        img{ border:3px dotted limegreen; }
-                        .contactInfo{color: limegreen;}
-
-                    }
-                }   
-            }
+                    .Stories{  width:100%;
+                        .Stories-swiper{ display:flex; justify-content:center;  width:90%; margin-top:15px;  padding-bottom:25px;
+                        
+                            .swiper-wrapper .swiper-slide{  
+                                img{ border-radius:50%; object-fit:cover; border:3px dotted $violet; cursor:pointer; }
+                            }
             
-            //! Settings conditional rendered
-            .Settings{ @include Settings }
-
-            //! Pop-up component for resetting the password
-            .BackGround{ background: rgba(128, 128, 128, 0.585); height:100vh; z-index:11; position:fixed; width:100%; transition:.7s;
-                left:0; top:0;
-
-                .Message{ position:fixed; background:$black; padding:25px; border-radius:10px; display:flex; z-index:12;
-                    flex-direction:column; align-items:center; color:$white; top:50%; left:50%; translate:-50% -50%; transition:.7s;
-
-                    i{ font-size:100px; }
-                    h3{width:350px;}
-
-                    button{ margin-top:20px; background:none; border:2px solid red; cursor:pointer; padding:7px 15px; border-radius:10px; 
-                        width:70%; color:$white; transition:.3s; &:hover{ transition:.3s; background:red; }display:flex; justify-content:center;
-                    }
-                    h4{ margin-bottom:10px; width:80%; }
-                }
-            }
-            .Message.Reset-Password{ text-align:left; background:$white; color:$black; padding:20px 0; width:35%; 
-                .close{ position:absolute; font-size:22px; color:limegreen; top:20px; right:20px; cursor:pointer; }
-
-                h1{margin-top:10px; width:70%;}
-
-                label{ width:70%; margin-top:15px; line-height:23px; font-size:17px; opacity:.8; }
-                    
-                input{ width:66%; background:rgba(204, 204, 204, 0.447); border:none;  padding:12px; 
-                    color:limegreen; margin:5px;  &:focus{outline:none;}  border-radius:10px; margin:20px 0;
-                }
-
-                button{ margin:0; background:limegreen; border:none; cursor:pointer; padding:10px 20px; border-radius:10px; font-weight:bold; 
-                    width:70%; color:$white; transition:.3s; &:hover{ transition:.3s; background:$black; }display:flex; justify-content:center;
-                }
-
-                h4{ margin-top:20px; font-size:15px; text-align:center; }
-            }
-
-            //! Profile conditional rendered
-            .Profile{  width:100%; height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; color:$violet;
-
-                .top{ display:flex; justify-content:space-between;  align-items:center;
-                    img{ border-radius:50%; object-fit:cover;  }
-
-                    label{ cursor: pointer; position:relative; right:20px; top:30px; font-size:22px; background:$violet; color:$white; border-radius:50%; 
-                        width:29px; height:29px; display:flex; align-items:center; justify-content:center;
-                    }
-                    #file{ display:none }
-
-                    .user-details{text-align:left; 
-                        p{ color:$white; opacity:.8; }
-                    }
-                }
-
-                .middle{ display:grid; grid-template-columns:repeat(2,auto); justify-content:left; text-align:left; margin:25px;
-
-                    div{ display:flex; flex-direction:column; align-items:flex-start;  margin:20px 30px;
-                        
-                        label{margin:5px;}
-
-                        input{ outline:none; background:none; border:none; border-bottom:1px solid $violet; padding:10px; width:210px; color:$white; transition:1s; }
-
-                        input:disabled{ opacity:0.5; transition:1s; border:1px solid $violet }
-                    }
-                }
-
-                .bottom{ display:flex; justify-content:space-between;  
-                    
-                    button{ border:none; background:$white; cursor: pointer; padding:8px 15px; font-weight:bold; display:flex; align-items:center;
-                        i{color:$black; font-size:22px; margin:0 5px; translate:0 2px;} transition:.4 ease;
-
-                        &:hover{ background:$violet; color:$white; transition:.4s ease; }
-                        &:disabled{ opacity:.8; &:hover{ background:$white; color:$black; } transition:1s; }
-                    }
-                }
-
-                .message{ margin-top:40px; width:70%; p{ font-weight:700; color:$white;  } }
-
-            }
-
-            //! The connection page
-            .Connection{ width:100%; display:flex;  overflow:hidden;
-                
-                .Left{width:70%; background-image:url("./backgrounds//home-dark.jpg"); color:$white; background-position:center; 
-                    background-repeat:no-repeat; background-attachment:fixed; background-size:cover; display:flex; flex-direction:column; align-items:center;
-                    
-                    header{ display:flex; justify-content:space-between; width:100%; background:rgba(255, 255, 255, 0.203); height:10vh; 
-                        align-items:center; padding:3px 0;
-
-                        i{font-size:28px; color:$violet; cursor: pointer; transition:.3s;
-                            &:hover{ color:$white; transition:.3s; } 
-                        }
-
-                        .i{ display:flex; align-items:center; margin:0 10px;
-                            img{ border-radius:50%; object-fit:cover; margin-right:5px;} 
-                        }
-                        .ii{
-                            h3{font-size:20px; font-weight:bold; margin:4px 0; color:$violet;}
-                            h5{ font-size:16px;}
-                        }
-                        .iii{
-                            display:flex; align-items:center;
-                        }
-                    }
-
-                    .TheMessages{ overflow-y:auto; display:flex; flex-direction:column; align-items:center; height:88vh; width:100%; position:relative;
-                        overflow:hidden;
-
-                        .HasMe{ position:fixed; top:45%; left: 50%; translate:-50% -50%; background:$white; color:$violet; 
-                            border-radius:15px; z-index:10; padding:20px 30px; display:flex; flex-direction:column; align-items:center;
-                            box-shadow: 4px 4px 4px $violet;
-
-                            p{ width:350px; font-size:19px; font-weight:700; line-height:25px; }
-
-                            i{margin-top:15px; cursor: pointer; color:$violet; font-size:28px; transition:.3s; &:hover{color:$black; transition:.3s;}}
-
-                        }
-
-                        &::-webkit-scrollbar{ background:none; width:8px; }
-                        &::-webkit-scrollbar-thumb{ background:$violet; }
-
-
-                        .msgs{ display:flex; flex-direction:column; width:100%; margin-bottom:20px;
-
-                            .error{ position:fixed; width:400px; background:red; z-index: 11; border-radius:10px; padding:10px 20px; min-height:60px;
-                                display: flex; flex-direction:column; justify-content:center; align-items:center; left:100px; bottom:50px; transition:.8s;
-
-                                p{color:white; width:100%; text-align:left;  }
+                            .swiper-pagination-bullet{ cursor: pointer;   bottom:0px; background:$white; z-index:10; 
+                                width:11px; height:11px; 
                             }
-
-                            .error.hide{ left:-500px; transition:.8s; }
+                        }
+                    }
+        
+                    .title{ display:flex; margin:5px 0;  width:87%;  position: relative;
+                        h2{font-size:25px;}
+                        span{ color:$violet; margin:5px 10px; font-weight:bold;  }
+                        i{color:$violet; font-size:28px; cursor: pointer; justify-self:flex-end; position:absolute; right:0px;
+                            transition: .4s ease; &:hover{color:$white; transition:.4s ease; scale:1.1;}
+                        }
+                    }
+        
+                    form{ width:90%; display:flex; background:$white; border-radius:20px; justify-content:space-evenly;
+                        align-items:center; margin:10px 0;
+        
+                        input{ border:none; background:none; color:$violet; padding:15px 5px; font-weight:bold;  width:70%; 
+                            &:focus{outline:none;}
+        
+                            &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+                                color: $violet;
+                                opacity: 1; /* Firefox */
+                            }
                             
-                            .msg{  display:flex; align-items:center; gap:10px; margin:15px 10px;  text-align:left; 
-
-                                #userImage{ border-radius:50%; object-fit:content; }
-
-                                .text{ color:$white;  
-                                    
-                                    .msg-head{ display:flex; align-items:center; 
-                                        h3{ font-size:18px; }
-                                        span{ font-size:14px; opacity:.7; margin:0 20px;}
-                                    }
-                                    p{font-size:15px; padding:10px; border-radius:10px 0 10px 0; margin:5px 0; grid-column:1/3;
-                                        font-weight:200;
-                                    }
-
-                                    #messageImage{ border-radius:15px; margin:7px; grid-column:1/3; }
-                                }
+                            &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+                                color: $violet;
                             }
+                            
+                            &::-ms-input-placeholder { /* Microsoft Edge */
+                                color: $violet;
+                            }
+                        }
+                        button{ background:none; padding:7px; color:$violet; border:none; font-size:22px; cursor:pointer; position: relative; top:2px; }
+                    }
+        
+                    .error{ display:flex; justify-content: space-between; align-items:center; background:$white;
+                        width:90%;  border-radius:20px; padding:7px 0; margin:10px 0;
                         
-                            #me{ align-self:flex-end;  flex-direction: row-reverse; 
-                                .text p{ background:$violet; } 
-                                .text .msg-head{justify-content:flex-end;} 
+                        i{color:red; font-size:25px; margin:0 15px; cursor: pointer; transition:.3s; &:hover{transition:.3s; color:$black;}}
+                        p{ color:red; font-weight:bold; margin:0 15px;}
+                    }
+        
+                    .searchResults{ display:flex; width:90%; position: relative; background:$white; border-radius:30px; margin:15px 0;
+        
+                        img{border-radius:50%; object-fit:cover; justify-self:flex-start; align-self:flex-start;}
+                        
+                        .info{margin:7px 10px; color:$violet; justify-self:flex-start; text-align:left;
+                            h3{margin:2px 0; font-size:17px;}
+                            h5{opacity:.6; color:$black;}
+                        }
+                        
+                        i{font-size:26px; cursor: pointer; color:$violet; position: absolute; right:10px; top:15px; transition:.2;
+                            &:hover{color:$black;}
+                        }
+                        .x{ right:92%; font-size:25px; color:$violet; top:-14px; &:hover{color:red} }
+
+                        .animation{ position:absolute; right:10px; top:50%; translate:0 -50%; }
+                    }
+        
+                    .h2{ border-bottom:1.5px solid $violet; width:85%; text-align:left; font-size:17px; color:$violet; margin-top:5px; font-weight:normal; padding:5px 0; }
+        
+                    .Contacts{display:flex; flex-direction: column; align-items:center;  margin:20px 0; width:95%; overflow-y: auto; 
+        
+                        &::-webkit-scrollbar{background:none; width:7px;}
+                        &::-webkit-scrollbar-thumb{ background:$violet; border-radius:10px; cursor:pointer;}
+        
+                        .contact{ display:flex; width:90%;  position: relative; justify-content:left; color:$white; cursor:pointer; margin:7px 0;
+                            border-radius: 20px; padding:5px;
+        
+                            img{border-radius:50%; object-fit:cover; justify-self:flex-start; align-self:flex-start;}
+        
+                            .contactInfo{margin:7px 10px; justify-self:center;
+                                h3{margin:2px 0; font-size:15px;}
+                                h5{opacity:.6; text-align:left; }
                             }
-                            #them{align-self:flex-start; 
-                                .text p{ background:#202020; border-radius:0 10px 0 10px; } 
+        
+                            .messagesInfo{ display:flex; flex-direction:column; align-items:center; position:absolute; right:5px; 
+                                span{font-size: 14px; }
+                                .missedMessages{ width:20px; height:20px; border-radius:50%; background:red;  margin:3px 0; display:grid; align-items:center; justify-content:center; }
+                                .check{ color: $violet; font-size:22px;  }
                             }
                         }
 
-                        .sendMessage{ width:90%; display:flex; border-radius:10px; height:40px; background: #202020;
-                            position:sticky; bottom:20px; align-items:center; justify-content:space-between;
+                        .contact.active{ transition: .3s;
+                            img{ border:3px dotted limegreen; }
+                            .contactInfo{color: limegreen;}
 
-                            label , i , button{ background:none; border:none; font-size:24px; color:$violet; cursor:pointer; margin:0 5px; transition:.3s;
+                        }
+                    }   
+                }
+                
+                //! Settings conditional rendered
+                .Settings{ @include Settings }
+
+                //! Pop-up component for resetting the password
+                .BackGround{ background: rgba(128, 128, 128, 0.585); height:100vh; z-index:11; position:fixed; width:100%; transition:.7s;
+                    left:0; top:0;
+
+                    .Message{ position:fixed; background:$black; padding:25px; border-radius:10px; display:flex; z-index:12;
+                        flex-direction:column; align-items:center; color:$white; top:50%; left:50%; translate:-50% -50%; transition:.7s;
+
+                        i{ font-size:100px; }
+                        h3{width:350px;}
+
+                        button{ margin-top:20px; background:none; border:2px solid red; cursor:pointer; padding:7px 15px; border-radius:10px; 
+                            width:70%; color:$white; transition:.3s; &:hover{ transition:.3s; background:red; }display:flex; justify-content:center;
+                        }
+                        h4{ margin-bottom:10px; width:80%; }
+                    }
+                }
+                .Message.Reset-Password{ text-align:left; background:$white; color:$black; padding:20px 0; width:35%; 
+                    .close{ position:absolute; font-size:22px; color:limegreen; top:20px; right:20px; cursor:pointer; }
+
+                    h1{margin-top:10px; width:70%;}
+
+                    label{ width:70%; margin-top:15px; line-height:23px; font-size:17px; opacity:.8; }
+                        
+                    input{ width:66%; background:rgba(204, 204, 204, 0.447); border:none;  padding:12px; 
+                        color:limegreen; margin:5px;  &:focus{outline:none;}  border-radius:10px; margin:20px 0;
+                    }
+
+                    button{ margin:0; background:limegreen; border:none; cursor:pointer; padding:10px 20px; border-radius:10px; font-weight:bold; 
+                        width:70%; color:$white; transition:.3s; &:hover{ transition:.3s; background:$black; }display:flex; justify-content:center;
+                    }
+
+                    h4{ margin-top:20px; font-size:15px; text-align:center; }
+                }
+
+                //! Profile conditional rendered
+                .Profile{  width:100%; height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; color:$violet;
+
+                    .top{ display:flex; justify-content:space-between;  align-items:center;
+                        img{ border-radius:50%; object-fit:cover;  }
+
+                        label{ cursor: pointer; position:relative; right:20px; top:30px; font-size:22px; background:$violet; color:$white; border-radius:50%; 
+                            width:29px; height:29px; display:flex; align-items:center; justify-content:center;
+                        }
+                        #file{ display:none }
+
+                        .user-details{text-align:left; 
+                            p{ color:$white; opacity:.8; }
+                        }
+                    }
+
+                    .middle{ display:grid; grid-template-columns:repeat(2,auto); justify-content:left; text-align:left; margin:25px;
+
+                        div{ display:flex; flex-direction:column; align-items:flex-start;  margin:20px 30px;
+                            
+                            label{margin:5px;}
+
+                            input{ outline:none; background:none; border:none; border-bottom:1px solid $violet; padding:10px; width:210px; color:$white; transition:1s; }
+
+                            input:disabled{ opacity:0.5; transition:1s; border:1px solid $violet }
+                        }
+                    }
+
+                    .bottom{ display:flex; justify-content:space-between;  
+                        
+                        button{ border:none; background:$white; cursor: pointer; padding:8px 15px; font-weight:bold; display:flex; align-items:center;
+                            i{color:$black; font-size:22px; margin:0 5px; translate:0 2px;} transition:.4 ease;
+
+                            &:hover{ background:$violet; color:$white; transition:.4s ease; }
+                            &:disabled{ opacity:.8; &:hover{ background:$white; color:$black; } transition:1s; }
+                        }
+                    }
+
+                    .message{ margin-top:40px; width:70%; p{ font-weight:700; color:$white;  } }
+
+                }
+
+                //! The connection page
+                .Connection{ width:100%; display:flex;  overflow:hidden; 
+                    
+                    .Left{width:70%; background-image:url("./backgrounds//home-dark.jpg"); color:$white; background-position:center; 
+                        background-repeat:no-repeat; background-attachment:fixed; background-size:cover; display:flex; flex-direction:column; align-items:center;
+                        
+                        header{ display:flex; justify-content:space-between; width:100%; background:rgba(255, 255, 255, 0.203); height:10vh; 
+                            align-items:center; padding:3px 0;
+
+                            i{font-size:28px; color:$violet; cursor: pointer; transition:.3s;
                                 &:hover{ color:$white; transition:.3s; } 
                             }
 
+                            .i{ display:flex; align-items:center; margin:0 10px;
+                                img{ border-radius:50%; object-fit:cover; margin-right:5px;} 
+                            }
+                            .ii{
+                                h3{font-size:20px; font-weight:bold; margin:4px 0; color:$violet;}
+                                h5{ font-size:16px;}
+                            }
+                            .iii{
+                                display:flex; align-items:center; 
+                                i{margin:0 10px;}
+                            }
+                        }
 
-                            .i{ height:inherit; margin:0 10px; display:flex; align-items:center; width:82%;
+                        .TheMessages{ display:flex; flex-direction:column; align-items:center; height:88vh; width:100%; position:relative;
+                            overflow:hidden;
+
+                            .HasMe{ position:fixed; top:45%; left: 50%; translate:-50% -50%; background:$white; color:$violet; 
+                                border-radius:15px; z-index:10; padding:20px 30px; display:flex; flex-direction:column; align-items:center;
+                                box-shadow: 4px 4px 4px $violet;
+
+                                p{ width:350px; font-size:19px; font-weight:700; line-height:25px; }
+
+                                i{margin-top:15px; cursor: pointer; color:$violet; font-size:28px; transition:.3s; &:hover{color:$black; transition:.3s;}}
+
+                            }
+                            
+                            
+                            .msgs{ display:flex; flex-direction:column; width:100%; margin-bottom:20px; overflow:auto ;
+                                &::-webkit-scrollbar{ background:none; width:8px; }
+                                &::-webkit-scrollbar-thumb{ background:$violet; }
+
+                                .error{ position:fixed; width:400px; background:red; z-index: 11; border-radius:10px; padding:10px 20px; min-height:60px;
+                                    display: flex; flex-direction:column; justify-content:center; align-items:center; left:100px; bottom:50px; transition:.8s;
+
+                                    p{color:white; width:100%; text-align:left;  }
+                                }
+
+                                .error.hide{ left:-500px; transition:.8s; }
                                 
-                                label{ translate:0 2px; }
-                                #imageInput{display:none;}
-                                
-                                input{ width:100%; background:none; outline:none; color:$violet; height:inherit; border:none; margin:0 10px;
-                                    font-weight:bold;
+                                .msg{  display:flex; align-items:center; gap:10px; margin:15px 10px;  text-align:left; 
+
+                                    #userImage{ border-radius:50%; object-fit:content; }
+
+                                    .text{ color:$white;  
+                                        
+                                        .msg-head{ display:flex; align-items:center; 
+                                            h3{ font-size:18px; }
+                                            span{ font-size:14px; opacity:.7; margin:0 20px;}
+                                        }
+                                        p{font-size:15px; padding:10px; border-radius:10px 0 10px 0; margin:5px 0; grid-column:1/3;
+                                            font-weight:200;
+                                        }
+
+                                        #messageImage{ border-radius:15px; margin:7px; grid-column:1/3; }
+                                    }
+                                }
+                            
+                                #me{ align-self:flex-end;  flex-direction: row-reverse; 
+                                    .text p{ background:$violet; } 
+                                    .text .msg-head{justify-content:flex-end;} 
+                                }
+                                #them{align-self:flex-start; 
+                                    .text p{ background:#202020; border-radius:0 10px 0 10px; } 
                                 }
                             }
-                            
-                            .ii{ margin:0 10px; width:18%; display:flex; align-items:center; justify-content:space-between;
+
+                            .sendMessage{ width:90%; display:flex; border-radius:10px; height:40px; background: #202020;
+                                position:sticky; bottom:20px; align-items:center; justify-content:space-between;
+
+                                label , i , button{ background:none; border:none; font-size:24px; color:$violet; cursor:pointer; margin:0 5px; transition:.3s;
+                                    &:hover{ color:$white; transition:.3s; } 
+                                }
+
+
+                                .i{ height:inherit; margin:0 10px; display:flex; align-items:center; width:82%;
+                                    
+                                    label{ translate:0 2px; }
+                                    #imageInput{display:none;}
+                                    
+                                    input{ width:100%; background:none; outline:none; color:$violet; height:inherit; border:none; margin:0 10px;
+                                        font-weight:bold;
+                                    }
+                                }
                                 
-                                span{ width:.7px; background:$white; opacity:.6; height:25px; display:block; }
+                                .ii{ margin:0 10px; width:18%; display:flex; align-items:center; justify-content:space-between;
+                                    
+                                    span{ width:.7px; background:$white; opacity:.6; height:25px; display:block; }
+                                }
+                                
                             }
-                            
                         }
-                    }
 
-                    .VideoCall{ width:100%; height:100%; position: relative; overflow:hidden;   
+                        .VideoCall{ width:100%; height:100%; position: relative; overflow:hidden; background:rgba(128, 128, 128, 0.585);
 
-                        .instructions{ position:fixed; background:rgba(128, 128, 128, 0.585); height:100vh; width:100%; z-index:10; left:0; top:0;
-                            display:flex; justify-content:center; align-items:center; transition:.6s ease; 
+                            .instructions{ position:fixed; background:rgba(128, 128, 128, 0.585); height:100vh; width:100%; z-index:10; left:0; top:0;
+                                display:flex; justify-content:center; align-items:center; transition:.6s ease; 
 
-                            .content{ background:$white; color:$violet; padding:20px; border-radius:20px; box-shadow:2px 2px 3px $violet; display:flex;
-                                flex-direction:column; align-items:center;  position:relative; gap:10px; width:43%;
+                                .content{ background:$white; color:$violet; padding:20px; border-radius:20px; box-shadow:2px 2px 3px $violet; display:flex;
+                                    flex-direction:column; align-items:center;  position:relative; gap:10px; width:43%;
 
-                                .i{ position:absolute; right:10px; top:10px; font-size: 22px; font-weight:bold; cursor: pointer; }
+                                    .i{ position:absolute; right:10px; top:10px; font-size: 22px; font-weight:bold; cursor: pointer; }
 
-                                ol{ text-align:left; margin:0 40px; 
-                                    li{margin:3px; i{color:limegreen; font-size:20px;} }
+                                    ol{ text-align:left; margin:0 40px; 
+                                        li{margin:3px; i{color:limegreen; font-size:20px;} }
+                                    }
                                 }
                             }
-                        }
-                        .instructions.hide{ left:-100%; transition:.6s ease; }
+                            .instructions.hide{ left:-100%; transition:.6s ease; }
 
-                        .remote{ position:absolute; top:25px; left:25px; width:fit-content; z-index:5; border-radius:10px;
+                            .remote{ position:absolute; top:25px; left:25px; width:fit-content; z-index:5; border-radius:10px;
 
-                            .remoteVideo{  border-radius:15px; max-width:210px; background:$violet; z-index:5; cursor: pointer;}
+                                .remoteVideo{  border-radius:15px; max-width:210px; background:$violet; z-index:5; cursor: pointer;}
+                                
+                            }
                             
-                        }
-                        
-                        .local{ position:absolute; width:100%; height:100%; z-index:1; top:0;  display:flex; flex-direction:column;
-                            justify-content:center;
-                            .localVideo{ width:108%; margin-left:-6%; }
+                            .local{ position:absolute; width:100%; height:100%; z-index:1; top:0;  display:flex; flex-direction:column;
+                                justify-content:center;
+                                .localVideo{ width:108%; margin-left:-6%; }
 
-                            .help{ color:$violet; font-size:26px; cursor: pointer; z-index:5; position:absolute; right:10px; top:10px; 
-                                &:hover{ color:$white; }
+                                .help{ color:$violet; font-size:26px; cursor: pointer; z-index:5; position:absolute; right:10px; top:10px; 
+                                    &:hover{ color:$white; }
+                                }
+
+                                .localOptions{display:flex; justify-content:space-evenly; color:$violet; background:$violet; position:absolute;
+                                    width:100%; bottom:0; height:75px; align-items:center; bottom:0;
+
+                                    .x , .xx , .xxx{display:flex; align-items:center; justify-content:center;}
+                                    
+                                    i{ color:$violet; background:$white; margin:0 8px; padding:7px; display:grid; justify-content:center; align-items:center; 
+                                        cursor:pointer; border-radius:50%; font-size:21px; transition:.3s;
+                                        &:hover{ transition: .3s; background:$black; }
+                                    }
+
+                                    .x i{&:hover{background:$white;}}
+
+                                    input{ appearance: none; position: relative; left:-10px; }
+                                    input:focus{ outline:none; }
+                                    input[type=range]::-webkit-slider-runnable-track {
+                                        width: 100%;height: 5px;cursor: pointer;box-shadow: 0px 0px 0px #000000;
+                                        background: $white;border-radius: 1px;border: 0px solid #000000;
+                                    }
+                                    input[type=range]::-webkit-slider-thumb {
+                                        box-shadow: 0px 0px 0px #000000;height: 18px;width: 18px;border-radius: 25px;background:$violet;
+                                        border:2px solid $white;cursor: pointer;appearance: none;margin-top: -7px;
+                                    }
+
+                                    button{ background:$white; color:$violet; cursor: pointer; padding:0px 15px; border-radius:15px; height:fit-content;
+                                        border:none; font-weight:bold; transition:.3s ease; &:hover{ transition:.3s ease; background:$black; }
+                                        i{ background:none; color:$violet; margin:0 2px; font-size:20px; &:hover{background:none;} }  
+                                    }
+                                }
+
+                                .userHasNotAnswered , .userHasAnswered{ display:flex; flex-direction:column; align-items:center; gap:15px; color:$violet;
+                                    img{ border-radius:50%; border:3px double $violet; object-fit:cover; }
+                                    #decline{border-radius:0; border:none;}
+                                    h3{ color:$white; }
+                                }
                             }
 
-                            .localOptions{display:flex; justify-content:space-evenly; color:$violet; background:$violet; position:absolute;
-                                width:100%; bottom:0; height:75px; align-items:center; bottom:0;
+                        }
 
-                                .x , .xx , .xxx{display:flex; align-items:center; justify-content:center;}
-                                
+                        .VoiceCall{width:100%; height:100%; position: relative; overflow:hidden; background:rgba(128, 128, 128, 0.585);
+                            display:flex; flex-direction:column; align-items:center; gap:50px; justify-content: center;
+
+                            .caller{ display:flex; flex-direction:column; align-items:center; gap:15px;  color:$violet;
+                                video{width:0; height:0; opacity:0;}
+
+                                img{border-radius:50%; border:3px double $violet; object-fit:cover;}
+
+                                .userHasNotAnswered , .userHasAnswered{ display:flex; flex-direction:column; align-items:center; gap:15px; color:$violet;
+                                    img{ border-radius:50%; border:3px double $violet; object-fit:cover; }
+                                    #decline{border-radius:0; border:none;}
+                                    h3{ color:$white; }
+                                }
+                            }
+
+                            .options{ display:flex; width:65%; justify-content:space-around; align-items:center; background:$violet;
+                                padding: 15px; border-radius:20px;
+
+                                .x , .xx , .xxx{display:flex; align-items:center; justify-content:center; width:fit-content;}
+
                                 i{ color:$violet; background:$white; margin:0 8px; padding:7px; display:grid; justify-content:center; align-items:center; 
                                     cursor:pointer; border-radius:50%; font-size:21px; transition:.3s;
                                     &:hover{ transition: .3s; background:$black; }
                                 }
 
                                 .x i{&:hover{background:$white;}}
-
                                 input{ appearance: none; position: relative; left:-10px; }
                                 input:focus{ outline:none; }
                                 input[type=range]::-webkit-slider-runnable-track {
-                                    width: 100%;
-                                    height: 5px;
-                                    cursor: pointer;
-                                    box-shadow: 0px 0px 0px #000000;
-                                    background: $white;
-                                    border-radius: 1px;
-                                    border: 0px solid #000000;
-                                  }
-                                  input[type=range]::-webkit-slider-thumb {
-                                    box-shadow: 0px 0px 0px #000000;
-                                    height: 18px;
-                                    width: 18px;
-                                    border-radius: 25px;
-                                    background:$violet;
-                                    border:2px solid $white;
-                                    cursor: pointer;
-                                    appearance: none;
-                                    margin-top: -7px;
-                                  }
+                                    width: 80%;height: 5px;cursor: pointer;box-shadow: 0px 0px 0px #000000;background:
+                                    $white;border-radius: 1px;border: 0px solid #000000;
+                                }
+                                input[type=range]::-webkit-slider-thumb {
+                                    box-shadow: 0px 0px 0px #000000;height: 18px;width: 18px;border-radius: 25px;background:$violet;
+                                    border:2px solid $white;cursor: pointer;appearance: none;margin-top: -7px;
+                                }
 
                                 button{ background:$white; color:$violet; cursor: pointer; padding:0px 15px; border-radius:15px; height:fit-content;
-                                    border:none; font-weight:bold; transition:.3s ease; &:hover{ transition:.3s ease; background:$black; }
+                                    border:none; font-weight:bold; width:fit-content; transition:.3s ease; &:hover{ transition:.3s ease; background:$black; }
                                     i{ background:none; color:$violet; margin:0 2px; font-size:20px; &:hover{background:none;} }  
                                 }
                             }
+                        }
+                    }
 
-                            .userHasNotAnswered , .userHasAnswered{ display:flex; flex-direction:column; align-items:center; gap:15px; color:$violet;
-                                img{ border-radius:50%; border:3px double $violet; object-fit:cover; }
-                                .declined{border-radius:0; border:none;}
-                                h3{ color:$white; }
+                    .Right{ width:30%; height:100vh; background:#202020; display:flex; flex-direction:column; align-items:center; color:$white;
+
+                        .img{ 
+                            .profileImage{ border-radius:50%;  object-fit:cover; border:2px solid $violet; margin:6px 0;
+                                position: relative;
                             }
                         }
 
-                    }
-                }
-
-                .Right{ width:30%; height:100vh; background:#202020; display:flex; flex-direction:column; align-items:center; color:$white;
-
-                    .img{ 
-                        .profileImage{ border-radius:50%;  object-fit:cover; border:2px solid $violet; margin:6px 0;
-                            position: relative;
+                        h1{ color:$violet; font-size: 22px;}
+                        
+                        .h3{ display:flex; align-items:center; font-weight:200; font-size:14px;  transition:.4s; cursor: pointer;
+                            i{ color:$violet; font-size:20px; }  gap:10px;
+                            &:hover{ transition:.4s; color:$violet; translate:0 2px; }
                         }
-                    }
 
-                    h1{ color:$violet; font-size: 22px;}
+                        .PhoneOnly{display: none;}
+
+                        p{ margin:3px 0; letter-spacing:1px; font-size:13px; font-weight:100; }
+
+                        .CallChat{ display:flex; width:90%; justify-content:space-evenly; margin:10px 0;
+
+                            button{ border:none; background:$violet; color:$white; padding:7px 12px; font-weight:bold; cursor: pointer; border-radius:20px;
+                                transition:.4s; display:flex; align-items:center; gap:10px; i{ font-size:16px; } 
+                                &:hover{ background:$white; color:$violet; transition:.4s; }
+                            }
+
+                            .disable{ opacity:.6; &:hover{ background:$violet; color:$white; cursor:not-allowed; } }
+                        }
+
+                        .SearchChat{ width:78%; display:flex; background:$white; border-radius:20px; justify-content:space-evenly;
+                            align-items:center; margin:10px 0;
+            
+                            input{ border:none; background:none; color:$violet; padding:10px 5px; font-weight:bold;  width:75%; font-size:15px;
+                                &:focus{outline:none;}
+            
+                                &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+                                    color: $violet;
+                                    opacity: 1; /* Firefox */
+                                }
+                                
+                                &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+                                    color: $violet;
+                                }
+                                
+                                &::-ms-input-placeholder { /* Microsoft Edge */
+                                    color: $violet;
+                                }
+                            }
+                            button{ background:none; padding:7px; color:$violet; border:none; font-size:22px; cursor:pointer; position: relative; top:2px; }
+
+                        }
+
+                        .Options{ width:82%; background:#202020; color:$white; height:100vh; display:flex; flex-direction:column;
+                            align-items:center; position:relative; 
                     
-                    .h3{ display:flex; align-items:center; font-weight:200; font-size:14px;  transition:.4s; cursor: pointer;
-                        i{ color:$violet; font-size:20px; }  gap:10px;
-                        &:hover{ transition:.4s; color:$violet; translate:0 2px; }
-                    }
+                            .setting{ display:flex; justify-content:space-around; margin-top:17px; width:100%;
 
-                    p{ margin:3px 0; letter-spacing:1px; font-size:13px; font-weight:100; }
-
-                    .CallChat{ display:flex; width:91%; justify-content:space-evenly; margin:10px 0;
-
-                        button{ border:none; background:$violet; color:$white; padding:7px 12px; font-weight:bold; cursor: pointer; border-radius:20px;
-                            transition:.4s; display:flex; align-items:center; gap:10px; i{ font-size:16px; } 
-                            &:hover{ background:$white; color:$violet; transition:.4s; }
-                        }
-
-                        .disable{ opacity:.6; &:hover{ background:$violet; color:$white; cursor:not-allowed; } }
-                    }
-
-                    .SearchChat{ width:78%; display:flex; background:$white; border-radius:20px; justify-content:space-evenly;
-                        align-items:center; margin:10px 0;
-        
-                        input{ border:none; background:none; color:$violet; padding:10px 5px; font-weight:bold;  width:70%; 
-                            &:focus{outline:none;}
-        
-                            &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-                                color: $violet;
-                                opacity: 1; /* Firefox */
-                              }
-                              
-                            &:-ms-input-placeholder { /* Internet Explorer 10-11 */
-                                color: $violet;
-                            }
-                              
-                            &::-ms-input-placeholder { /* Microsoft Edge */
-                                color: $violet;
-                            }
-                        }
-                        button{ background:none; padding:7px; color:$violet; border:none; font-size:22px; cursor:pointer; position: relative; top:2px; }
-
-                    }
-
-                    .Options{ width:82%; background:#202020; color:$white; height:100vh; display:flex; flex-direction:column;
-                        align-items:center; position:relative; 
-                
-                        .setting{ display:flex; justify-content:space-around; margin-top:17px; width:100%;
-
-                            i{ font-size:28px; color:$violet; }
-                            
-                            .description{text-align:left; display: grid; grid-template-columns: repeat(2,auto); position:relative; width:80%;
-                
-                                p{opacity: .7; font-size:11px; grid-column:1/3; margin-top:10px;}
-                                h3{margin-right:15px; font-size:16px;}
-                
-                                input{background:$white; width:50px; height:25px; border-radius:20px; position:absolute; right:2px; top:0; outline:none; appearance:none;
-                                    transition:.5s;
-                                    &::before{content: '';cursor:pointer;  position:absolute; width:23px; height:23px; border-radius:50%; top:1px; background:gray; left:2px; transition:.5s;}
-                
-                                    &:checked::before{content: ''; cursor:pointer; position:absolute; transition:.5s; width:23px; height:23px; border-radius:50%; top:1px; background:$violet; left:25px;}
+                                i{ font-size:28px; color:$violet; }
+                                
+                                .description{text-align:left; display: grid; grid-template-columns: repeat(2,auto); position:relative; width:80%;
+                    
+                                    p{opacity: .7; font-size:11px; grid-column:1/3; margin-top:10px;}
+                                    h3{margin-right:15px; font-size:16px;}
+                    
+                                    input{background:$white; width:50px; height:25px; border-radius:20px; position:absolute; right:2px; top:0; outline:none; appearance:none;
+                                        transition:.5s;
+                                        &::before{content: '';cursor:pointer;  position:absolute; width:23px; height:23px; border-radius:50%; top:1px; background:gray; left:2px; transition:.5s;}
+                    
+                                        &:checked::before{content: ''; cursor:pointer; position:absolute; transition:.5s; width:23px; height:23px; border-radius:50%; top:1px; background:$violet; left:25px;}
+                                    }
                                 }
                             }
                         }
+
+                        .sharedPhotos{ font-weight:700; pointer-events:none; align-self:flex-start; margin-left:35px;
+                            display:flex; align-items:center; gap:10px; font-size:14px;  position: relative;
+                            top:-12px;
+                            i{ font-size:29px; margin:3x; color:$violet; }  
+                        }
+
+                        .images{ width:90%; display:grid; grid-template-columns:repeat(3, 70px); column-gap:5px; row-gap:5px;
+                            position: relative; justify-content:center;
+
+                            img{ border-radius:10px; object-fit:cover; }
+
+                            &::after{content:''; position:absolute; width:80%; height:45px; left:22px; bottom:0; background:rgba(183, 183, 183, 0.304); }
+                        }
+
+                        .delete{  border:none; background:none; color:red; padding:7px 13px; cursor: pointer;  border-top:1px solid gray;
+                            transition:.4s; width:80%; i{ font-size:23px; } 
+                            display:flex; align-items:center; gap:10px; font-size:17px; margin-top:10px; justify-content:center;
+                        }  
+
                     }
 
-                    .sharedPhotos{ font-weight:700; pointer-events:none; align-self:flex-start; margin-left:35px;
-                        display:flex; align-items:center; gap:10px; font-size:14px;  position: relative;
-                        top:-12px;
-                        i{ font-size:29px; margin:3x; color:$violet; }  
+                }
+
+                @include Laptop(){
+                    .BigBar.hide{ width:0px; min-width:0px; transition:1s; opacity:0;}
+                    .BigBar{ width:270px; min-width:270px; transition:1s; opacity:2;}
+
+                    .Connection .Left{ width:60%;}
+                    .Connection .Right{ width:40%;
+                        .CallChat { width:90%; button{  padding:7px 10px; font-size:13px; }}
+                        .SearchChat input{ font-size:11px;  }
+                    }
+                }
+                @include LargeTablets(){
+                    .BigBar.hide{ width:0px; min-width:0px; transition:1s; opacity:0;}
+                    .BigBar{ width:270px; min-width:270px; transition:1s; opacity:2;}
+
+                    .Connection .Left{ width:60%;}
+                    .Connection .Right{ width:40%;
+                        .CallChat { width:90%; button{  padding:7px 10px; font-size:13px; }}
+                        .SearchChat input{ font-size:11px;  }
                     }
 
-                    .images{ width:90%; display:grid; grid-template-columns:repeat(3, 70px); column-gap:5px; row-gap:5px;
-                        position: relative; justify-content:center;
+                    .Profile{
+                        .middle{grid-template-columns:repeat(1,auto); div{margin:10px; input{ width:300px; } } }
 
-                        img{ border-radius:10px; object-fit:cover; }
-
-                        &::after{content:''; position:absolute; width:80%; height:45px; left:22px; bottom:0; background:rgba(183, 183, 183, 0.304); }
+                        .bottom { width:70%; button{ font-size:12px; i{font-size:18px;} }}
                     }
+                }
+                @include SmallTablets(){
+                    .BigBar.hide{display:none;}
 
-                    .delete{  border:none; background:none; color:red; padding:7px 13px; cursor: pointer;  border-top:1px solid gray;
-                        transition:.4s; width:80%; i{ font-size:23px; } 
-                        display:flex; align-items:center; gap:10px; font-size:17px; margin-top:10px; justify-content:center;
-                    }  
+                    .Connection{ height:100vh;
+                        .Left.hide{display:none;}
+                        .Right.hide{display:none;}
 
+                        .Left{width:100%; 
+                            header .i .show-hide-BigBar{ display:none;} 
+                            .TheMessages{ height:89vh;
+                                .sendMessage{bottom:80px; height:50px; width:78%;}
+                                .msgs{ padding-bottom:70px; overflow:auto; }
+                            }
+
+                            .VideoCall{ 
+                                .remote{ z-index:7; .remoteVideo{z-index:7;}}
+                                .local { z-index:6; .localOptions{  z-index:6;  }}
+
+                                .instructions .content{ width:80%; }
+                            }
+                        }
+                        .Right{width:100%; position: relative;
+                            .PhoneOnly.CloseRightBar{ display:block; position:absolute; top:20px; left:20px; font-size:35px; color:$violet;}
+                            .CallChat button{width:40%; justify-content:center; }
+
+                            .Options{height:fit-content;}
+                            .details{ display: flex; align-items: center; justify-content:space-between;  width:82%;
+                                h1{ font-size:18px; }
+                                h3{ font-size:14px; i{font-size:18px;} }
+                                p{font-size:13px;}
+                            }
+
+                            .sharedPhotos{ margin:20px 12%; }
+                            .images{ grid-template-columns: repeat(4,auto); column-gap:15px; row-gap:15px; margin-top:-15px;
+                                img:nth-child(9){display:none;} 
+                                &::after{ width:0; height:0; display:none; }
+                            }
+                        }
+                    }
                 }
 
             }
-        }
 
-        .BackGround-AddStory{ position:fixed; background:rgba(128, 128, 128, 0.585); height:100vh; width:100%; z-index:10;
+            .BackGround-AddStory{ position:fixed; background:rgba(128, 128, 128, 0.585); height:100vh; width:100%; z-index:10;
 
-            .HideComponent{  display: flex; flex-direction:column; align-items:center; width:37%; height:330px; position:absolute; top:45%; left:50%;
-                translate:-50% -50%; background:$white; border-radius:20px; padding:13px 0; box-shadow:2px 2px 3px $violet; 
+                .HideComponent{  display: flex; flex-direction:column; align-items:center; width:37%; height:330px; position:absolute; top:45%; left:50%;
+                    translate:-50% -50%; background:$white; border-radius:20px; padding:13px 0; box-shadow:2px 2px 3px $violet; 
 
-                header{ display:flex; width:100%; position: relative; justify-content:center; border-bottom:1.5px solid $violet;
-                    padding-bottom:7px; align-items:center;
+                    header{ display:flex; width:100%; position: relative; justify-content:center; border-bottom:1.5px solid $violet;
+                        padding-bottom:7px; align-items:center;
 
-                    h3{  font-weight:bold; }
+                        h3{  font-weight:bold; }
 
-                    i{ position: absolute; right:15px; font-size:25px; color:$violet; translate:0px 2px; cursor: pointer; 
-                        transition:.4s; &:hover{ color:$black; transition:.4s; }
+                        i{ position: absolute; right:15px; font-size:25px; color:$violet; translate:0px 2px; cursor: pointer; 
+                            transition:.4s; &:hover{ color:$black; transition:.4s; }
+                        }
                     }
-                }
 
-                img{ width:250px; margin:20px 0; }
+                    img{ width:250px; margin:20px 0; }
 
-                input{display:none;}
-                label , button{ color:$white; background:$violet; cursor: pointer; width:60%; padding:7px; font-size:18px;  
-                    border-radius:15px; display:flex; justify-content:center; gap:10px; align-items:center;
-                    transition:.4s ; i{ margin-top:2px;}
-                    
-                    &:hover{ color:$black; transition:.4s; }
-                }
-                opacity:0; z-index:-10; transition:1s; transform:scaleX(-1); 
-            }
-
-            .SelectImage{ display: flex; flex-direction:column; align-items:center; width:37%; height:330px; position:absolute; top:45%; left:50%;
-                translate:-50% -50%; background:$white; border-radius:20px; padding:13px 0; box-shadow:2px 2px 3px $violet; transition:1s; transform:scaleX(1);
-
-                header{ display:flex; width:100%; position: relative; justify-content:center; border-bottom:1.5px solid $violet;
-                    padding-bottom:7px; align-items:center;
-
-                    h3{  font-weight:bold; }
-
-                    i{ position: absolute; right:15px; font-size:25px; color:$violet; translate:0px 2px; cursor: pointer; 
-                        transition:.4s; &:hover{ color:$black; transition:.4s; }
-                    }
-                }
-
-                img{ width:250px; margin:20px 0; }
-
-                input{display:none;}
-                label{ color:$white; background:$violet; cursor: pointer; width:60%; padding:7px; font-size:18px;  
-                    border-radius:15px; display:flex; justify-content:center; gap:10px; align-items:center;
-                    transition:.4s ; i{ margin-top:2px;}
-                    
-                    &:hover{ color:$black; transition:.4s; }
-                }
-            }
-
-            .ShareStory{ display: flex; flex-direction:column; align-items:center; width:37%; height:330px; position:absolute; top:45%; left:50%;
-                translate:-50% -50%; background:$white; border-radius:20px; padding:13px 0; box-shadow:2px 2px 3px $violet; transition:1s; transform:scaleX(1);
-
-                header{ display:flex; width:100%; position: relative; justify-content:center; border-bottom:1.5px solid $violet;
-                    padding-bottom:7px; align-items:center;
-
-                    .go-back{ position: absolute; left:15px; font-size:25px; color:$violet; translate:0px 2px; cursor: pointer; 
-                        transition:.4s; &:hover{ color:$black; transition:.4s; } }
- 
-                    h3{ font-weight:bold; }
- 
-                    .close{ position: absolute; right:15px; font-size:25px; color:$violet; translate:0px 2px; cursor: pointer; 
-                        transition:.4s; &:hover{ color:$black; transition:.4s; }
-                    }
-                }
-
-                img{ width:280px; height:220; margin:20px 0; object-fit:cover; border-radius:20px; box-shadow:2px 2px 3px $violet; }
-
-                input{display:none;}
-                button{ color:$white; background:$violet; cursor: pointer; width:62%; padding:7px; font-size:18px;  
-                    border-radius:15px; display:flex; justify-content:center; gap:10px; align-items:center; border:none;
-                    transition:.4s ; height:40px; i{ margin-top:2px;}
-                    
-                    &:hover{ color:$black; transition:.4s; }
-                }
-
-                p{ margin:10px; color:$violet; font-weight:700;font-size:16px;  }
-            }
-        }
-
-        .StoriesPage{ height:100vh; width:320px; display:flex;
-
-            //! The main big bar
-            .VerticalStories{ width:310px; height:100vh; background:#202020; color:$white; display:flex; flex-direction:column;
-                align-items: center; border-right:1.5px solid $violet; position:relative;
-
-                header{ display:flex; width:90%; justify-content:space-between; margin-top:10px; align-items:center;
-                    border-bottom:1px solid rgba(128, 128, 128, 0.692); padding-bottom:3px;
-
-                    h1{font-size:23px;}
-                
-                    i{color:$violet; font-size:26px; cursor: pointer; transition: .4s ease; 
-                        &:hover{color:$white; transition:.4s ease; scale:1.1;}
-                    }
-                }
-
-                .swiper { width:100%; height:92%; padding-top:13px; color:$white;
-
-                    .swiper-slide{ position: relative;  width:100%; height:fit-content;
+                    input{display:none;}
+                    label , button{ color:$white; background:$violet; cursor: pointer; width:60%; padding:7px; font-size:18px;  
+                        border-radius:15px; display:flex; justify-content:center; gap:10px; align-items:center;
+                        transition:.4s ; i{ margin-top:2px;}
                         
-                        .userImage{position:absolute; object-fit:cover; border-radius:50%; top:-5px; left:10px; border:2px dotted $violet; }
+                        &:hover{ color:$black; transition:.4s; }
+                    }
+                    opacity:0; z-index:-10; transition:1s; transform:scaleX(-1); 
+                }
+
+                .SelectImage{ display: flex; flex-direction:column; align-items:center; width:37%; height:330px; position:absolute; top:45%; left:50%;
+                    translate:-50% -50%; background:$white; border-radius:20px; padding:13px 0; box-shadow:2px 2px 3px $violet; transition:1s; transform:scaleX(1);
+
+                    header{ display:flex; width:100%; position: relative; justify-content:center; border-bottom:1.5px solid $violet;
+                        padding-bottom:7px; align-items:center;
+
+                        h3{  font-weight:bold; }
+
+                        i{ position: absolute; right:15px; font-size:25px; color:$violet; translate:0px 2px; cursor: pointer; 
+                            transition:.4s; &:hover{ color:$black; transition:.4s; }
+                        }
+                    }
+
+                    img{ width:250px; margin:20px 0; }
+
+                    input{display:none;}
+                    label{ color:$white; background:$violet; cursor: pointer; width:60%; padding:7px; font-size:18px;  
+                        border-radius:15px; display:flex; justify-content:center; gap:10px; align-items:center;
+                        transition:.4s ; i{ margin-top:2px;}
                         
-                        .story{ object-fit:cover; border-radius:15px; box-shadow:-2px 2px 5px $violet; cursor: pointer; }
-
-                        h5{ position:absolute; bottom:7px; left:40px; opacity:.8; }
-
+                        &:hover{ color:$black; transition:.4s; }
                     }
-                    .swiper-pagination{width:12px; padding:50px 0; }
-                    .swiper-pagination-bullet{ cursor: pointer; background:$white; z-index:10; right:0px; width:11px; height:11px; }
+                }
+
+                .ShareStory{ display: flex; flex-direction:column; align-items:center; width:37%; height:330px; position:absolute; top:45%; left:50%;
+                    translate:-50% -50%; background:$white; border-radius:20px; padding:13px 0; box-shadow:2px 2px 3px $violet; transition:1s; transform:scaleX(1);
+
+                    header{ display:flex; width:100%; position: relative; justify-content:center; border-bottom:1.5px solid $violet;
+                        padding-bottom:7px; align-items:center;
+
+                        .go-back{ position: absolute; left:15px; font-size:25px; color:$violet; translate:0px 2px; cursor: pointer; 
+                            transition:.4s; &:hover{ color:$black; transition:.4s; } }
+    
+                        h3{ font-weight:bold; }
+    
+                        .close{ position: absolute; right:15px; font-size:25px; color:$violet; translate:0px 2px; cursor: pointer; 
+                            transition:.4s; &:hover{ color:$black; transition:.4s; }
+                        }
+                    }
+
+                    img{ width:280px; height:220; margin:20px 0; object-fit:cover; border-radius:20px; box-shadow:2px 2px 3px $violet; }
+
+                    input{display:none;}
+                    button{ color:$white; background:$violet; cursor: pointer; width:62%; padding:7px; font-size:18px;  
+                        border-radius:15px; display:flex; justify-content:center; gap:10px; align-items:center; border:none;
+                        transition:.4s ; height:40px; i{ margin-top:2px;}
+                        
+                        &:hover{ color:$black; transition:.4s; }
+                    }
+
+                    p{ margin:10px; color:$violet; font-weight:700;font-size:16px;  }
                 }
             }
 
-            
+            .StoriesPage{ height:100vh; width:320px; display:flex;
 
-            //! Settings conditional rendered
-            .Settings{ @include Settings }
-        }
+                //! The main big bar
+                .VerticalStories{ width:310px; height:100vh; background:#202020; color:$white; display:flex; flex-direction:column;
+                    align-items: center; border-right:1.5px solid $violet; position:relative;
 
-        .Error{ display:flex; width:100%; height:95vh; justify-content:center; align-items:center; color:$violet; } 
-    
-        .Story{  width:100%; height:100vh; display:flex; flex-direction:column; justify-content:center;
-            align-items:center; position: relative; color:$white; 
-            
-            .user-header{ z-index:4; display:flex; position:relative; align-items:center; width:580px; top:-10px;
-    
-                .userImage{ border-radius:50%; border:3px dotted $violet; object-fit:cover; translate:-40px 20px; }
-    
-                h3{ text-transform:uppercase;  }
-                
-                span{ position:absolute; right:10px; font-weight:bold; }
-                
-            }
-    
-            .story{ margin:10px; border-radius:20px; object-fit:cover; box-shadow:2px 2px 5px $violet; z-index: 2; 
-                margin-top:-40px;
-            }
-        }
+                    header{ display:flex; width:90%; justify-content:space-between; margin-top:10px; align-items:center;
+                        border-bottom:1px solid rgba(128, 128, 128, 0.692); padding-bottom:3px;
 
-        .bg{ position:fixed; left:0; top:0; width:100%; height:100vh; z-index:10; display:grid; justify-content:center; align-items:center;
-            
-            .IamBeingCalled{ background:$violet; padding:20px 30px; border-radius:20px; box-shadow:2px 2px 3px gray;
-                display:flex; flex-direction:column; align-items:center; gap:10px; color:$white; position: relative;
-                
-                img{ border-radius:50%; border:3px double $white; object-fit:cover;}
-
-                .buttons{ display:flex; gap:10px; align-items:center;
-
-                    button{ border:none; color:$violet; background:$white; cursor:pointer; padding:8px 25px; 
-                        transition:.3s ease; &:hover{ transition:.3s ease; background:$black;  }
+                        h1{font-size:23px;}
+                    
+                        i{color:$violet; font-size:26px; cursor: pointer; transition: .4s ease; 
+                            &:hover{color:$white; transition:.4s ease; scale:1.1;}
+                        }
                     }
 
-                    #ID0{ border-radius:20px 0 20px 0; color: limegreen; }
-                    #ID1{ border-radius:0 20px 0 20px; color: red; }
+                    .swiper { width:100%; height:92%; padding-top:13px; color:$white;
 
+                        .swiper-slide{ position: relative;  width:100%; height:fit-content;
+                            
+                            .userImage{position:absolute; object-fit:cover; border-radius:50%; top:-5px; left:10px; border:2px dotted $violet; }
+                            
+                            .story{ object-fit:cover; border-radius:15px; box-shadow:-2px 2px 5px $violet; cursor: pointer; }
+
+                            h5{ position:absolute; bottom:7px; left:40px; opacity:.8; }
+
+                        }
+                        .swiper-pagination{width:12px; padding:50px 0; }
+                        .swiper-pagination-bullet{ cursor: pointer; background:$white; z-index:10; right:0px; width:11px; height:11px; }
+                    }
+                }
+
+                //! Settings conditional rendered
+                .Settings{ @include Settings }
+            }
+
+            .Error{ display:flex; width:100%; height:95vh; justify-content:center; align-items:center; color:$violet; } 
+        
+            .Story{  width:100%; height:100vh; display:flex; flex-direction:column; justify-content:center;
+                align-items:center; position: relative; color:$white; 
+                
+                .user-header{ z-index:4; display:flex; position:relative; align-items:center; width:580px; top:-10px;
+        
+                    .userImage{ border-radius:50%; border:3px dotted $violet; object-fit:cover; translate:-40px 20px; }
+        
+                    h3{ text-transform:uppercase;  }
+                    
+                    span{ position:absolute; right:10px; font-weight:bold; }
+                    
+                }
+        
+                .story{ margin:10px; border-radius:20px; object-fit:cover; box-shadow:2px 2px 5px $violet; z-index: 2; 
+                    margin-top:-40px;
                 }
             }
+
+            .Groups{ width:100%; height:100vh; display:grid; justify-content:center; align-items:center; color:$violet;
+            }
+
+            .bg{ position:fixed; left:0; top:0; width:100%; height:100vh; z-index:10; display:grid; justify-content:center; align-items:center;
+                
+                .IamBeingCalled{ background:$violet; padding:20px 30px; border-radius:20px; box-shadow:2px 2px 3px gray;
+                    display:flex; flex-direction:column; align-items:center; gap:10px; color:$white; position: relative;
+                    
+                    img{ border-radius:50%; border:3px double $white; object-fit:cover;}
+
+                    h3 span{color:$black; font-weight:bold; }
+
+                    .buttons{ display:flex; gap:10px; align-items:center;
+
+                        button{ border:none; color:$violet; background:$white; cursor:pointer; padding:8px 25px; 
+                            transition:.3s ease; &:hover{ transition:.3s ease; background:$black;  }
+                        }
+
+                        #ID0{ border-radius:20px 0 20px 0; color: limegreen; }
+                        #ID1{ border-radius:0 20px 0 20px; color: red; }
+
+                    }
+                }
+            }
+
         }
+        
+        @include Desktop(){
+            @include Main;
+        }
+
+        @include Laptop(){
+            @include Main;
+        }
+
+        @include LargeTablets(){
+            @include Main;
+            .StoriesPage{ width:270px; .VerticalStories{width:250px; .swiper .swiper-slide{ h5{bottom:20px;} .story{ width:200px; }} } }
+
+            .Story{
+                .user-header{ width:80%; }
+                .story{ width:80%; height:auto; }
+            }
+        }
+
+        @include SmallTablets(){
+            @include Main;
+
+            nav{ position:fixed; bottom:10px; left:50%; translate:-50%; flex-direction:row; height:fit-content; width:80%;
+                justify-content:space-around; border-radius:20px; padding:0 10px; z-index:5;
+             
+                .logo{display:none;}
+
+                .phoneOnly{ display:block; background:$white; width:2px; height:40px; margin:10px 0; }
+                .links{display:contents; 
+                    span{ background:$white; width:2px; height:40px; margin:10px 0; }
+                     
+                    #A4,#A5{ display:none; }
+                    .active::before{  width:50px; height:5px; top:35px; background:$violet; right:-10px; }
+                    
+                    a,button{ margin:0; font-size:26px;  }
+                    #A1:hover::after{content: ""; display:none; }
+                    #A2:hover::after{content: ""; display:none; }
+                    #A3:hover::after{content: ""; display:none; }
+                    #A4:hover::after{content: ""; display:none; }
+                    #A5:hover::after{content: ""; display:none; }
+                    #A6:hover::after{content: ""; display:none; }
+                }
+
+                .profile{display:contents; margin:0; img{margin:0; width:45px; height:45px; }}
+            }
+
+            .Messages{
+
+                .BigBar{width:100%; min-width:100%; border-right:none; z-index:0; }
+                .Profile{ justify-content:flex-start; margin-top:30px; }
+                
+                .Profile.hide{display:none; }
+                #BigBarHide{display:none; width:0}
+
+                .Settings{ @include Settings; width:100%; min-width:100%; max-width:100%; border-right:none; 
+                    .setting{ margin:3px 0;
+                        i{ font-size:25px; }
+                    }
+                    button{ width:95%; padding:12px 15px; margin:6px 0; }
+                }
+            }
+
+            .StoriesPage{ width:100%; 
+
+
+                .VerticalStories{width:95%; border-right:none;  
+                    .swiper { margin-top: 20px;
+                        .swiper-slide{ pointer-events:none;
+                            .userImage{ left:20%; width:90px; height:90px;}
+                            h5{bottom:-160px; left:27%; font-size:21px;} 
+                            .story{ width:50%; height:80%; }
+                        } 
+                        .swiper-pagination{width:20px; padding:50px 0; }
+                        .swiper-pagination-bullet{ cursor: pointer; background:$white; z-index:10; right:0px; width:17px; height:17px; }
+                    }
+                } 
+
+                .Settings{ @include Settings; width:100%; min-width:100%; max-width:100%; border-right:none; 
+                    .setting{ margin:3px 0;
+                        i{ font-size:25px; }
+                    }
+                    button{ width:95%; padding:12px 15px; margin:6px 0; }
+                }
+            }
+
+            .BackGround-AddStory{ .ShareStory{width: 60%;} .SelectImage{width:60%;} .HideComponent{width:60%;}}
+
+            .Story{ display:none; }
+        }
+
+
     }
 
+    //! Not Found page
     .NotFound{ width:100%; display: flex; height:100vh; overflow:hidden;
 
-        .left{ width:50%; height:100%;
-            img{width:100%; height:100%; object-fit:cover; border-radius:0 25px 25px 0;} 
-        }
-        .right{ width:50%; height:100%;
-            img{width:100%; object-fit:cover; height:100%; border-radius: 25px 0 0 25px ;} 
-        }
+        @mixin NotFound{
 
-        .center{  display:flex; flex-direction:column; align-items:center; width:100vh; justify-content:space-around;
-
-            header{
-                i{ color:$violet; font-size:50px; margin:3px 0; }
-                h3{ font-size:26px; &::first-letter{color:$violet;} }
+            .left{ width:50%; height:100%;
+                img{width:100%; height:100%; object-fit:cover; border-radius:0 25px 25px 0;} 
+            }
+            .right{ width:50%; height:100%;
+                img{width:100%; object-fit:cover; height:100%; border-radius: 25px 0 0 25px ;} 
             }
 
-            .body{ text-align:center; display:flex; flex-direction:column; align-items:center; gap:25px;
+            .center{  display:flex; flex-direction:column; align-items:center; width:100vh; justify-content:space-around;
 
-                h1{ font-size:90px; span{color:$violet;} }
-                h3{ font-size:35px; text-transform:uppercase;  }
-
-                p{ width:80%; font-size:17px; }
-
-                a{ background:$black; text-decoration:none; font-size:19px; font-family:700;
-                    border:none;  width:66%; padding:8px; border-radius:25px 0 25px 0; color:$violet; transition:.7s;
-                    &:hover{ color:$white; box-shadow:2px 2px 3px $violet; border-radius:0 25px 0 25px; transition:.7s;}
+                header{
+                    i{ color:$violet; font-size:50px; margin:3px 0; }
+                    h3{ font-size:26px; &::first-letter{color:$violet;} }
                 }
 
-                button{ background:$black; cursor: pointer;  font-size:19px; font-family:700;
-                    border:none;  width:70%; padding:8px; border-radius:0 25px 0 25px; color:$violet; transition:.7s;
-                    &:hover{ color:$white; box-shadow:2px 2px 3px $violet; border-radius:25px 0 25px 0; transition:.7s;}
-                }
-            }
+                .body{ text-align:center; display:flex; flex-direction:column; align-items:center; gap:25px;
 
-            footer{ 
-                .icons{ display:flex;  margin:15px; 
-                    i{ color:$white; background:$violet; cursor: pointer; padding:8px; border-radius:50%;
-                        font-size:24px; display:grid;  justify-content:center; align-items:center; margin:0 10px; transition:.5s;
-                        &:hover{ color:$black; transition:.5s;}
+                    h1{ font-size:90px; span{color:$violet;} }
+                    h3{ font-size:35px; text-transform:uppercase;  }
+
+                    p{ width:80%; font-size:17px; }
+
+                    a{ background:$black; text-decoration:none; font-size:19px; font-family:700;
+                        border:none;  width:66%; padding:8px; border-radius:25px 0 25px 0; color:$violet; transition:.7s;
+                        &:hover{ color:$white; box-shadow:2px 2px 3px $violet; border-radius:0 25px 0 25px; transition:.7s;}
+                    }
+
+                    button{ background:$black; cursor: pointer;  font-size:19px; font-family:700;
+                        border:none;  width:70%; padding:8px; border-radius:0 25px 0 25px; color:$violet; transition:.7s;
+                        &:hover{ color:$white; box-shadow:2px 2px 3px $violet; border-radius:25px 0 25px 0; transition:.7s;}
                     }
                 }
-                p{ font-size:20px;  }
+
+                footer{ 
+                    .icons{ display:flex;  margin:15px; 
+                        i{ color:$white; background:$violet; cursor: pointer; padding:8px; border-radius:50%;
+                            font-size:24px; display:grid;  justify-content:center; align-items:center; margin:0 10px; transition:.5s;
+                            &:hover{ color:$black; transition:.5s;}
+                        }
+                    }
+                    p{ font-size:20px;  }
+                }
             }
+
+        }
+
+        @include Desktop(){
+            @include NotFound
+        }
+
+        @include Laptop(){
+            @include NotFound
+        }
+        @include LargeTablets(){
+            @include NotFound;
+
+            .center header{ i{font-size:40px;} h3{font-size:22px;} }
+            .center .body { h1{font-size:80px;} h3{font-size:30px;} p{font-size:16px;} a,button{font-size:17px;} }
+            .center footer p{ font-size:19px; } 
+        }
+        @include SmallTablets(){
+            @include NotFound;
+
+            .center header{ i{font-size:35px;} h3{font-size:20px;} }
+            .center .body { h1{font-size:65px;} h3{font-size:26px;} p{font-size:15px;} a,button{font-size:16px;} }
+            .center footer p{ font-size:17px; } 
+        }
+        @include phone(){
+            @include NotFound;
+
+            .center{ width:100%; }
+            .left{ width:0; img{display:none;}}
+            .right{width:0; img{display:none;}}
+
+            .center .body { h1{font-size:80px;} h3{font-size:30px;} p{font-size:16px;} a,button{font-size:17px;} }
         }
 
     }
 
-    .Oops{ display:flex; flex-direction:column; align-items:center; color:$white;  gap:20px;
+    //! Error Page
+    .Oops{ 
+        display:flex; flex-direction:column; position: relative; align-items:center; color:$white;  gap:20px;
+        height:100vh;
 
         header{ margin:10px 0;
             i{ color:$violet; font-size:50px; margin:3px 0; }
@@ -1404,5 +1652,21 @@ body{ font-family: Arial, Helvetica, sans-serif; text-align:center;
             transition:.8s; &:hover{ border-radius:50px 0 50px 0; transition:.8s; padding:8px 20px; }
         }
 
+        @include SmallTablets(){
+    
+            gap:30px;
+            h1{ font-size:50px; }
+            h3{ font-size:30px; }
+            p{ width:70%; }
+        }
+
+        @include phone(){
+    
+            gap:45px;
+            h1{ font-size:50px; }
+            h3{ font-size:25px; }
+            p{ width:70%; }
+        }
     }
+
 }

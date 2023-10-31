@@ -1,9 +1,9 @@
 import Image from "next/image";
-import { BiDotsVerticalRounded, BiMailSend } from "react-icons/bi";
-import { AiFillCaretDown } from "react-icons/ai"
+import { BiDotsVerticalRounded } from "react-icons/bi";
 import { GoCopy } from "react-icons/go"
 import Operation from "./operation";
-import { FaMicrophone } from "react-icons/fa";
+import ShowBigBar from "./showBigBar";
+import ShowRightBar from "./showRightBar";
 
 type props = {
     user: FullUser, connection: Connection, haveMe: "yes" | "no", active: "true" | "false", now: "now"|null
@@ -17,8 +17,8 @@ export default function Left({ user, connection, haveMe, active, now=null }: pro
             <header>
 
                 <div className="i">
+                    <ShowBigBar />
                     <Image src={connection.image} alt="userImage" width={60} height={60} quality={100} />
-                    <i> <AiFillCaretDown /> </i>
                 </div>
 
                 <div className="ii">
@@ -28,7 +28,7 @@ export default function Left({ user, connection, haveMe, active, now=null }: pro
 
                 <div className="iii">
                     <i> <GoCopy /> </i>
-                    <i> <BiDotsVerticalRounded /> </i>
+                    <ShowRightBar />
                 </div>
 
             </header>

@@ -36,6 +36,7 @@ export default function Profile({ children, user }: { children: React.ReactNode,
 
     let dispatch = useDispatch<AppDispatch>()
     let { isForgotPassword } = useAppSelector((state => state.AuthSlice))
+    let { isProfile } = useAppSelector((state => state.PhoneSizeSlice))
 
     let usernameRef = useRef<HTMLInputElement>(null)
     let descriptionRef = useRef<HTMLInputElement>(null)
@@ -51,7 +52,7 @@ export default function Profile({ children, user }: { children: React.ReactNode,
         <>
             {isForgotPassword ? (<ForgotPassword />) : null}
 
-            <form className="Profile" onSubmit={(e) => {
+            <form className={ isProfile ? "Profile" : "Profile hide" } onSubmit={(e) => {
                 UpdateUserData(e,
                     usernameRef.current!.value,
                     descriptionRef.current!.value,

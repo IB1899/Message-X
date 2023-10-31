@@ -24,11 +24,11 @@ export default async function StoriesLayout({ children }: { children: React.Reac
     
     return (
         <>
-            <div className="StoriesPage">
+            <>
 
                 <StoriesBigBar user={result.user} stories={result.stories} />
 
-            </div>
+            </>
             {children}
 
         </>

@@ -17,7 +17,6 @@ export async function generateMetadata({ params: { connectionId }, searchParams:
             description: "This page doesn't exist"
         }
     }
-
     return {
         title: `Messages X - ${result.connection.name}`,
         description: `This is the contact page of ${result.connection.name}`

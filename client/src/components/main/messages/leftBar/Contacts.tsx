@@ -7,6 +7,7 @@ import formatDistanceToNow from "date-fns/formatDistanceToNowStrict";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import { AiFillCheckCircle, AiOutlineCheck } from "react-icons/ai";
 import { FaPlusSquare } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 
@@ -80,9 +81,18 @@ export default function Contacts({ user, connections, noConnections = null }: { 
             })
 
         })()
+
+        missedMessagesRef.current?.textContent === "0" ? setIsThereMissedMessages(false) : setIsThereMissedMessages(true)
     }, [])
 
+    let [isThereMissedMessages, setIsThereMissedMessages] = useState(true)
     let missedMessagesRef = useRef<HTMLSpanElement>(null)
+
+    let clickContact = (connection: Connection, active: boolean) => {
+        push(`/main/messages/${connection.RoomConnectionId}?id=${user._id}&active=${active}`);
+        dispatch(setOperation("TextMessaging"))
+        refresh();
+    }
 
     //! This function is to join the current user with his/her connections (io rooms) and show those connection
     let JoinShow = () => {
@@ -96,8 +106,8 @@ export default function Contacts({ user, connections, noConnections = null }: { 
                 <div key={connection._id}
 
                     //! To make a hard navigation when navigating between contacts
-                    onClick={() => { push(`/main/messages/${connection._id}?id=${user._id}&active=${active}`); refresh(); dispatch(setOperation("TextMessaging")) }}
-                    onMouseOver={() => prefetch(`/main/messages/${connection._id}?id=${user._id}`)}
+                    onClick={() => clickContact(connection, active)}
+                    onMouseOver={() => prefetch(`/main/messages/${connection.RoomConnectionId}?id=${user._id}`)}
 
                     className={actives.includes(connection.email) ? "contact active" : "contact"}
                 >
@@ -109,14 +119,18 @@ export default function Contacts({ user, connections, noConnections = null }: { 
 
                     <div className="messagesInfo">
 
-                        <span className="missedMessages" ref={missedMessagesRef} style={{ background: missedMessagesRef.current?.textContent === "0" ? "limegreen" : "red" }} >
-                            {
-                                newMessage[connection.RoomConnectionId] ?
-                                    CalculateMissedMessages([...connection.messages, newMessage[connection.RoomConnectionId]])
-                                    :
-                                    CalculateMissedMessages(connection.messages)
-                            }
-                        </span>
+                        {isThereMissedMessages ?
+                            <span className="missedMessages" ref={missedMessagesRef}  >
+                                {
+                                    newMessage[connection.RoomConnectionId] ?
+                                        CalculateMissedMessages([...connection.messages, newMessage[connection.RoomConnectionId]])
+                                        :
+                                        CalculateMissedMessages(connection.messages)
+                                }
+                            </span>
+                            :
+                            <span className="check"> <AiFillCheckCircle /> </span>
+                        }
 
                         <span className="time" suppressHydrationWarning>
                             {connection?.messages.length ?

@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 
 import { BsCameraVideo } from "react-icons/bs";
 import { FiPhoneCall } from "react-icons/fi";
+import { setIsRightBar } from "@/toolkit/slices/PhoneSizeSlice";
 
 export default function CallChat({ connection, user }: { connection: Connection, user: FullUser }) {
 
@@ -16,9 +17,20 @@ export default function CallChat({ connection, user }: { connection: Connection,
     //! Here we initiate the call between two users
     let StartVideoCall = () => {
         dispatch(setOperation("VideoCalling"))
+        dispatch(setIsRightBar(false))
 
         socket.emit("StartVideoCall",
-            { room: connection.RoomConnectionId, name: user.name, image: user.image, connectionId: connection._id, userId: user._id }
+            { room: connection.RoomConnectionId, name: user.name, image: user.image, connectionId: connection.RoomConnectionId }
+        )
+    }
+
+    //! Here we initiate the call between two users
+    let StartVoiceCall = () => {
+        dispatch(setOperation("VoiceCalling"))
+        dispatch(setIsRightBar(false))
+
+        socket.emit("StartVoiceCall",
+            { room: connection.RoomConnectionId, name: user.name, image: user.image, connectionId: connection.RoomConnectionId }
         )
     }
 
@@ -36,7 +48,7 @@ export default function CallChat({ connection, user }: { connection: Connection,
 
             {/* //! Initiate the voice call */}
             <button
-                onClick={() => dispatch(setOperation("VoiceCalling"))}
+                onClick={StartVoiceCall}
                 className={Operation === "VideoCalling" || Operation === "VoiceCalling" ? "disable" : ""}
 
             >

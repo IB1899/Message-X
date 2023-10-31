@@ -13,7 +13,7 @@ const lobster = Lobster({
 })
 
 //! This is a pop up component that is shown when the current user receives a call from one of his/her connections
-export default function AmIBeingCalled() {
+export default function AmIBeingCalled({ userId }: { userId: string }) {
     let audio = new Audio()
 
     useEffect(() => {
@@ -34,15 +34,15 @@ export default function AmIBeingCalled() {
         audio.pause()
         audio.volume = 0
 
-        dispatch(setAmIBeingCalled({ isCalling: false, name: "", image: "", room: "", connectionId: "", userId: "" }));
+        dispatch(setAmIBeingCalled({ isCalling: false, name: "", image: "", connectionId:"" ,  room: "",type: "video" }));
 
         if (answer === "no") {
 
-            socket.emit("VideoCallAnswer-FrontendSends-BackendReceives", { answer, room: amIBeingCalled.room })
+            socket.emit("CallAnswer-FrontendSends-BackendReceives", { answer, room: amIBeingCalled.room })
         }
         else {
-            dispatch(setOperation("VideoCalling"))
-            push(`/main/messages/${amIBeingCalled.connectionId}?id=${amIBeingCalled.userId}&active=true&now=now`)
+            amIBeingCalled.type === "video" ? dispatch(setOperation("VideoCalling")) : dispatch(setOperation("VoiceCalling"))
+            push(`/main/messages/${amIBeingCalled.connectionId}?id=${userId}&active=true&now=now`)
         }
     }
 
@@ -52,7 +52,7 @@ export default function AmIBeingCalled() {
             <div className="IamBeingCalled">
                 <Image src={amIBeingCalled.image} alt="caller image" width={230} height={230} />
 
-                <h3> {amIBeingCalled.name} is calling you </h3>
+                <h3> {amIBeingCalled.name} is <span>{amIBeingCalled.type === "video" ? "video" : "voice"}</span> calling you </h3>
 
                 <div className="buttons">
                     <button id="ID0" className={lobster.className} onClick={() => callResponse("yes")} >

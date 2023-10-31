@@ -6,32 +6,33 @@ import { BsCameraVideo, BsCameraVideoOff } from "react-icons/bs"
 import { LuCameraOff, LuSwitchCamera } from "react-icons/lu"
 import { MdOutlineScreenShare, MdOutlineStopScreenShare } from "react-icons/md"
 import { FiPhoneMissed } from "react-icons/fi"
-import { useDispatch } from "react-redux"
-import { AppDispatch, useAppSelector } from "@/toolkit/store"
-import { setOperation } from "@/toolkit/slices/PeerSlice"
+import { useAppSelector } from "@/toolkit/store"
 import { useShowStream } from "@/hooks/showStream"
-import { FaXRay } from "react-icons/fa";
 import { motion } from "framer-motion"
 import Image from "next/image"
 import declined from "@/../public/images/declined.svg"
+import Peer from "peerjs"
 
 type props = {
     localStream: MediaStream,
     remoteStream: MediaStream | null,
     setLocalStream: Dispatch<SetStateAction<MediaStream | null>>,
-    hasAnswered: { hasAnswered: boolean; TheAnswer: string; message:string },
-    setHasAnswered: Dispatch<SetStateAction<{ hasAnswered: boolean; TheAnswer: string; message:string  }>>,
-    connection: Connection
+    hasAnswered: { hasAnswered: boolean; TheAnswer: string; message: string },
+    setHasAnswered: Dispatch<SetStateAction<{ hasAnswered: boolean; TheAnswer: string; message: string }>>,
+    connection: Connection,
+    signals: { cameraOFF: boolean; microphoneOff: boolean; },
+    peer: Peer,
+    peerId: string,
+    setRemoteStream: Dispatch<SetStateAction<MediaStream | null>>,
 }
 
-export default function ShowStream({ localStream, remoteStream, setLocalStream, hasAnswered, setHasAnswered, connection }: props) {
+export default function ShowStream({ localStream, remoteStream, setLocalStream, hasAnswered, setHasAnswered, connection, signals, peer, peerId, setRemoteStream }: props) {
 
     let localVideoRef = useRef<HTMLVideoElement>(null)
     let remoteVideoRef = useRef<HTMLVideoElement>(null)
 
-    let dispatch = useDispatch<AppDispatch>()
     let { socket } = useAppSelector((state => state.SocketSlice))
-
+    let { isRightBar } = useAppSelector((state => state.PhoneSizeSlice))
 
     let [adjustments, setAdjustments] = useState({
         camera: true, screenSharing: false, switchCamera: false, microphone: true
@@ -47,17 +48,29 @@ export default function ShowStream({ localStream, remoteStream, setLocalStream, 
 
     const [CameraSwitchInstruction, setCameraSwitchInstruction] = useState(false)
 
-    let { localSwitches } = useShowStream(adjustments, setAdjustments, localStream, setLocalStream, localVideoRef);
+    let { endCall, localSwitches } = useShowStream(adjustments, setAdjustments, localStream, setLocalStream,
+        localVideoRef, socket, connection.RoomConnectionId, peer, peerId, setHasAnswered, setRemoteStream
+    );
 
-    let endCall = () => {
-        
-        socket.emit("EndCall-FrontendSends-BackendReceives", { room: connection.RoomConnectionId })
-        dispatch(setOperation("TextMessaging"))
-        setLocalStream(null)
-    }
+    let ContainerRef = useRef<HTMLDivElement>(null)
+    useEffect(() => {
+      
+        if (ContainerRef.current) {
+
+            //! To avoid turning the Left component into a client component.
+            let parent = ContainerRef.current.parentElement;
+
+            if (ContainerRef.current.classList.contains("hide")) {
+                parent?.classList.add("hide")
+            } else {
+                parent?.classList.remove("hide")
+            }
+        }
+
+    }, [isRightBar])
 
     return (
-        <div className="VideoCall">
+        <div className={ isRightBar ? "VideoCall hide" : "VideoCall"} ref={ContainerRef}>
 
             <div className={CameraSwitchInstruction ? "instructions" : "instructions hide"}>
                 <div className="content">
@@ -76,6 +89,7 @@ export default function ShowStream({ localStream, remoteStream, setLocalStream, 
                 </div>
             </div>
 
+            {/* //! The stream of the local user */}
             <div className="remote">
                 <motion.video
                     ref={localVideoRef} className="remoteVideo" autoPlay drag
@@ -89,18 +103,21 @@ export default function ShowStream({ localStream, remoteStream, setLocalStream, 
                 </motion.video>
             </div>
 
+            {/* //! The stream we receive from the remote user */}
             <div className="local">
 
                 <i className="help" onClick={() => setCameraSwitchInstruction(true)} > <BiSolidHelpCircle /> </i>
 
                 {hasAnswered.hasAnswered ?
                     hasAnswered.TheAnswer === "yes" ?
-                        <video ref={remoteVideoRef} className="localVideo" playsInline autoPlay  ></video>
+                        <video ref={remoteVideoRef} className="localVideo" playsInline autoPlay muted={signals.microphoneOff}
+                            style={{ display: signals.cameraOFF ? "none" : "block" }}
+                        />
                         :
                         <div className="userHasAnswered">
 
                             <Image id="decline" src={declined} alt="user refused to answer image" height={300} priority />
-                            <h3> {connection.name} has declined your call </h3>
+                            <h3> {hasAnswered.message}  </h3>
 
                         </div>
                     :
@@ -122,7 +139,7 @@ export default function ShowStream({ localStream, remoteStream, setLocalStream, 
                     >
                         <i> <AiOutlineSound /> </i>
                         <input type="range" min={1} defaultValue={10} max={10} onChange={(e) => {
-                            localVideoRef.current!.volume = Number(e.target.value) / 10;
+                            remoteVideoRef.current!.volume = Number(e.target.value) / 10;
                         }} />
                     </motion.div>
 

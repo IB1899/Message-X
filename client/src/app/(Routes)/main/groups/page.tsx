@@ -1,12 +1,10 @@
 
-"use client"
-
 export default function Groups() {
 
 
 	return (
-		<div>
-			<h1> The Groups page  </h1>
+		<div className="Groups">
+			<h1> This Feature is going to be supported in the next release </h1>
 		</div>
 	)
 }

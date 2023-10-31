@@ -38,7 +38,7 @@ export default function SearchChat() {
 
     return (
         <form className="SearchChat" onSubmit={(e) => SearchChat(e)}>
-            <input type="text" required ref={searchRef} placeholder="Search the chat for key words" />
+            <input type="text" required ref={searchRef} placeholder="Search chat for key words" />
 
             {loading ?
                 <ThreeBody size={30} speed={0.7} color="#9D00BB" />

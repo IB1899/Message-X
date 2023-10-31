@@ -25,10 +25,13 @@ export default function Right({ user, connection }: { user: FullUser, connection
             <div className="img">
                 <Image className="profileImage" src={connection.image} alt="Contacts image" width={130} height={130} />
             </div>
-            <h1> {connection.name} </h1>
+            <div className="details">
+                <h1> {connection.name} </h1>
 
-            <Copy username={connection.username} />
-            <p> {connection.description} </p>
+                <Copy username={connection.username} />
+                <p> {connection.description} </p>
+            </div>
+
 
             <CallChat connection={connection} user={user} />
 

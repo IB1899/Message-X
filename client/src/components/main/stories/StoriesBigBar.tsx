@@ -14,9 +14,9 @@ export default function StoriesBigBar({ user, stories }: { user: FullUser, stori
     let dispatch = useDispatch<AppDispatch>()
 
     let { isSettings, isAddStory } = useAppSelector((state => state.MainSlice))
-    
+
     return (
-        <>
+        <div className="StoriesPage">
             {/* The Add story pop-up  rendered conditionally */}
             {isAddStory ? <AddNewStory email={user.email} userImage={user.image} username={user.username} /> : null}
 
@@ -26,6 +26,6 @@ export default function StoriesBigBar({ user, stories }: { user: FullUser, stori
                 :
                 <VerticalStories stories={stories} />
             }
-        </>
+        </div>
     )
 }

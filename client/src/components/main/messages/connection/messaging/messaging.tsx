@@ -14,6 +14,7 @@ export default function TextMessaging({ user, connection, haveMe }: props) {
 
     //! Accessing the socket from a global state
     let { socket, searchChat } = useAppSelector((state => state.SocketSlice))
+    let { isRightBar } = useAppSelector((state => state.PhoneSizeSlice))
 
     //! The message & Image
     let MessageRef = useRef<HTMLInputElement>(null)
@@ -31,10 +32,25 @@ export default function TextMessaging({ user, connection, haveMe }: props) {
     }, [socket])
 
     //! Scroll down by default and with each new message
+    let msgsRef = useRef<HTMLDivElement>(null)
     let ContainerRef = useRef<HTMLDivElement>(null)
     useEffect(() => {
-        if (ContainerRef.current) ContainerRef.current.scrollTop = ContainerRef.current.scrollHeight
-    }, [messages])
+        if (msgsRef.current) {
+            msgsRef.current.scrollTop = msgsRef.current.scrollHeight;
+        }
+        if (ContainerRef.current) {
+
+            //! To avoid turning the Left component into a client component.
+            let parent = ContainerRef.current.parentElement;
+
+            if (ContainerRef.current.classList.contains("hide")) {
+                parent?.classList.add("hide")
+            } else {
+                parent?.classList.remove("hide")
+            }
+        }
+
+    }, [messages, isRightBar])
 
     //! to check that if the other user has deleted the current user from their connections
     let [hasMe, setHasMe] = useState(haveMe === "yes" ? false : true)
@@ -44,7 +60,7 @@ export default function TextMessaging({ user, connection, haveMe }: props) {
 
 
     return (
-        <div className="TheMessages" ref={ContainerRef}>
+        <div className={isRightBar ? "TheMessages hide" : "TheMessages"} ref={ContainerRef}>
 
             {
                 hasMe ? <div className="HasMe">
@@ -57,7 +73,7 @@ export default function TextMessaging({ user, connection, haveMe }: props) {
             }
 
             {/* The Messages  */}
-            <div className="msgs">
+            <div className="msgs" ref={msgsRef}>
 
                 {<div className={error ? "error" : "error hide"}> <p>{error}</p> </div>}
 

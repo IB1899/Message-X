@@ -38,6 +38,6 @@ export default function Operation({ user, connection, haveMe, now = null }: prop
         Operation === "VideoCalling" ?
             <VideoCall connection={connection} now={now} />
             :
-            <VoiceCall />
+            <VoiceCall connection={connection} now={now} />
     )
 }

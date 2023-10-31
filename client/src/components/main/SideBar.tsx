@@ -16,6 +16,7 @@ import useLogOut from "@/hooks/logout"
 import { useEffect } from "react"
 import { setAmIBeingCalled } from "@/toolkit/slices/PeerSlice"
 import dynamic from "next/dynamic"
+import { setIsProfile } from "@/toolkit/slices/PhoneSizeSlice"
 
 //! To lazily load this component
 const AmIBeingCalled = dynamic(() => import("./amIBeingCalled"))
@@ -31,8 +32,11 @@ export default function SideBar({ user }: { user: FullUser }) {
     let { isSettings } = useAppSelector((state => state.MainSlice))
     let { Operation, amIBeingCalled } = useAppSelector((state => state.PeerSlice))
     let { socket } = useAppSelector((state => state.SocketSlice))
+    let { isProfile } = useAppSelector((state => state.PhoneSizeSlice))
 
     let openProfile = () => {
+        dispatch(setIsProfile(!isProfile))
+        dispatch(setIsSettings(false))
         if (pathname !== "/main/messages") {
             router.push("/main/messages")
         }
@@ -57,17 +61,19 @@ export default function SideBar({ user }: { user: FullUser }) {
     //! Listening if any other user calls this user
     useEffect(() => {
 
-        socket.on("ShowThereIsVideoCall", ({ name, image, room, connectionId, userId }: { [key: string]: string }) => {
-            if (!amIBeingCalled.isCalling) dispatch(setAmIBeingCalled({ isCalling: true, name, image, room, connectionId, userId }))
+        socket.on("ShowThereIsVideoCall", ({ name, image, room, connectionId }: { [key: string]: string }) => {
+            if (!amIBeingCalled.isCalling) dispatch(setAmIBeingCalled({ isCalling: true, name, image, room, connectionId, type: "video" }))
+        })
+
+        socket.on("ShowThereIsVoiceCall", ({ name, image, room, connectionId }: { [key: string]: string }) => {
+            if (!amIBeingCalled.isCalling) dispatch(setAmIBeingCalled({ isCalling: true, name, image, room, connectionId, type: "voice" }))
         })
 
     }, [])
 
     return (
-
         <>
-
-            {amIBeingCalled.isCalling ? <AmIBeingCalled /> : null}
+            {amIBeingCalled.isCalling ? <AmIBeingCalled userId={user._id} /> : null}
 
             <nav>
                 <div className="logo">
@@ -77,11 +83,12 @@ export default function SideBar({ user }: { user: FullUser }) {
                 <div className="links">
 
                     <Link style={{ pointerEvents: Operation === "VideoCalling" || Operation === "VoiceCalling" ? "none" : "painted" }}
-                        onClick={() => dispatch(setIsSettings(false))} href={"/main/messages"} id="A1
-                " className={pathname === "/main/messages" && !isSettings ? "active" : ""}
+                        onClick={() =>{ dispatch(setIsProfile(false)); dispatch(setIsSettings(false))}} href={"/main/messages"} id="A1"
+                        className={pathname === "/main/messages" && !isSettings ? "active" : ""}
                     >
                         <FaRegCommentDots />
                     </Link>
+                    <span className="phoneOnly"></span>
 
                     <Link style={{ pointerEvents: Operation === "VideoCalling" || Operation === "VoiceCalling" ? "none" : "painted" }}
                         onClick={() => dispatch(setIsSettings(false))} href={"/main/groups"} id="A2"
@@ -105,10 +112,11 @@ export default function SideBar({ user }: { user: FullUser }) {
                     <button style={{ pointerEvents: Operation === "VideoCalling" || Operation === "VoiceCalling" ? "none" : "painted" }}
                         id="A5" onClick={SignOut}> <MdLogout /> </button>
                     <button style={{ pointerEvents: Operation === "VideoCalling" || Operation === "VoiceCalling" ? "none" : "painted" }}
-                        id="A6" className={isSettings ? "active" : ""} onClick={() => dispatch(setIsSettings(true))} >
+                        id="A6" className={isSettings ? "active" : ""} onClick={() =>{ dispatch(setIsProfile(false)); dispatch(setIsSettings(!isSettings))}} >
                         <RiSettings5Fill />
                     </button>
                 </div>
+                <span className="phoneOnly"></span>
 
                 {user?.image ?
                     <button style={{ pointerEvents: Operation === "VideoCalling" || Operation === "VoiceCalling" ? "none" : "painted" }}

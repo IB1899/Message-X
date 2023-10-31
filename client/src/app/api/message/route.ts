@@ -14,7 +14,7 @@ export async function GET(request: Request) {
 
         let url = new URL(request.url)
         let userId: string | null = url.searchParams.get("userId")
-        let connectionId: any | null = url.searchParams.get("connectionId")
+        let connectionId: any | null = url.searchParams.get("connectionId") // refers to the RoomConnectionId
 
         if (!connectionId || !userId) throw Error("The data wasn't provided")
 
@@ -24,9 +24,11 @@ export async function GET(request: Request) {
 
         //! to check that if the other user has deleted the current user from their connections
         let connection: Connection[] = user.connections.filter(connection => {
-            let id: string = String(connection._id)
+            let id: string = connection.RoomConnectionId
             if (connectionId === id) return connection
         })
+
+        if(!connection[0]?.email) throw Error("The connection doesn't seem to be found")
         let TheirEmail = connection[0].email;
 
         let result = await UserModel.findOne({ email: TheirEmail, "connections.email": user.email }, { email: 1 })
