@@ -17,12 +17,15 @@ const firebase_1 = require("../config/firebase");
 const storage_1 = require("firebase/storage");
 let rooms = {};
 let SocketCode = (socket, io) => {
+    //? When a user automatically disconnects from the app
     let HandelDisconnect = (room, email) => {
         socket.leave(room);
         //! remove the disconnected user from the main backend track
         rooms[room] = rooms[room].filter(userEmail => userEmail !== email);
         //! remove the disconnected user from the frontend track => to show that the user is not active
         socket.to(room).emit("UserLeft", { email });
+        socket.to(room).emit("user-disconnected", { room }); // in case they were on a call
+        socket.disconnect();
     };
     //? When a user Opens the website join them with their each contact
     let JoinRoom = ({ room, email }) => {
@@ -77,25 +80,38 @@ let SocketCode = (socket, io) => {
         //? Show the other user that the current user is calling him -2-
         socket.to(room).emit("ShowThereIsVideoCall", { name, image, room, connectionId, userId });
     };
+    //? Initiate the call between two peers -1- the current users initiates
+    let StartVoiceCall = ({ room, name, image, connectionId, userId }) => {
+        //? Show the other user that the current user is calling him -2-
+        socket.to(room).emit("ShowThereIsVoiceCall", { name, image, room, connectionId, userId });
+    };
     //? The other user has answer the call of the current user with either a yes or no
-    let VideoCallAnswer = ({ answer, room, peerId }) => {
+    let CallAnswer = ({ answer, room, peerId }) => {
         if (answer === "no") {
-            socket.to(room).emit("VideoCallAnswer-BackendSends-FrontendReceives", { answer });
+            socket.to(room).emit("CallAnswer-BackendSends-FrontendReceives", { answer });
         }
         else {
-            socket.to(room).emit("VideoCallAnswer-BackendSends-FrontendReceives", { answer, peerId });
+            socket.to(room).emit("CallAnswer-BackendSends-FrontendReceives", { answer, peerId });
         }
     };
     //? End the call between two peers
     let EndCall = ({ room }) => {
-        console.log(room);
         socket.to(room).emit("user-disconnected", { room });
     };
     socket.on("EndCall-FrontendSends-BackendReceives", EndCall);
-    socket.on("VideoCallAnswer-FrontendSends-BackendReceives", VideoCallAnswer);
+    socket.on("CallAnswer-FrontendSends-BackendReceives", CallAnswer);
     socket.on("StartVideoCall", StartVideoCall);
+    socket.on("StartVoiceCall", StartVoiceCall);
     socket.on("JoinRoom", JoinRoom);
     socket.on("Messages-FrontEndSends-BackEndReceives", Messages);
     socket.on("Images-FrontEndSends-BackEndReceives", Images);
+    //! Since I don't know how to update the peer stream between two users (when they change the camera, turn off the mike etc)
+    //! I will accomplish this effect through making signals with socket.io
+    socket.on("Signal-ONOFF", ({ room, turnOff }) => {
+        socket.to(room).emit("ONOFF", { turnOff });
+    });
+    socket.on("Signal-MICROPHONE", ({ room, turnOff }) => {
+        socket.to(room).emit("MICROPHONE", { turnOff });
+    });
 };
 exports.SocketCode = SocketCode;

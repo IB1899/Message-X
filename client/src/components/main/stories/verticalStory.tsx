@@ -4,6 +4,7 @@ import { setIsAddStory } from "@/toolkit/slices/MainSlice"
 import { AppDispatch } from "@/toolkit/store"
 import { FaGlassCheers } from "react-icons/fa"
 import { useDispatch } from "react-redux"
+import { useRouter } from "next/navigation"
 
 import { EffectCards, EffectCoverflow, Navigation, Pagination } from 'swiper/modules';
 import { SwiperSlide, Swiper, SwiperRef } from "swiper/react"
@@ -11,7 +12,6 @@ import { SwiperSlide, Swiper, SwiperRef } from "swiper/react"
 import Image from "next/image"
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { useRouter } from "next/navigation"
 
 
 export default function VerticalStories({ stories }: { stories: story[] }) {
@@ -39,6 +39,7 @@ export default function VerticalStories({ stories }: { stories: story[] }) {
 
             // onSlideChange={() => console.log('slide change')}
             >
+
                 {stories.map(story => (
 
                     <SwiperSlide key={story._id} onClick={() => push(`/main/stories/${story._id}`)}>

@@ -20,6 +20,9 @@ export let SocketCode = (socket: Socket, io: Server<DefaultEventsMap, DefaultEve
         //! remove the disconnected user from the frontend track => to show that the user is not active
         socket.to(room).emit("UserLeft", { email })
         socket.to(room).emit("user-disconnected", { room }) // in case they were on a call
+        
+        //! To prevent memory leak warning
+        socket.disconnect()
     }
 
     //? When a user Opens the website join them with their each contact
