@@ -12,6 +12,7 @@ import { SwiperSlide, Swiper, SwiperRef } from "swiper/react"
 import Image from "next/image"
 import 'swiper/css';
 import 'swiper/css/pagination';
+import { useEffect, useState } from "react"
 
 
 export default function VerticalStories({ stories }: { stories: story[] }) {
@@ -19,6 +20,10 @@ export default function VerticalStories({ stories }: { stories: story[] }) {
     let dispatch = useDispatch<AppDispatch>()
 
     let { push } = useRouter()
+
+    let [width, setWidth] = useState<number>(1000)
+
+    useEffect(() => { setWidth(window.innerWidth) }, [])
 
     return (
         <div className='VerticalStories'>
@@ -34,7 +39,7 @@ export default function VerticalStories({ stories }: { stories: story[] }) {
                 direction="vertical"
                 modules={[Navigation, Pagination]}
                 spaceBetween={12}
-                slidesPerView={window.innerWidth > 845 ? 3 : 1}
+                slidesPerView={width > 845 ? 3 : 1}
                 pagination={{ clickable: true, dynamicBullets: true, }}
 
             // onSlideChange={() => console.log('slide change')}

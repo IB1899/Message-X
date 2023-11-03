@@ -7,6 +7,7 @@ import { useTheMessage } from "@/hooks/theMessage";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { FaMicrophone } from "react-icons/fa";
 import { BiMailSend } from "react-icons/bi";
+import { usePhoneSizeChat } from "@/hooks/phoneSizeChat";
 
 type props = { user: FullUser, connection: Connection, haveMe: "yes" | "no" }
 
@@ -26,8 +27,8 @@ export default function TextMessaging({ user, connection, haveMe }: props) {
 
     //! Listening for messages(we put it in a useEffect because we don't want it to run with every rerender)
     useEffect(() => {
-        socket.on("Messages-BackEndSends-FrontEndReceives", ({ _id, message, MessageType, time, from }: Message) => {
-            setMessage((prev) => [...prev, { message, time, from, MessageType, _id }])
+        socket.on("Messages-BackEndSends-FrontEndReceives", ({ email, _id, message, MessageType, time, from }: Message) => {
+            if (connection.email === email) setMessage((prev) => [...prev, { message, time, from, MessageType, _id }])
         })
     }, [socket])
 
@@ -35,22 +36,10 @@ export default function TextMessaging({ user, connection, haveMe }: props) {
     let msgsRef = useRef<HTMLDivElement>(null)
     let ContainerRef = useRef<HTMLDivElement>(null)
     useEffect(() => {
-        if (msgsRef.current) {
-            msgsRef.current.scrollTop = msgsRef.current.scrollHeight;
-        }
-        if (ContainerRef.current) {
+        if (msgsRef.current) msgsRef.current.scrollTop = msgsRef.current.scrollHeight;
+    }, [messages])
 
-            //! To avoid turning the Left component into a client component.
-            let parent = ContainerRef.current.parentElement;
-
-            if (ContainerRef.current.classList.contains("hide")) {
-                parent?.classList.add("hide")
-            } else {
-                parent?.classList.remove("hide")
-            }
-        }
-
-    }, [messages, isRightBar])
+    usePhoneSizeChat(ContainerRef, isRightBar)
 
     //! to check that if the other user has deleted the current user from their connections
     let [hasMe, setHasMe] = useState(haveMe === "yes" ? false : true)
@@ -58,15 +47,14 @@ export default function TextMessaging({ user, connection, haveMe }: props) {
     //! The custom Hook for this page
     let { sendMessage } = useTheMessage(MessageRef, socket, connection, user, setMessage, ImageRef, setError)
 
-
     return (
         <div className={isRightBar ? "TheMessages hide" : "TheMessages"} ref={ContainerRef}>
 
             {
                 hasMe ? <div className="HasMe">
                     <p>This user has deleted you from their contacts and they will no longer receive messages in this chat.
-                        If you wish to contact them again delete them and re add them to your contact. Please note if this your
-                        blocked you, you can not contact them again
+                        If you wish to contact them again delete them and re add them to your contact. <br/> Please note if this user
+                        blocked you, you cannot contact them again.
                     </p>
                     <i onClick={() => setHasMe(false)} > <AiFillCloseCircle /> </i>
                 </div> : null

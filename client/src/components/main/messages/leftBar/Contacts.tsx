@@ -7,7 +7,7 @@ import formatDistanceToNow from "date-fns/formatDistanceToNowStrict";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { AiFillCheckCircle, AiOutlineCheck } from "react-icons/ai";
+import { AiFillCheckCircle } from "react-icons/ai";
 import { FaPlusSquare } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 
@@ -82,11 +82,7 @@ export default function Contacts({ user, connections, noConnections = null }: { 
 
         })()
 
-        missedMessagesRef.current?.textContent === "0" ? setIsThereMissedMessages(false) : setIsThereMissedMessages(true)
     }, [])
-
-    let [isThereMissedMessages, setIsThereMissedMessages] = useState(true)
-    let missedMessagesRef = useRef<HTMLSpanElement>(null)
 
     let clickContact = (connection: Connection, active: boolean) => {
         push(`/main/messages/${connection.RoomConnectionId}?id=${user._id}&active=${active}`);
@@ -119,26 +115,28 @@ export default function Contacts({ user, connections, noConnections = null }: { 
 
                     <div className="messagesInfo">
 
-                        {isThereMissedMessages ?
-                            <span className="missedMessages" ref={missedMessagesRef}  >
-                                {
-                                    newMessage[connection.RoomConnectionId] ?
-                                        CalculateMissedMessages([...connection.messages, newMessage[connection.RoomConnectionId]])
-                                        :
-                                        CalculateMissedMessages(connection.messages)
-                                }
-                            </span>
-                            :
-                            <span className="check"> <AiFillCheckCircle /> </span>
+                        {
+                            newMessage[connection.RoomConnectionId] ?
+                                CalculateMissedMessages([...connection.messages, newMessage[connection.RoomConnectionId]]) == "0" ?
+                                    <span className="check"> <AiFillCheckCircle /> </span> :
+                                    <span className="missedMessages">
+                                        {CalculateMissedMessages([...connection.messages, newMessage[connection.RoomConnectionId]])}
+                                    </span>
+                                :
+                                CalculateMissedMessages(connection.messages) == "0" ?
+                                    <span className="check"> <AiFillCheckCircle /> </span> :
+                                    <span className="missedMessages"> {CalculateMissedMessages(connection.messages)} </span>
                         }
 
                         <span className="time" suppressHydrationWarning>
                             {connection?.messages.length ?
 
                                 newMessage[connection.RoomConnectionId] ?
-                                    formatDistanceToNow(new Date(newMessage[connection.RoomConnectionId].time))
+                                    formatDistanceToNow(new Date(newMessage[connection.RoomConnectionId].time)) === "0 seconds" ?
+                                        "now" : formatDistanceToNow(new Date(newMessage[connection.RoomConnectionId].time))
                                     :
-                                    formatDistanceToNow(new Date(connection.messages[connection.messages.length - 1].time))
+                                    formatDistanceToNow(new Date(connection.messages[connection.messages.length - 1].time)) === "0 seconds" ?
+                                        "now" : formatDistanceToNow(new Date(connection.messages[connection.messages.length - 1].time))
                                 :
                                 null
                             }

@@ -2,16 +2,16 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 
 type Types = {
 
-    isBigBar: boolean,
-    isProfile: boolean,
-    isRightBar: boolean
+    isBigBar: boolean, //! To show & hide the left big bar
+    isProfile: boolean, //! To show & hide the profile
+    isRightBar: boolean //! To hide the right bar while showing either the messages, voiceChat, or videoChat
 }
 
 let PhoneSizeSlice = createSlice({
 
     name: "Phone sizes states",
 
-    initialState: { isBigBar: false, isProfile: false, isRightBar:false } as Types,
+    initialState: { isBigBar: false, isProfile: false, isRightBar: false } as Types,
 
     reducers: {
 
@@ -24,7 +24,7 @@ let PhoneSizeSlice = createSlice({
         setIsRightBar: (state, action: PayloadAction<boolean>) => {
             return { ...state, isRightBar: action.payload }
         },
-        
+
     }
 })
 

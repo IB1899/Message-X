@@ -65,3 +65,12 @@
 5. Fixed Low Level Design issues.
 6. Created new necessary pages & finished the website's necessary toughs logo, email, etc.
 7. Optimized many parts of the application.
+
+## Ibrahim Ali- October 21 - November 2 2023
+1. Finished the Voice-Calling & Video-Calling features.
+2. Finished supporting all screen sizes.
+3. Finished the entire application.
+4. Fixed many serious & funny & necessary bugs.
+5. Had some break days for other stuff.
+6. Finished testing the local web-application.
+7. Starting the Deployment process.

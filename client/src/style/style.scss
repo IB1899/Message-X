@@ -10,19 +10,19 @@ $white:white;
 };
 
 @mixin Laptop{
-    @media(min-width:1000px) and (max-width:1249px){  @content  }
+    @media(min-width:1000px) and (max-width:1249.9px){  @content  }
 };
 
 @mixin LargeTablets{
-    @media(min-width:850px) and (max-width:999px){  @content  }
+    @media(min-width:850px) and (max-width:999.9px){  @content  }
 };
 
 @mixin SmallTablets{
-    @media(min-width:480px) and (max-width:849px){  @content  }
+    @media(min-width:480px) and (max-width:849.9px){  @content  }
 };
 
 @mixin phone{
-    @media(max-width:479px){  @content  }
+    @media(max-width:479.9px){  @content  }
 };
 
 body{ font-family: Arial, Helvetica, sans-serif; text-align:center;
@@ -56,6 +56,7 @@ body{ font-family: Arial, Helvetica, sans-serif; text-align:center;
                     h1{ font-size:45px; font-weight:lighter; line-height:60px; span{ color:$violet; font-weight:bold; } }
                     
                     p{ font-size:19px; line-height:30px; letter-spacing:1px; margin:20px 0; width:90%; text-shadow:2px 3px 3px rgb(182, 182, 182);
+                        border-radius:20px; padding-right:20px; background: rgba(255, 255, 255, 0.447);
                     }
 
                     button{ background:$black; border:none; padding:11px 24px; font-size:19px; border-radius:10px; 
@@ -161,9 +162,10 @@ body{ font-family: Arial, Helvetica, sans-serif; text-align:center;
 
             .landing{ flex-direction:column; height:80%; align-items:center; margin-top:-50px; text-align:center; justify-content:center;
 
-                .leftSide{  margin:0 50px; width:85%;
-                    h1{ font-size:30px; line-height:40px; font-weight:bold; } p{font-size:19px; width:100%; margin:10px 0;  line-height:27px;}
-                    button{ font-size:16px; pointer-events:painted; a{pointer-events: painted;}}
+                .leftSide{  margin:0 50px; width:90%;
+                    h1{ font-size:33px; line-height:40px; font-weight:bold; }
+                    p{font-size:20px; border-radius:20px; padding:10px; background: rgba(255, 255, 255, 0.425); width:100%; margin:10px 0;  line-height:27px;}
+                    button{ font-size:18px; pointer-events:painted; a{pointer-events: painted;}}
                     h4{ display:none;} 
                     .phoneNone{display:none;} .phoneYes{display:inline;}
 
@@ -431,7 +433,6 @@ body{ font-family: Arial, Helvetica, sans-serif; text-align:center;
                 }
             }
            
-           
             .body{
 
                 .BackGround .Message.Reset-Password{ width:90%; }
@@ -591,7 +592,7 @@ body{ font-family: Arial, Helvetica, sans-serif; text-align:center;
                     .swiper-button-prev{ display:none; }
                     .swiper-button-next{display:none; }
 
-                    .swiper-slide{ height:70vh;
+                    .swiper-slide{ height:75vh;
 
                         .text{bottom:55px; width:100%; text-align:center; display:flex; flex-direction:column; align-items:center;
                             i{left:20%; align-self:flex-start;}
@@ -682,6 +683,7 @@ body{ font-family: Arial, Helvetica, sans-serif; text-align:center;
         }
     }
 
+    //! The Main Pages
     .Main{ 
         @mixin HoverText { position:absolute; bottom:40px; color:$white; font-weight:bold; width:fit-content; transition:.3s;
             font-size:15px; background:$black; padding:5px 15px; border-radius:0 10px 10px 0; top:-3px; z-index:10;
@@ -965,7 +967,7 @@ body{ font-family: Arial, Helvetica, sans-serif; text-align:center;
                                 
                                 .msg{  display:flex; align-items:center; gap:10px; margin:15px 10px;  text-align:left; 
 
-                                    #userImage{ border-radius:50%; object-fit:content; }
+                                    #userImage{ border-radius:50%; object-fit:cover; }
 
                                     .text{ color:$white;  
                                         
@@ -1224,7 +1226,6 @@ body{ font-family: Arial, Helvetica, sans-serif; text-align:center;
                         }  
 
                     }
-
                 }
 
                 @include Laptop(){
@@ -1342,8 +1343,16 @@ body{ font-family: Arial, Helvetica, sans-serif; text-align:center;
                                         .xxx { border-radius:50%; width:32px; height:32px; padding:0; margin:0; span{ display:none; }}
                                     }
                                 }
-
                                 .instructions .content{ width:80%; }
+                            }
+
+                            .VoiceCall{
+                                .options{  z-index:6; 
+                                    i{font-size:18px;} 
+                                    input{ width:90px;}
+
+                                    .xxx { border-radius:50%; width:32px; height:32px; padding:0; margin:0; span{ display:none; }}
+                                }
                             }
                         }
                         .Right{width:100%; position: relative;
@@ -1706,7 +1715,7 @@ body{ font-family: Arial, Helvetica, sans-serif; text-align:center;
         }
 
 
-    } //TODO https://nextjs.org/docs/app/api-reference/components/image#remotepatterns check
+    }
 
     //! Not Found page
     .NotFound{ width:100%; display: flex; height:100vh; overflow:hidden;
@@ -1757,11 +1766,9 @@ body{ font-family: Arial, Helvetica, sans-serif; text-align:center;
             }
 
         }
-
         @include Desktop(){
             @include NotFound
         }
-
         @include Laptop(){
             @include NotFound
         }
@@ -1788,7 +1795,6 @@ body{ font-family: Arial, Helvetica, sans-serif; text-align:center;
 
             .center .body { h1{font-size:80px;} h3{font-size:30px;} p{font-size:16px;} a,button{font-size:17px;} }
         }
-
     }
 
     //! Error Page
@@ -1827,5 +1833,4 @@ body{ font-family: Arial, Helvetica, sans-serif; text-align:center;
             p{ width:70%; }
         }
     }
-
 }

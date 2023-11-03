@@ -9,12 +9,15 @@ import { FiPhoneMissed } from "react-icons/fi"
 import { v4 as uuid } from "uuid"
 import Image from "next/image"
 import declined from "@/../public/images/declined.svg"
+import { usePhoneSizeChat } from "@/hooks/phoneSizeChat"
+import { useVoiceCall } from "@/hooks/voiceCall"
 
 export default function VoiceCall({ connection, now = null }: { connection: Connection, now: "now" | null }) {
 
     //! This cannot be used in ssr nor in redux that uses ssr.
     let [peer] = useState(new Peer(uuid(), { host: "localhost", port: 3002, path: "/calls-peer" }))
     let { socket } = useAppSelector((state => state.SocketSlice))
+    let { isRightBar } = useAppSelector((state => state.PhoneSizeSlice))
 
     let [remoteStream, setRemoteStream] = useState<null | MediaStream>(null)
     let [adjustments, setAdjustments] = useState({ microphone: true, soundOff: false })
@@ -27,81 +30,18 @@ export default function VoiceCall({ connection, now = null }: { connection: Conn
         if (remoteAudioRef.current) remoteAudioRef.current.srcObject = remoteStream
     }, [remoteStream])
 
-    useEffect(() => {
 
-        (async () => {
+    //! Start The webRTC voice-call
+    useVoiceCall(socket, peer, connection, now, setRemoteStream, setHasAnswered, setSignals)
 
-            //! The audio that I send
-            let stream = await navigator.mediaDevices.getUserMedia({ video: false, audio: true })
-
-            socket.on("CallAnswer-BackendSends-FrontendReceives", ({ answer, peerId }: { answer: "no" | "yes", peerId: string | null }) => {
-
-                if (answer === "no") setHasAnswered({
-                    hasAnswered: true,
-                    TheAnswer: answer,
-                    message: `${connection.name} has declined the call.`
-                })
-
-
-                if (answer === "yes" && peerId && stream) {
-
-                    //? -1- The local user is calling the remote user through the 'peerId' and sending his/her stream
-                    let call = peer.call(peerId, stream) //? peerId= is the peer id of the remote user. localStream= is the stream of the local user
-
-                    //? -4- The local user is receiving the remote's user stream
-                    call.on("stream", (remoteUserStream) => {
-                        setHasAnswered({ hasAnswered: true, TheAnswer: answer, message: "accepted call" })
-                        setRemoteStream(remoteUserStream);
-                    })
-                }
-            })
-
-            //! When the remote user ends the call.
-            socket.on("user-disconnected", ({ room }: { room: string }) => {
-                setRemoteStream(null);
-                // remoteAudioRef.current!.srcObject = null;
-                setHasAnswered({
-                    hasAnswered: true,
-                    TheAnswer: "no",
-                    message: `${connection.name} has ended the call.`
-                })
-            })
-
-            //! We make answering/refusing the call through socket.io. This code is just to start exchanging streams(The user already answered the call).
-            peer.on("call", (call) => {
-
-                //? -2- The remote user is answering the local's user cal and sends his/her stream.
-                call.answer(stream) //? localStream= is the stream of the remote user.
-
-
-                //? -3- The remote user is receiving the local's user stream.
-                call.on("stream", (localUserStream) => {
-                    setRemoteStream(localUserStream);
-
-                    // remoteAudioRef.current!.srcObject = localUserStream;
-                    setHasAnswered({ hasAnswered: true, TheAnswer: "yes", message: "accepted call" })
-                })
-            })
-
-            //TODO SIGNALS
-            //TODO 1- The remote user turned off-on his/her microphone, so we need to do the effect for the local user.
-            socket.on("MICROPHONE", ({ turnOff }: { turnOff: boolean }) => {
-                setSignals((prev) => { return { microphoneOff: turnOff } })
-            })
-
-            //! To make fucking sure that when they answer the call they are listening.
-            if (now === "now") {
-                socket.emit("CallAnswer-FrontendSends-BackendReceives", { answer: "yes", peerId: peer.id, room: connection.RoomConnectionId })
-            }
-
-        })()
-
-    }, [peer, socket])
-
+    //! Switches and end the call
     let { endCall, localSwitches } = useAudioCall(socket, adjustments, setAdjustments, connection, remoteAudioRef)
 
+    let ContainerRef = useRef<HTMLDivElement>(null)
+    usePhoneSizeChat(ContainerRef, isRightBar)
+
     return (
-        <div className='VoiceCall'>
+        <div className={isRightBar ? 'VoiceCall hide' : 'VoiceCall'} ref={ContainerRef}>
 
             <div className="caller">
 
@@ -137,7 +77,8 @@ export default function VoiceCall({ connection, now = null }: { connection: Conn
                 >
                     <i> <AiOutlineSound /> </i>
                     <input type="range" min={1} defaultValue={10} max={10} onChange={(e) => {
-                        remoteAudioRef.current!.volume = Number(e.target.value) / 10;
+                        remoteAudioRef.current ? remoteAudioRef.current.volume = Number(e.target.value) / 10 : null
+
                     }} />
                 </motion.div>
 
@@ -147,7 +88,7 @@ export default function VoiceCall({ connection, now = null }: { connection: Conn
                         {adjustments.microphone ? <BiMicrophone /> : <BiMicrophoneOff />}
                     </motion.i>
                     <motion.i initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2.5 }}
-                        onClick={() => localSwitches("SOUND")} >
+                        onClick={() => remoteAudioRef.current ? localSwitches("SOUND") : null} >
                         {adjustments.soundOff ? <BiVolumeMute /> : <AiOutlineSound />}
                     </motion.i>
 

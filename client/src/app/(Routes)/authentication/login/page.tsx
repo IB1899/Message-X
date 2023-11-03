@@ -1,13 +1,12 @@
 import LeftSide from "@/components/login/leftSide"
 import RightSide from "@/components/auth/rightSide"
-import { getSession, useSession } from "next-auth/react"
 import Link from "next/link"
 import { FaAngleDoubleLeft, FaUsers, FaXing } from "react-icons/fa"
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
     title: "Messages X - Log in",
-    description: "This page is for users to log in the website"
+    description: "This page is for users to log-in the website"
 }
 
 export default function LogIn() {

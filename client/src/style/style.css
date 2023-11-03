@@ -100,6 +100,9 @@ body .Loading-Page {
     margin: 20px 0;
     width: 90%;
     text-shadow: 2px 3px 3px rgb(182, 182, 182);
+    border-radius: 20px;
+    padding-right: 20px;
+    background: rgba(255, 255, 255, 0.447);
   }
   body .Home .landing .leftSide button {
     background: black;
@@ -160,7 +163,7 @@ body .Loading-Page {
     right: 0;
   }
 }
-@media (min-width: 1000px) and (max-width: 1249px) {
+@media (min-width: 1000px) and (max-width: 1249.9px) {
   body .Home {
     height: 100vh;
     position: relative;
@@ -246,6 +249,9 @@ body .Loading-Page {
     margin: 20px 0;
     width: 90%;
     text-shadow: 2px 3px 3px rgb(182, 182, 182);
+    border-radius: 20px;
+    padding-right: 20px;
+    background: rgba(255, 255, 255, 0.447);
   }
   body .Home .landing .leftSide button {
     background: black;
@@ -342,7 +348,7 @@ body .Loading-Page {
     width: 400px;
   }
 }
-@media (min-width: 850px) and (max-width: 999px) {
+@media (min-width: 850px) and (max-width: 999.9px) {
   body .Home {
     height: 100vh;
     position: relative;
@@ -428,6 +434,9 @@ body .Loading-Page {
     margin: 20px 0;
     width: 90%;
     text-shadow: 2px 3px 3px rgb(182, 182, 182);
+    border-radius: 20px;
+    padding-right: 20px;
+    background: rgba(255, 255, 255, 0.447);
   }
   body .Home .landing .leftSide button {
     background: black;
@@ -533,7 +542,7 @@ body .Loading-Page {
     height: 85%;
   }
 }
-@media (min-width: 480px) and (max-width: 849px) {
+@media (min-width: 480px) and (max-width: 849.9px) {
   body .Home {
     height: 100vh;
     position: relative;
@@ -619,6 +628,9 @@ body .Loading-Page {
     margin: 20px 0;
     width: 90%;
     text-shadow: 2px 3px 3px rgb(182, 182, 182);
+    border-radius: 20px;
+    padding-right: 20px;
+    background: rgba(255, 255, 255, 0.447);
   }
   body .Home .landing .leftSide button {
     background: black;
@@ -747,7 +759,7 @@ body .Loading-Page {
     display: none;
   }
 }
-@media (max-width: 479px) {
+@media (max-width: 479.9px) {
   body .Home {
     height: 100vh;
     position: relative;
@@ -833,6 +845,9 @@ body .Loading-Page {
     margin: 20px 0;
     width: 90%;
     text-shadow: 2px 3px 3px rgb(182, 182, 182);
+    border-radius: 20px;
+    padding-right: 20px;
+    background: rgba(255, 255, 255, 0.447);
   }
   body .Home .landing .leftSide button {
     background: black;
@@ -950,21 +965,24 @@ body .Loading-Page {
   }
   body .Home .landing .leftSide {
     margin: 0 50px;
-    width: 85%;
+    width: 90%;
   }
   body .Home .landing .leftSide h1 {
-    font-size: 30px;
+    font-size: 33px;
     line-height: 40px;
     font-weight: bold;
   }
   body .Home .landing .leftSide p {
-    font-size: 19px;
+    font-size: 20px;
+    border-radius: 20px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.425);
     width: 100%;
     margin: 10px 0;
     line-height: 27px;
   }
   body .Home .landing .leftSide button {
-    font-size: 16px;
+    font-size: 18px;
     pointer-events: painted;
   }
   body .Home .landing .leftSide button a {
@@ -1437,7 +1455,7 @@ body .Status h1 {
     color: white;
   }
 }
-@media (min-width: 1000px) and (max-width: 1249px) {
+@media (min-width: 1000px) and (max-width: 1249.9px) {
   body .LogIn, body .SignUp {
     height: 100vh;
     background: white;
@@ -1912,7 +1930,7 @@ body .Status h1 {
     font-size: 20px;
   }
 }
-@media (min-width: 850px) and (max-width: 999px) {
+@media (min-width: 850px) and (max-width: 999.9px) {
   body .LogIn, body .SignUp {
     height: 100vh;
     background: white;
@@ -2387,7 +2405,7 @@ body .Status h1 {
     font-size: 19px;
   }
 }
-@media (min-width: 480px) and (max-width: 849px) {
+@media (min-width: 480px) and (max-width: 849.9px) {
   body .LogIn, body .SignUp {
     height: 100vh;
     background: white;
@@ -2932,7 +2950,7 @@ body .Status h1 {
     display: none;
   }
 }
-@media (max-width: 479px) {
+@media (max-width: 479.9px) {
   body .LogIn, body .SignUp {
     height: 100vh;
     background: white;
@@ -3496,7 +3514,7 @@ body .Status h1 {
     display: none;
   }
 }
-@media (min-width: 480px) and (max-width: 849px) {
+@media (min-width: 480px) and (max-width: 849.9px) {
   body .Authentication {
     height: 100vh;
     background: white;
@@ -4056,7 +4074,7 @@ body .Status h1 {
     opacity: 0.7;
   }
 }
-@media (max-width: 479px) {
+@media (max-width: 479.9px) {
   body .Authentication {
     height: 100vh;
     background: white;
@@ -4547,7 +4565,7 @@ body .Status h1 {
     display: none;
   }
   body .Authentication .body .RightSide .swiper-slide {
-    height: 70vh;
+    height: 75vh;
   }
   body .Authentication .body .RightSide .swiper-slide .text {
     bottom: 55px;
@@ -4715,7 +4733,7 @@ body .ResetPassword .right h4 {
   font-size: 15px;
   text-align: center;
 }
-@media (min-width: 480px) and (max-width: 849px) {
+@media (min-width: 480px) and (max-width: 849.9px) {
   body .ResetPassword {
     flex-direction: column;
     align-items: center;
@@ -4731,7 +4749,7 @@ body .ResetPassword .right h4 {
     margin: 10px 0;
   }
 }
-@media (max-width: 479px) {
+@media (max-width: 479.9px) {
   body .ResetPassword {
     flex-direction: column;
     align-items: center;
@@ -5751,8 +5769,8 @@ body .ResetPassword .right h4 {
   }
   body .Main .Messages .Connection .Left .TheMessages .msgs .msg #userImage {
     border-radius: 50%;
-    -o-object-fit: content;
-       object-fit: content;
+    -o-object-fit: cover;
+       object-fit: cover;
   }
   body .Main .Messages .Connection .Left .TheMessages .msgs .msg .text {
     color: white;
@@ -6479,7 +6497,7 @@ body .ResetPassword .right h4 {
     font-size: 23px;
   }
 }
-@media (min-width: 1250px) and (min-width: 1000px) and (max-width: 1249px) {
+@media (min-width: 1250px) and (min-width: 1000px) and (max-width: 1249.9px) {
   body .Main .Messages .BigBar.hide {
     width: 0px;
     min-width: 0px;
@@ -6509,7 +6527,7 @@ body .ResetPassword .right h4 {
     font-size: 11px;
   }
 }
-@media (min-width: 1250px) and (min-width: 850px) and (max-width: 999px) {
+@media (min-width: 1250px) and (min-width: 850px) and (max-width: 999.9px) {
   body .Main .Messages .BigBar.hide {
     width: 0px;
     min-width: 0px;
@@ -6557,7 +6575,7 @@ body .ResetPassword .right h4 {
     font-size: 18px;
   }
 }
-@media (min-width: 1250px) and (min-width: 480px) and (max-width: 849px) {
+@media (min-width: 1250px) and (min-width: 480px) and (max-width: 849.9px) {
   body .Main .Messages .Profile .top img {
     width: 100px;
     height: 100px;
@@ -6695,7 +6713,7 @@ body .ResetPassword .right h4 {
     display: none;
   }
 }
-@media (min-width: 1250px) and (max-width: 479px) {
+@media (min-width: 1250px) and (max-width: 479.9px) {
   body .Main .Messages .Profile .top {
     width: 80%;
   }
@@ -6793,6 +6811,25 @@ body .ResetPassword .right h4 {
   }
   body .Main .Messages .Connection .Left .VideoCall .instructions .content {
     width: 80%;
+  }
+  body .Main .Messages .Connection .Left .VoiceCall .options {
+    z-index: 6;
+  }
+  body .Main .Messages .Connection .Left .VoiceCall .options i {
+    font-size: 18px;
+  }
+  body .Main .Messages .Connection .Left .VoiceCall .options input {
+    width: 90px;
+  }
+  body .Main .Messages .Connection .Left .VoiceCall .options .xxx {
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    margin: 0;
+  }
+  body .Main .Messages .Connection .Left .VoiceCall .options .xxx span {
+    display: none;
   }
   body .Main .Messages .Connection .Right {
     width: 100%;
@@ -7447,7 +7484,7 @@ body .ResetPassword .right h4 {
     color: red;
   }
 }
-@media (min-width: 1000px) and (max-width: 1249px) {
+@media (min-width: 1000px) and (max-width: 1249.9px) {
   body .Main {
     display: flex;
     background: #202020;
@@ -8448,8 +8485,8 @@ body .ResetPassword .right h4 {
   }
   body .Main .Messages .Connection .Left .TheMessages .msgs .msg #userImage {
     border-radius: 50%;
-    -o-object-fit: content;
-       object-fit: content;
+    -o-object-fit: cover;
+       object-fit: cover;
   }
   body .Main .Messages .Connection .Left .TheMessages .msgs .msg .text {
     color: white;
@@ -9176,7 +9213,7 @@ body .ResetPassword .right h4 {
     font-size: 23px;
   }
 }
-@media (min-width: 1000px) and (max-width: 1249px) and (min-width: 1000px) and (max-width: 1249px) {
+@media (min-width: 1000px) and (max-width: 1249.9px) and (min-width: 1000px) and (max-width: 1249.9px) {
   body .Main .Messages .BigBar.hide {
     width: 0px;
     min-width: 0px;
@@ -9206,7 +9243,7 @@ body .ResetPassword .right h4 {
     font-size: 11px;
   }
 }
-@media (min-width: 1000px) and (max-width: 1249px) and (min-width: 850px) and (max-width: 999px) {
+@media (min-width: 1000px) and (max-width: 1249.9px) and (min-width: 850px) and (max-width: 999.9px) {
   body .Main .Messages .BigBar.hide {
     width: 0px;
     min-width: 0px;
@@ -9254,7 +9291,7 @@ body .ResetPassword .right h4 {
     font-size: 18px;
   }
 }
-@media (min-width: 1000px) and (max-width: 1249px) and (min-width: 480px) and (max-width: 849px) {
+@media (min-width: 1000px) and (max-width: 1249.9px) and (min-width: 480px) and (max-width: 849.9px) {
   body .Main .Messages .Profile .top img {
     width: 100px;
     height: 100px;
@@ -9392,7 +9429,7 @@ body .ResetPassword .right h4 {
     display: none;
   }
 }
-@media (min-width: 1000px) and (max-width: 1249px) and (max-width: 479px) {
+@media (min-width: 1000px) and (max-width: 1249.9px) and (max-width: 479.9px) {
   body .Main .Messages .Profile .top {
     width: 80%;
   }
@@ -9491,6 +9528,25 @@ body .ResetPassword .right h4 {
   body .Main .Messages .Connection .Left .VideoCall .instructions .content {
     width: 80%;
   }
+  body .Main .Messages .Connection .Left .VoiceCall .options {
+    z-index: 6;
+  }
+  body .Main .Messages .Connection .Left .VoiceCall .options i {
+    font-size: 18px;
+  }
+  body .Main .Messages .Connection .Left .VoiceCall .options input {
+    width: 90px;
+  }
+  body .Main .Messages .Connection .Left .VoiceCall .options .xxx {
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    margin: 0;
+  }
+  body .Main .Messages .Connection .Left .VoiceCall .options .xxx span {
+    display: none;
+  }
   body .Main .Messages .Connection .Right {
     width: 100%;
     position: relative;
@@ -9554,7 +9610,7 @@ body .ResetPassword .right h4 {
     display: none;
   }
 }
-@media (min-width: 1000px) and (max-width: 1249px) {
+@media (min-width: 1000px) and (max-width: 1249.9px) {
   body .Main .BackGround-AddStory {
     position: fixed;
     background: rgba(128, 128, 128, 0.585);
@@ -10144,7 +10200,7 @@ body .ResetPassword .right h4 {
     color: red;
   }
 }
-@media (min-width: 850px) and (max-width: 999px) {
+@media (min-width: 850px) and (max-width: 999.9px) {
   body .Main {
     display: flex;
     background: #202020;
@@ -11145,8 +11201,8 @@ body .ResetPassword .right h4 {
   }
   body .Main .Messages .Connection .Left .TheMessages .msgs .msg #userImage {
     border-radius: 50%;
-    -o-object-fit: content;
-       object-fit: content;
+    -o-object-fit: cover;
+       object-fit: cover;
   }
   body .Main .Messages .Connection .Left .TheMessages .msgs .msg .text {
     color: white;
@@ -11873,7 +11929,7 @@ body .ResetPassword .right h4 {
     font-size: 23px;
   }
 }
-@media (min-width: 850px) and (max-width: 999px) and (min-width: 1000px) and (max-width: 1249px) {
+@media (min-width: 850px) and (max-width: 999.9px) and (min-width: 1000px) and (max-width: 1249.9px) {
   body .Main .Messages .BigBar.hide {
     width: 0px;
     min-width: 0px;
@@ -11903,7 +11959,7 @@ body .ResetPassword .right h4 {
     font-size: 11px;
   }
 }
-@media (min-width: 850px) and (max-width: 999px) and (min-width: 850px) and (max-width: 999px) {
+@media (min-width: 850px) and (max-width: 999.9px) and (min-width: 850px) and (max-width: 999.9px) {
   body .Main .Messages .BigBar.hide {
     width: 0px;
     min-width: 0px;
@@ -11951,7 +12007,7 @@ body .ResetPassword .right h4 {
     font-size: 18px;
   }
 }
-@media (min-width: 850px) and (max-width: 999px) and (min-width: 480px) and (max-width: 849px) {
+@media (min-width: 850px) and (max-width: 999.9px) and (min-width: 480px) and (max-width: 849.9px) {
   body .Main .Messages .Profile .top img {
     width: 100px;
     height: 100px;
@@ -12089,7 +12145,7 @@ body .ResetPassword .right h4 {
     display: none;
   }
 }
-@media (min-width: 850px) and (max-width: 999px) and (max-width: 479px) {
+@media (min-width: 850px) and (max-width: 999.9px) and (max-width: 479.9px) {
   body .Main .Messages .Profile .top {
     width: 80%;
   }
@@ -12188,6 +12244,25 @@ body .ResetPassword .right h4 {
   body .Main .Messages .Connection .Left .VideoCall .instructions .content {
     width: 80%;
   }
+  body .Main .Messages .Connection .Left .VoiceCall .options {
+    z-index: 6;
+  }
+  body .Main .Messages .Connection .Left .VoiceCall .options i {
+    font-size: 18px;
+  }
+  body .Main .Messages .Connection .Left .VoiceCall .options input {
+    width: 90px;
+  }
+  body .Main .Messages .Connection .Left .VoiceCall .options .xxx {
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    margin: 0;
+  }
+  body .Main .Messages .Connection .Left .VoiceCall .options .xxx span {
+    display: none;
+  }
   body .Main .Messages .Connection .Right {
     width: 100%;
     position: relative;
@@ -12251,7 +12326,7 @@ body .ResetPassword .right h4 {
     display: none;
   }
 }
-@media (min-width: 850px) and (max-width: 999px) {
+@media (min-width: 850px) and (max-width: 999.9px) {
   body .Main .BackGround-AddStory {
     position: fixed;
     background: rgba(128, 128, 128, 0.585);
@@ -12860,7 +12935,7 @@ body .ResetPassword .right h4 {
     height: auto;
   }
 }
-@media (min-width: 480px) and (max-width: 849px) {
+@media (min-width: 480px) and (max-width: 849.9px) {
   body .Main {
     display: flex;
     background: #202020;
@@ -13861,8 +13936,8 @@ body .ResetPassword .right h4 {
   }
   body .Main .Messages .Connection .Left .TheMessages .msgs .msg #userImage {
     border-radius: 50%;
-    -o-object-fit: content;
-       object-fit: content;
+    -o-object-fit: cover;
+       object-fit: cover;
   }
   body .Main .Messages .Connection .Left .TheMessages .msgs .msg .text {
     color: white;
@@ -14589,7 +14664,7 @@ body .ResetPassword .right h4 {
     font-size: 23px;
   }
 }
-@media (min-width: 480px) and (max-width: 849px) and (min-width: 1000px) and (max-width: 1249px) {
+@media (min-width: 480px) and (max-width: 849.9px) and (min-width: 1000px) and (max-width: 1249.9px) {
   body .Main .Messages .BigBar.hide {
     width: 0px;
     min-width: 0px;
@@ -14619,7 +14694,7 @@ body .ResetPassword .right h4 {
     font-size: 11px;
   }
 }
-@media (min-width: 480px) and (max-width: 849px) and (min-width: 850px) and (max-width: 999px) {
+@media (min-width: 480px) and (max-width: 849.9px) and (min-width: 850px) and (max-width: 999.9px) {
   body .Main .Messages .BigBar.hide {
     width: 0px;
     min-width: 0px;
@@ -14667,7 +14742,7 @@ body .ResetPassword .right h4 {
     font-size: 18px;
   }
 }
-@media (min-width: 480px) and (max-width: 849px) and (min-width: 480px) and (max-width: 849px) {
+@media (min-width: 480px) and (max-width: 849.9px) and (min-width: 480px) and (max-width: 849.9px) {
   body .Main .Messages .Profile .top img {
     width: 100px;
     height: 100px;
@@ -14805,7 +14880,7 @@ body .ResetPassword .right h4 {
     display: none;
   }
 }
-@media (min-width: 480px) and (max-width: 849px) and (max-width: 479px) {
+@media (min-width: 480px) and (max-width: 849.9px) and (max-width: 479.9px) {
   body .Main .Messages .Profile .top {
     width: 80%;
   }
@@ -14904,6 +14979,25 @@ body .ResetPassword .right h4 {
   body .Main .Messages .Connection .Left .VideoCall .instructions .content {
     width: 80%;
   }
+  body .Main .Messages .Connection .Left .VoiceCall .options {
+    z-index: 6;
+  }
+  body .Main .Messages .Connection .Left .VoiceCall .options i {
+    font-size: 18px;
+  }
+  body .Main .Messages .Connection .Left .VoiceCall .options input {
+    width: 90px;
+  }
+  body .Main .Messages .Connection .Left .VoiceCall .options .xxx {
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    margin: 0;
+  }
+  body .Main .Messages .Connection .Left .VoiceCall .options .xxx span {
+    display: none;
+  }
   body .Main .Messages .Connection .Right {
     width: 100%;
     position: relative;
@@ -14967,7 +15061,7 @@ body .ResetPassword .right h4 {
     display: none;
   }
 }
-@media (min-width: 480px) and (max-width: 849px) {
+@media (min-width: 480px) and (max-width: 849.9px) {
   body .Main .BackGround-AddStory {
     position: fixed;
     background: rgba(128, 128, 128, 0.585);
@@ -16032,7 +16126,7 @@ body .ResetPassword .right h4 {
     display: none;
   }
 }
-@media (max-width: 479px) {
+@media (max-width: 479.9px) {
   body .Main {
     display: flex;
     background: #202020;
@@ -17033,8 +17127,8 @@ body .ResetPassword .right h4 {
   }
   body .Main .Messages .Connection .Left .TheMessages .msgs .msg #userImage {
     border-radius: 50%;
-    -o-object-fit: content;
-       object-fit: content;
+    -o-object-fit: cover;
+       object-fit: cover;
   }
   body .Main .Messages .Connection .Left .TheMessages .msgs .msg .text {
     color: white;
@@ -17761,7 +17855,7 @@ body .ResetPassword .right h4 {
     font-size: 23px;
   }
 }
-@media (max-width: 479px) and (min-width: 1000px) and (max-width: 1249px) {
+@media (max-width: 479.9px) and (min-width: 1000px) and (max-width: 1249.9px) {
   body .Main .Messages .BigBar.hide {
     width: 0px;
     min-width: 0px;
@@ -17791,7 +17885,7 @@ body .ResetPassword .right h4 {
     font-size: 11px;
   }
 }
-@media (max-width: 479px) and (min-width: 850px) and (max-width: 999px) {
+@media (max-width: 479.9px) and (min-width: 850px) and (max-width: 999.9px) {
   body .Main .Messages .BigBar.hide {
     width: 0px;
     min-width: 0px;
@@ -17839,7 +17933,7 @@ body .ResetPassword .right h4 {
     font-size: 18px;
   }
 }
-@media (max-width: 479px) and (min-width: 480px) and (max-width: 849px) {
+@media (max-width: 479.9px) and (min-width: 480px) and (max-width: 849.9px) {
   body .Main .Messages .Profile .top img {
     width: 100px;
     height: 100px;
@@ -17977,7 +18071,7 @@ body .ResetPassword .right h4 {
     display: none;
   }
 }
-@media (max-width: 479px) and (max-width: 479px) {
+@media (max-width: 479.9px) and (max-width: 479.9px) {
   body .Main .Messages .Profile .top {
     width: 80%;
   }
@@ -18076,6 +18170,25 @@ body .ResetPassword .right h4 {
   body .Main .Messages .Connection .Left .VideoCall .instructions .content {
     width: 80%;
   }
+  body .Main .Messages .Connection .Left .VoiceCall .options {
+    z-index: 6;
+  }
+  body .Main .Messages .Connection .Left .VoiceCall .options i {
+    font-size: 18px;
+  }
+  body .Main .Messages .Connection .Left .VoiceCall .options input {
+    width: 90px;
+  }
+  body .Main .Messages .Connection .Left .VoiceCall .options .xxx {
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    margin: 0;
+  }
+  body .Main .Messages .Connection .Left .VoiceCall .options .xxx span {
+    display: none;
+  }
   body .Main .Messages .Connection .Right {
     width: 100%;
     position: relative;
@@ -18139,7 +18252,7 @@ body .ResetPassword .right h4 {
     display: none;
   }
 }
-@media (max-width: 479px) {
+@media (max-width: 479.9px) {
   body .Main .BackGround-AddStory {
     position: fixed;
     background: rgba(128, 128, 128, 0.585);
@@ -19345,7 +19458,7 @@ body .NotFound {
     font-size: 20px;
   }
 }
-@media (min-width: 1000px) and (max-width: 1249px) {
+@media (min-width: 1000px) and (max-width: 1249.9px) {
   body .NotFound .left {
     width: 50%;
     height: 100%;
@@ -19468,7 +19581,7 @@ body .NotFound {
     font-size: 20px;
   }
 }
-@media (min-width: 850px) and (max-width: 999px) {
+@media (min-width: 850px) and (max-width: 999.9px) {
   body .NotFound .left {
     width: 50%;
     height: 100%;
@@ -19612,7 +19725,7 @@ body .NotFound {
     font-size: 19px;
   }
 }
-@media (min-width: 480px) and (max-width: 849px) {
+@media (min-width: 480px) and (max-width: 849.9px) {
   body .NotFound .left {
     width: 50%;
     height: 100%;
@@ -19756,7 +19869,7 @@ body .NotFound {
     font-size: 17px;
   }
 }
-@media (max-width: 479px) {
+@media (max-width: 479.9px) {
   body .NotFound .left {
     width: 50%;
     height: 100%;
@@ -19958,7 +20071,7 @@ body .Oops button:hover {
   transition: 0.8s;
   padding: 8px 20px;
 }
-@media (min-width: 480px) and (max-width: 849px) {
+@media (min-width: 480px) and (max-width: 849.9px) {
   body .Oops {
     gap: 30px;
   }
@@ -19972,7 +20085,7 @@ body .Oops button:hover {
     width: 70%;
   }
 }
-@media (max-width: 479px) {
+@media (max-width: 479.9px) {
   body .Oops {
     gap: 45px;
   }

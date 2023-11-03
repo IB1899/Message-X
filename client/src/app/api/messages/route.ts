@@ -63,6 +63,10 @@ export async function PUT(request: Request) {
         //* This query returns the entire parent document with all the connections if both criteria are met
         // let check = await UserModel.findOne({ email: OEmail, "connections.email": email }) 
 
+        //! Check If the local user already has the other user
+        let x = await UserModel.findOne({ email, "connections.email": OEmail }, { email: 1 })
+        if (x?.email) throw Error("The User is already in your contacts")
+
         //* This query returns the parent's _id and the request connection
         let check: { _id: string, connections: Connection[] } | null = await UserModel.findOne({ email: OEmail, "connections.email": email }, { "connections.$": 1 })
 

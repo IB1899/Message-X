@@ -12,6 +12,7 @@ import { motion } from "framer-motion"
 import Image from "next/image"
 import declined from "@/../public/images/declined.svg"
 import Peer from "peerjs"
+import { usePhoneSizeChat } from "@/hooks/phoneSizeChat"
 
 type props = {
     localStream: MediaStream,
@@ -37,6 +38,7 @@ export default function ShowStream({ localStream, remoteStream, setLocalStream, 
     let [adjustments, setAdjustments] = useState({
         camera: true, screenSharing: false, switchCamera: false, microphone: true
     })
+    const [CameraSwitchInstruction, setCameraSwitchInstruction] = useState(false)
 
     let DoesBrowserSupport = navigator.mediaDevices.getSupportedConstraints();
     if (!DoesBrowserSupport['facingMode']) alert("This browser doesn't support switching the camera!")
@@ -46,31 +48,15 @@ export default function ShowStream({ localStream, remoteStream, setLocalStream, 
         if (remoteVideoRef.current) remoteVideoRef.current.srcObject = remoteStream;
     }, [localStream, remoteStream])
 
-    const [CameraSwitchInstruction, setCameraSwitchInstruction] = useState(false)
-
     let { endCall, localSwitches } = useShowStream(adjustments, setAdjustments, localStream, setLocalStream,
         localVideoRef, socket, connection.RoomConnectionId, peer, peerId, setHasAnswered, setRemoteStream
     );
 
     let ContainerRef = useRef<HTMLDivElement>(null)
-    useEffect(() => {
-      
-        if (ContainerRef.current) {
-
-            //! To avoid turning the Left component into a client component.
-            let parent = ContainerRef.current.parentElement;
-
-            if (ContainerRef.current.classList.contains("hide")) {
-                parent?.classList.add("hide")
-            } else {
-                parent?.classList.remove("hide")
-            }
-        }
-
-    }, [isRightBar])
+    usePhoneSizeChat(ContainerRef, isRightBar)
 
     return (
-        <div className={ isRightBar ? "VideoCall hide" : "VideoCall"} ref={ContainerRef}>
+        <div className={isRightBar ? "VideoCall hide" : "VideoCall"} ref={ContainerRef}>
 
             <div className={CameraSwitchInstruction ? "instructions" : "instructions hide"}>
                 <div className="content">
@@ -139,7 +125,7 @@ export default function ShowStream({ localStream, remoteStream, setLocalStream, 
                     >
                         <i> <AiOutlineSound /> </i>
                         <input type="range" min={1} defaultValue={10} max={10} onChange={(e) => {
-                            remoteVideoRef.current!.volume = Number(e.target.value) / 10;
+                            remoteVideoRef.current ? remoteVideoRef.current.volume = Number(e.target.value) / 10 : null
                         }} />
                     </motion.div>
 

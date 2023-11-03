@@ -5,6 +5,7 @@ import { Dispatch, RefObject, SetStateAction } from "react";
 import { useDispatch } from "react-redux";
 import { Socket } from "socket.io-client";
 
+//! For the Video Call
 export const useShowStream = (
     adjustments: { camera: boolean, screenSharing: boolean, switchCamera: boolean, microphone: boolean },
     setAdjustments: Dispatch<SetStateAction<{ camera: boolean, screenSharing: boolean, switchCamera: boolean, microphone: boolean; }>>,
@@ -95,6 +96,7 @@ export const useShowStream = (
 
     let endCall = () => {
 
+        localStream.getTracks().forEach(track => { track.stop() })
         socket.emit("EndCall-FrontendSends-BackendReceives", { room })
         dispatch(setOperation("TextMessaging"))
         setLocalStream(null)

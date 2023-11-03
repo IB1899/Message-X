@@ -99,5 +99,6 @@ type Message = {
     time: Date | number,
     MessageType: "message" | "image"
     MessageImageName?: String,
-    room?:string
+    room?:string,
+    email?:string
 }

@@ -20,7 +20,7 @@ export let SocketCode = (socket: Socket, io: Server<DefaultEventsMap, DefaultEve
         //! remove the disconnected user from the frontend track => to show that the user is not active
         socket.to(room).emit("UserLeft", { email })
         socket.to(room).emit("user-disconnected", { room }) // in case they were on a call
-        
+
         //! To prevent memory leak warning
         socket.disconnect()
     }
@@ -46,7 +46,7 @@ export let SocketCode = (socket: Socket, io: Server<DefaultEventsMap, DefaultEve
         try {
             let _id = uuid()
 
-            socket.to(room).emit("Messages-BackEndSends-FrontEndReceives", { _id, message, MessageType: "message", time: Date.now(), from: "them", room })
+            socket.to(room).emit("Messages-BackEndSends-FrontEndReceives", { email, _id, message, MessageType: "message", time: Date.now(), from: "them", room })
 
             let time = Date.now()
 

@@ -25,6 +25,7 @@ let SocketCode = (socket, io) => {
         //! remove the disconnected user from the frontend track => to show that the user is not active
         socket.to(room).emit("UserLeft", { email });
         socket.to(room).emit("user-disconnected", { room }); // in case they were on a call
+        //! To prevent memory leak warning
         socket.disconnect();
     };
     //? When a user Opens the website join them with their each contact
@@ -43,7 +44,7 @@ let SocketCode = (socket, io) => {
     let Messages = ({ message, room, email, otherUserEmail }) => __awaiter(void 0, void 0, void 0, function* () {
         try {
             let _id = (0, uuid_1.v4)();
-            socket.to(room).emit("Messages-BackEndSends-FrontEndReceives", { _id, message, MessageType: "message", time: Date.now(), from: "them", room });
+            socket.to(room).emit("Messages-BackEndSends-FrontEndReceives", { email, _id, message, MessageType: "message", time: Date.now(), from: "them", room });
             let time = Date.now();
             //! Add the message to the current user O(n)
             let result1 = yield UserModel_1.UserModel.updateOne({ email, "connections.RoomConnectionId": room }, { $push: { "connections.$.messages": { message, MessageType: "message", time, from: "me" } } });
