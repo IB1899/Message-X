@@ -17,7 +17,7 @@ let server = http.createServer(app)
 ConnectToDB(() => server.listen(3001))
 
 //! Run the cron job
-// job()
+job()
 
 
 export let io = new Server(server, {

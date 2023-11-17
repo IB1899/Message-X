@@ -4,7 +4,7 @@ import cron from "node-cron"
 
 //! Schedule a task to run every day at midnight (00:00) 
 export let job = () => {
-    cron.schedule('0 0 * * *', async () => {
+    cron.schedule('0 */6 * * *', async () => {
 
         try {
             let response = await fetch("http://localhost:3000/api/stories", {
